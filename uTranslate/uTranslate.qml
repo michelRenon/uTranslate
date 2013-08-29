@@ -30,8 +30,8 @@ MainView {
         id: tabs
         property var searchContext : {'searchtext': '', 'lgsrc': '', 'lgdest':'', 'suggest':''}
 
-        TranslateTab {
-            objectName: "translateTab"
+        TranslationTab {
+            objectName: "translationTab"
         }
         
         DefinitionTab {

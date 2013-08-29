@@ -4,6 +4,7 @@ import "../components"
 import "../controller.js" as Controller
 
 Tab {
+    id: translationTab
     title: i18n.tr("Translate")
     
     page: Page {
@@ -15,47 +16,46 @@ Tab {
                 spacing: units.gu(2)
 
                 Button {
-                    id:definitionbtnlgsrc
+                    id:translatebtnlgsrc
                     width: units.gu(10)
                     text: ""
                     iconSource: "../graphics/ext/fra.png"
                 }
 
                 TextField {
-                    id: translatesearchtext
+                    id: translateSearchText
                     // width: parent.width
                     placeholderText: "enter text to translate"
                     hasClearButton: true
 
                     onAccepted: {
-                        console.debug("onAccepted"+translatesearchtext.text)
-                        tabs.updateContext({'searchtext':translatesearchtext.text})
-                        Controller.doSearchTranslation(translatesearchtext.text, 'fra', 'eng', translateres)
+                        console.debug("onAccepted"+translateSearchText.text)
+                        tabs.updateContext({'searchtext':translateSearchText.text})
+                        translationTab.doTranslate()
                     }
 
                     onTextChanged: {
-                        console.debug("text changed="+translatesearchtext.text)
-                        tabs.updateContext({'searchtext':translatesearchtext.text})
-                        Controller.doSuggest(translatesearchtext.text, 'fra', suggestModel)
+                        console.debug("text changed="+translateSearchText.text)
+                        tabs.updateContext({'searchtext':translateSearchText.text})
+                        Controller.doSuggest(translateSearchText.text, 'fra', suggestModel)
                     }
                 }
                 Button {
-                    id:definitionbtnlgdest
+                    id:translateBtnLgDest
                     width: units.gu(10)
                     text: ""
                     iconSource: "../graphics/ext/eng.png"
                 }
 
                 Button {
-                    id:definitionbtnsearch
+                    id:translateBtnSearch
                     width: units.gu(10)
                     text: "Search"
-                    // TODO : provide a parameter-less call : the controller should prepare parameters himself
-                    onClicked: Controller.doSearchTranslation(translatesearchtext.text, 'fra', 'eng', translateres)
+                    onClicked: translationTab.doTranslate()
                 }
 
                 Button {
-                    id:definitionbtnswitchlg
+                    id:translateBtnSwitchLg
                     width: units.gu(10)
                     text: "<-->"
                     onClicked: Controller.doSwitchLg()
@@ -75,15 +75,15 @@ Tab {
                         // Ajouter du style pour surligner les lettres correspondantes.
                         // TODO : mieux gérer les remplacement : maj/minuscules, caracteres proches (eéè...)
                         // TODO : voir si les perfs sont OK (mettre en cache le search text ?)
-                        text: suggest.replace(translatesearchtext.text, "<b>"+translatesearchtext.text+"</b>")
+                        text: suggest.replace(translateSearchText.text, "<b>"+translateSearchText.text+"</b>")
                         MouseArea{
                             anchors.fill: parent
                             onClicked: {
                                 // TODO : set mode pour ne pas recharger les suggestions
 
-                                translatesearchtext.text = suggest
-                                // TODO : lancer la recherche
-                                Controller.doSearchTranslation(translatesearchtext.text, 'fra', 'eng', translateres)
+                                translateSearchText.text = suggest
+                                // start translation
+                                translationTab.doTranslate()
                             }
                         }
                     }
@@ -98,7 +98,7 @@ Tab {
             }
 
             TextArea {
-                id: translateres
+                id: translateRes
                 placeholderText: ""
                 enabled: true
                 width: parent.width
@@ -108,7 +108,13 @@ Tab {
     }
 
     function setContext(context) {
-        translatesearchtext.text = context['searchtext'];
+        translateSearchText.text = context['searchtext'];
     }
 
+    function doTranslate() {
+        var lgSrc = 'fra'; // TODO
+        var lgDest = 'eng'; // TODO
+        Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, translateRes)
+
+    }
 }
