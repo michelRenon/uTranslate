@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=uTranslate
+Comment=My project description
+Exec=/usr/bin/qmlscene $@ /usr/share/uTranslate/uTranslate.qml
+Icon=qmlscene
+Terminal=false
+Type=Application
+X-Ubuntu-Touch=true
