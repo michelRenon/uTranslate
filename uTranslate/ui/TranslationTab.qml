@@ -83,8 +83,7 @@ Tab {
                         MouseArea{
                             anchors.fill: parent
                             onClicked: {
-                                // set mode pour ne pas recharger les suggestions
-                                translationTab.canSuggest = false
+                                translationTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
                                 translateSearchText.text = suggest
                                 translationTab.canSuggest = true
 
@@ -119,14 +118,13 @@ Tab {
         translationTab.canSuggest = true
         // 'lgsrc': TODO
         // 'lgdest':TODO
-        // 'suggest' : TODO
-
+        Controller.updateSuggestionModel(suggestModel, context['suggest'])
         translationTab.doTranslate()
     }
 
     function doSuggest() {
         var lgSrc = 'fra'; // TODO
-        Controller.doSuggest(translateSearchText.text, lgSrc, suggestModel)
+        Controller.doSuggest(translateSearchText.text, lgSrc, suggestModel, tabs)
     }
 
     function doTranslate() {

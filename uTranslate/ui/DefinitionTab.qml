@@ -79,8 +79,7 @@ Tab {
                         MouseArea{
                             anchors.fill: parent
                             onClicked: {
-                                // TODO : set mode pour ne pas recharger les suggestions
-                                definitionTab.canSuggest = false
+                                definitionTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
                                 definitionSearchText.text = suggest
                                 definitionTab.canSuggest = true
 
@@ -112,17 +111,15 @@ Tab {
         definitionTab.canSuggest = false
         definitionSearchText.text = context['searchtext'];
         definitionTab.canSuggest = true
-
         // 'lgsrc': TODO
         // 'lgdest':TODO
-        // 'suggest' : TODO
-
+        Controller.updateSuggestionModel(suggestModel, context['suggest'])
         definitionTab.doDefine()
     }
 
     function doSuggest() {
         var lg = 'fra'; // TODO
-        Controller.doSuggest(definitionSearchText.text, lg, suggestModel)
+        Controller.doSuggest(definitionSearchText.text, lg, suggestModel, tabs)
     }
 
     function doDefine() {

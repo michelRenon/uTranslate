@@ -1,5 +1,5 @@
 
-function doSuggest(sgText, sgLg, sgModel) {
+function doSuggest(sgText, sgLg, sgModel, sgTabs) {
 
     // http://qt-project.org/doc/qt-5.0/qtqml/qtqml-javascript-qmlglobalobject.html#xmlhttprequest
 
@@ -34,6 +34,9 @@ function doSuggest(sgText, sgLg, sgModel) {
                 sgModel.clear();
                 for (var i=0,l=jsonObj.length ; i < l ; i++)
                     sgModel.append({"suggest": jsonObj[i] })
+
+                // update the general context with
+                sgTabs.updateContext({'suggest':jsonObj})
 
                 /*
                 showRequestInfo(doc.responseXML);
@@ -143,6 +146,14 @@ function doSearchTranslation(trText, trLgSrc, trLgDest, trRes) {
 
 }
 
+
+
+function updateSuggestionModel(sgModel, datas) {
+    sgModel.clear();
+    for (var i=0,l=datas.length ; i < l ; i++)
+        sgModel.append({"suggest": datas[i] })
+
+}
 
 
 function showRequestInfo(text) {
