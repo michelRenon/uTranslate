@@ -144,6 +144,7 @@ function doSearchTranslation(trText, trLgSrc, trLgDest, trRes) {
 }
 
 
+
 function showRequestInfo(text) {
     // log.text = log.text + "\n" + text
     console.log(text)

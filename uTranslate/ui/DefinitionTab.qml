@@ -4,8 +4,11 @@ import "../components"
 import "../controller.js" as Controller
 
 Tab {
+    id: definitionTab
     title: i18n.tr("Definition")
     
+    property bool canSuggest: true
+
     page: Page {
 
         tools: WorldTabTools {
@@ -27,7 +30,7 @@ Tab {
 
                 }
                 TextField {
-                    id: definitionsearchtext
+                    id: definitionSearchText
                     focus: true
                     // width: units.gu(60)
 
@@ -35,32 +38,33 @@ Tab {
                     hasClearButton: true
 
                     onAccepted: {
-                        console.debug("onAccepted"+definitionsearchtext.text)
-                        tabs.updateContext({'searchtext':definitionsearchtext.text})
-                        Controller.doSearchDefintion(definitionsearchtext.text, 'fra', definitionres)
+                        console.debug("onAccepted"+definitionSearchText.text)
+                        tabs.updateContext({'searchtext':definitionSearchText.text})
+                        definitionTab.doDefine()
                     }
 
                     onTextChanged: {
-                        console.debug("text changed="+definitionsearchtext.text)
-                        tabs.updateContext({'searchtext':definitionsearchtext.text})
-                        Controller.doSuggest(definitionsearchtext.text, 'fra', suggestModel)
+                        console.debug("text changed="+definitionSearchText.text)
+                        if (definitionTab.canSuggest) {
+                            tabs.updateContext({'searchtext':definitionSearchText.text})
+                            definitionTab.doSuggest()
+                        }
                     }
                 }
                 Button {
                     id:definitionbtnsearch
                     width: units.gu(10)
                     text: "Search"
-                    // TODO : provide a parameter-less call : the controller should prepare parameters himself
-                    onClicked: Controller.doSearchDefintion(definitionsearchtext.text, 'fra', definitionres)
+                    onClicked: definitionTab.doDefine()
                 }
             }
             ListView {
                 /*
-                x: definitionsearchtext.left
-                y: definitionsearchtext.bottom
+                x: definitionSearchText.left
+                y: definitionSearchText.bottom
                 z: 10
                 */
-                width: definitionsearchtext.width // parent.width/2
+                width: definitionSearchText.width // parent.width/2
                 height: 100
                 // anchors.fill: parent
                 model: suggestModel
@@ -71,15 +75,17 @@ Tab {
                         // Ajouter du style pour surligner les lettres correspondantes.
                         // TODO : mieux gérer les remplacement : maj/minuscules, caracteres proches (eéè...)
                         // TODO : voir si les perfs sont OK (mettre en cache le search text ?)
-                        text: suggest.replace(definitionsearchtext.text, "<b>"+definitionsearchtext.text+"</b>")
+                        text: suggest.replace(definitionSearchText.text, "<b>"+definitionSearchText.text+"</b>")
                         MouseArea{
                             anchors.fill: parent
                             onClicked: {
                                 // TODO : set mode pour ne pas recharger les suggestions
+                                definitionTab.canSuggest = false
+                                definitionSearchText.text = suggest
+                                definitionTab.canSuggest = true
 
-                                definitionsearchtext.text = suggest
-                                // TODO : lancer la recherche
-                                Controller.doSearchDefintion(definitionsearchtext.text, 'fra', definitionres)
+                                // start search of defintion
+                                definitionTab.doDefine()
                             }
                         }
                     }
@@ -93,7 +99,7 @@ Tab {
                 }
             }
             TextArea {
-                id: definitionres
+                id: definitionRes
                 placeholderText: "Resultats"
                 enabled: true
                 width: parent.width
@@ -103,7 +109,25 @@ Tab {
     }
 
     function setContext(context) {
-        definitionsearchtext.text = context['searchtext'];
+        definitionTab.canSuggest = false
+        definitionSearchText.text = context['searchtext'];
+        definitionTab.canSuggest = true
+
+        // 'lgsrc': TODO
+        // 'lgdest':TODO
+        // 'suggest' : TODO
+
+        definitionTab.doDefine()
     }
 
+    function doSuggest() {
+        var lg = 'fra'; // TODO
+        Controller.doSuggest(definitionSearchText.text, lg, suggestModel)
+    }
+
+    function doDefine() {
+        var lg = 'fra'; // TODO : get selected lang
+        if (definitionSearchText.text != "")
+            Controller.doSearchDefintion(definitionSearchText.text, lg, definitionRes)
+    }
 }

@@ -7,6 +7,8 @@ Tab {
     id: translationTab
     title: i18n.tr("Translate")
     
+    property bool canSuggest: true
+
     page: Page {
         Column {
             spacing: units.gu(2)
@@ -36,8 +38,10 @@ Tab {
 
                     onTextChanged: {
                         console.debug("text changed="+translateSearchText.text)
-                        tabs.updateContext({'searchtext':translateSearchText.text})
-                        Controller.doSuggest(translateSearchText.text, 'fra', suggestModel)
+                        if (translationTab.canSuggest) {
+                            tabs.updateContext({'searchtext':translateSearchText.text})
+                            translationTab.doSuggest()
+                        }
                     }
                 }
                 Button {
@@ -58,7 +62,7 @@ Tab {
                     id:translateBtnSwitchLg
                     width: units.gu(10)
                     text: "<-->"
-                    onClicked: Controller.doSwitchLg()
+                    onClicked: translationTab.doSwitchLg()
                 }
             }
 
@@ -79,9 +83,11 @@ Tab {
                         MouseArea{
                             anchors.fill: parent
                             onClicked: {
-                                // TODO : set mode pour ne pas recharger les suggestions
-
+                                // set mode pour ne pas recharger les suggestions
+                                translationTab.canSuggest = false
                                 translateSearchText.text = suggest
+                                translationTab.canSuggest = true
+
                                 // start translation
                                 translationTab.doTranslate()
                             }
@@ -108,13 +114,31 @@ Tab {
     }
 
     function setContext(context) {
+        translationTab.canSuggest = false
         translateSearchText.text = context['searchtext'];
+        translationTab.canSuggest = true
+        // 'lgsrc': TODO
+        // 'lgdest':TODO
+        // 'suggest' : TODO
+
+        translationTab.doTranslate()
+    }
+
+    function doSuggest() {
+        var lgSrc = 'fra'; // TODO
+        Controller.doSuggest(translateSearchText.text, lgSrc, suggestModel)
     }
 
     function doTranslate() {
         var lgSrc = 'fra'; // TODO
         var lgDest = 'eng'; // TODO
-        Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, translateRes)
+        if (translateSearchText.text != "")
+            Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, translateRes)
 
+    }
+
+
+    function doSwitchLg() {
+        // TODO
     }
 }
