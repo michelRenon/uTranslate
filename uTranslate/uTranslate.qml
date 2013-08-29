@@ -28,7 +28,7 @@ MainView {
     
     Tabs {
         id: tabs
-        property var searchContext : {'searchtext': '', 'lgsrc': '', 'lgdest':'', 'suggest':''}
+        property var searchContext : {'searchtext': '', 'lgsrc': 'fra', 'lgdest':'eng', 'suggest':''}
 
         TranslationTab {
             objectName: "translationTab"
@@ -60,6 +60,11 @@ MainView {
                 searchContext[param] = params[param]
                 // console.debug("p:"+param+" = "+params[param])
             }
+
+        }
+
+        Component.onCompleted: {
+            // TODO : load searchContext from previous usage
 
         }
     }
