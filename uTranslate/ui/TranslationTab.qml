@@ -112,7 +112,7 @@ Tab {
         }
     }
 
-    function setContext(context) {
+    function updateTabContext(context) {
         translationTab.canSuggest = false
         translateSearchText.text = context['searchtext'];
         translationTab.canSuggest = true

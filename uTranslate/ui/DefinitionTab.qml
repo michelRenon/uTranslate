@@ -191,7 +191,7 @@ Tab {
         }
     }
 
-    function setContext(context) {
+    function updateTabContext(context) {
         definitionTab.canSuggest = false
         definitionSearchText.text = context['searchtext'];
         definitionTab.canSuggest = true

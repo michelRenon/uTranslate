@@ -45,7 +45,7 @@ MainView {
         onSelectedTabChanged: {
             console.debug ("onSelectedTabChanged="+tabs.selectedTab+" : "+tabs.selectedTab.objectName)
             if (tabs.selectedTab.objectName != "configurationTab") {
-                tabs.selectedTab.setContext(searchContext)
+                tabs.selectedTab.updateTabContext(searchContext)
             }
         }
 
