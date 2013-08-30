@@ -107,7 +107,8 @@ function doSearchTranslation(trText, trLgSrc, trLgDest, trRes) {
         } else if (doc.readyState == XMLHttpRequest.DONE) {
             // showRequestInfo("DONE");
             if ( doc.status == 200 ) {
-                // showRequestInfo("DONE : "+doc.responseText);
+
+                showRequestInfo("DONE : "+doc.responseText);
 
                 // raw
                 // trRes.text = doc.responseText;
@@ -118,31 +119,34 @@ function doSearchTranslation(trText, trLgSrc, trLgDest, trRes) {
                 var jsonObj = JSON.parse(doc.responseText);
                 var authors = jsonObj['authors'];
                 var tucs = jsonObj['tuc'];
-                trRes.text = "";
-                var tempText = "";
-                for (var ti=0,tl=tucs.length ; ti < tl ; ti++) {
-                    if (tucs[ti]['phrase']) {
-                        var auth = authors[tucs[ti]['authors'][0]];
-                        // tempText += "<h1>"+tucs[ti]['phrase']['text'];
-                        // tempText += "&nbsp;<i>("+ auth["N"]+")</i></h1>";
-                        // // tempText += "\n";
-                        var t1 = templateT1.replace("%1", tucs[ti]['phrase']['text']);
-                        t1 = t1.replace("%2", auth["N"])
-                        tempText += t1;
+                // console.debug("tucs="+typeof(tucs));
+                if (typeof(tucs) !== "undefined") {
+                    trRes.text = "";
+                    var tempText = "";
+                    for (var ti=0,tl=tucs.length ; ti < tl ; ti++) {
+                        var phrase = tucs[ti]['phrase'];
+                        if (typeof(phrase) !== "undefined") {
+                            var auth = authors[tucs[ti]['authors'][0]];
+                            var t1 = templateT1.replace("%1", phrase['text']);
+                            t1 = t1.replace("%2", auth["N"])
+                            tempText += t1;
+                        }
 
-
-                        if (tucs[ti]['meanings']) {
-                            var meanings = tucs[ti]['meanings'];
+                        var meanings = tucs[ti]['meanings'];
+                        if (typeof(meanings) !== "undefined") {
                             for (var mi=0,ml=meanings.length ; mi < ml ; mi++) {
                                 // tempText += "<blockquote>"+meanings[mi]['text']+"</blockquote>";
                                 tempText += templateT2.replace("%1", meanings[mi]['text']);
                             }
                         }
                     }
+                    trRes.text = tempText;
+                } else {
+                    trRes.text = "<i>No Result</i>";
                 }
-                trRes.text = tempText;
 
             } else {
+                // TODO : show error to the user
                 showRequestInfo("ERROR");
             }
         }
