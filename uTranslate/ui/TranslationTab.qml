@@ -178,7 +178,11 @@ Tab {
         var lgSrc = translationTab.langSrc;
         var lgDest = translationTab.langDest;
         translationTab.setLang(lgDest)
+        tabs.updateContext({'lgsrc': lgDest})
+
         translationTab.setLangDest(lgSrc)
+        tabs.updateContext({'lgdest': lgSrc})
+
         translationTab.doSuggest()
         translationTab.doTranslate()
 
