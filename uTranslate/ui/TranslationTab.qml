@@ -42,13 +42,13 @@ Tab {
                     hasClearButton: true
 
                     onAccepted: {
-                        console.debug("onAccepted"+translateSearchText.text)
+                        console.debug("onAccepted:'"+translateSearchText.text+"'")
                         tabs.updateContext({'searchtext':translateSearchText.text})
                         translationTab.doTranslate()
                     }
 
                     onTextChanged: {
-                        console.debug("text changed="+translateSearchText.text)
+                        console.debug("text changed='"+translateSearchText.text+"'")
                         if (translationTab.canSuggest) {
                             tabs.updateContext({'searchtext':translateSearchText.text})
                             translationTab.doSuggest()

@@ -43,13 +43,13 @@ Tab {
                     hasClearButton: true
 
                     onAccepted: {
-                        console.debug("onAccepted"+definitionSearchText.text)
+                        console.debug("onAccepted='"+definitionSearchText.text+"'")
                         tabs.updateContext({'searchtext':definitionSearchText.text})
                         definitionTab.doDefine()
                     }
 
                     onTextChanged: {
-                        console.debug("text changed="+definitionSearchText.text)
+                        console.debug("text changed='"+definitionSearchText.text+"'")
                         if (definitionTab.canSuggest) {
                             tabs.updateContext({'searchtext':definitionSearchText.text})
                             definitionTab.doSuggest()
