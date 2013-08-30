@@ -14,6 +14,11 @@ Tab {
     property string langDest : 'eng'
 
     page: Page {
+
+        tools: WorldTabTools {
+            objectName: "worldTab_tools"
+        }
+
         Column {
             spacing: units.gu(2)
             anchors.fill: parent
