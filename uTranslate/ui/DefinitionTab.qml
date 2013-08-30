@@ -200,6 +200,8 @@ Tab {
         */
     }
 
+    Component.onCompleted: definitionSearchText.forceActiveFocus()
+
     function updateTabContext(context) {
         definitionTab.canSuggest = false
         definitionSearchText.text = context['searchtext'];
@@ -208,6 +210,8 @@ Tab {
         // 'lgdest':unused
         Controller.updateSuggestionModel(suggestModel, context['suggest'])
         definitionTab.doDefine()
+
+        definitionSearchText.forceActiveFocus()
     }
 
     function setLang(lg) {

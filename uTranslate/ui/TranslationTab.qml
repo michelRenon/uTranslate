@@ -126,6 +126,8 @@ Tab {
 
     }
 
+    Component.onCompleted: translateSearchText.forceActiveFocus()
+
     function updateTabContext(context) {
         translationTab.canSuggest = false
         translateSearchText.text = context['searchtext'];
@@ -135,6 +137,8 @@ Tab {
 
         Controller.updateSuggestionModel(suggestModel, context['suggest'])
         translationTab.doTranslate()
+
+        translateSearchText.forceActiveFocus()
     }
 
     function setLang(lg) {
