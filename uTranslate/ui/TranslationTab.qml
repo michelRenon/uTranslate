@@ -1,5 +1,7 @@
 import QtQuick 2.0
 import Ubuntu.Components 0.1
+import Ubuntu.Components.Popups 0.1
+
 import "../components"
 import "../controller.js" as Controller
 
@@ -8,6 +10,8 @@ Tab {
     title: i18n.tr("Translate")
     
     property bool canSuggest: true
+    property string langSrc : 'fra'
+    property string langDest : 'eng'
 
     page: Page {
         Column {
@@ -18,10 +22,12 @@ Tab {
                 spacing: units.gu(2)
 
                 Button {
-                    id:translatebtnlgsrc
+                    id:translateBtnLgSrc
+                    objectName: "LangSrc"
                     width: units.gu(10)
                     text: ""
                     iconSource: "../graphics/ext/fra.png"
+                    onClicked: PopupUtils.open(langSelector, translateBtnLgSrc)
                 }
 
                 TextField {
@@ -46,9 +52,11 @@ Tab {
                 }
                 Button {
                     id:translateBtnLgDest
+                    objectName: "LangDest"
                     width: units.gu(10)
                     text: ""
                     iconSource: "../graphics/ext/eng.png"
+                    onClicked: PopupUtils.open(langSelector, translateBtnLgDest)
                 }
 
                 Button {
@@ -109,34 +117,70 @@ Tab {
                 width: parent.width
                 height: 200
             }
+
+         }
+
+        LangSelector {
+            id: langSelector
         }
+
     }
 
     function updateTabContext(context) {
         translationTab.canSuggest = false
         translateSearchText.text = context['searchtext'];
         translationTab.canSuggest = true
-        // 'lgsrc': TODO
-        // 'lgdest':TODO
+        translationTab.setLang(context['lgsrc'])
+        translationTab.setLangDest(context['lgdest'])
+
         Controller.updateSuggestionModel(suggestModel, context['suggest'])
         translationTab.doTranslate()
     }
 
+    function setLang(lg) {
+        translationTab.langSrc = lg
+        translateBtnLgSrc.iconSource = "../graphics/ext/"+lg+".png"
+    }
+
+    function updateLang(lg) {
+        translationTab.setLang(lg)
+        tabs.updateContext({'lgsrc': lg})
+        translationTab.doSuggest()
+        // TODO : empty res ?
+    }
+
+    function setLangDest(lg) {
+        translationTab.langDest = lg
+        translateBtnLgDest.iconSource = "../graphics/ext/"+lg+".png"
+    }
+
+    function updateLangDest(lg) {
+        translationTab.setLangDest(lg)
+        tabs.updateContext({'lgdest': lg})
+        translationTab.doTranslate()
+        // TODO : suggest or translate ??
+    }
+
     function doSuggest() {
-        var lgSrc = 'fra'; // TODO
+        var lgSrc = translationTab.langSrc;
         Controller.doSuggest(translateSearchText.text, lgSrc, suggestModel, tabs)
     }
 
     function doTranslate() {
-        var lgSrc = 'fra'; // TODO
-        var lgDest = 'eng'; // TODO
+        var lgSrc = translationTab.langSrc;
+        var lgDest = translationTab.langDest;
         if (translateSearchText.text != "")
             Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, translateRes)
 
     }
 
-
     function doSwitchLg() {
-        // TODO
+        var lgSrc = translationTab.langSrc;
+        var lgDest = translationTab.langDest;
+        translationTab.setLang(lgDest)
+        translationTab.setLangDest(lgSrc)
+        translationTab.doSuggest()
+        translationTab.doTranslate()
+
     }
 }
