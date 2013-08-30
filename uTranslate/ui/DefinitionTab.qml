@@ -86,6 +86,7 @@ Tab {
                             onClicked: {
                                 definitionTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
                                 definitionSearchText.text = suggest
+                                tabs.updateContext({'searchtext':definitionSearchText.text})
                                 definitionTab.canSuggest = true
 
                                 // start search of defintion

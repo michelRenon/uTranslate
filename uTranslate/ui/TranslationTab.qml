@@ -98,6 +98,7 @@ Tab {
                             onClicked: {
                                 translationTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
                                 translateSearchText.text = suggest
+                                tabs.updateContext({'searchtext':translateSearchText.text})
                                 translationTab.canSuggest = true
 
                                 // start translation
