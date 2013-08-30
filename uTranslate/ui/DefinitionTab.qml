@@ -28,10 +28,11 @@ Tab {
 
                 Button {
                     id:definitionBtnLgSrc
+                    objectName: "LangSrc"
                     width: units.gu(10)
                     text: ""
                     iconSource: "../graphics/ext/fra.png"
-                    onClicked: PopupUtils.open(popoverComponent, definitionBtnLgSrc)
+                    onClicked: PopupUtils.open(langSelector, definitionBtnLgSrc)
                 }
                 TextField {
                     id: definitionSearchText
@@ -110,6 +111,13 @@ Tab {
             }
         }
 
+        LangSelector {
+            id: langSelector
+        }
+
+
+
+        /*
         Component {
             id: popoverComponent
 
@@ -189,6 +197,7 @@ Tab {
                 }
             }
         }
+        */
     }
 
     function updateTabContext(context) {
