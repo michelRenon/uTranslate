@@ -104,7 +104,8 @@ Tab {
             }
             TextArea {
                 id: definitionRes
-                placeholderText: "Resultats"
+                textFormat : TextEdit.RichText
+                placeholderText: "<i>Definition</i>"
                 enabled: true
                 width: parent.width
                 height: 200

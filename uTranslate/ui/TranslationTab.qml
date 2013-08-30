@@ -117,7 +117,8 @@ Tab {
 
             TextArea {
                 id: translateRes
-                placeholderText: ""
+                placeholderText: "<i>Translations</i>"
+                textFormat : TextEdit.RichText
                 enabled: true
                 width: parent.width
                 height: 200

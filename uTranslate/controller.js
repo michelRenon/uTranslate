@@ -18,12 +18,8 @@ function doSuggest(sgText, sgLg, sgModel, sgTabs) {
         } else if (doc.readyState == XMLHttpRequest.DONE) {
             // showRequestInfo("DONE");
             if ( doc.status == 200 ) {
-                // var jsonObject = JSON.parse(xhr.responseText);
-                showRequestInfo("DONE : "+doc.responseText);
-
-                // TODO : use a real JSON parser
-                var jsonObj = eval(doc.responseText);
-
+                // showRequestInfo("DONE : "+doc.responseText);
+                var jsonObj = JSON.parse(doc.responseText);
 
                 /*
                 // definitionsuggest.text = doc.responseText;
@@ -38,20 +34,7 @@ function doSuggest(sgText, sgLg, sgModel, sgTabs) {
                 // update the general context with
                 sgTabs.updateContext({'suggest':jsonObj})
 
-                /*
-                showRequestInfo(doc.responseXML);
-                if (doc.responseXML != null) {
-                    var a = doc.responseXML.documentElement;
-                    for (var ii = 0; ii < a.childNodes.length; ++ii) {
-                        showRequestInfo(a.childNodes[ii].nodeName);
-                    }
-                }
-                showRequestInfo("Headers -->");
-                showRequestInfo(doc.getAllResponseHeaders ());
-                showRequestInfo("Last modified -->");
-                showRequestInfo(doc.getResponseHeader ("Last-Modified"));
-                */
-            } else {
+             } else {
                 showRequestInfo("ERROR");
             }
         }
@@ -66,6 +49,8 @@ function doSuggest(sgText, sgLg, sgModel, sgTabs) {
 
 function doSearchDefintion(dfText, dfLg, dfRes) {
 
+    doSearchTranslation(dfText, dfLg, dfLg, dfRes);
+    /*
     var url = "http://glosbe.com/gapi/translate?from="+dfLg+"&dest="+dfLg+"&format=json&pretty=true&phrase="+dfText
 
     var doc = new XMLHttpRequest();
@@ -77,12 +62,12 @@ function doSearchDefintion(dfText, dfLg, dfRes) {
             showRequestInfo(doc.getAllResponseHeaders ());
             showRequestInfo("Last modified -->");
             showRequestInfo(doc.getResponseHeader ("Last-Modified"));
-            */
+            * /
         } else if (doc.readyState == XMLHttpRequest.DONE) {
             // showRequestInfo("DONE");
             if ( doc.status == 200 ) {
                 // var jsonObject = JSON.parse(xhr.responseText);
-                showRequestInfo("DONE : "+doc.responseText);
+                // showRequestInfo("DONE : "+doc.responseText);
 
                 dfRes.text = doc.responseText;
 
@@ -93,7 +78,7 @@ function doSearchDefintion(dfText, dfLg, dfRes) {
                 definitionres.text = "";
                 for (var i=0,l=jsonObj.length ; i < l ; i++)
                     definitionres.text += jsonObj[i]+"\n";
-                */
+                * /
             } else {
                 showRequestInfo("ERROR");
             }
@@ -102,7 +87,7 @@ function doSearchDefintion(dfText, dfLg, dfRes) {
 
     doc.open("GET", url);
     doc.send();
-
+    */
 }
 
 function doSearchTranslation(trText, trLgSrc, trLgDest, trRes) {
@@ -122,19 +107,41 @@ function doSearchTranslation(trText, trLgSrc, trLgDest, trRes) {
         } else if (doc.readyState == XMLHttpRequest.DONE) {
             // showRequestInfo("DONE");
             if ( doc.status == 200 ) {
-                // var jsonObject = JSON.parse(xhr.responseText);
-                showRequestInfo("DONE : "+doc.responseText);
+                // showRequestInfo("DONE : "+doc.responseText);
 
-                trRes.text = doc.responseText;
+                // raw
+                // trRes.text = doc.responseText;
 
-                // TODO : use a real JSON parser
-                /*
-                var jsonObj = eval(doc.responseText);
+                var templateT1 = '<p><big><strong>%1</strong></big>&nbsp;&nbsp;&nbsp;<i><small>(%2)</small></i></p>';
+                var templateT2 = "<blockquote>%1</blockquote>";
 
-                hellores.text = "";
-                for (var i=0,l=jsonObj.length ; i < l ; i++)
-                    hellores.text += jsonObj[i]+"\n";
-                */
+                var jsonObj = JSON.parse(doc.responseText);
+                var authors = jsonObj['authors'];
+                var tucs = jsonObj['tuc'];
+                trRes.text = "";
+                var tempText = "";
+                for (var ti=0,tl=tucs.length ; ti < tl ; ti++) {
+                    if (tucs[ti]['phrase']) {
+                        var auth = authors[tucs[ti]['authors'][0]];
+                        // tempText += "<h1>"+tucs[ti]['phrase']['text'];
+                        // tempText += "&nbsp;<i>("+ auth["N"]+")</i></h1>";
+                        // // tempText += "\n";
+                        var t1 = templateT1.replace("%1", tucs[ti]['phrase']['text']);
+                        t1 = t1.replace("%2", auth["N"])
+                        tempText += t1;
+
+
+                        if (tucs[ti]['meanings']) {
+                            var meanings = tucs[ti]['meanings'];
+                            for (var mi=0,ml=meanings.length ; mi < ml ; mi++) {
+                                // tempText += "<blockquote>"+meanings[mi]['text']+"</blockquote>";
+                                tempText += templateT2.replace("%1", meanings[mi]['text']);
+                            }
+                        }
+                    }
+                }
+                trRes.text = tempText;
+
             } else {
                 showRequestInfo("ERROR");
             }
@@ -145,8 +152,6 @@ function doSearchTranslation(trText, trLgSrc, trLgDest, trRes) {
     doc.send();
 
 }
-
-
 
 function updateSuggestionModel(sgModel, datas) {
     sgModel.clear();
