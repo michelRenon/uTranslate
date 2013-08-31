@@ -1,4 +1,8 @@
-
+/* This file is part of uTranslate application.
+ *
+ * Author: 2013 Michel Renon <renon@mr-consultant.net>.
+ * License: GPLv3, check LICENSE file.
+ */
 function doSuggest(sgText, sgLg, sgModel, sgTabs) {
 
     // http://qt-project.org/doc/qt-5.0/qtqml/qtqml-javascript-qmlglobalobject.html#xmlhttprequest
