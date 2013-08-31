@@ -101,7 +101,7 @@ Tab {
                 id: suggestModel
 
                 ListElement {
-                    suggest: "suggestions"
+                    suggest: ""
                 }
             }
             TextArea {
@@ -117,90 +117,6 @@ Tab {
         LangSelector {
             id: langSelector
         }
-
-
-
-        /*
-        Component {
-            id: popoverComponent
-
-            Popover {
-                id: popover
-                Column {
-                    id: containerLayout
-                    anchors {
-                        left: parent.left
-                        top: parent.top
-                        right: parent.right
-                    }
-
-                    ListItem.Standard {
-                        text: i18n.tr("german")
-                        icon: Qt.resolvedUrl("../graphics/ext/deu.png")
-                        onClicked: {
-                            definitionTab.updateLang('deu')
-                            PopupUtils.close(popover)
-                        }
-
-                    }
-                    ListItem.Standard {
-                        text: i18n.tr("greek")
-                        icon: Qt.resolvedUrl("../graphics/ext/ell.png")
-                        onClicked: {
-                            definitionTab.updateLang('ell')
-                            PopupUtils.close(popover)
-                        }
-
-                    }
-                    ListItem.Standard {
-                        text: i18n.tr("english")
-                        icon: Qt.resolvedUrl("../graphics/ext/eng.png")
-                        onClicked: {
-                            definitionTab.updateLang('eng')
-                            PopupUtils.close(popover)
-                        }
-                    }
-                    ListItem.Standard {
-                        text: i18n.tr("french")
-                        icon: Qt.resolvedUrl("../graphics/ext/fra.png")
-                        onClicked: {
-                            definitionTab.updateLang('fra')
-                            PopupUtils.close(popover)
-                        }
-
-                    }
-                    ListItem.Standard {
-                        text: i18n.tr("italian")
-                        icon: Qt.resolvedUrl("../graphics/ext/ita.png")
-                        onClicked: {
-                            definitionTab.updateLang('ita')
-                            PopupUtils.close(popover)
-                        }
-
-                    }
-                    ListItem.Standard {
-                        text: i18n.tr("portugese")
-                        icon: Qt.resolvedUrl("../graphics/ext/por.png")
-                        onClicked: {
-                            definitionTab.updateLang('por')
-                            PopupUtils.close(popover)
-                        }
-
-                    }
-                    ListItem.Standard {
-                        text: i18n.tr("spanish")
-                        icon: Qt.resolvedUrl("../graphics/ext/spa.png")
-                        onClicked: {
-                            definitionTab.updateLang('spa')
-                            PopupUtils.close(popover)
-                        }
-
-                    }
-
-                }
-            }
-        }
-        */
     }
 
     Component.onCompleted: definitionSearchText.forceActiveFocus()
@@ -248,5 +164,4 @@ Tab {
             definitionRes.text = "<h1>Definition of '"+definitionSearchText.text+"'</h1>"+resultText;
         }
     }
-
 }

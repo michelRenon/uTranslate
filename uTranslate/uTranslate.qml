@@ -28,7 +28,7 @@ MainView {
     
     Tabs {
         id: tabs
-        property var searchContext : {'searchtext': '', 'lgsrc': 'fra', 'lgdest':'eng', 'suggest':''}
+        property var searchContext : {'searchtext': '', 'lgsrc': 'fra', 'lgdest': 'eng', 'suggest': ''}
 
         TranslationTab {
             objectName: "translationTab"
@@ -43,7 +43,7 @@ MainView {
         }
 
         onSelectedTabChanged: {
-            console.debug ("onSelectedTabChanged="+tabs.selectedTab+" : "+tabs.selectedTab.objectName)
+            // console.debug ("onSelectedTabChanged="+tabs.selectedTab+" : "+tabs.selectedTab.objectName)
             if (tabs.selectedTab.objectName != "configurationTab") {
                 tabs.selectedTab.updateTabContext(searchContext)
             }
@@ -60,12 +60,10 @@ MainView {
                 searchContext[param] = params[param]
                 // console.debug("p:"+param+" = "+params[param])
             }
-
         }
 
         Component.onCompleted: {
             // TODO : load searchContext from previous usage
-
         }
     }
 }

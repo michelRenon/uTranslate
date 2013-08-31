@@ -96,6 +96,7 @@ Tab {
                         MouseArea{
                             anchors.fill: parent
                             onClicked: {
+                                // TODO : check if it'd be better to move next lines in a function
                                 translationTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
                                 translateSearchText.text = suggest
                                 tabs.updateContext({'searchtext':translateSearchText.text})
@@ -112,7 +113,7 @@ Tab {
                 id: suggestModel
 
                 ListElement {
-                    suggest: "suggestions"
+                    suggest: ""
                 }
             }
 
@@ -184,7 +185,6 @@ Tab {
             Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, translationTab.setResult);
         else
             translationTab.setResult("");
-
     }
 
     function setResult(resultText) {
@@ -207,6 +207,5 @@ Tab {
 
         translationTab.doSuggest()
         translationTab.doTranslate()
-
     }
 }

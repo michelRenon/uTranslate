@@ -22,12 +22,7 @@ function doSuggest(sgText, sgLg, sgModel, sgTabs) {
                 var jsonObj = JSON.parse(doc.responseText);
 
                 updateSuggestionModel(sgModel, jsonObj) ;
-                /*
-                sgModel.clear();
-                for (var i=0,l=jsonObj.length ; i < l ; i++)
-                    sgModel.append({"suggest": jsonObj[i] })
-                */
-                // update the general context with
+               // update the general context with
                 sgTabs.updateContext({'suggest':jsonObj})
 
              } else {
@@ -38,8 +33,6 @@ function doSuggest(sgText, sgLg, sgModel, sgTabs) {
     doc.open("GET", url);
     doc.send();
 }
-
-
 
 function doSearchDefintion(dfText, dfLg, dfCB) {
 
