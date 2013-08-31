@@ -1,3 +1,8 @@
+/* This file is part of uTranslate application.
+ *
+ * Author: 2013 Michel Renon <renon@mr-consultant.net>.
+ * License: GPLv3, check LICENSE file.
+ */
 import QtQuick 2.0
 import Ubuntu.Components 0.1
 import Ubuntu.Components.ListItems 0.1 as ListItem
