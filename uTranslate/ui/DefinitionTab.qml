@@ -39,8 +39,6 @@ Tab {
             anchors.right: definitionBtnSearch.left
             anchors.top: definitionBtnLgSrc.top
             focus: true
-            // width: units.gu(60)
-
             placeholderText: "Enter text"
             hasClearButton: true
 
@@ -68,11 +66,6 @@ Tab {
         }
 
         ListView {
-            /*
-            x: definitionSearchText.left
-            y: definitionSearchText.bottom
-            z: 10
-            */
             id: listViewSuggestion
             anchors.top: definitionBtnLgSrc.bottom
             anchors.left: definitionSearchText.left
