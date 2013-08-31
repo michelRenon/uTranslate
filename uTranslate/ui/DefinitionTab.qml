@@ -24,104 +24,106 @@ Tab {
             objectName: "worldTab_tools"
         }
         
-        Column {
-            spacing: units.gu(2)
-            anchors.fill: parent
+        Button {
+            id:definitionBtnLgSrc
+            objectName: "LangSrc"
+            anchors.left: parent.left
+            width: units.gu(6)
+            text: ""
+            iconSource: "../graphics/ext/fra.png"
+            onClicked: PopupUtils.open(langSelector, definitionBtnLgSrc)
+        }
+        TextField {
+            id: definitionSearchText
+            anchors.left: definitionBtnLgSrc.right
+            anchors.right: definitionBtnSearch.left
+            anchors.top: definitionBtnLgSrc.top
+            focus: true
+            // width: units.gu(60)
 
-            Row {
-                spacing: units.gu(2)
+            placeholderText: "Enter text"
+            hasClearButton: true
 
-                Button {
-                    id:definitionBtnLgSrc
-                    objectName: "LangSrc"
-                    width: units.gu(10)
-                    text: ""
-                    iconSource: "../graphics/ext/fra.png"
-                    onClicked: PopupUtils.open(langSelector, definitionBtnLgSrc)
+            onAccepted: {
+                // console.debug("onAccepted='"+definitionSearchText.text+"'")
+                tabs.updateContext({'searchtext':definitionSearchText.text})
+                definitionTab.doDefine()
+            }
+
+            onTextChanged: {
+                // console.debug("text changed='"+definitionSearchText.text+"'")
+                if (definitionTab.canSuggest) {
+                    tabs.updateContext({'searchtext':definitionSearchText.text})
+                    definitionTab.doSuggest()
                 }
-                TextField {
-                    id: definitionSearchText
-                    focus: true
-                    // width: units.gu(60)
+            }
+        }
+        Button {
+            id:definitionBtnSearch
+            anchors.right: parent.right
+            anchors.top: definitionBtnLgSrc.top
+            width: units.gu(8)
+            text: "Search"
+            onClicked: definitionTab.doDefine()
+        }
 
-                    placeholderText: "Enter text"
-                    hasClearButton: true
+        ListView {
+            /*
+            x: definitionSearchText.left
+            y: definitionSearchText.bottom
+            z: 10
+            */
+            id: listViewSuggestion
+            anchors.top: definitionBtnLgSrc.bottom
+            anchors.left: definitionSearchText.left
+            anchors.right: definitionSearchText.right
+            height: units.gu(20) // ????
 
-                    onAccepted: {
-                        // console.debug("onAccepted='"+definitionSearchText.text+"'")
-                        tabs.updateContext({'searchtext':definitionSearchText.text})
-                        definitionTab.doDefine()
+            model: suggestModel
+            // delegate: suggestDelegate
+
+            delegate: Row {
+                Text {
+                    // Ajouter du style pour surligner les lettres correspondantes.
+                    // TODO : mieux gérer les remplacement : maj/minuscules, caracteres proches (eéè...)
+                    // TODO : voir si les perfs sont OK (mettre en cache le search text ?)
+                    text: {
+                        if (suggest)
+                            return suggest.replace(definitionSearchText.text, "<b>"+definitionSearchText.text+"</b>")
+                        else
+                            return ""
                     }
-
-                    onTextChanged: {
-                        // console.debug("text changed='"+definitionSearchText.text+"'")
-                        if (definitionTab.canSuggest) {
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: {
+                            // TODO : check if it'd be better to move next lines in a function
+                            definitionTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
+                            definitionSearchText.text = suggest
                             tabs.updateContext({'searchtext':definitionSearchText.text})
-                            definitionTab.doSuggest()
-                        }
-                    }
-                }
-                Button {
-                    id:definitionbtnsearch
-                    width: units.gu(10)
-                    text: "Search"
-                    onClicked: definitionTab.doDefine()
-                }
-            }
-            ListView {
-                /*
-                x: definitionSearchText.left
-                y: definitionSearchText.bottom
-                z: 10
-                */
-                width: definitionSearchText.width // parent.width/2
-                height: 100
-                // anchors.fill: parent
-                model: suggestModel
-                // delegate: suggestDelegate
+                            definitionTab.canSuggest = true
 
-                delegate: Row {
-                    Text {
-                        // Ajouter du style pour surligner les lettres correspondantes.
-                        // TODO : mieux gérer les remplacement : maj/minuscules, caracteres proches (eéè...)
-                        // TODO : voir si les perfs sont OK (mettre en cache le search text ?)
-                        text: {
-                            if (suggest)
-                                return suggest.replace(definitionSearchText.text, "<b>"+definitionSearchText.text+"</b>")
-                            else
-                                return ""
-                        }
-                        MouseArea{
-                            anchors.fill: parent
-                            onClicked: {
-                                // TODO : check if it'd be better to move next lines in a function
-                                definitionTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
-                                definitionSearchText.text = suggest
-                                tabs.updateContext({'searchtext':definitionSearchText.text})
-                                definitionTab.canSuggest = true
-
-                                // start search of defintion
-                                definitionTab.doDefine()
-                            }
+                            // start search of defintion
+                            definitionTab.doDefine()
                         }
                     }
                 }
             }
-            ListModel {
-                id: suggestModel
+        }
+        ListModel {
+            id: suggestModel
 
-                ListElement {
-                    suggest: ""
-                }
+            ListElement {
+                suggest: ""
             }
-            TextArea {
-                id: definitionRes
-                textFormat : TextEdit.RichText
-                placeholderText: "<i>Definition</i>"
-                enabled: true
-                width: parent.width
-                height: 200
-            }
+        }
+        TextArea {
+            id: definitionRes
+            textFormat : TextEdit.RichText
+            placeholderText: "<i>Definition</i>"
+            enabled: true
+            anchors.top: listViewSuggestion.bottom
+            anchors.bottom: parent.bottom
+            width: parent.width
         }
 
         LangSelector {

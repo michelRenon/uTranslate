@@ -28,8 +28,9 @@ MainView {
     */
     //automaticOrientation: true
     
-    width: units.gu(100)
-    height: units.gu(75)
+    width: units.gu(48)
+    height: units.gu(60)
+    // anchors.fill: parent
     
     Tabs {
         id: tabs

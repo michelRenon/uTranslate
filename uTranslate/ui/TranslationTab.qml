@@ -24,119 +24,113 @@ Tab {
             objectName: "worldTab_tools"
         }
 
-        Column {
-            spacing: units.gu(2)
-            anchors.fill: parent
+        Button {
+            id:translateBtnLgSrc
+            objectName: "LangSrc"
+            anchors.left : parent.left
+            width: units.gu(6)
+            text: ""
+            iconSource: "../graphics/ext/fra.png"
+            onClicked: PopupUtils.open(langSelector, translateBtnLgSrc)
+        }
+        TextField {
+            id: translateSearchText
+            anchors.left: translateBtnLgSrc.right
+            anchors.right: translateBtnLgDest.left
+            anchors.top: translateBtnLgSrc.top
+            placeholderText: "enter text to translate"
+            hasClearButton: true
 
-            Row {
-                spacing: units.gu(2)
+            onAccepted: {
+                // console.debug("onAccepted:'"+translateSearchText.text+"'")
+                tabs.updateContext({'searchtext':translateSearchText.text})
+                translationTab.doTranslate()
+            }
 
-                Button {
-                    id:translateBtnLgSrc
-                    objectName: "LangSrc"
-                    width: units.gu(10)
-                    text: ""
-                    iconSource: "../graphics/ext/fra.png"
-                    onClicked: PopupUtils.open(langSelector, translateBtnLgSrc)
+            onTextChanged: {
+                // console.debug("text changed='"+translateSearchText.text+"'")
+                if (translationTab.canSuggest) {
+                    tabs.updateContext({'searchtext':translateSearchText.text})
+                    translationTab.doSuggest()
                 }
+            }
+        }
+        Button {
+            id:translateBtnLgDest
+            objectName: "LangDest"
+            anchors.right: translateBtnSearch.left
+            width: units.gu(6)
+            text: ""
+            iconSource: "../graphics/ext/eng.png"
+            onClicked: PopupUtils.open(langSelector, translateBtnLgDest)
+        }
+        Button {
+            id:translateBtnSearch
+            anchors.right: translateBtnSwitchLg.left
+            width: units.gu(8)
+            text: "Search"
+            onClicked: translationTab.doTranslate()
+        }
+        Button {
+            id:translateBtnSwitchLg
+            anchors.right: parent.right
+            width: units.gu(6)
+            text: "<-->"
+            onClicked: translationTab.doSwitchLg()
+        }
 
-                TextField {
-                    id: translateSearchText
-                    // width: parent.width
-                    placeholderText: "enter text to translate"
-                    hasClearButton: true
+        ListView {
+            id: listViewSuggestion
+            anchors.top: translateBtnLgSrc.bottom
+            anchors.left: translateSearchText.left
+            anchors.right: translateSearchText.right
+            height: units.gu(20) // ????
+            model: suggestModel
+            // delegate: suggestDelegate
 
-                    onAccepted: {
-                        // console.debug("onAccepted:'"+translateSearchText.text+"'")
-                        tabs.updateContext({'searchtext':translateSearchText.text})
-                        translationTab.doTranslate()
+            delegate: Row {
+                Text {
+                    // Ajouter du style pour surligner les lettres correspondantes.
+                    // TODO : mieux gérer les remplacement : maj/minuscules, caracteres proches (eéè...)
+                    // TODO : voir si les perfs sont OK (mettre en cache le search text ?)
+                    text: {
+                        if (suggest)
+                            return suggest.replace(translateSearchText.text, "<b>"+translateSearchText.text+"</b>")
+                        else
+                            return ""
                     }
-
-                    onTextChanged: {
-                        // console.debug("text changed='"+translateSearchText.text+"'")
-                        if (translationTab.canSuggest) {
+                    MouseArea{
+                        anchors.fill: parent
+                        onClicked: {
+                            // TODO : check if it'd be better to move next lines in a function
+                            translationTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
+                            translateSearchText.text = suggest
                             tabs.updateContext({'searchtext':translateSearchText.text})
-                            translationTab.doSuggest()
-                        }
-                    }
-                }
-                Button {
-                    id:translateBtnLgDest
-                    objectName: "LangDest"
-                    width: units.gu(10)
-                    text: ""
-                    iconSource: "../graphics/ext/eng.png"
-                    onClicked: PopupUtils.open(langSelector, translateBtnLgDest)
-                }
+                            translationTab.canSuggest = true
 
-                Button {
-                    id:translateBtnSearch
-                    width: units.gu(10)
-                    text: "Search"
-                    onClicked: translationTab.doTranslate()
-                }
-
-                Button {
-                    id:translateBtnSwitchLg
-                    width: units.gu(10)
-                    text: "<-->"
-                    onClicked: translationTab.doSwitchLg()
-                }
-            }
-
-
-            ListView {
-                width: parent.width/2
-                height: 100
-                // anchors.fill: parent
-                model: suggestModel
-                // delegate: suggestDelegate
-
-                delegate: Row {
-                    Text {
-                        // Ajouter du style pour surligner les lettres correspondantes.
-                        // TODO : mieux gérer les remplacement : maj/minuscules, caracteres proches (eéè...)
-                        // TODO : voir si les perfs sont OK (mettre en cache le search text ?)
-                        text: {
-                            if (suggest)
-                                return suggest.replace(translateSearchText.text, "<b>"+translateSearchText.text+"</b>")
-                            else
-                                return ""
-                        }
-                        MouseArea{
-                            anchors.fill: parent
-                            onClicked: {
-                                // TODO : check if it'd be better to move next lines in a function
-                                translationTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
-                                translateSearchText.text = suggest
-                                tabs.updateContext({'searchtext':translateSearchText.text})
-                                translationTab.canSuggest = true
-
-                                // start translation
-                                translationTab.doTranslate()
-                            }
+                            // start translation
+                            translationTab.doTranslate()
                         }
                     }
                 }
             }
-            ListModel {
-                id: suggestModel
+        }
+        ListModel {
+            id: suggestModel
 
-                ListElement {
-                    suggest: ""
-                }
+            ListElement {
+                suggest: ""
             }
-
-            TextArea {
-                id: translateRes
-                placeholderText: "<i>Translations</i>"
-                textFormat : TextEdit.RichText
-                enabled: true
-                width: parent.width
-                height: 200
-            }
-
-         }
+        }
+        TextArea {
+            id: translateRes
+            placeholderText: "<i>Translations</i>"
+            textFormat : TextEdit.RichText
+            enabled: true
+            anchors.top: listViewSuggestion.bottom
+            anchors.bottom: parent.bottom
+            width: parent.width
+        }
 
         LangSelector {
             id: langSelector
