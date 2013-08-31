@@ -42,13 +42,13 @@ Tab {
                     hasClearButton: true
 
                     onAccepted: {
-                        console.debug("onAccepted:'"+translateSearchText.text+"'")
+                        // console.debug("onAccepted:'"+translateSearchText.text+"'")
                         tabs.updateContext({'searchtext':translateSearchText.text})
                         translationTab.doTranslate()
                     }
 
                     onTextChanged: {
-                        console.debug("text changed='"+translateSearchText.text+"'")
+                        // console.debug("text changed='"+translateSearchText.text+"'")
                         if (translationTab.canSuggest) {
                             tabs.updateContext({'searchtext':translateSearchText.text})
                             translationTab.doSuggest()
@@ -181,8 +181,19 @@ Tab {
         var lgSrc = translationTab.langSrc;
         var lgDest = translationTab.langDest;
         if (translateSearchText.text != "")
-            Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, translateRes)
+            Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, translationTab.setResult);
+        else
+            translationTab.setResult("");
 
+    }
+
+    function setResult(resultText) {
+        // console.debug("appel de translationTab.setResult()");
+        if (resultText == "") {
+            translateRes.text = "<i>No Result</i>";
+        } else {
+            translateRes.text = "<h1>Translation of '"+translateSearchText.text+"'</h1>"+resultText;
+        }
     }
 
     function doSwitchLg() {

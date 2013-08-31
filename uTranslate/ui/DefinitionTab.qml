@@ -43,13 +43,13 @@ Tab {
                     hasClearButton: true
 
                     onAccepted: {
-                        console.debug("onAccepted='"+definitionSearchText.text+"'")
+                        // console.debug("onAccepted='"+definitionSearchText.text+"'")
                         tabs.updateContext({'searchtext':definitionSearchText.text})
                         definitionTab.doDefine()
                     }
 
                     onTextChanged: {
-                        console.debug("text changed='"+definitionSearchText.text+"'")
+                        // console.debug("text changed='"+definitionSearchText.text+"'")
                         if (definitionTab.canSuggest) {
                             tabs.updateContext({'searchtext':definitionSearchText.text})
                             definitionTab.doSuggest()
@@ -84,6 +84,7 @@ Tab {
                         MouseArea{
                             anchors.fill: parent
                             onClicked: {
+                                // TODO : check if it'd be better to move next lines in a function
                                 definitionTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
                                 definitionSearchText.text = suggest
                                 tabs.updateContext({'searchtext':definitionSearchText.text})
@@ -236,6 +237,16 @@ Tab {
     function doDefine() {
         var lg = definitionTab.langSrc;
         if (definitionSearchText.text != "")
-            Controller.doSearchDefintion(definitionSearchText.text, lg, definitionRes)
+            Controller.doSearchDefintion(definitionSearchText.text, lg, definitionTab.setResult)
     }
+
+    function setResult(resultText) {
+        // console.debug("appel de definitionTab.setResult()");
+        if (resultText == "") {
+            definitionRes.text = "<i>No Result</i>";
+        } else {
+            definitionRes.text = "<h1>Definition of '"+definitionSearchText.text+"'</h1>"+resultText;
+        }
+    }
+
 }
