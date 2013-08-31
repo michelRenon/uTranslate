@@ -92,7 +92,12 @@ Tab {
                         // Ajouter du style pour surligner les lettres correspondantes.
                         // TODO : mieux gérer les remplacement : maj/minuscules, caracteres proches (eéè...)
                         // TODO : voir si les perfs sont OK (mettre en cache le search text ?)
-                        text: suggest.replace(translateSearchText.text, "<b>"+translateSearchText.text+"</b>")
+                        text: {
+                            if (suggest)
+                                return suggest.replace(translateSearchText.text, "<b>"+translateSearchText.text+"</b>")
+                            else
+                                return ""
+                        }
                         MouseArea{
                             anchors.fill: parent
                             onClicked: {
