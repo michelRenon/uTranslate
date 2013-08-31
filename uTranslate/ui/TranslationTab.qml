@@ -29,6 +29,7 @@ Tab {
             objectName: "LangSrc"
             anchors.left : parent.left
             width: units.gu(6)
+            height: translateSearchText.height
             text: ""
             iconSource: "../graphics/ext/fra.png"
             onClicked: PopupUtils.open(langSelector, translateBtnLgSrc)
@@ -60,6 +61,7 @@ Tab {
             objectName: "LangDest"
             anchors.right: translateBtnSearch.left
             width: units.gu(6)
+            height: translateSearchText.height
             text: ""
             iconSource: "../graphics/ext/eng.png"
             onClicked: PopupUtils.open(langSelector, translateBtnLgDest)
@@ -68,6 +70,7 @@ Tab {
             id:translateBtnSearch
             anchors.right: translateBtnSwitchLg.left
             width: units.gu(8)
+            height: translateSearchText.height
             text: "Search"
             onClicked: translationTab.doTranslate()
         }
@@ -75,46 +78,82 @@ Tab {
             id:translateBtnSwitchLg
             anchors.right: parent.right
             width: units.gu(6)
+            height: translateSearchText.height
             text: "<-->"
             onClicked: translationTab.doSwitchLg()
         }
 
-        ListView {
-            id: listViewSuggestion
+
+        Rectangle {
+            id: rectViewSuggestion
+            z: 1
             anchors.top: translateBtnLgSrc.bottom
             anchors.left: translateSearchText.left
-            anchors.right: translateSearchText.right
-            height: units.gu(20) // ????
-            model: suggestModel
-            // delegate: suggestDelegate
+            anchors.right: parent.right // translateSearchText.right
+            height: units.gu(2) // ????
+            border.color: "#aaaaaa"
+            clip: true
 
-            delegate: Row {
-                Text {
-                    // Ajouter du style pour surligner les lettres correspondantes.
-                    // TODO : mieux gérer les remplacement : maj/minuscules, caracteres proches (eéè...)
-                    // TODO : voir si les perfs sont OK (mettre en cache le search text ?)
-                    text: {
-                        if (suggest)
-                            return suggest.replace(translateSearchText.text, "<b>"+translateSearchText.text+"</b>")
-                        else
-                            return ""
-                    }
-                    MouseArea{
+            property bool expanded: false
+
+            ListView {
+                id: listViewSuggestion
+                anchors.fill: parent
+                model: suggestModel
+                // delegate: suggestDelegate
+
+                delegate: Rectangle {
+                    width: ListView.view.width
+                    height: units.gu(3)
+                    Text {
                         anchors.fill: parent
-                        onClicked: {
-                            // TODO : check if it'd be better to move next lines in a function
-                            translationTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
-                            translateSearchText.text = suggest
-                            tabs.updateContext({'searchtext':translateSearchText.text})
-                            translationTab.canSuggest = true
 
-                            // start translation
-                            translationTab.doTranslate()
+                        // Ajouter du style pour surligner les lettres correspondantes.
+                        // TODO : mieux gérer les remplacement : maj/minuscules, caracteres proches (eéè...)
+                        // TODO : voir si les perfs sont OK (mettre en cache le search text ?)
+                        text: {
+                            if (suggest)
+                                return suggest.replace(translateSearchText.text, "<b>"+translateSearchText.text+"</b>")
+                            else
+                                return ""
+                        }
+                        MouseArea{
+                            anchors.fill: parent
+                            onClicked: {
+                                if (rectViewSuggestion.expanded) {
+                                    // TODO : check if it'd be better to move next lines in a function
+                                    translationTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
+                                    translateSearchText.text = suggest
+                                    tabs.updateContext({'searchtext':translateSearchText.text})
+                                    translationTab.canSuggest = true
+
+                                    rectViewSuggestion.reduce()
+
+                                    // start translation
+                                    translationTab.doTranslate()
+                                } else {
+                                    rectViewSuggestion.expand()
+                                }
+                            }
                         }
                     }
                 }
             }
+            Scrollbar {
+                flickableItem: listViewSuggestion
+            }
+
+            function reduce() {
+                rectViewSuggestion.height = units.gu(2)
+                rectViewSuggestion.expanded = false
+            }
+
+            function expand() {
+                rectViewSuggestion.height = units.gu(20)
+                rectViewSuggestion.expanded = true
+            }
         }
+
         ListModel {
             id: suggestModel
 
@@ -122,15 +161,14 @@ Tab {
                 suggest: ""
             }
         }
-        Scrollbar {
-            flickableItem: listViewSuggestion
-        }
         TextArea {
             id: translateRes
             placeholderText: "<i>Translations</i>"
             textFormat : TextEdit.RichText
             enabled: true
-            anchors.top: listViewSuggestion.bottom
+            // anchors.top: rectViewSuggestion.bottom
+            anchors.top: translateBtnLgSrc.bottom
+            anchors.topMargin: units.gu(2)
             anchors.bottom: parent.bottom
             width: parent.width
         }
@@ -182,6 +220,8 @@ Tab {
 
     function doSuggest() {
         var lgSrc = translationTab.langSrc;
+        rectViewSuggestion.visible = (translateSearchText.text != "")
+        rectViewSuggestion.expand()
         Controller.doSuggest(translateSearchText.text, lgSrc, suggestModel, tabs)
     }
 
