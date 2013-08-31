@@ -109,6 +109,9 @@ Tab {
                 suggest: ""
             }
         }
+        Scrollbar {
+            flickableItem: listViewSuggestion
+        }
         TextArea {
             id: definitionRes
             textFormat : TextEdit.RichText

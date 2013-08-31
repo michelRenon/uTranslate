@@ -122,6 +122,9 @@ Tab {
                 suggest: ""
             }
         }
+        Scrollbar {
+            flickableItem: listViewSuggestion
+        }
         TextArea {
             id: translateRes
             placeholderText: "<i>Translations</i>"
