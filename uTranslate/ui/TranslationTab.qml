@@ -274,6 +274,9 @@ Tab {
         Controller.updateSuggestionModel(suggestModel, context['suggest'])
         translationTab.doTranslate(false);
 
+        // TODO :
+        // c'est ok pour le démarrage,
+        // mais pas ok lors du changement de tab
         translationTab.canSuggest = false
         translateSearchText.forceActiveFocus()
         translationTab.canSuggest = true
