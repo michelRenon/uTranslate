@@ -263,7 +263,9 @@ Tab {
 
     Component.onCompleted: translateSearchText.forceActiveFocus()
 
-    function updateTabContext(context) {
+    function updateTabContext(context, startup) {
+        if (typeof(startup) === "undefined")
+            startup = false;
         // console.debug("updateTabContext")
         translationTab.canSuggest = false
         translateSearchText.text = context['searchtext'];
@@ -277,9 +279,17 @@ Tab {
         // TODO :
         // c'est ok pour le démarrage,
         // mais pas ok lors du changement de tab
-        translationTab.canSuggest = false
-        translateSearchText.forceActiveFocus()
-        translationTab.canSuggest = true
+        if (startup) {
+            translationTab.canSuggest = false
+            translateSearchText.forceActiveFocus()
+            translationTab.canSuggest = true
+        } else {
+            translateSearchText.forceActiveFocus()
+            // PB: la liste de suggestions n'apparait pas..???
+            // --> c'est seulement lors du premier changement :
+            // la liste est toujours invisible, tant qu'on n'a pas modifié le texte
+        }
+
     }
 
     function setLang(lg) {

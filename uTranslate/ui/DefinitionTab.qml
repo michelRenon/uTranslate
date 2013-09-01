@@ -203,7 +203,9 @@ Tab {
 
     Component.onCompleted: definitionSearchText.forceActiveFocus()
 
-    function updateTabContext(context) {
+    function updateTabContext(context, startup) {
+        if (typeof(startup) === "undefined")
+            startup = false;
         definitionTab.canSuggest = false
         definitionSearchText.text = context['searchtext'];
         definitionTab.canSuggest = true
@@ -215,9 +217,13 @@ Tab {
         // TODO :
         // c'est ok pour le démarrage,
         // mais pas ok lors du changement de tab
-        definitionTab.canSuggest = false
-        definitionSearchText.forceActiveFocus()
-        definitionTab.canSuggest = true
+        if (startup) {
+            definitionTab.canSuggest = false
+            definitionSearchText.forceActiveFocus()
+            definitionTab.canSuggest = true
+        } else {
+            definitionSearchText.forceActiveFocus()
+        }
     }
 
     function setLang(lg) {

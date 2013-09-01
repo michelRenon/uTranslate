@@ -36,6 +36,8 @@ MainView {
         id: tabs
         property var searchContext : {'searchtext': '', 'lgsrc': 'fra', 'lgdest': 'eng', 'suggest': ''}
 
+        property bool loaded: false
+
         TranslationTab {
             objectName: "translationTab"
         }
@@ -49,9 +51,11 @@ MainView {
         }
 
         onSelectedTabChanged: {
-            // console.debug ("onSelectedTabChanged="+tabs.selectedTab+" : "+tabs.selectedTab.objectName)
-            if (tabs.selectedTab.objectName != "configurationTab") {
-                tabs.selectedTab.updateTabContext(searchContext)
+            if (tabs.loaded) {
+                console.debug ("onSelectedTabChanged="+tabs.selectedTab+" : "+tabs.selectedTab.objectName)
+                if (tabs.selectedTab.objectName != "configurationTab") {
+                    tabs.selectedTab.updateTabContext(searchContext)
+                }
             }
         }
 
@@ -70,6 +74,9 @@ MainView {
 
         Component.onCompleted: {
             // TODO : load searchContext from previous usage
+            console.debug("tabs onCompleted")
+            tabs.selectedTab.updateTabContext(searchContext, true);
+            tabs.loaded = true;
         }
     }
 }
