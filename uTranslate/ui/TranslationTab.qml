@@ -55,6 +55,15 @@ Tab {
                     translationTab.doSuggest()
                 }
             }
+            /*
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    if (rectViewSuggestion.expanded != true)
+                        rectViewSuggestion.expand()
+                }
+            }
+            */
         }
         Button {
             id:translateBtnLgDest
@@ -93,6 +102,7 @@ Tab {
             height: units.gu(2) // ????
             border.color: "#aaaaaa"
             clip: true
+            visible: false
 
             property bool expanded: false
 
@@ -127,7 +137,6 @@ Tab {
                                     tabs.updateContext({'searchtext':translateSearchText.text})
                                     translationTab.canSuggest = true
 
-                                    rectViewSuggestion.reduce()
 
                                     // start translation
                                     translationTab.doTranslate()
@@ -171,6 +180,9 @@ Tab {
             anchors.topMargin: units.gu(2)
             anchors.bottom: parent.bottom
             width: parent.width
+
+            // onActiveFocusChanged: rectViewSuggestion.reduce()
+
         }
 
         LangSelector {
@@ -228,6 +240,7 @@ Tab {
     function doTranslate() {
         var lgSrc = translationTab.langSrc;
         var lgDest = translationTab.langDest;
+        rectViewSuggestion.reduce()
         if (translateSearchText.text != "")
             Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, translationTab.setResult);
         else
