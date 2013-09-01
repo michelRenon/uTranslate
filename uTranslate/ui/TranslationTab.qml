@@ -14,7 +14,7 @@ Tab {
     id: translationTab
     title: i18n.tr("Translate")
     
-    property bool canSuggest: true
+    property bool canSuggest: false
     property string langSrc : 'fra'
     property string langDest : 'eng'
 
@@ -49,18 +49,58 @@ Tab {
             }
 
             onTextChanged: {
-                // console.debug("text changed='"+translateSearchText.text+"'")
+                // console.debug("text changed='"+translateSearchText.text+"', "+translationTab.canSuggest)
                 if (translationTab.canSuggest) {
                     tabs.updateContext({'searchtext':translateSearchText.text})
                     translationTab.doSuggest()
                 }
             }
+
+            // onActiveFocusOnPressChanged: console.debug("onActiveFocusOnPressChanged")
+
+            onFocusChanged: {
+                // console.debug("onFocusChanged="+translateSearchText.focus);
+                if (translationTab.canSuggest) {
+                    if (translateSearchText.focus)
+                        rectViewSuggestion.expand()
+                    else
+                        rectViewSuggestion.reduce()
+                }
+            }
+
+            /*
+            onHighlightedChanged: console.debug("onHighlightedChanged")
+
+            onSelectedTextChanged: console.debug("onSelectedTextChanged")
+
+            onSelectionStartChanged: console.debug("onSelectionStartChanged")
+
+            onSelectionEndChanged: console.debug("onSelectionEndChanged")
+
+            onSelectByMouseChanged: console.debug("onSelectByMouseChanged")
+            */
+
             /*
             MouseArea {
+                id: mouseArea
                 anchors.fill: parent
                 onClicked: {
                     if (rectViewSuggestion.expanded != true)
                         rectViewSuggestion.expand()
+
+                    // hack found in :
+                    // http://lists.qt.nokia.com/public/qt-qml/2011-January/002103.html
+                    // forwardEvent(mouse, "clicked");
+                    translateSearchText['onClicked'](mouse);
+                }
+
+                function forwardEvent(event, eventType) {
+                    mouseArea.visible = false
+                    var item = parent.childAt(event.x, event.y)
+                    mouseArea.visible = true
+                    if (item && item != mouseArea && typeof(item[eventType]) == "function") {
+                        item[eventType](event);
+                    }
                 }
             }
             */
@@ -99,7 +139,7 @@ Tab {
             anchors.top: translateBtnLgSrc.bottom
             anchors.left: translateSearchText.left
             anchors.right: parent.right // translateSearchText.right
-            height: units.gu(2) // ????
+            height: units.gu(0) // ????
             border.color: "#aaaaaa"
             clip: true
             visible: false
@@ -153,13 +193,43 @@ Tab {
             }
 
             function reduce() {
-                rectViewSuggestion.height = units.gu(2)
-                rectViewSuggestion.expanded = false
+                if (rectViewSuggestion.expanded != false) {
+                    // rectViewSuggestion.height = units.gu(2)
+                    animateReduce.start()
+                    rectViewSuggestion.expanded = false
+                }
             }
 
             function expand() {
-                rectViewSuggestion.height = units.gu(20)
-                rectViewSuggestion.expanded = true
+                // console.debug("EXPAND() : rectViewSuggestion.expanded="+rectViewSuggestion.expanded+" visible="+rectViewSuggestion.visible);
+                if (rectViewSuggestion.expanded != true) {
+                    // rectViewSuggestion.height = units.gu(20)
+                    animateExpand.start()
+                    rectViewSuggestion.expanded = true
+                }
+            }
+
+            NumberAnimation {
+                id: animateReduce
+                target: rectViewSuggestion
+                properties: "height"
+                from: units.gu(20)
+                to: units.gu(0)
+                duration: 100
+            }
+
+            NumberAnimation {
+                id: animateExpand
+                target: rectViewSuggestion
+                properties: "height"
+                from: units.gu(0)
+                to: units.gu(20)
+                duration: 100
+            }
+
+            Component.onCompleted: {
+                rectViewSuggestion.visible = (translateSearchText.text != "")
+                rectViewSuggestion.reduce()
             }
         }
 
@@ -194,6 +264,7 @@ Tab {
     Component.onCompleted: translateSearchText.forceActiveFocus()
 
     function updateTabContext(context) {
+        // console.debug("updateTabContext")
         translationTab.canSuggest = false
         translateSearchText.text = context['searchtext'];
         translationTab.canSuggest = true
@@ -201,9 +272,11 @@ Tab {
         translationTab.setLangDest(context['lgdest'])
 
         Controller.updateSuggestionModel(suggestModel, context['suggest'])
-        translationTab.doTranslate()
+        translationTab.doTranslate(false);
 
+        translationTab.canSuggest = false
         translateSearchText.forceActiveFocus()
+        translationTab.canSuggest = true
     }
 
     function setLang(lg) {
@@ -232,28 +305,38 @@ Tab {
 
     function doSuggest() {
         var lgSrc = translationTab.langSrc;
+        // if (translateSearchText.focus == false)
+        translateSearchText.forceActiveFocus()
         rectViewSuggestion.visible = (translateSearchText.text != "")
+        // console.debug("rectViewSuggestion.visible="+rectViewSuggestion.visible)
         rectViewSuggestion.expand()
         Controller.doSuggest(translateSearchText.text, lgSrc, suggestModel, tabs)
     }
 
-    function doTranslate() {
+    function doTranslate(focusRes) {
+        // console.debug("focusRes="+typeof(focusRes));
+        if(typeof(focusRes) === "undefined")
+            focusRes = true;
         var lgSrc = translationTab.langSrc;
         var lgDest = translationTab.langDest;
         rectViewSuggestion.reduce()
         if (translateSearchText.text != "")
-            Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, translationTab.setResult);
+            Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, function(res) {
+                translationTab.setResult(res, focusRes)
+            });
         else
-            translationTab.setResult("");
+            translationTab.setResult("", focusRes);
     }
 
-    function setResult(resultText) {
+    function setResult(resultText, focusRes) {
         // console.debug("appel de translationTab.setResult()");
         if (resultText == "") {
             translateRes.text = "<i>No Result</i>";
         } else {
             translateRes.text = "<h1>Translation of '"+translateSearchText.text+"'</h1>"+resultText;
         }
+        if (focusRes)
+            translateRes.forceActiveFocus();
     }
 
     function doSwitchLg() {
@@ -266,6 +349,6 @@ Tab {
         tabs.updateContext({'lgdest': lgSrc})
 
         translationTab.doSuggest()
-        translationTab.doTranslate()
+        // translationTab.doTranslate()
     }
 }
