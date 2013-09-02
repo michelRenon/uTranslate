@@ -28,6 +28,8 @@ Tab {
             id:definitionBtnLgSrc
             objectName: "LangSrc"
             anchors.left: parent.left
+            anchors.top: parent.top
+            anchors.margins: units.gu(1)
             width: units.gu(6)
             height: definitionSearchText.height
             text: ""
@@ -38,7 +40,8 @@ Tab {
             id: definitionSearchText
             anchors.left: definitionBtnLgSrc.right
             anchors.right: definitionBtnSearch.left
-            anchors.top: definitionBtnLgSrc.top
+            anchors.top: parent.top
+            anchors.margins: units.gu(1)
             placeholderText: "Enter text"
             hasClearButton: true
 
@@ -69,7 +72,8 @@ Tab {
         Button {
             id:definitionBtnSearch
             anchors.right: parent.right
-            anchors.top: definitionBtnLgSrc.top
+            anchors.top: parent.top
+            anchors.margins: units.gu(1)
             width: units.gu(8)
             height: definitionSearchText.height
             text: "Search"
@@ -191,7 +195,7 @@ Tab {
             enabled: true
             // anchors.top: listViewSuggestion.bottom
             anchors.top: definitionBtnLgSrc.bottom
-            anchors.topMargin: units.gu(2)
+            anchors.topMargin: units.gu(1)
             anchors.bottom: parent.bottom
             width: parent.width
         }

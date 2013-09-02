@@ -28,6 +28,8 @@ Tab {
             id:translateBtnLgSrc
             objectName: "LangSrc"
             anchors.left : parent.left
+            anchors.top: parent.top
+            anchors.margins: units.gu(1)
             width: units.gu(6)
             height: translateSearchText.height
             text: ""
@@ -38,7 +40,8 @@ Tab {
             id: translateSearchText
             anchors.left: translateBtnLgSrc.right
             anchors.right: translateBtnLgDest.left
-            anchors.top: translateBtnLgSrc.top
+            anchors.top: parent.top
+            anchors.margins: units.gu(1)
             placeholderText: "enter text to translate"
             hasClearButton: true
 
@@ -109,6 +112,8 @@ Tab {
             id:translateBtnLgDest
             objectName: "LangDest"
             anchors.right: translateBtnSearch.left
+            anchors.top: parent.top
+            anchors.margins: units.gu(1)
             width: units.gu(6)
             height: translateSearchText.height
             text: ""
@@ -118,6 +123,8 @@ Tab {
         Button {
             id:translateBtnSearch
             anchors.right: translateBtnSwitchLg.left
+            anchors.top: parent.top
+            anchors.margins: units.gu(1)
             width: units.gu(8)
             height: translateSearchText.height
             text: "Search"
@@ -126,6 +133,8 @@ Tab {
         Button {
             id:translateBtnSwitchLg
             anchors.right: parent.right
+            anchors.top: parent.top
+            anchors.margins: units.gu(1)
             width: units.gu(6)
             height: translateSearchText.height
             text: "<-->"
@@ -247,7 +256,7 @@ Tab {
             enabled: true
             // anchors.top: rectViewSuggestion.bottom
             anchors.top: translateBtnLgSrc.bottom
-            anchors.topMargin: units.gu(2)
+            anchors.topMargin: units.gu(1)
             anchors.bottom: parent.bottom
             width: parent.width
 
