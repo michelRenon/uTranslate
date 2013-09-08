@@ -247,21 +247,23 @@ Tab {
         translationTab.setLangDest(context['lgdest'])
 
         Controller.updateSuggestionModel(suggestModel, context['suggest'])
-        translationTab.doTranslate(false);
-        /*
-        // version avec focus direct sur la definition
-        translationTab.doDefine(true)
-        */
+        if (startup) {
+            /*
+            // version :
+            // - focus on search text,
+            // - suggestion list is shown
+            // - translation id done
+            */
+            translationTab.doTranslate(false);
+            translateSearchText.forceActiveFocus();
+            translateSearchText.updateSuggestList();
 
-        /*
-        // version avec :
-        // - focus sur le texte,
-        // - la liste de suggestion affichée
-        // - la recherche faite
-        */
-        translationTab.doTranslate(false);
-        translateSearchText.forceActiveFocus();
-        translateSearchText.updateSuggestList();
+        } else {
+            // *
+            // version : focus on translation
+            translationTab.doTranslate(true)
+            // */
+        }
     }
 
     function setLang(lg) {

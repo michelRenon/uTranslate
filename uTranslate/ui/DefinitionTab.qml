@@ -217,20 +217,23 @@ Tab {
         definitionTab.setLang(context['lgsrc'])
         // 'lgdest':unused
         Controller.updateSuggestionModel(suggestModel, context['suggest'])
-        /*
-        // version avec focus direct sur la definition
-        definitionTab.doDefine(true)
-        */
+        if (startup) {
+            /*
+            // version :
+            // - focus on search text,
+            // - suggestion list is shown
+            // - defintion search is done
+            */
+            definitionTab.doDefine(false);
+            definitionSearchText.forceActiveFocus();
+            definitionSearchText.updateSuggestList();
 
-        /*
-        // version avec :
-        // - focus sur le texte,
-        // - la liste de suggestion affichée
-        // - la recherche faite
-        */
-        definitionTab.doDefine(false);
-        definitionSearchText.forceActiveFocus();
-        definitionSearchText.updateSuggestList();
+        } else {
+            //*
+            // version : focus on defintion
+            definitionTab.doDefine(true)
+            //*/
+        }
     }
 
     function setLang(lg) {
