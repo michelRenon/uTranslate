@@ -59,54 +59,21 @@ Tab {
                 }
             }
 
-            // onActiveFocusOnPressChanged: console.debug("onActiveFocusOnPressChanged")
-
             onFocusChanged: {
                 // console.debug("onFocusChanged="+translateSearchText.focus);
-                if (translationTab.canSuggest) {
-                    if (translateSearchText.focus)
-                        rectViewSuggestion.expand()
-                    else
-                        rectViewSuggestion.reduce()
-                }
+                translateSearchText.updateSuggestList();
             }
 
-            /*
-            onHighlightedChanged: console.debug("onHighlightedChanged")
-
-            onSelectedTextChanged: console.debug("onSelectedTextChanged")
-
-            onSelectionStartChanged: console.debug("onSelectionStartChanged")
-
-            onSelectionEndChanged: console.debug("onSelectionEndChanged")
-
-            onSelectByMouseChanged: console.debug("onSelectByMouseChanged")
-            */
-
-            /*
-            MouseArea {
-                id: mouseArea
-                anchors.fill: parent
-                onClicked: {
-                    if (rectViewSuggestion.expanded != true)
-                        rectViewSuggestion.expand()
-
-                    // hack found in :
-                    // http://lists.qt.nokia.com/public/qt-qml/2011-January/002103.html
-                    // forwardEvent(mouse, "clicked");
-                    translateSearchText['onClicked'](mouse);
-                }
-
-                function forwardEvent(event, eventType) {
-                    mouseArea.visible = false
-                    var item = parent.childAt(event.x, event.y)
-                    mouseArea.visible = true
-                    if (item && item != mouseArea && typeof(item[eventType]) == "function") {
-                        item[eventType](event);
-                    }
-                }
+            function updateSuggestList() {
+                var test = translationTab.canSuggest;
+                test = test && translateSearchText.focus;
+                test = test && translateSearchText.text != "";
+                // console.debug("translateSearchText.updateSuggestList test="+test+", visible="+rectViewSuggestion.visible);
+                if (test)
+                    rectViewSuggestion.expand()
+                else
+                    rectViewSuggestion.reduce()
             }
-            */
         }
         Button {
             id:translateBtnLgDest
@@ -151,7 +118,7 @@ Tab {
             height: units.gu(0) // ????
             border.color: "#aaaaaa"
             clip: true
-            visible: false
+            visible: true
 
             property bool expanded: false
 
@@ -203,7 +170,6 @@ Tab {
 
             function reduce() {
                 if (rectViewSuggestion.expanded != false) {
-                    // rectViewSuggestion.height = units.gu(2)
                     animateReduce.start()
                     rectViewSuggestion.expanded = false
                 }
@@ -212,7 +178,6 @@ Tab {
             function expand() {
                 // console.debug("EXPAND() : rectViewSuggestion.expanded="+rectViewSuggestion.expanded+" visible="+rectViewSuggestion.visible);
                 if (rectViewSuggestion.expanded != true) {
-                    // rectViewSuggestion.height = units.gu(20)
                     animateExpand.start()
                     rectViewSuggestion.expanded = true
                 }
@@ -237,7 +202,6 @@ Tab {
             }
 
             Component.onCompleted: {
-                rectViewSuggestion.visible = (translateSearchText.text != "")
                 rectViewSuggestion.reduce()
             }
         }
@@ -284,21 +248,20 @@ Tab {
 
         Controller.updateSuggestionModel(suggestModel, context['suggest'])
         translationTab.doTranslate(false);
+        /*
+        // version avec focus direct sur la definition
+        translationTab.doDefine(true)
+        */
 
-        // TODO :
-        // c'est ok pour le démarrage,
-        // mais pas ok lors du changement de tab
-        if (startup) {
-            translationTab.canSuggest = false
-            translateSearchText.forceActiveFocus()
-            translationTab.canSuggest = true
-        } else {
-            translateSearchText.forceActiveFocus()
-            // PB: la liste de suggestions n'apparait pas..???
-            // --> c'est seulement lors du premier changement :
-            // la liste est toujours invisible, tant qu'on n'a pas modifié le texte
-        }
-
+        /*
+        // version avec :
+        // - focus sur le texte,
+        // - la liste de suggestion affichée
+        // - la recherche faite
+        */
+        translationTab.doTranslate(false);
+        translateSearchText.forceActiveFocus();
+        translateSearchText.updateSuggestList();
     }
 
     function setLang(lg) {
@@ -327,10 +290,7 @@ Tab {
 
     function doSuggest() {
         var lgSrc = translationTab.langSrc;
-        // if (translateSearchText.focus == false)
         translateSearchText.forceActiveFocus()
-        rectViewSuggestion.visible = (translateSearchText.text != "")
-        // console.debug("rectViewSuggestion.visible="+rectViewSuggestion.visible)
         rectViewSuggestion.expand()
         Controller.doSuggest(translateSearchText.text, lgSrc, suggestModel, tabs)
     }

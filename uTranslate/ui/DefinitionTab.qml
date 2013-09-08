@@ -60,13 +60,19 @@ Tab {
             }
 
             onFocusChanged: {
-                // console.debug("onFocusChanged="+definitionSearchText.focus);
-                if (definitionTab.canSuggest) {
-                    if (definitionSearchText.focus)
-                        rectViewSuggestion.expand()
-                    else
-                        rectViewSuggestion.reduce()
-                }
+                // console.debug("definitionSearchText.onFocusChanged="+definitionSearchText.focus);
+                definitionSearchText.updateSuggestList()
+            }
+
+            function updateSuggestList() {
+                var test = definitionTab.canSuggest;
+                test = test && definitionSearchText.focus;
+                test = test && definitionSearchText.text != "";
+                // console.debug("definitionSearchText.updateSuggestList test="+test+", visible="+rectViewSuggestion.visible);
+                if (test)
+                    rectViewSuggestion.expand()
+                else
+                    rectViewSuggestion.reduce()
             }
         }
         Button {
@@ -89,7 +95,7 @@ Tab {
             height: units.gu(0) // ????
             border.color: "#aaaaaa"
             clip: true
-            visible: false
+            visible: true
 
             property bool expanded: false
 
@@ -140,7 +146,6 @@ Tab {
 
             function reduce() {
                 if (rectViewSuggestion.expanded != false) {
-                    // rectViewSuggestion.height = units.gu(2)
                     animateReduce.start()
                     rectViewSuggestion.expanded = false
                 }
@@ -149,7 +154,6 @@ Tab {
             function expand() {
                 // console.debug("EXPAND() : rectViewSuggestion.expanded="+rectViewSuggestion.expanded+" visible="+rectViewSuggestion.visible);
                 if (rectViewSuggestion.expanded != true) {
-                    // rectViewSuggestion.height = units.gu(20)
                     animateExpand.start()
                     rectViewSuggestion.expanded = true
                 }
@@ -174,11 +178,9 @@ Tab {
             }
 
             Component.onCompleted: {
-                rectViewSuggestion.visible = (definitionSearchText.text != "")
                 rectViewSuggestion.reduce()
             }
         }
-
 
         ListModel {
             id: suggestModel
@@ -193,7 +195,6 @@ Tab {
             placeholderText: "<i>Definition</i>"
             textFormat : TextEdit.RichText
             enabled: true
-            // anchors.top: listViewSuggestion.bottom
             anchors.top: definitionBtnLgSrc.bottom
             anchors.topMargin: units.gu(1)
             anchors.bottom: parent.bottom
@@ -216,40 +217,39 @@ Tab {
         definitionTab.setLang(context['lgsrc'])
         // 'lgdest':unused
         Controller.updateSuggestionModel(suggestModel, context['suggest'])
-        definitionTab.doDefine(false)
+        /*
+        // version avec focus direct sur la definition
+        definitionTab.doDefine(true)
+        */
 
-        // TODO :
-        // c'est ok pour le démarrage,
-        // mais pas ok lors du changement de tab
-        if (startup) {
-            definitionTab.canSuggest = false
-            definitionSearchText.forceActiveFocus()
-            definitionTab.canSuggest = true
-        } else {
-            definitionSearchText.forceActiveFocus()
-        }
+        /*
+        // version avec :
+        // - focus sur le texte,
+        // - la liste de suggestion affichée
+        // - la recherche faite
+        */
+        definitionTab.doDefine(false);
+        definitionSearchText.forceActiveFocus();
+        definitionSearchText.updateSuggestList();
     }
 
     function setLang(lg) {
-        definitionTab.langSrc = lg
-        definitionBtnLgSrc.iconSource = "../graphics/ext/"+lg+".png"
+        definitionTab.langSrc = lg;
+        definitionBtnLgSrc.iconSource = "../graphics/ext/"+lg+".png";
     }
 
     function updateLang(lg) {
-        definitionTab.setLang(lg)
-        tabs.updateContext({'lgsrc': lg})
-        definitionTab.doSuggest()
+        definitionTab.setLang(lg);
+        tabs.updateContext({'lgsrc': lg});
+        definitionTab.doSuggest();
         // TODO : empty res ?
     }
 
     function doSuggest() {
         var lg = definitionTab.langSrc;
-        // if (definitionSearchText.focus == false)
-        definitionSearchText.forceActiveFocus()
-        rectViewSuggestion.visible = (definitionSearchText.text != "")
-        // console.debug("rectViewSuggestion.visible="+rectViewSuggestion.visible)
-        rectViewSuggestion.expand()
-        Controller.doSuggest(definitionSearchText.text, lg, suggestModel, tabs)
+        definitionSearchText.forceActiveFocus();
+        rectViewSuggestion.expand();
+        Controller.doSuggest(definitionSearchText.text, lg, suggestModel, tabs);
     }
 
     function doDefine(focusRes) {
