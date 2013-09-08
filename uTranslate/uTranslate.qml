@@ -5,8 +5,9 @@
  */
 import QtQuick 2.0
 import Ubuntu.Components 0.1
-import "ui"
+import Ubuntu.Components.Popups 0.1
 
+import "ui"
 import "controller.js" as Controller
 
 /*!
@@ -45,11 +46,11 @@ MainView {
         DefinitionTab {
             objectName: "definitionTab"
         }
-
+        /*
         ConfigurationTab {
             objectName: "configurationTab"
         }
-
+        */
         onSelectedTabChanged: {
             if (tabs.loaded) {
                 console.debug ("onSelectedTabChanged="+tabs.selectedTab+" : "+tabs.selectedTab.objectName)
@@ -77,6 +78,27 @@ MainView {
             console.debug("tabs onCompleted")
             tabs.selectedTab.updateTabContext(searchContext, true);
             tabs.loaded = true;
+        }
+    }
+
+    Component {
+        id: configSheetComponent
+        DefaultSheet {
+            id: configSheet
+            title: i18n.tr("Settings")
+            doneButton: true
+
+            Column {
+
+                Label {
+                    text : "To Be Defined"
+                }
+
+                Label {
+                    text : 'The current data provider is Glosbe (<a href="http://glosbe.com">http://glosbe.com</a>)'
+                }
+            }
+            onDoneClicked: PopupUtils.close(configSheet)
         }
     }
 }
