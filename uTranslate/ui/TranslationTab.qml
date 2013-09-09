@@ -125,6 +125,7 @@ Tab {
             ListView {
                 id: listViewSuggestion
                 anchors.fill: parent
+                anchors.margins: units.gu(1)
                 model: suggestModel
                 // delegate: suggestDelegate
 
