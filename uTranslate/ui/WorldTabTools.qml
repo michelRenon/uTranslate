@@ -8,6 +8,10 @@ import Ubuntu.Components 0.1
 import Ubuntu.Components.Popups 0.1
 
 ToolbarItems {
+
+    locked: false
+    opened: false
+
     ToolbarButton {
         iconSource: Qt.resolvedUrl("../graphics/toolbarIcon.png")
         text: i18n.tr("Settings")
