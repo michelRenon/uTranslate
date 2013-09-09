@@ -247,7 +247,7 @@ Tab {
         translationTab.setLangDest(context['lgdest'])
 
         Controller.updateSuggestionModel(suggestModel, context['suggest'])
-        if (startup) {
+        if (startup || translateSearchText.text === "") {
             /*
             // version :
             // - focus on search text,
@@ -293,7 +293,7 @@ Tab {
     function doSuggest() {
         var lgSrc = translationTab.langSrc;
         translateSearchText.forceActiveFocus()
-        rectViewSuggestion.expand()
+        translateSearchText.updateSuggestList();
         Controller.doSuggest(translateSearchText.text, lgSrc, suggestModel, tabs)
     }
 

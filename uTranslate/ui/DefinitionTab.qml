@@ -217,7 +217,7 @@ Tab {
         definitionTab.setLang(context['lgsrc'])
         // 'lgdest':unused
         Controller.updateSuggestionModel(suggestModel, context['suggest'])
-        if (startup) {
+        if (startup || definitionSearchText.text === "") {
             /*
             // version :
             // - focus on search text,
@@ -251,7 +251,7 @@ Tab {
     function doSuggest() {
         var lg = definitionTab.langSrc;
         definitionSearchText.forceActiveFocus();
-        rectViewSuggestion.expand();
+        definitionSearchText.updateSuggestList()
         Controller.doSuggest(definitionSearchText.text, lg, suggestModel, tabs);
     }
 
