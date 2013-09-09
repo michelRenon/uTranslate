@@ -34,7 +34,7 @@ Tab {
             height: translateSearchText.height
             text: ""
             iconSource: "../graphics/ext/fra.png"
-            onClicked: PopupUtils.open(langSelector, translateBtnLgSrc)
+            onClicked: PopupUtils.open(langSelectorComponent, translateBtnLgSrc)
         }
         TextField {
             id: translateSearchText
@@ -85,7 +85,7 @@ Tab {
             height: translateSearchText.height
             text: ""
             iconSource: "../graphics/ext/eng.png"
-            onClicked: PopupUtils.open(langSelector, translateBtnLgDest)
+            onClicked: PopupUtils.open(langSelectorComponent, translateBtnLgDest)
         }
         Button {
             id:translateBtnSearch
@@ -229,7 +229,7 @@ Tab {
         }
 
         LangSelector {
-            id: langSelector
+            id: langSelectorComponent
         }
 
     }

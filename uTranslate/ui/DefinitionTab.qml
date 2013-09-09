@@ -34,7 +34,7 @@ Tab {
             height: definitionSearchText.height
             text: ""
             iconSource: "../graphics/ext/fra.png"
-            onClicked: PopupUtils.open(langSelector, definitionBtnLgSrc)
+            onClicked: PopupUtils.open(langSelectorComponent, definitionBtnLgSrc)
         }
         TextField {
             id: definitionSearchText
@@ -202,7 +202,7 @@ Tab {
         }
 
         LangSelector {
-            id: langSelector
+            id: langSelectorComponent
         }
     }
 
