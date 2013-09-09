@@ -5,8 +5,9 @@
  */
 import QtQuick 2.0
 import Ubuntu.Components 0.1
-import "ui"
+import Ubuntu.Components.Popups 0.1
 
+import "ui"
 import "controller.js" as Controller
 
 /*!
@@ -36,6 +37,8 @@ MainView {
         id: tabs
         property var searchContext : {'searchtext': '', 'lgsrc': 'fra', 'lgdest': 'eng', 'suggest': ''}
 
+        property bool loaded: false
+
         TranslationTab {
             objectName: "translationTab"
         }
@@ -43,15 +46,17 @@ MainView {
         DefinitionTab {
             objectName: "definitionTab"
         }
-
+        /*
         ConfigurationTab {
             objectName: "configurationTab"
         }
-
+        */
         onSelectedTabChanged: {
-            // console.debug ("onSelectedTabChanged="+tabs.selectedTab+" : "+tabs.selectedTab.objectName)
-            if (tabs.selectedTab.objectName != "configurationTab") {
-                tabs.selectedTab.updateTabContext(searchContext)
+            if (tabs.loaded) {
+                console.debug ("onSelectedTabChanged="+tabs.selectedTab+" : "+tabs.selectedTab.objectName)
+                if (tabs.selectedTab.objectName != "configurationTab") {
+                    tabs.selectedTab.updateTabContext(searchContext)
+                }
             }
         }
 
@@ -70,6 +75,30 @@ MainView {
 
         Component.onCompleted: {
             // TODO : load searchContext from previous usage
+            console.debug("tabs onCompleted")
+            tabs.selectedTab.updateTabContext(searchContext, true);
+            tabs.loaded = true;
+        }
+    }
+
+    Component {
+        id: configSheetComponent
+        DefaultSheet {
+            id: configSheet
+            title: i18n.tr("Settings")
+            doneButton: true
+
+            Column {
+
+                Label {
+                    text : "To Be Defined"
+                }
+
+                Label {
+                    text : 'The current data provider is Glosbe (<a href="http://glosbe.com">http://glosbe.com</a>)'
+                }
+            }
+            onDoneClicked: PopupUtils.close(configSheet)
         }
     }
 }
