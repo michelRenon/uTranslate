@@ -6,6 +6,7 @@
 import QtQuick 2.0
 import Ubuntu.Components 0.1
 import Ubuntu.Components.Popups 0.1
+import U1db 1.0 as U1db
 
 import "ui"
 import "controller.js" as Controller
@@ -33,6 +34,19 @@ MainView {
     height: units.gu(60)
     // anchors.fill: parent
     
+    U1db.Database {
+        id: utranslateDB
+        path: "utranslateDB"
+    }
+
+    U1db.Document {
+        id: dbContext
+        database: utranslateDB
+        docId: 'context'
+        create: true
+        defaults: { 'lgsrc': 'eng', 'lgdest': 'deu'}
+    }
+
     Tabs {
         id: tabs
         property var searchContext : {'searchtext': '', 'lgsrc': 'fra', 'lgdest': 'eng', 'suggest': ''}
@@ -66,6 +80,12 @@ MainView {
         }
 
         function updateContext(params) {
+            setContext(params);
+            // store some params in u1db
+            saveDb();
+        }
+
+        function setContext(params) {
             // console.debug("TABS : new params="+params)
             for (var param in params) {
                 searchContext[param] = params[param]
@@ -73,9 +93,19 @@ MainView {
             }
         }
 
+        function saveDb() {
+            var temp = {};
+            temp['lgsrc'] = searchContext['lgsrc'];
+            temp['lgdest'] = searchContext['lgdest'];
+            dbContext.contents = temp;
+        }
+
         Component.onCompleted: {
-            // TODO : load searchContext from previous usage
-            console.debug("tabs onCompleted")
+            // console.debug("tabs onCompleted")
+            // Load searchContext from previous usage.
+            var params = dbContext.contents;
+            // console.debug("params="+Object.keys(params))
+            setContext(params);
             tabs.selectedTab.updateTabContext(searchContext, true);
             tabs.loaded = true;
         }
