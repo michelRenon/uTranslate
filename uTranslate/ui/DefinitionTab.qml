@@ -110,7 +110,7 @@ Tab {
                     anchors.top: parent.top
                     anchors.leftMargin: units.gu(1)
                     anchors.rightMargin: units.gu(1)
-                    placeholderText: "Enter text"
+                    placeholderText: i18n.tr("Enter text")
                     hasClearButton: true
 
                     onAccepted: {
@@ -165,7 +165,7 @@ Tab {
                 z: layouts.currentLayout == "2columns" ? 0 : 1
                 anchors.top: definitionSearchBar.bottom
                 anchors.left: definitionSearchBar.left
-                anchors.right: parent.right // definitionSearchText.right
+                anchors.right: parent.right
                 anchors.rightMargin: units.gu(1)
                 anchors.leftMargin: units.gu(7) // 6+1
                 height: units.gu(0) // ????
@@ -360,9 +360,11 @@ Tab {
     function setResult(resultText, focusRes) {
         // console.debug("appel de definitionTab.setResult()");
         if (resultText == "") {
-            definitionRes.text = "<i>No Result</i>";
+            definitionRes.text = "<i>"+i18n.tr("No Result")+"</i>";
         } else {
-            definitionRes.text = "<h1>Definition of '"+definitionSearchText.text+"'</h1>"+resultText;
+            var message = i18n.tr("Definition of '%1'")
+            message = message.replace("%1", definitionSearchText.text)
+            definitionRes.text = "<h1>"+message+"</h1>"+resultText;
         }
         if (focusRes)
             definitionRes.forceActiveFocus();

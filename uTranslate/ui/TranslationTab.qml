@@ -113,7 +113,7 @@ Tab {
                     anchors.top: parent.top
                     anchors.leftMargin: units.gu(1)
                     anchors.rightMargin: units.gu(1)
-                    placeholderText: "enter text to translate"
+                    placeholderText: i18n.tr("Enter text to translate")
                     hasClearButton: true
 
                     onAccepted: {
@@ -394,9 +394,11 @@ Tab {
     function setResult(resultText, focusRes) {
         // console.debug("appel de translationTab.setResult()");
         if (resultText == "") {
-            translateRes.text = "<i>No Result</i>";
+            translateRes.text = "<i>"+i18n.tr("No Result")+"</i>";
         } else {
-            translateRes.text = "<h1>Translation of '"+translateSearchText.text+"'</h1>"+resultText;
+            var message = i18n.tr("Translation of '%1'")
+            message = message.replace("%1", translateSearchText.text)
+            translateRes.text = "<h1>"+message+"</h1>"+resultText;
         }
         if (focusRes)
             translateRes.forceActiveFocus();
