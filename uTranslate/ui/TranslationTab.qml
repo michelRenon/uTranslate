@@ -25,16 +25,12 @@ Tab {
             objectName: "worldTab_tools"
         }
 
-
         Layouts {
             id: layouts
             anchors.fill: parent
 
-
             // onWidthChanged: console.debug("layouts layout.width="+layouts.width)
-
             // onLayoutsChanged: console.debug("TR LAYOUT changed="+currentLayout)
-
 
             layouts: [
                 ConditionalLayout {
@@ -47,7 +43,6 @@ Tab {
                         anchors.fill: parent
 
                         ItemLayout {
-                            // id: definitionSearchBar
                             item: "itemSearchBar"
                             width: parent.width / 2 - units.gu(2)
                             anchors {
@@ -74,14 +69,13 @@ Tab {
                                 left: parent.left
                                 leftMargin: units.gu(8)
                                 bottom: parent.bottom
-                                bottomMargin: - units.gu(1)
+                                bottomMargin: units.gu(1)
                             }
-                            width: (parent.width / 2) - units.gu(9) // 8 à gauche, 10 à gauche
+                            width: (parent.width / 2) - units.gu(9) // 8 from left, 1 from right
                         }
                     }
                 }
             ]
-
 
             // default layout
             Item {
@@ -92,7 +86,6 @@ Tab {
                     left : parent.left
                     right: parent.right
                 }
-                // height: units.gu(5) //
                 height: translateSearchText.height
                 anchors.margins: units.gu(1)
                 /*
@@ -107,7 +100,6 @@ Tab {
                     objectName: "LangSrc"
                     anchors.left : parent.left
                     anchors.top: parent.top
-                    // anchors.margins: units.gu(1)
                     width: units.gu(6)
                     height: translateSearchText.height
                     text: ""
@@ -182,7 +174,6 @@ Tab {
                     id:translateBtnSwitchLg
                     anchors.right: parent.right
                     anchors.top: parent.top
-                    // anchors.margins: units.gu(1)
                     width: units.gu(6)
                     height: translateSearchText.height
                     text: "<-->"
@@ -197,6 +188,7 @@ Tab {
                 anchors.top: translationSearchBar.bottom
                 anchors.left: translationSearchBar.left
                 anchors.right: parent.right // definitionSearchText.right
+                anchors.rightMargin: units.gu(1)
                 anchors.leftMargin: units.gu(7) // 6+1
                 height: units.gu(0) // ????
                 border.color: "#aaaaaa"
@@ -307,14 +299,11 @@ Tab {
                 placeholderText: "<i>Translations</i>"
                 textFormat : TextEdit.RichText
                 enabled: true
-                // anchors.top: rectViewSuggestion.bottom
                 anchors.top: translationSearchBar.bottom
                 anchors.topMargin: units.gu(1)
                 anchors.bottom: parent.bottom
-                width: parent.width
-
-                // onActiveFocusChanged: rectViewSuggestion.reduce()
-
+                anchors.left: parent.left
+                anchors.right: parent.right
             }
 
             LangSelector {

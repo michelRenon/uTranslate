@@ -29,7 +29,6 @@ Tab {
             id: layouts
             anchors.fill: parent
 
-
             // onWidthChanged: console.debug("layouts layout.width="+layouts.width)
 
             layouts: [
@@ -41,9 +40,8 @@ Tab {
                         anchors.fill: parent
 
                         ItemLayout {
-                            // id: definitionSearchBar
                             item: "itemSearchBar"
-                            width: parent.width / 3 - units.gu(2)
+                            width: parent.width / 2 - units.gu(2)
                             anchors {
                                 top: parent.top
                                 bottom: parent.bottom
@@ -53,7 +51,7 @@ Tab {
                         }
                         ItemLayout {
                             item: "itemRes"
-                            width: parent.width * 2 / 3
+                            width: parent.width / 2
                             anchors {
                                 top: parent.top
                                 bottom: parent.bottom
@@ -68,14 +66,13 @@ Tab {
                                 left: parent.left
                                 leftMargin: units.gu(8)
                                 bottom: parent.bottom
-                                bottomMargin: - units.gu(1)
+                                bottomMargin: units.gu(1)
                             }
-                            width: (parent.width / 3) - units.gu(9) // 8 à gauche, 10 à gauche
+                            width: (parent.width / 2) - units.gu(9) // 8 from left, 1 from right
                         }
                     }
                 }
             ]
-
 
             // default layout
             Item {
@@ -86,7 +83,6 @@ Tab {
                     left : parent.left
                     right: parent.right
                 }
-                // height: units.gu(5) //
                 height: definitionSearchText.height
                 anchors.margins: units.gu(1)
                 /*
@@ -99,10 +95,8 @@ Tab {
                 Button {
                     id:definitionBtnLgSrc
                     objectName: "LangSrc"
-                    // Layouts.item: "itemBtnLgSrc"
                     anchors.left: parent.left
                     anchors.top: parent.top
-                    // anchors.rightMargin: units.gu(1)
                     width: units.gu(6)
                     height: definitionSearchText.height
                     text: ""
@@ -111,7 +105,6 @@ Tab {
                 }
                 TextField {
                     id: definitionSearchText
-                    // Layouts.item: "itemSearchText"
                     anchors.left: definitionBtnLgSrc.right
                     anchors.right: definitionBtnSearch.left
                     anchors.top: parent.top
@@ -173,6 +166,7 @@ Tab {
                 anchors.top: definitionSearchBar.bottom
                 anchors.left: definitionSearchBar.left
                 anchors.right: parent.right // definitionSearchText.right
+                anchors.rightMargin: units.gu(1)
                 anchors.leftMargin: units.gu(7) // 6+1
                 height: units.gu(0) // ????
                 border.color: "#aaaaaa"
@@ -289,7 +283,6 @@ Tab {
                 anchors.bottom: parent.bottom
                 anchors.left: parent.left
                 anchors.right: parent.right
-                // width: parent.width
             }
 
             LangSelector {
