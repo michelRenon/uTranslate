@@ -63,10 +63,11 @@ MainView {
             objectName: "definitionTab"
         }
 
+        /*
         ConfigurationTab {
             objectName: "configurationTab"
         }
-
+        */
         onSelectedTabChanged: {
             if (tabs.loaded) {
                 console.debug ("onSelectedTabChanged="+tabs.selectedTab+" : "+tabs.selectedTab.objectName)
