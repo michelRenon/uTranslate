@@ -6,11 +6,9 @@
 import QtQuick 2.0
 import Ubuntu.Components 0.1
 import Ubuntu.Components.Popups 0.1
-import U1db 1.0 as U1db
-
-import Ubuntu.Layouts 0.1
 import Ubuntu.Components.ListItems 0.1 as ListItem
-
+import Ubuntu.Layouts 0.1
+import U1db 1.0 as U1db
 
 import "ui"
 import "controller.js" as Controller
@@ -136,121 +134,3 @@ MainView {
         }
     }
 }
-
-
-
-/*
-MainView {
-    id: root
-    width: units.gu(50)
-    height: units.gu(75)
-
-    Page {
-        anchors.fill: parent
-
-        Layouts {
-            id: layouts
-            anchors.fill: parent
-            layouts: [
-
-                ConditionalLayout {
-                    name: "flow"
-                    when: layouts.width > units.gu(60)
-
-                    Flow {
-                        anchors.fill: parent
-                        flow: Flow.LeftToRight
-
-                        ItemLayout {
-                            item: "sidebar"
-                            id: sidebar
-                            anchors {
-                                top: parent.top
-                                bottom: parent.bottom
-                            }
-                            width: parent.width / 3
-                        }
-
-                        ItemLayout {
-                            item: "colors"
-                            anchors {
-                                top: parent.top
-                                bottom: parent.bottom
-                                right: parent.right
-                                left: sidebar.right
-                            }
-                        }
-                    }
-                }
-            ]
-
-            Column {
-                id: sidebar
-                anchors {
-                    left: parent.left
-                    top: parent.top
-                    right: parent.right
-                }
-                Layouts.item: "sidebar"
-
-                ListItem.Header {
-                    text: "Ubuntu Color Palette"
-                }
-
-                ListItem.Standard {
-                    id: orangeBtn
-                    text: "Ubuntu Orange"
-                    control: Button {
-                        text: "Click me"
-                        onClicked: {
-                            hello.color = UbuntuColors.orange
-                        }
-                    }
-                }
-
-                ListItem.Standard {
-                    id: auberBtn
-                    text: "Canonical Aubergine"
-                    control: Button {
-                        text: "Click me"
-                        onClicked: {
-                            hello.color = UbuntuColors.lightAubergine
-                        }
-                    }
-                }
-
-                ListItem.Standard {
-                    id: grayBtn
-                    text: "Warm Grey"
-                    control: Button {
-                        text: "Click me"
-                        onClicked: {
-                            hello.color = UbuntuColors.warmGrey
-                        }
-                    }
-                }
-            } // Column
-
-            Rectangle {
-                id: hello
-                Layouts.item: "colors"
-                color: UbuntuColors.warmGrey
-                anchors {
-                    top: sidebar.bottom
-                    bottom: parent.bottom
-                    left: parent.left
-                    right: parent.right
-                }
-
-                Label {
-                    anchors.centerIn: parent
-                    text: "Hello (ConditionalLayout) World!"
-                    color: "black"
-                    fontSize: "large"
-                }
-            }
-        } // Layouts
-    } // Page
-} // Main View
-
-*/
