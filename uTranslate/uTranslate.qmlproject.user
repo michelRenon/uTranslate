@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
 <!-- Written by QtCreator 2.7.1, 2013-09-11T23:19:07. -->
+=======
+<!-- Written by QtCreator 2.7.1, 2013-09-12T11:42:06. -->
+>>>>>>> convergence
 <qtcreator>
  <data>
   <variable>ProjectExplorer.Project.ActiveTarget</variable>

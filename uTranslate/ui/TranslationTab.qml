@@ -6,6 +6,7 @@
 import QtQuick 2.0
 import Ubuntu.Components 0.1
 import Ubuntu.Components.Popups 0.1
+import Ubuntu.Layouts 0.1
 
 import "../components"
 import "../controller.js" as Controller
@@ -24,213 +25,290 @@ Tab {
             objectName: "worldTab_tools"
         }
 
-        Button {
-            id:translateBtnLgSrc
-            objectName: "LangSrc"
-            anchors.left : parent.left
-            anchors.top: parent.top
-            anchors.margins: units.gu(1)
-            width: units.gu(6)
-            height: translateSearchText.height
-            text: ""
-            iconSource: "../graphics/ext/fra.png"
-            onClicked: PopupUtils.open(langSelectorComponent, translateBtnLgSrc)
-        }
-        TextField {
-            id: translateSearchText
-            anchors.left: translateBtnLgSrc.right
-            anchors.right: translateBtnLgDest.left
-            anchors.top: parent.top
-            anchors.margins: units.gu(1)
-            placeholderText: "enter text to translate"
-            hasClearButton: true
+        Layouts {
+            id: layouts
+            anchors.fill: parent
 
-            onAccepted: {
-                // console.debug("onAccepted:'"+translateSearchText.text+"'")
-                tabs.updateContext({'searchtext':translateSearchText.text})
-                translationTab.doTranslate()
-            }
+            // onWidthChanged: console.debug("layouts layout.width="+layouts.width)
+            // onLayoutsChanged: console.debug("TR LAYOUT changed="+currentLayout)
 
-            onTextChanged: {
-                // console.debug("text changed='"+translateSearchText.text+"', "+translationTab.canSuggest)
-                if (translationTab.canSuggest) {
-                    tabs.updateContext({'searchtext':translateSearchText.text})
-                    translationTab.doSuggest()
-                }
-            }
+            layouts: [
+                ConditionalLayout {
+                    name: "2columns"
+                    when: layouts.width > units.gu(80)
 
-            onFocusChanged: {
-                // console.debug("onFocusChanged="+translateSearchText.focus);
-                translateSearchText.updateSuggestList();
-            }
+                    // onLayoutChanged: console.debug("TR LAYOUT changed="+layouts.currentLayout)
 
-            function updateSuggestList() {
-                var test = translationTab.canSuggest;
-                test = test && translateSearchText.focus;
-                test = test && translateSearchText.text != "";
-                // console.debug("translateSearchText.updateSuggestList test="+test+", visible="+rectViewSuggestion.visible);
-                if (test)
-                    rectViewSuggestion.expand()
-                else
-                    rectViewSuggestion.reduce()
-            }
-        }
-        Button {
-            id:translateBtnLgDest
-            objectName: "LangDest"
-            anchors.right: translateBtnSearch.left
-            anchors.top: parent.top
-            anchors.margins: units.gu(1)
-            width: units.gu(6)
-            height: translateSearchText.height
-            text: ""
-            iconSource: "../graphics/ext/eng.png"
-            onClicked: PopupUtils.open(langSelectorComponent, translateBtnLgDest)
-        }
-        Button {
-            id:translateBtnSearch
-            anchors.right: translateBtnSwitchLg.left
-            anchors.top: parent.top
-            anchors.margins: units.gu(1)
-            width: units.gu(8)
-            height: translateSearchText.height
-            text: "Search"
-            onClicked: translationTab.doTranslate()
-        }
-        Button {
-            id:translateBtnSwitchLg
-            anchors.right: parent.right
-            anchors.top: parent.top
-            anchors.margins: units.gu(1)
-            width: units.gu(6)
-            height: translateSearchText.height
-            text: "<-->"
-            onClicked: translationTab.doSwitchLg()
-        }
-
-
-        Rectangle {
-            id: rectViewSuggestion
-            z: 1
-            anchors.top: translateBtnLgSrc.bottom
-            anchors.left: translateSearchText.left
-            anchors.right: parent.right // translateSearchText.right
-            height: units.gu(0) // ????
-            border.color: "#aaaaaa"
-            clip: true
-            visible: true
-
-            property bool expanded: false
-
-            ListView {
-                id: listViewSuggestion
-                anchors.fill: parent
-                anchors.margins: units.gu(1)
-                model: suggestModel
-                // delegate: suggestDelegate
-
-                delegate: Rectangle {
-                    width: ListView.view.width
-                    height: units.gu(3)
-                    Text {
+                    Item {
                         anchors.fill: parent
 
-                        // Ajouter du style pour surligner les lettres correspondantes.
-                        // TODO : mieux gérer les remplacement : maj/minuscules, caracteres proches (eéè...)
-                        // TODO : voir si les perfs sont OK (mettre en cache le search text ?)
-                        text: {
-                            if (suggest)
-                                return suggest.replace(translateSearchText.text, "<b>"+translateSearchText.text+"</b>")
-                            else
-                                return ""
+                        ItemLayout {
+                            item: "itemSearchBar"
+                            width: parent.width / 2 - units.gu(2)
+                            anchors {
+                                top: parent.top
+                                bottom: parent.bottom
+                                left: parent.left
+                            }
+                            anchors.margins: units.gu(1)
                         }
-                        MouseArea{
+                        ItemLayout {
+                            item: "itemRes"
+                            width: parent.width /2
+                            anchors {
+                                top: parent.top
+                                bottom: parent.bottom
+                                right: parent.right
+                            }
+                        }
+                        ItemLayout {
+                            item: "itemSuggestion"
+                            anchors {
+                                top: parent.top
+                                topMargin: units.gu(5)
+                                left: parent.left
+                                leftMargin: units.gu(8)
+                                bottom: parent.bottom
+                                bottomMargin: units.gu(1)
+                            }
+                            width: (parent.width / 2) - units.gu(9) // 8 from left, 1 from right
+                        }
+                    }
+                }
+            ]
+
+            // default layout
+            Item {
+                id:translationSearchBar
+                Layouts.item: "itemSearchBar"
+                anchors {
+                    top: parent.top
+                    left : parent.left
+                    right: parent.right
+                }
+                height: translateSearchText.height
+                anchors.margins: units.gu(1)
+                /*
+                Rectangle {
+                    anchors.fill: parent
+                    color: "#cc5555"
+                }
+                */
+
+                Button {
+                    id:translateBtnLgSrc
+                    objectName: "LangSrc"
+                    anchors.left : parent.left
+                    anchors.top: parent.top
+                    width: units.gu(6)
+                    height: translateSearchText.height
+                    text: ""
+                    iconSource: "../graphics/ext/fra.png"
+                    onClicked: PopupUtils.open(langSelectorComponent, translateBtnLgSrc)
+                }
+                TextField {
+                    id: translateSearchText
+                    anchors.left: translateBtnLgSrc.right
+                    anchors.right: translateBtnLgDest.left
+                    anchors.top: parent.top
+                    anchors.leftMargin: units.gu(1)
+                    anchors.rightMargin: units.gu(1)
+                    placeholderText: "enter text to translate"
+                    hasClearButton: true
+
+                    onAccepted: {
+                        // console.debug("onAccepted:'"+translateSearchText.text+"'")
+                        tabs.updateContext({'searchtext':translateSearchText.text})
+                        translationTab.doTranslate()
+                    }
+
+                    onTextChanged: {
+                        // console.debug("text changed='"+translateSearchText.text+"', "+translationTab.canSuggest)
+                        if (translationTab.canSuggest) {
+                            tabs.updateContext({'searchtext':translateSearchText.text})
+                            translationTab.doSuggest()
+                        }
+                    }
+
+                    onFocusChanged: {
+                        // console.debug("onFocusChanged="+translateSearchText.focus);
+                        translateSearchText.updateSuggestList();
+                    }
+
+                    function updateSuggestList() {
+                        var test = translationTab.canSuggest;
+                        test = test && translateSearchText.focus;
+                        test = test && translateSearchText.text != "";
+                        // console.debug("translateSearchText.updateSuggestList test="+test+", visible="+rectViewSuggestion.visible);
+                        if (test)
+                            rectViewSuggestion.expand()
+                        else
+                            rectViewSuggestion.reduce()
+                    }
+                }
+                Button {
+                    id:translateBtnLgDest
+                    objectName: "LangDest"
+                    anchors.right: translateBtnSearch.left
+                    anchors.top: parent.top
+                    anchors.leftMargin: units.gu(1)
+                    anchors.rightMargin: units.gu(1)
+                    width: units.gu(6)
+                    height: translateSearchText.height
+                    text: ""
+                    iconSource: "../graphics/ext/eng.png"
+                    onClicked: PopupUtils.open(langSelectorComponent, translateBtnLgDest)
+                }
+                Button {
+                    id:translateBtnSearch
+                    anchors.right: translateBtnSwitchLg.left
+                    anchors.top: parent.top
+                    anchors.leftMargin: units.gu(1)
+                    anchors.rightMargin: units.gu(1)
+                    width: units.gu(8)
+                    height: translateSearchText.height
+                    text: "Search"
+                    onClicked: translationTab.doTranslate()
+                }
+                Button {
+                    id:translateBtnSwitchLg
+                    anchors.right: parent.right
+                    anchors.top: parent.top
+                    width: units.gu(6)
+                    height: translateSearchText.height
+                    text: "<-->"
+                    onClicked: translationTab.doSwitchLg()
+                }
+
+            }
+            Rectangle {
+                id: rectViewSuggestion
+                Layouts.item: "itemSuggestion"
+                z: layouts.currentLayout == "2columns" ? 0 : 1
+                anchors.top: translationSearchBar.bottom
+                anchors.left: translationSearchBar.left
+                anchors.right: parent.right // definitionSearchText.right
+                anchors.rightMargin: units.gu(1)
+                anchors.leftMargin: units.gu(7) // 6+1
+                height: units.gu(0) // ????
+                border.color: "#aaaaaa"
+                clip: true
+                visible: true
+
+                property bool expanded: false
+
+                ListView {
+                    id: listViewSuggestion
+                    anchors.fill: parent
+                    anchors.margins: units.gu(1)
+                    model: suggestModel
+                    // delegate: suggestDelegate
+
+                    delegate: Rectangle {
+                        width: ListView.view.width
+                        height: units.gu(3)
+                        Text {
                             anchors.fill: parent
-                            onClicked: {
-                                if (rectViewSuggestion.expanded) {
-                                    // TODO : check if it'd be better to move next lines in a function
-                                    translationTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
-                                    translateSearchText.text = suggest
-                                    tabs.updateContext({'searchtext':translateSearchText.text})
-                                    translationTab.canSuggest = true
+
+                            // Ajouter du style pour surligner les lettres correspondantes.
+                            // TODO : mieux gérer les remplacement : maj/minuscules, caracteres proches (eéè...)
+                            // TODO : voir si les perfs sont OK (mettre en cache le search text ?)
+                            text: {
+                                if (suggest)
+                                    return suggest.replace(translateSearchText.text, "<b>"+translateSearchText.text+"</b>")
+                                else
+                                    return ""
+                            }
+                            MouseArea{
+                                anchors.fill: parent
+                                onClicked: {
+                                    if (rectViewSuggestion.expanded || layouts.currentLayout == "2columns") {
+                                        // TODO : check if it'd be better to move next lines in a function
+                                        translationTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
+                                        translateSearchText.text = suggest
+                                        tabs.updateContext({'searchtext':translateSearchText.text})
+                                        translationTab.canSuggest = true
 
 
-                                    // start translation
-                                    translationTab.doTranslate()
-                                } else {
-                                    rectViewSuggestion.expand()
+                                        // start translation
+                                        translationTab.doTranslate()
+                                    } else {
+                                        rectViewSuggestion.expand()
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
-            Scrollbar {
-                flickableItem: listViewSuggestion
-            }
+                Scrollbar {
+                    flickableItem: listViewSuggestion
+                }
 
-            function reduce() {
-                if (rectViewSuggestion.expanded != false) {
-                    animateReduce.start()
-                    rectViewSuggestion.expanded = false
+                function reduce() {
+                    if (layouts.currentLayout != "2columns" ) {
+                        if (rectViewSuggestion.expanded != false) {
+                            animateReduce.start()
+                            rectViewSuggestion.expanded = false
+                        }
+                    }
+                }
+
+                function expand() {
+                    // console.debug("EXPAND() : rectViewSuggestion.expanded="+rectViewSuggestion.expanded+" visible="+rectViewSuggestion.visible);
+                    if (layouts.currentLayout != "2columns" ) {
+                        if (rectViewSuggestion.expanded != true) {
+                            animateExpand.start()
+                            rectViewSuggestion.expanded = true
+                        }
+                    }
+                }
+
+                NumberAnimation {
+                    id: animateReduce
+                    target: rectViewSuggestion
+                    properties: "height"
+                    from: units.gu(20)
+                    to: units.gu(0)
+                    duration: 100
+                }
+
+                NumberAnimation {
+                    id: animateExpand
+                    target: rectViewSuggestion
+                    properties: "height"
+                    from: units.gu(0)
+                    to: units.gu(20)
+                    duration: 100
+                }
+
+                Component.onCompleted: {
+                    rectViewSuggestion.reduce()
                 }
             }
 
-            function expand() {
-                // console.debug("EXPAND() : rectViewSuggestion.expanded="+rectViewSuggestion.expanded+" visible="+rectViewSuggestion.visible);
-                if (rectViewSuggestion.expanded != true) {
-                    animateExpand.start()
-                    rectViewSuggestion.expanded = true
+            ListModel {
+                id: suggestModel
+
+                ListElement {
+                    suggest: ""
                 }
             }
-
-            NumberAnimation {
-                id: animateReduce
-                target: rectViewSuggestion
-                properties: "height"
-                from: units.gu(20)
-                to: units.gu(0)
-                duration: 100
+            TextArea {
+                id: translateRes
+                Layouts.item: "itemRes"
+                placeholderText: "<i>Translations</i>"
+                textFormat : TextEdit.RichText
+                enabled: true
+                anchors.top: translationSearchBar.bottom
+                anchors.topMargin: units.gu(1)
+                anchors.bottom: parent.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
             }
 
-            NumberAnimation {
-                id: animateExpand
-                target: rectViewSuggestion
-                properties: "height"
-                from: units.gu(0)
-                to: units.gu(20)
-                duration: 100
+            LangSelector {
+                id: langSelectorComponent
             }
-
-            Component.onCompleted: {
-                rectViewSuggestion.reduce()
-            }
-        }
-
-        ListModel {
-            id: suggestModel
-
-            ListElement {
-                suggest: ""
-            }
-        }
-        TextArea {
-            id: translateRes
-            placeholderText: "<i>Translations</i>"
-            textFormat : TextEdit.RichText
-            enabled: true
-            // anchors.top: rectViewSuggestion.bottom
-            anchors.top: translateBtnLgSrc.bottom
-            anchors.topMargin: units.gu(1)
-            anchors.bottom: parent.bottom
-            width: parent.width
-
-            // onActiveFocusChanged: rectViewSuggestion.reduce()
-
-        }
-
-        LangSelector {
-            id: langSelectorComponent
         }
 
     }
