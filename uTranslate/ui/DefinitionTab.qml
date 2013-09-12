@@ -34,7 +34,7 @@ Tab {
 
             layouts: [
                 ConditionalLayout {
-                    name: "column"
+                    name: "2columns"
                     when: layouts.width > units.gu(80)
 
                     Item {
@@ -50,42 +50,6 @@ Tab {
                                 left: parent.left
                             }
                             anchors.margins: units.gu(1)
-                            /*
-                            ItemLayout {
-                                id: definitionBtnLgSrc
-                                item: "itemBtnLgSrc"
-                                anchors.left: parent.left
-                                anchors.top: parent.top
-                                // anchors.margins: units.gu(1)
-                                width: units.gu(6)
-                                height: definitionSearchText.height
-                            }
-                            ItemLayout {
-                                id: definitionSearchText
-                                item: "itemSearchText"
-                                anchors.left: definitionBtnLgSrc.right
-                                anchors.right: definitionBtnSearch.left
-                                anchors.top: parent.top
-                            }
-                            ItemLayout {
-                                id:definitionBtnSearch
-                                item: "itemBtnSearch"
-                                anchors.right: parent.right
-                                anchors.top: parent.top
-                                // anchors.margins: units.gu(1)
-                                width: units.gu(8)
-                                height: definitionSearchText.height
-                            }
-                            ItemLayout {
-                                id: rectViewSuggestion
-                                item: "itemSuggestion"
-                                z: 1
-                                anchors.top: definitionBtnLgSrc.bottom
-                                anchors.left: definitionSearchText.left
-                                anchors.right: parent.right // definitionSearchText.right
-                                height: units.gu(0) // ????
-                             }
-                             */
                         }
                         ItemLayout {
                             item: "itemRes"
@@ -95,6 +59,18 @@ Tab {
                                 bottom: parent.bottom
                                 right: parent.right
                             }
+                        }
+                        ItemLayout {
+                            item: "itemSuggestion"
+                            anchors {
+                                top: parent.top
+                                topMargin: units.gu(5)
+                                left: parent.left
+                                leftMargin: units.gu(8)
+                                bottom: parent.bottom
+                                bottomMargin: - units.gu(1)
+                            }
+                            width: (parent.width / 3) - units.gu(9) // 8 à gauche, 10 à gauche
                         }
                     }
                 }
@@ -113,10 +89,12 @@ Tab {
                 // height: units.gu(5) //
                 height: definitionSearchText.height
                 anchors.margins: units.gu(1)
+                /*
                 Rectangle {
                     anchors.fill: parent
                     color: "#cc5555"
                 }
+                */
 
                 Button {
                     id:definitionBtnLgSrc
@@ -184,113 +162,122 @@ Tab {
                     onClicked: definitionTab.doDefine()
                 }
 
-                Rectangle {
-                    id: rectViewSuggestion
-                    // Layouts.item: "itemSuggestion"
-                    z: 1
-                    anchors.top: definitionBtnLgSrc.bottom
-                    anchors.left: definitionSearchText.left
-                    anchors.right: parent.right // definitionSearchText.right
-                    height: units.gu(0) // ????
-                    border.color: "#aaaaaa"
-                    clip: true
-                    visible: true
 
-                    property bool expanded: false
+            }
 
-                    ListView {
-                        id: listViewSuggestion
-                        anchors.fill: parent
-                        anchors.margins: units.gu(1)
-                        model: suggestModel
-                        // delegate: suggestDelegate
 
-                        delegate: Rectangle {
-                            width: ListView.view.width
-                            height: units.gu(3)
-                            Text {
+            Rectangle {
+                id: rectViewSuggestion
+                Layouts.item: "itemSuggestion"
+                z: layouts.currentLayout == "2columns" ? 0 : 1
+                anchors.top: definitionSearchBar.bottom
+                anchors.left: definitionSearchBar.left
+                anchors.right: parent.right // definitionSearchText.right
+                anchors.leftMargin: units.gu(7) // 6+1
+                height: units.gu(0) // ????
+                border.color: "#aaaaaa"
+                clip: true
+                visible: true
+
+                property bool expanded: false
+
+                ListView {
+                    id: listViewSuggestion
+                    anchors.fill: parent
+                    anchors.margins: units.gu(1)
+                    model: suggestModel
+                    // delegate: suggestDelegate
+
+                    delegate: Rectangle {
+                        width: ListView.view.width
+                        height: units.gu(3)
+                        Text {
+                            anchors.fill: parent
+
+                            // Ajouter du style pour surligner les lettres correspondantes.
+                            // TODO : mieux gérer les remplacement : maj/minuscules, caracteres proches (eéè...)
+                            // TODO : voir si les perfs sont OK (mettre en cache le search text ?)
+                            text: {
+                                if (suggest)
+                                    return suggest.replace(definitionSearchText.text, "<b>"+definitionSearchText.text+"</b>")
+                                else
+                                    return ""
+                            }
+                            MouseArea{
                                 anchors.fill: parent
+                                onClicked: {
+                                    if (rectViewSuggestion.expanded || layouts.currentLayout == "2columns") {
+                                        // TODO : check if it'd be better to move next lines in a function
+                                        definitionTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
+                                        definitionSearchText.text = suggest
+                                        tabs.updateContext({'searchtext':definitionSearchText.text})
+                                        definitionTab.canSuggest = true
 
-                                // Ajouter du style pour surligner les lettres correspondantes.
-                                // TODO : mieux gérer les remplacement : maj/minuscules, caracteres proches (eéè...)
-                                // TODO : voir si les perfs sont OK (mettre en cache le search text ?)
-                                text: {
-                                    if (suggest)
-                                        return suggest.replace(definitionSearchText.text, "<b>"+definitionSearchText.text+"</b>")
-                                    else
-                                        return ""
-                                }
-                                MouseArea{
-                                    anchors.fill: parent
-                                    onClicked: {
-                                        if (rectViewSuggestion.expanded) {
-                                            // TODO : check if it'd be better to move next lines in a function
-                                            definitionTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
-                                            definitionSearchText.text = suggest
-                                            tabs.updateContext({'searchtext':definitionSearchText.text})
-                                            definitionTab.canSuggest = true
-
-                                            // start search of defintion
-                                            definitionTab.doDefine()
-                                        } else {
-                                            rectViewSuggestion.expand()
-                                        }
+                                        // start search of defintion
+                                        definitionTab.doDefine()
+                                    } else {
+                                        rectViewSuggestion.expand()
                                     }
                                 }
                             }
                         }
                     }
-                    Scrollbar {
-                        flickableItem: listViewSuggestion
-                    }
+                }
+                Scrollbar {
+                    flickableItem: listViewSuggestion
+                }
 
-                    function reduce() {
+                function reduce() {
+                    if (layouts.currentLayout != "2columns" ) {
                         if (rectViewSuggestion.expanded != false) {
                             animateReduce.start()
                             rectViewSuggestion.expanded = false
                         }
                     }
+                }
 
-                    function expand() {
-                        // console.debug("EXPAND() : rectViewSuggestion.expanded="+rectViewSuggestion.expanded+" visible="+rectViewSuggestion.visible);
+                function expand() {
+                    // console.debug("EXPAND() : rectViewSuggestion.expanded="+rectViewSuggestion.expanded+" visible="+rectViewSuggestion.visible);
+                    if (layouts.currentLayout != "2columns" ) {
                         if (rectViewSuggestion.expanded != true) {
                             animateExpand.start()
                             rectViewSuggestion.expanded = true
                         }
                     }
-
-                    NumberAnimation {
-                        id: animateReduce
-                        target: rectViewSuggestion
-                        properties: "height"
-                        from: units.gu(20)
-                        to: units.gu(0)
-                        duration: 100
-                    }
-
-                    NumberAnimation {
-                        id: animateExpand
-                        target: rectViewSuggestion
-                        properties: "height"
-                        from: units.gu(0)
-                        to: units.gu(20)
-                        duration: 100
-                    }
-
-                    Component.onCompleted: {
-                        rectViewSuggestion.reduce()
-                    }
                 }
 
-                ListModel {
-                    id: suggestModel
-
-                    ListElement {
-                        suggest: ""
-                    }
+                NumberAnimation {
+                    id: animateReduce
+                    target: rectViewSuggestion
+                    properties: "height"
+                    from: units.gu(20)
+                    to: units.gu(0)
+                    duration: 100
                 }
 
+                NumberAnimation {
+                    id: animateExpand
+                    target: rectViewSuggestion
+                    properties: "height"
+                    from: units.gu(0)
+                    to: units.gu(20)
+                    duration: 100
+                }
+
+                Component.onCompleted: {
+                    rectViewSuggestion.reduce()
+                }
             }
+
+            ListModel {
+                id: suggestModel
+
+                ListElement {
+                    suggest: ""
+                }
+            }
+
+
             TextArea {
                 id: definitionRes
                 Layouts.item: "itemRes"
