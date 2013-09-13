@@ -1,0 +1,14 @@
+{
+    "description": "description of uTranslate",
+    "framework": "ubuntu-sdk-13.10",
+    "hooks": {
+        "uTranslate": {
+            "apparmor": "uTranslate.json",
+            "desktop": "uTranslate.desktop"
+        }
+    },
+    "maintainer": "Michel Renon",
+    "name": "com.ubuntu.developer.mrc.uTranslate",
+    "title": "uTranslate",
+    "version": "0.1"
+}
