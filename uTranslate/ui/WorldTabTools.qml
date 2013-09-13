@@ -13,13 +13,16 @@ ToolbarItems {
     opened: false
 
     ToolbarButton {
-        iconSource: Qt.resolvedUrl("../graphics/toolbarIcon.png")
+        iconSource: Qt.resolvedUrl("../graphics/settings.png")
         text: i18n.tr("Settings")
         
         onTriggered: {
             // label.text = i18n.tr("Toolbar tapped")
             // console.debug("No action on toolbar");
-            PopupUtils.open(configSheetComponent)
+
+            // PopupUtils.open(configSheetComponent)
+
+            pageStack.push(settingsPage)
         }
     }
 }

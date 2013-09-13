@@ -49,89 +49,107 @@ MainView {
         defaults: { 'lgsrc': 'eng', 'lgdest': 'deu'}
     }
 
-    Tabs {
-        id: tabs
-        property var searchContext : {'searchtext': '', 'lgsrc': 'fra', 'lgdest': 'eng', 'suggest': ''}
+    property var pageStack: pageStack
 
-        property bool loaded: false
+    PageStack {
+        id: pageStack
 
-        TranslationTab {
-            objectName: "translationTab"
-        }
-        
-        DefinitionTab {
-            objectName: "definitionTab"
+        Tabs {
+            id: tabs
+            property var searchContext : {'searchtext': '', 'lgsrc': 'fra', 'lgdest': 'eng', 'suggest': ''}
+
+            property bool loaded: false
+
+            TranslationTab {
+                objectName: "translationTab"
+            }
+
+            DefinitionTab {
+                objectName: "definitionTab"
+            }
+
+            onSelectedTabChanged: {
+                if (tabs.loaded) {
+                    console.debug ("onSelectedTabChanged="+tabs.selectedTab+" : "+tabs.selectedTab.objectName)
+                    if (tabs.selectedTab.objectName != "configurationTab") {
+                        tabs.selectedTab.updateTabContext(searchContext)
+                    }
+                }
+            }
+
+            onSelectedTabIndexChanged: {
+                // index are 0-based
+                // console.debug("onSelectedTabIndexChanged="+tabs.selectedTabIndex+", tabs="+tabs.__tabs)
+            }
+
+            function updateContext(params) {
+                setContext(params);
+                // store some params in u1db
+                saveDb();
+            }
+
+            function setContext(params) {
+                // console.debug("TABS : new params="+params)
+                for (var param in params) {
+                    searchContext[param] = params[param]
+                    // console.debug("p:"+param+" = "+params[param])
+                }
+            }
+
+            function saveDb() {
+                var temp = {};
+                temp['lgsrc'] = searchContext['lgsrc'];
+                temp['lgdest'] = searchContext['lgdest'];
+                dbContext.contents = temp;
+            }
+
+            Component.onCompleted: {
+                // console.debug("tabs onCompleted")
+                // Load searchContext from previous usage.
+                var params = dbContext.contents;
+                // console.debug("params="+Object.keys(params))
+                setContext(params);
+                tabs.selectedTab.updateTabContext(searchContext, true);
+                tabs.loaded = true;
+            }
         }
 
-        /*
-        ConfigurationTab {
-            objectName: "configurationTab"
-        }
-        */
-        onSelectedTabChanged: {
-            if (tabs.loaded) {
-                console.debug ("onSelectedTabChanged="+tabs.selectedTab+" : "+tabs.selectedTab.objectName)
-                if (tabs.selectedTab.objectName != "configurationTab") {
-                    tabs.selectedTab.updateTabContext(searchContext)
+        Component {
+            id: settingsPage
+
+            Page {
+                title: i18n.tr("Settings")
+
+                Column {
+                    anchors.fill: parent
+                    spacing: units.gu(2)
+
+                    ListItem.Header {
+                        text : i18n.tr("Providers")
+                    }
+
+                    ListItem.Standard {
+                        text : 'The current data provider is Glosbe (<a href="http://glosbe.com">http://glosbe.com</a>)'
+                     }
+
+                    ListItem.Header {
+                        text : i18n.tr("Languages")
+                    }
+
+                     ListItem.Standard {
+                         text : "The available languages are German, Greek, English, French, Italian, Portuguese, Spanish"
+                         progression: true
+                     }
+
+                }
+
+                tools: ToolbarItems {
+                    locked: true
+                    opened: true // TODO : API change --> open()
                 }
             }
         }
 
-        onSelectedTabIndexChanged: {
-            // index are 0-based
-            // console.debug("onSelectedTabIndexChanged="+tabs.selectedTabIndex+", tabs="+tabs.__tabs)
-        }
-
-        function updateContext(params) {
-            setContext(params);
-            // store some params in u1db
-            saveDb();
-        }
-
-        function setContext(params) {
-            // console.debug("TABS : new params="+params)
-            for (var param in params) {
-                searchContext[param] = params[param]
-                // console.debug("p:"+param+" = "+params[param])
-            }
-        }
-
-        function saveDb() {
-            var temp = {};
-            temp['lgsrc'] = searchContext['lgsrc'];
-            temp['lgdest'] = searchContext['lgdest'];
-            dbContext.contents = temp;
-        }
-
-        Component.onCompleted: {
-            // console.debug("tabs onCompleted")
-            // Load searchContext from previous usage.
-            var params = dbContext.contents;
-            // console.debug("params="+Object.keys(params))
-            setContext(params);
-            tabs.selectedTab.updateTabContext(searchContext, true);
-            tabs.loaded = true;
-        }
-    }
-
-    Component {
-        id: configSheetComponent
-        DefaultSheet {
-            id: configSheet
-            title: i18n.tr("Settings")
-            doneButton: true
-
-            Column {
-
-                Label {
-                    text : "To Be Defined"
-                }
-
-                Label {
-                    text : 'The current data provider is Glosbe (<a href="http://glosbe.com">http://glosbe.com</a>)'
-                }
-            }
-            onDoneClicked: PopupUtils.close(configSheet)
-        }
+        Component.onCompleted: pageStack.push(tabs)
     }
 }
