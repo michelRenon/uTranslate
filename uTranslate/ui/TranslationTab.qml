@@ -21,8 +21,26 @@ Tab {
 
     page: Page {
 
-        tools: WorldTabTools {
-            objectName: "worldTab_tools"
+        tools: ToolbarItems {
+            objectName: "translation_tools"
+            locked: false
+            opened: false
+
+            ToolbarButton {
+                iconSource: Qt.resolvedUrl("../graphics/switch.png")
+                text: i18n.tr("Switch")
+                onTriggered: {
+                    translationTab.doSwitchLg()
+                }
+            }
+
+            ToolbarButton {
+                iconSource: Qt.resolvedUrl("../graphics/settings.png")
+                text: i18n.tr("Settings")
+                onTriggered: {
+                    pageStack.push(settingsPage)
+                }
+            }
         }
 
         Layouts {
@@ -145,22 +163,12 @@ Tab {
                 FlagButton {
                     id:translateBtnLgDest
                     objectName: "LangDest"
-                    anchors.right: translateBtnSwitchLg.left
+                    anchors.right: parent.right
                     anchors.top: parent.top
                     anchors.leftMargin: units.gu(1)
                     anchors.rightMargin: units.gu(1)
                     height: translateSearchText.height
                 }
-                Button {
-                    id:translateBtnSwitchLg
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-                    width: units.gu(6)
-                    height: translateSearchText.height
-                    text: "<-->"
-                    onClicked: translationTab.doSwitchLg()
-                }
-
             }
             Rectangle {
                 id: rectViewSuggestion

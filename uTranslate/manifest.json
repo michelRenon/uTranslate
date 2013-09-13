@@ -7,8 +7,8 @@
             "desktop": "uTranslate.desktop"
         }
     },
-    "maintainer": "Michel Renon",
-    "name": "com.ubuntu.developer.mrc.uTranslate",
+    "maintainer": "",
+    "name": "com.ubuntu.developer.username.uTranslate",
     "title": "uTranslate",
     "version": "0.1"
 }

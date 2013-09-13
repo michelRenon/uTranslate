@@ -103,15 +103,17 @@ MainView {
                 dbContext.contents = temp;
             }
 
+            /*
             Component.onCompleted: {
                 // console.debug("tabs onCompleted")
                 // Load searchContext from previous usage.
                 var params = dbContext.contents;
-                // console.debug("params="+Object.keys(params))
+                console.debug("onCompleted params="+Object.keys(params))
                 setContext(params);
                 tabs.selectedTab.updateTabContext(searchContext, true);
                 tabs.loaded = true;
             }
+            */
         }
 
         Component {
@@ -150,6 +152,17 @@ MainView {
             }
         }
 
-        Component.onCompleted: pageStack.push(tabs)
+        Component.onCompleted:  {
+            // console.debug("PAGESTACK completed")
+            pageStack.push(tabs)
+
+            // Load searchContext from previous usage.
+            var params = dbContext.contents;
+            console.debug("onCompleted params="+Object.keys(params))
+            tabs.setContext(params);
+            tabs.selectedTab.updateTabContext(tabs.searchContext, true);
+            tabs.loaded = true;
+
+        }
     }
 }
