@@ -92,21 +92,18 @@ Tab {
                 }
                 */
 
-                Button {
+                FlagButton {
                     id:definitionBtnLgSrc
                     objectName: "LangSrc"
                     anchors.left: parent.left
-                    anchors.top: parent.top
-                    width: units.gu(6)
                     height: definitionSearchText.height
-                    text: ""
-                    iconSource: "../graphics/ext/fra.png"
-                    onClicked: PopupUtils.open(langSelectorComponent, definitionBtnLgSrc)
                 }
+
                 TextField {
                     id: definitionSearchText
                     anchors.left: definitionBtnLgSrc.right
-                    anchors.right: definitionBtnSearch.left
+                    // anchors.right: definitionBtnSearch.left
+                    anchors.right: parent.right
                     anchors.top: parent.top
                     anchors.leftMargin: units.gu(1)
                     anchors.rightMargin: units.gu(1)
@@ -143,18 +140,6 @@ Tab {
                             rectViewSuggestion.reduce()
                     }
                 }
-                Button {
-                    id:definitionBtnSearch
-                    // Layouts.item: "itemBtnSearch"
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-                    // anchors.margins: units.gu(1)
-                    width: units.gu(8)
-                    height: definitionSearchText.height
-                    text: "Search"
-                    onClicked: definitionTab.doDefine()
-                }
-
 
             }
 
@@ -327,7 +312,7 @@ Tab {
 
     function setLang(lg) {
         definitionTab.langSrc = lg;
-        definitionBtnLgSrc.iconSource = "../graphics/ext/"+lg+".png";
+        definitionBtnLgSrc.setSource("../graphics/ext/"+lg+".png");
     }
 
     function updateLang(lg) {

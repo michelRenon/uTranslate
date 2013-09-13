@@ -95,16 +95,12 @@ Tab {
                 }
                 */
 
-                Button {
+
+                FlagButton {
                     id:translateBtnLgSrc
                     objectName: "LangSrc"
-                    anchors.left : parent.left
-                    anchors.top: parent.top
-                    width: units.gu(6)
+                    anchors.left: parent.left
                     height: translateSearchText.height
-                    text: ""
-                    iconSource: "../graphics/ext/fra.png"
-                    onClicked: PopupUtils.open(langSelectorComponent, translateBtnLgSrc)
                 }
                 TextField {
                     id: translateSearchText
@@ -146,29 +142,14 @@ Tab {
                             rectViewSuggestion.reduce()
                     }
                 }
-                Button {
+                FlagButton {
                     id:translateBtnLgDest
                     objectName: "LangDest"
-                    anchors.right: translateBtnSearch.left
-                    anchors.top: parent.top
-                    anchors.leftMargin: units.gu(1)
-                    anchors.rightMargin: units.gu(1)
-                    width: units.gu(6)
-                    height: translateSearchText.height
-                    text: ""
-                    iconSource: "../graphics/ext/eng.png"
-                    onClicked: PopupUtils.open(langSelectorComponent, translateBtnLgDest)
-                }
-                Button {
-                    id:translateBtnSearch
                     anchors.right: translateBtnSwitchLg.left
                     anchors.top: parent.top
                     anchors.leftMargin: units.gu(1)
                     anchors.rightMargin: units.gu(1)
-                    width: units.gu(8)
                     height: translateSearchText.height
-                    text: "Search"
-                    onClicked: translationTab.doTranslate()
                 }
                 Button {
                     id:translateBtnSwitchLg
@@ -347,7 +328,7 @@ Tab {
 
     function setLang(lg) {
         translationTab.langSrc = lg
-        translateBtnLgSrc.iconSource = "../graphics/ext/"+lg+".png"
+        translateBtnLgSrc.setSource("../graphics/ext/"+lg+".png")
     }
 
     function updateLang(lg) {
@@ -359,7 +340,7 @@ Tab {
 
     function setLangDest(lg) {
         translationTab.langDest = lg
-        translateBtnLgDest.iconSource = "../graphics/ext/"+lg+".png"
+        translateBtnLgDest.setSource("../graphics/ext/"+lg+".png")
     }
 
     function updateLangDest(lg) {
