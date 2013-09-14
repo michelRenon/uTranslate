@@ -2,7 +2,7 @@
 Name=uTranslate
 Comment=My project description
 Exec=/usr/bin/qmlscene $@ /usr/share/uTranslate/uTranslate.qml
-Icon=qmlscene
+Icon=/usr/share/uTranslate/graphics/uTranslate.png
 Terminal=false
 Type=Application
 X-Ubuntu-Touch=true
