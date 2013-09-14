@@ -30,7 +30,7 @@ MainView {
     
     // This property enables the application to change orientation
     //  when the device is rotated. The default is false.
-    //automaticOrientation: true
+    automaticOrientation: true
     
     width: units.gu(48)
     height: units.gu(60)
@@ -177,7 +177,10 @@ MainView {
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.top: logo.bottom
                         anchors.topMargin: units.gu(2)
-                        text: "uTranslate by Michel Renon<br>http://www.mr-consultant.net/blog/<br>GPLv3"
+                        text: "uTranslate by Michel Renon<br>
+http://www.mr-consultant.net/blog/<br>GPLv3<br><br>
+Flags form Wikimedia Commons<br>
+http://commons.wikimedia.org/wiki/Drapeaux"
                         textFormat : TextEdit.RichText
                         color: "#888"
                         horizontalAlignment: Text.AlignHCenter
