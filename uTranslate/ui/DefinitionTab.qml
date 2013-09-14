@@ -122,7 +122,6 @@ Tab {
                     anchors.right: parent.right
                     anchors.top: parent.top
                     anchors.leftMargin: units.gu(1)
-                    // anchors.rightMargin: units.gu(1)
                     placeholderText: i18n.tr("Enter text")
                     hasClearButton: true
 
