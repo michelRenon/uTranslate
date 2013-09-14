@@ -182,8 +182,6 @@ Tab {
                     objectName: "LangDest"
                     anchors.right: parent.right
                     anchors.top: parent.top
-                    anchors.leftMargin: units.gu(1)
-                    anchors.rightMargin: units.gu(1)
                     height: translateSearchText.height
                 }
             }
