@@ -43,11 +43,24 @@ Tab {
             }
         }
 
+        onWidthChanged: {
+            // console.debug("Page layout.width="+layouts.width)
+            // workaround because 'onLayoutsChanged' notification is not available
+            if (layouts.width <= units.gu(80) && tabs.loaded) {
+                if (translateSearchText.focus == false && translateRes.focus==false) {
+                    console.debug("CORRECTING FOCUS PB")
+                    translateSearchText.forceActiveFocus()
+                    translateSearchText.updateSuggestList(true)
+                }
+            }
+        }
+
         Layouts {
             id: layouts
             anchors.fill: parent
 
-            // onWidthChanged: console.debug("layouts layout.width="+layouts.width)
+            // TODO : handle focus change after layout change.
+            // But today, 'onLayoutsChanged' generates an error in qmlscene.
             // onLayoutsChanged: console.debug("TR LAYOUT changed="+currentLayout)
 
             layouts: [
@@ -149,15 +162,17 @@ Tab {
                         translateSearchText.updateSuggestList();
                     }
 
-                    function updateSuggestList() {
+                    function updateSuggestList(force) {
+                        if (typeof(force) === "undefined")
+                            force = false
                         var test = translationTab.canSuggest;
                         test = test && translateSearchText.focus;
                         test = test && translateSearchText.text != "";
                         // console.debug("translateSearchText.updateSuggestList test="+test+", visible="+rectViewSuggestion.visible);
                         if (test)
-                            rectViewSuggestion.expand()
+                            rectViewSuggestion.expand(force)
                         else
-                            rectViewSuggestion.reduce()
+                            rectViewSuggestion.reduce(force)
                     }
                 }
                 FlagButton {
@@ -233,19 +248,23 @@ Tab {
                     flickableItem: listViewSuggestion
                 }
 
-                function reduce() {
+                function reduce(force) {
+                    if (typeof(force) === "undefined")
+                        force = false
                     if (layouts.currentLayout != "2columns" ) {
-                        if (rectViewSuggestion.expanded != false) {
+                        if (rectViewSuggestion.expanded != false || force) {
                             animateReduce.start()
                             rectViewSuggestion.expanded = false
                         }
                     }
                 }
 
-                function expand() {
+                function expand(force) {
+                    if (typeof(force) === "undefined")
+                        force = false
                     // console.debug("EXPAND() : rectViewSuggestion.expanded="+rectViewSuggestion.expanded+" visible="+rectViewSuggestion.visible);
                     if (layouts.currentLayout != "2columns" ) {
-                        if (rectViewSuggestion.expanded != true) {
+                        if (rectViewSuggestion.expanded != true || force) {
                             animateExpand.start()
                             rectViewSuggestion.expanded = true
                         }
