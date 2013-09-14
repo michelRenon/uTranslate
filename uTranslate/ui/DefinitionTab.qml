@@ -35,6 +35,12 @@ Tab {
             }
         }
         
+        onWidthChanged: {
+            // console.debug("Page layout.width="+layouts.width)
+            // workaround because 'onLayoutsChanged' notification is not available
+            definitionTab.checkBadFocus()
+        }
+
         Layouts {
             id: layouts
             anchors.fill: parent
@@ -364,4 +370,15 @@ Tab {
         if (focusRes)
             definitionRes.forceActiveFocus();
     }
+
+    function checkBadFocus() {
+        if (layouts.width <= units.gu(80) && tabs.loaded) {
+            if (definitionSearchText.focus == false && definitionRes.focus==false) {
+                // console.debug("CORRECTING FOCUS PB")
+                definitionSearchText.forceActiveFocus()
+                definitionSearchText.updateSuggestList(true)
+            }
+        }
+    }
+
 }

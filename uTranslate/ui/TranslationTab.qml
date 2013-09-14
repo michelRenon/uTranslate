@@ -27,6 +27,14 @@ Tab {
             opened: false
 
             ToolbarButton {
+                // iconSource: Qt.resolvedUrl("../graphics/")
+                text: i18n.tr("About")
+                onTriggered: {
+                    pageStack.push(aboutPage)
+                }
+            }
+
+            ToolbarButton {
                 iconSource: Qt.resolvedUrl("../graphics/switch.png")
                 text: i18n.tr("Switch")
                 onTriggered: {
@@ -46,13 +54,7 @@ Tab {
         onWidthChanged: {
             // console.debug("Page layout.width="+layouts.width)
             // workaround because 'onLayoutsChanged' notification is not available
-            if (layouts.width <= units.gu(80) && tabs.loaded) {
-                if (translateSearchText.focus == false && translateRes.focus==false) {
-                    console.debug("CORRECTING FOCUS PB")
-                    translateSearchText.forceActiveFocus()
-                    translateSearchText.updateSuggestList(true)
-                }
-            }
+            translationTab.checkBadFocus()
         }
 
         Layouts {
@@ -424,4 +426,15 @@ Tab {
         translationTab.doSuggest()
         // translationTab.doTranslate()
     }
+
+    function checkBadFocus() {
+        if (layouts.width <= units.gu(80) && tabs.loaded) {
+            if (translateSearchText.focus == false && translateRes.focus==false) {
+                // console.debug("CORRECTING FOCUS PB")
+                translateSearchText.forceActiveFocus()
+                translateSearchText.updateSuggestList(true)
+            }
+        }
+    }
+
 }

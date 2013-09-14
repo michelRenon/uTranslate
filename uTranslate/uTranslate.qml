@@ -153,17 +153,61 @@ MainView {
             }
         }
 
+
+        Component {
+            id: aboutPage
+
+            Page {
+                title: i18n.tr("About")
+
+                Item {
+                    anchors.fill: parent
+
+                    Image {
+                        id: logo
+                        source: "./graphics/uTranslate.png"
+                        width: units.gu(16)
+                        height: units.gu(16)
+                        anchors.top: parent.top
+                        anchors.topMargin: units.gu(5)
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+                    Text {
+                        id:info
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        anchors.top: logo.bottom
+                        anchors.topMargin: units.gu(2)
+                        text: "uTranslate by Michel Renon<br>http://www.mr-consultant.net/blog/<br>GPLv3"
+                        textFormat : TextEdit.RichText
+                        color: "#888"
+                        horizontalAlignment: Text.AlignHCenter
+                    }
+                }
+
+                tools: ToolbarItems {
+                    locked: true
+                    opened: true // TODO : API change --> open()
+                }
+            }
+        }
+
+        onCurrentPageChanged: {
+            // console.debug("current page="+pageStack.currentPage);
+            if (pageStack.currentPage == tabs){
+                tabs.selectedTab.checkBadFocus()
+            }
+        }
+
         Component.onCompleted:  {
             // console.debug("PAGESTACK completed")
             pageStack.push(tabs)
 
             // Load searchContext from previous usage.
             var params = dbContext.contents;
-            console.debug("onCompleted params="+Object.keys(params))
+            // console.debug("onCompleted params="+Object.keys(params))
             tabs.setContext(params);
             tabs.selectedTab.updateTabContext(tabs.searchContext, true);
             tabs.loaded = true;
-
         }
     }
 }
