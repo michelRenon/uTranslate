@@ -138,10 +138,11 @@ MainView {
                         text : i18n.tr("Languages")
                     }
 
-                     ListItem.Standard {
-                         text : "The available languages are German, Greek, English, French, Italian, Portuguese, Spanish"
-                         progression: true
-                     }
+                    ListItem.Subtitled {
+                         text : "7 available languages : "
+                         subText: "German, Greek, English, French, Italian, Portuguese, Spanish"
+                         progression: false
+                    }
 
                 }
 
