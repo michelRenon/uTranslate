@@ -169,24 +169,28 @@ Tab {
                 anchors.rightMargin: units.gu(1)
                 anchors.leftMargin: units.gu(7) // 6+1
                 height: units.gu(0) // ????
-                border.color: "#aaaaaa"
+                border.color: "#aaaaaa" // TODO : choose a Theme color
                 clip: true
                 visible: true
 
                 property bool expanded: false
+                property int reducedHeight: 0
+                property int expandedHeight:30
 
                 ListView {
                     id: listViewSuggestion
                     anchors.fill: parent
                     anchors.margins: units.gu(1)
                     model: suggestModel
-                    // delegate: suggestDelegate
+                    clip: true
 
                     delegate: Rectangle {
+                        id: bgColor
                         width: ListView.view.width
                         height: units.gu(3)
-                        Text {
+                        Label {
                             anchors.fill: parent
+                            verticalAlignment: Text.AlignVCenter
 
                             // Ajouter du style pour surligner les lettres correspondantes.
                             // TODO : mieux gérer les remplacement : maj/minuscules, caracteres proches (eéè...)
@@ -199,6 +203,13 @@ Tab {
                             }
                             MouseArea{
                                 anchors.fill: parent
+                                /*
+                                onPressed:
+                                    bgColor.color = UbuntuColors.orange
+
+                                onReleased:
+                                    bgColor.color = "white"
+                                */
                                 onClicked: {
                                     if (rectViewSuggestion.expanded || layouts.currentLayout == "2columns") {
                                         // TODO : check if it'd be better to move next lines in a function
@@ -244,8 +255,8 @@ Tab {
                     id: animateReduce
                     target: rectViewSuggestion
                     properties: "height"
-                    from: units.gu(20)
-                    to: units.gu(0)
+                    from: units.gu(rectViewSuggestion.expandedHeight)
+                    to: units.gu(rectViewSuggestion.reducedHeight)
                     duration: 100
                 }
 
@@ -253,8 +264,8 @@ Tab {
                     id: animateExpand
                     target: rectViewSuggestion
                     properties: "height"
-                    from: units.gu(0)
-                    to: units.gu(20)
+                    from: units.gu(rectViewSuggestion.reducedHeight)
+                    to: units.gu(rectViewSuggestion.expandedHeight)
                     duration: 100
                 }
 
@@ -277,7 +288,7 @@ Tab {
                 Layouts.item: "itemRes"
                 placeholderText: "<i>Definition</i>"
                 textFormat : TextEdit.RichText
-                enabled: true
+                readOnly: true
                 anchors.top: definitionSearchBar.bottom
                 anchors.topMargin: units.gu(1)
                 anchors.bottom: parent.bottom

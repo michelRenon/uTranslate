@@ -195,24 +195,33 @@ Tab {
                 anchors.rightMargin: units.gu(1)
                 anchors.leftMargin: units.gu(7) // 6+1
                 height: units.gu(0) // ????
-                border.color: "#aaaaaa"
+                border.color: "#aaaaaa" // TODO : choose a Theme color
                 clip: true
                 visible: true
 
                 property bool expanded: false
+                property int reducedHeight: 0
+                property int expandedHeight:30
 
                 ListView {
                     id: listViewSuggestion
                     anchors.fill: parent
                     anchors.margins: units.gu(1)
                     model: suggestModel
-                    // delegate: suggestDelegate
+                    clip: true
 
                     delegate: Rectangle {
+                        id:bgColor
                         width: ListView.view.width
                         height: units.gu(3)
-                        Text {
+                        // border.color: "#888"
+                        // border.width: 1
+
+                        Label {
                             anchors.fill: parent
+                            verticalAlignment: Text.AlignVCenter
+
+                            // fontSize: "medium"
 
                             // Ajouter du style pour surligner les lettres correspondantes.
                             // TODO : mieux gérer les remplacement : maj/minuscules, caracteres proches (eéè...)
@@ -223,8 +232,26 @@ Tab {
                                 else
                                     return ""
                             }
+
                             MouseArea{
                                 anchors.fill: parent
+                                /*
+                                onPressed:{
+                                    console.debug("PRESS")
+                                    // bgColor.color = Theme.palette.selected.fieldText
+                                    bgColor.color = UbuntuColors.orange
+                                    parent.color = Theme.palette.selected.foregroundText
+                                }
+
+                                onReleased: {
+                                    console.debug("RELEASE")
+                                    // bgColor.color = Theme.palette.normal.fieldText
+                                    bgColor.color = "white"
+                                    parent.color = Theme.palette.normal.baseText
+                                }
+
+                                onPressAndHold: console.debug("PRESS AND HOLD")
+                                */
                                 onClicked: {
                                     if (rectViewSuggestion.expanded || layouts.currentLayout == "2columns") {
                                         // TODO : check if it'd be better to move next lines in a function
@@ -275,8 +302,8 @@ Tab {
                     id: animateReduce
                     target: rectViewSuggestion
                     properties: "height"
-                    from: units.gu(20)
-                    to: units.gu(0)
+                    from: units.gu(rectViewSuggestion.expandedHeight)
+                    to: units.gu(rectViewSuggestion.reducedHeight)
                     duration: 100
                 }
 
@@ -284,8 +311,8 @@ Tab {
                     id: animateExpand
                     target: rectViewSuggestion
                     properties: "height"
-                    from: units.gu(0)
-                    to: units.gu(20)
+                    from: units.gu(rectViewSuggestion.reducedHeight)
+                    to: units.gu(rectViewSuggestion.expandedHeight)
                     duration: 100
                 }
 
@@ -306,7 +333,7 @@ Tab {
                 Layouts.item: "itemRes"
                 placeholderText: "<i>Translations</i>"
                 textFormat : TextEdit.RichText
-                enabled: true
+                readOnly: true
                 anchors.top: translationSearchBar.bottom
                 anchors.topMargin: units.gu(1)
                 anchors.bottom: parent.bottom
