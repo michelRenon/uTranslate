@@ -308,7 +308,7 @@ Tab {
                     properties: "height"
                     from: units.gu(rectViewSuggestion.expandedHeight)
                     to: units.gu(rectViewSuggestion.reducedHeight)
-                    duration: 100
+                    duration: UbuntuAnimation.FastDuration
                 }
 
                 NumberAnimation {
@@ -317,7 +317,7 @@ Tab {
                     properties: "height"
                     from: units.gu(rectViewSuggestion.reducedHeight)
                     to: units.gu(rectViewSuggestion.expandedHeight)
-                    duration: 100
+                    duration: UbuntuAnimation.FastDuration
                 }
 
                 Component.onCompleted: {
