@@ -375,22 +375,29 @@ Tab {
         var lg = definitionTab.langSrc;
         rectViewSuggestion.reduce()
         if (definitionSearchText.text != "")
-            Controller.doSearchDefintion(definitionSearchText.text, lg, function (res) {
-                definitionTab.setResult(res, focusRes)
+            Controller.doSearchDefintion(definitionSearchText.text, lg, function (res, error) {
+                definitionTab.setResult(res, error, focusRes)
             });
         else
-            definitionTab.setResult("", focusRes)
+            definitionTab.setResult("", 0, focusRes)
     }
 
-    function setResult(resultText, focusRes) {
+    function setResult(resultText, error, focusRes) {
         // console.debug("appel de definitionTab.setResult()");
-        if (resultText == "") {
-            definitionRes.text = "<i>"+i18n.tr("No Result")+"</i>";
+        var content = ""
+        if (error == 0) {
+            if (resultText == "") {
+                content = "<i>"+i18n.tr("No Result")+"</i>";
+            } else {
+                var message = i18n.tr("Definition of '%1'")
+                message = message.replace("%1", definitionSearchText.text)
+                content = "<h1>"+message+"</h1>"+resultText;
+            }
         } else {
-            var message = i18n.tr("Definition of '%1'")
-            message = message.replace("%1", definitionSearchText.text)
-            definitionRes.text = "<h1>"+message+"</h1>"+resultText;
+            content = i18n.tr("A network error occured.")
         }
+        definitionRes.text = content;
+
         if (focusRes)
             definitionRes.forceActiveFocus();
     }

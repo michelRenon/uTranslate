@@ -423,22 +423,29 @@ Tab {
         var lgDest = translationTab.langDest;
         rectViewSuggestion.reduce()
         if (translateSearchText.text != "")
-            Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, function(res) {
-                translationTab.setResult(res, focusRes)
+            Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, function(res, error) {
+                translationTab.setResult(res, error, focusRes)
             });
         else
-            translationTab.setResult("", focusRes);
+            translationTab.setResult("", 0, focusRes);
     }
 
-    function setResult(resultText, focusRes) {
-        // console.debug("appel de translationTab.setResult()");
-        if (resultText == "") {
-            translateRes.text = "<i>"+i18n.tr("No Result")+"</i>";
+    function setResult(resultText, error, focusRes) {
+        // console.debug("appel de translationTab.setResult()"+error);
+        var content = ""
+        if (error == 0) {
+            if (resultText == "") {
+                content = "<i>"+i18n.tr("No Result")+"</i>";
+            } else {
+                var message = i18n.tr("Translation of '%1'")
+                message = message.replace("%1", translateSearchText.text)
+                content = "<h1>"+message+"</h1>"+resultText;
+            }
         } else {
-            var message = i18n.tr("Translation of '%1'")
-            message = message.replace("%1", translateSearchText.text)
-            translateRes.text = "<h1>"+message+"</h1>"+resultText;
+            content = i18n.tr("A network error occured.")
         }
+        translateRes.text = content;
+
         if (focusRes)
             translateRes.forceActiveFocus();
     }

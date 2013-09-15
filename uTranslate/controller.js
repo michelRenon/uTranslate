@@ -30,7 +30,7 @@ function doSuggest(sgText, sgLg, sgModel, sgTabs) {
                 sgTabs.updateContext({'suggest':jsonObj})
 
              } else {
-                showRequestInfo("ERROR");
+                showRequestInfo("ERROR SUGGEST");
             }
         }
     }
@@ -44,7 +44,14 @@ function doSearchDefintion(dfText, dfLg, dfCB) {
 }
 
 function doSearchTranslation(trText, trLgSrc, trLgDest, trCB) {
+    /*
+    XMLHttpRequest.OPENED : 1
+    XMLHttpRequest.HEADERS_RECEIVED : 2
+    XMLHttpRequest.LOADING : 3
+    XMLHttpRequest.DONE : 4
 
+    XMLHttpRequest.UNSENT : 0
+    */
     var url = "http://glosbe.com/gapi/translate?from="+trLgSrc+"&dest="+trLgDest+"&format=json&pretty=true&phrase="+trText
 
     var doc = new XMLHttpRequest();
@@ -98,12 +105,19 @@ function doSearchTranslation(trText, trLgSrc, trLgDest, trCB) {
                     tempText = "";
                 }
 
-                // callBack
-                trCB(tempText);
+                // callBack with no error
+                trCB(tempText, 0);
 
             } else {
-                // TODO : show error to the user
-                showRequestInfo("ERROR");
+                // console.debug("ERROR TRANSLATE"+doc.status+":"+doc.statusText);
+
+                // Show error to the user : callback with error.
+                // 400 : bad request
+                // 404 : not found
+                var error = 1;
+                if (doc.status != 0)
+                    error = doc.status
+                trCB("", error)
             }
         }
     }
