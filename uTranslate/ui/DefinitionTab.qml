@@ -203,13 +203,27 @@ Tab {
                             }
                             MouseArea{
                                 anchors.fill: parent
-                                /*
-                                onPressed:
-                                    bgColor.color = UbuntuColors.orange
 
-                                onReleased:
+                                onPressed:{
+                                    // console.debug("PRESS")
+                                    // bgColor.color = Theme.palette.selected.fieldText
+                                    bgColor.color = UbuntuColors.orange
+                                    parent.color = Theme.palette.selected.foregroundText
+                                }
+
+                                onCanceled: {
+                                    // console.debug("CANCELED")
                                     bgColor.color = "white"
-                                */
+                                    parent.color = Theme.palette.normal.baseText
+                                }
+
+                                onReleased: {
+                                    // console.debug("RELEASE")
+                                    // bgColor.color = Theme.palette.normal.fieldText
+                                    bgColor.color = "white"
+                                    parent.color = Theme.palette.normal.baseText
+                                }
+
                                 onClicked: {
                                     if (rectViewSuggestion.expanded || layouts.currentLayout == "2columns") {
                                         // TODO : check if it'd be better to move next lines in a function
