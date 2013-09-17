@@ -34,11 +34,10 @@ MainView {
     
     width: units.gu(48)
     height: units.gu(60)
-    // anchors.fill: parent
     
     U1db.Database {
         id: utranslateDB
-        path: "utranslateDB"
+        path: "utranslate.db"
     }
 
     U1db.Document {
@@ -47,6 +46,11 @@ MainView {
         docId: 'context'
         create: true
         defaults: { 'lgsrc': 'eng', 'lgdest': 'deu'}
+    }
+
+    U1db.Document {
+        id: adoc
+        database: utranslateDB
     }
 
     property var pageStack: pageStack
@@ -102,18 +106,6 @@ MainView {
                 temp['lgdest'] = searchContext['lgdest'];
                 dbContext.contents = temp;
             }
-
-            /*
-            Component.onCompleted: {
-                // console.debug("tabs onCompleted")
-                // Load searchContext from previous usage.
-                var params = dbContext.contents;
-                console.debug("onCompleted params="+Object.keys(params))
-                setContext(params);
-                tabs.selectedTab.updateTabContext(searchContext, true);
-                tabs.loaded = true;
-            }
-            */
         }
 
         Component {
@@ -153,7 +145,6 @@ MainView {
             }
         }
 
-
         Component {
             id: aboutPage
 
@@ -178,10 +169,11 @@ MainView {
                         anchors.top: logo.bottom
                         anchors.topMargin: units.gu(2)
                         text: "uTranslate by Michel Renon<br>
-http://www.mr-consultant.net/blog/<br>GPLv3<br><br>
+http://www.mr-consultant.net/blog/<br>version 0.2.1<br>GPLv3<br><br>
 Flags form Wikimedia Commons<br>
 http://commons.wikimedia.org/wiki/Drapeaux"
                         textFormat : TextEdit.RichText
+                        enabled: false
                         color: "#888"
                         horizontalAlignment: Text.AlignHCenter
                     }
@@ -207,7 +199,9 @@ http://commons.wikimedia.org/wiki/Drapeaux"
 
             // Load searchContext from previous usage.
             var params = dbContext.contents;
+
             // console.debug("onCompleted params="+Object.keys(params))
+            // console.debug("onCompleted params="+params['lgsrc']+":"+params['lgdest'])
             tabs.setContext(params);
             tabs.selectedTab.updateTabContext(tabs.searchContext, true);
             tabs.loaded = true;

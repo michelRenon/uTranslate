@@ -1,5 +1,5 @@
 {
-    "description": "description of uTranslate",
+    "description": "a translation app",
     "framework": "ubuntu-sdk-13.10",
     "hooks": {
         "uTranslate": {
@@ -10,5 +10,5 @@
     "maintainer": "Michel Renon <renon@mr-consultant.net>",
     "name": "com.ubuntu.developer.mrenon.utranslate",
     "title": "uTranslate",
-    "version": "0.1.3"
+    "version": "0.2.1"
 }
