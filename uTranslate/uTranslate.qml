@@ -31,6 +31,9 @@ MainView {
     // This property enables the application to change orientation
     //  when the device is rotated. The default is false.
     automaticOrientation: true
+
+    // no more old toolbar, let's use new header !
+    useDeprecatedToolbar: false
     
     width: units.gu(48)
     height: units.gu(60)
@@ -136,11 +139,14 @@ MainView {
                          progression: false
                     }
 
-                }
+                    ListItem.SingleValue {
+                        text : i18n.tr("About")
+                        progression:true
+                        onTriggered: {
+                            pageStack.push(aboutPage)
+                        }
+                    }
 
-                tools: ToolbarItems {
-                    locked: true
-                    opened: true // TODO : API change --> open()
                 }
             }
         }

@@ -23,30 +23,24 @@ Tab {
 
         tools: ToolbarItems {
             objectName: "translation_tools"
-            locked: false
-            opened: false
 
             ToolbarButton {
-                // iconSource: Qt.resolvedUrl("../graphics/")
-                text: i18n.tr("About")
-                onTriggered: {
-                    pageStack.push(aboutPage)
+                action: Action{
+                    iconSource: Qt.resolvedUrl("../graphics/switch.png")
+                    text: i18n.tr("Switch")
+                    onTriggered: {
+                        translationTab.doSwitchLg()
+                    }
                 }
             }
 
             ToolbarButton {
-                iconSource: Qt.resolvedUrl("../graphics/switch.png")
-                text: i18n.tr("Switch")
-                onTriggered: {
-                    translationTab.doSwitchLg()
-                }
-            }
-
-            ToolbarButton {
-                iconSource: Qt.resolvedUrl("../graphics/settings.png")
-                text: i18n.tr("Settings")
-                onTriggered: {
-                    pageStack.push(settingsPage)
+                action: Action{
+                    iconSource: Qt.resolvedUrl("../graphics/settings.png")
+                    text: i18n.tr("Settings")
+                    onTriggered: {
+                        pageStack.push(settingsPage)
+                    }
                 }
             }
         }
