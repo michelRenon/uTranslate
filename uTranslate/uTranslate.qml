@@ -169,10 +169,9 @@ MainView {
                         text: name  +" ("+code+")"
                         iconSource: Qt.resolvedUrl(icon_path)
                         control: Switch {
-                            checked: false
-                            // text: "Click me"
-                            // width: units.gu(19)
-                            onClicked: print("switch : "+parent.text+" Clicked")
+                            checked: true
+                            enabled: false
+                            // onClicked: print("switch : "+parent.text+" Clicked")
                         }
                     }
                 }
