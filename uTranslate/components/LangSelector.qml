@@ -27,7 +27,7 @@ Component {
 
             ListItem.Standard {
                 text: i18n.tr("german")
-                icon: Qt.resolvedUrl("../graphics/ext/deu2.png")
+                iconSource: Qt.resolvedUrl("../graphics/ext/deu2.png")
                 onClicked: {
                     popLangSelector.doSelectLang('deu')
                 }
@@ -35,7 +35,7 @@ Component {
             }
             ListItem.Standard {
                 text: i18n.tr("greek")
-                icon: Qt.resolvedUrl("../graphics/ext/ell2.png")
+                iconSource: Qt.resolvedUrl("../graphics/ext/ell2.png")
                 onClicked: {
                     popLangSelector.doSelectLang('ell')
                 }
@@ -43,14 +43,14 @@ Component {
             }
             ListItem.Standard {
                 text: i18n.tr("english")
-                icon: Qt.resolvedUrl("../graphics/ext/eng2.png")
+                iconSource: Qt.resolvedUrl("../graphics/ext/eng2.png")
                 onClicked: {
                     popLangSelector.doSelectLang('eng')
                 }
             }
             ListItem.Standard {
                 text: i18n.tr("french")
-                icon: Qt.resolvedUrl("../graphics/ext/fra2.png")
+                iconSource: Qt.resolvedUrl("../graphics/ext/fra2.png")
                 onClicked: {
                     popLangSelector.doSelectLang('fra')
                 }
@@ -58,7 +58,7 @@ Component {
             }
             ListItem.Standard {
                 text: i18n.tr("italian")
-                icon: Qt.resolvedUrl("../graphics/ext/ita2.png")
+                iconSource: Qt.resolvedUrl("../graphics/ext/ita2.png")
                 onClicked: {
                     popLangSelector.doSelectLang('ita')
                 }
@@ -66,7 +66,7 @@ Component {
             }
             ListItem.Standard {
                 text: i18n.tr("portugese")
-                icon: Qt.resolvedUrl("../graphics/ext/por2.png")
+                iconSource: Qt.resolvedUrl("../graphics/ext/por2.png")
                 onClicked: {
                     popLangSelector.doSelectLang('por')
                 }
@@ -74,7 +74,7 @@ Component {
             }
             ListItem.Standard {
                 text: i18n.tr("spanish")
-                icon: Qt.resolvedUrl("../graphics/ext/spa2.png")
+                iconSource: Qt.resolvedUrl("../graphics/ext/spa2.png")
                 onClicked: {
                     popLangSelector.doSelectLang('spa')
                 }
