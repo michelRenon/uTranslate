@@ -131,9 +131,12 @@ MainView {
 
 
                     ListItem.Subtitled {
-                         text : "7 available languages : "
+                         text : "7 selected languages : "
                          subText: "German, Greek, English, French, Italian, Portuguese, Spanish"
-                         progression: false
+                         progression:true
+                         onTriggered: {
+                             pageStack.push(langPage)
+                         }
                     }
 
                     ListItem.Header {
@@ -152,7 +155,24 @@ MainView {
                 }
             }
         }
+        Component {
+            id: langPage
+            Page {
+                title: i18n.tr("Languages")
+                ListView {
+                    anchors.fill: parent
 
+                    model: langListModel
+
+                    delegate: Text {
+                        // Both "name" and "team" are taken from the model
+                        text: name  +" ("+code+")"
+                    }
+                }
+            }
+            /*
+            */
+        }
         Component {
             id: aboutPage
 
@@ -177,7 +197,7 @@ MainView {
                         anchors.top: logo.bottom
                         anchors.topMargin: units.gu(2)
                         text: "uTranslate by Michel Renon<br>
-http://www.mr-consultant.net/blog/<br>version 0.2.3<br>GPLv3<br><br>
+http://www.mr-consultant.net/blog/<br>version 0.3.0<br>GPLv3<br><br>
 Flags form Wikimedia Commons<br>
 http://commons.wikimedia.org/wiki/Drapeaux"
                         textFormat : TextEdit.RichText
@@ -191,6 +211,45 @@ http://commons.wikimedia.org/wiki/Drapeaux"
                     locked: true
                     opened: true // TODO : API change --> open()
                 }
+            }
+        }
+
+        ListModel {
+            id: langListModel
+            ListElement {
+                code:"deu"
+                name: "german"
+                icon: "../graphics/ext/deu2.png"
+            }
+            ListElement {
+                code:"ell"
+                name: "greek"
+                icon: "../graphics/ext/ell2.png"
+            }
+            ListElement {
+                code:"eng"
+                name: "english"
+                icon: "../graphics/ext/eng2.png"
+            }
+            ListElement {
+                code:"fra"
+                name: "french"
+                icon: "../graphics/ext/fra2.png"
+            }
+            ListElement {
+                code:"ita"
+                name: "italian"
+                icon: "../graphics/ext/ita2.png"
+            }
+            ListElement {
+                code:"por"
+                name: "portugese"
+                icon: "../graphics/ext/por2.png"
+            }
+            ListElement {
+                code:"spa"
+                name: "spanish"
+                icon: "../graphics/ext/spa2.png"
             }
         }
 
