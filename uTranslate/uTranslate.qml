@@ -145,7 +145,7 @@ MainView {
 
                     ListItem.SingleValue {
                         text : i18n.tr("About")
-                        icon: Qt.resolvedUrl("./graphics/uTranslate_64.png")
+                        iconSource: Qt.resolvedUrl("./graphics/uTranslate_64.png")
                         progression:true
                         onTriggered: {
                             pageStack.push(aboutPage)
@@ -164,9 +164,16 @@ MainView {
 
                     model: langListModel
 
-                    delegate: Text {
+                    delegate: ListItem.Standard {
                         // Both "name" and "team" are taken from the model
                         text: name  +" ("+code+")"
+                        iconSource: Qt.resolvedUrl(icon_path)
+                        control: Switch {
+                            checked: false
+                            // text: "Click me"
+                            // width: units.gu(19)
+                            onClicked: print("switch : "+parent.text+" Clicked")
+                        }
                     }
                 }
             }
@@ -219,37 +226,37 @@ http://commons.wikimedia.org/wiki/Drapeaux"
             ListElement {
                 code:"deu"
                 name: "german"
-                icon: "../graphics/ext/deu2.png"
+                icon_path: "./graphics/ext/deu2.png"
             }
             ListElement {
                 code:"ell"
                 name: "greek"
-                icon: "../graphics/ext/ell2.png"
+                icon_path: "./graphics/ext/ell2.png"
             }
             ListElement {
                 code:"eng"
                 name: "english"
-                icon: "../graphics/ext/eng2.png"
+                icon_path: "./graphics/ext/eng2.png"
             }
             ListElement {
                 code:"fra"
                 name: "french"
-                icon: "../graphics/ext/fra2.png"
+                icon_path: "./graphics/ext/fra2.png"
             }
             ListElement {
                 code:"ita"
                 name: "italian"
-                icon: "../graphics/ext/ita2.png"
+                icon_path: "./graphics/ext/ita2.png"
             }
             ListElement {
                 code:"por"
                 name: "portugese"
-                icon: "../graphics/ext/por2.png"
+                icon_path: "./graphics/ext/por2.png"
             }
             ListElement {
                 code:"spa"
                 name: "spanish"
-                icon: "../graphics/ext/spa2.png"
+                icon_path: "./graphics/ext/spa2.png"
             }
         }
 
