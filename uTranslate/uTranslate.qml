@@ -19,6 +19,36 @@ import "controller.js" as Controller
            second Tab has a single ToolbarAction.
 */
 
+/*
+
+  TODO :
+
+  reprendre la création d'un environneemnt de dev correct
+  (cf video de Nekelesh)
+  pour pouvoir tester sur emulateur
+
+  changer le nom de l'application : Translate
+  (voir les conséquences sur le store, faut-il refaire un projet ?)
+
+
+  gérer les langues par leur Code, drapeau en option
+
+  gérer les traductions
+
+
+  voir comment enlever le contour arrondi des textes
+
+
+
+  DONE
+
+  pour gerer le pb de la correction automatique qui gene la recherche instantanée :
+  file:///usr/share/ubuntu-ui-toolkit/doc/html/qml-ubuntu-components-textfield.html
+  inputMethodHints :
+- Qt.ImhNoPredictiveText - Do not use predictive text (i.e. dictionary lookup) while typing.
+
+
+*/
 
 
 MainView {
@@ -152,6 +182,11 @@ MainView {
                         }
                     }
 
+                    // for debug purpose
+                    ListItem.SingleValue {
+                        text : "locale : "+i18n.language
+                    }
+
                 }
             }
         }
@@ -166,7 +201,7 @@ MainView {
 
                     delegate: ListItem.Standard {
                         // Both "name" and "team" are taken from the model
-                        text: name  +" ("+code+")"
+                        text: i18n.tr(name)  +" ("+code+")"
                         iconSource: Qt.resolvedUrl(icon_path)
                         control: Switch {
                             checked: true
@@ -202,10 +237,7 @@ MainView {
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.top: logo.bottom
                         anchors.topMargin: units.gu(2)
-                        text: "uTranslate by Michel Renon<br>
-http://www.mr-consultant.net/blog/<br>version 0.3.0<br>GPLv3<br><br>
-Flags form Wikimedia Commons<br>
-http://commons.wikimedia.org/wiki/Drapeaux"
+                        text: "uTranslate by Michel Renon<br>http://www.mr-consultant.net/blog/<br>version 0.3.0<br>GPLv3<br><br>Flags form Wikimedia Commons<br>http://commons.wikimedia.org/wiki/Drapeaux"
                         textFormat : TextEdit.RichText
                         enabled: false
                         color: "#888"
