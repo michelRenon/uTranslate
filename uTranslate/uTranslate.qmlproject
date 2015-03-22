@@ -19,6 +19,9 @@ Project {
         filter: "*.desktop"
     }
     Files {
+        filter: "*.json"
+    }
+    Files {
         filter: "Makefile"
     }
     Files {
@@ -39,6 +42,10 @@ Project {
     }
     Files {
         directory: "debian"
+        filter: "*"
+    }
+    Files {
+        directory: "po"
         filter: "*"
     }
     /* List of plugin directories passed to QML runtime */
