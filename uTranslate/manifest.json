@@ -1,7 +1,7 @@
 {
     "architecture": "all",
     "description": "a translation app",
-    "framework": "ubuntu-sdk-14.10-dev2",
+    "framework": "ubuntu-sdk-14.10",
     "hooks": {
         "uTranslate": {
             "apparmor": "uTranslate.json",
