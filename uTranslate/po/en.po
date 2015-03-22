@@ -1,0 +1,109 @@
+# French translations for Translate package
+# Traductions françaises du paquet Translate.
+# Copyright (C) 2014 MR Consultant
+# This file is distributed under the same license as the Translate package.
+# michel <renon@mr-consultant.fr>, 2014.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Translate\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-09-14 20:04+0200\n"
+"PO-Revision-Date: 2014-09-14 20:05+0200\n"
+"Last-Translator: michel <renon@mr-consultant.fr>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: ui/TranslationTab.qml:439 ui/DefinitionTab.qml:397
+msgid "A network error occured."
+msgstr ""
+
+#: uTranslate.qml:147 uTranslate.qml:186
+msgid "About"
+msgstr ""
+
+#: ui/DefinitionTab.qml:17
+msgid "Definition"
+msgstr ""
+
+#: ui/DefinitionTab.qml:392
+#, qt-format
+msgid "Definition of '%1'"
+msgstr ""
+
+#: ui/DefinitionTab.qml:125
+msgid "Enter text"
+msgstr ""
+
+#: ui/TranslationTab.qml:139
+msgid "Enter text to translate"
+msgstr ""
+
+#: uTranslate.qml:143
+msgid "General"
+msgstr ""
+
+#: uTranslate.qml:161
+msgid "Languages"
+msgstr ""
+
+#: ui/TranslationTab.qml:432 ui/DefinitionTab.qml:390
+msgid "No Result"
+msgstr ""
+
+#: uTranslate.qml:125
+msgid "Providers"
+msgstr ""
+
+#: uTranslate.qml:118 ui/TranslationTab.qml:40 ui/DefinitionTab.qml:30
+msgid "Settings"
+msgstr ""
+
+#: ui/TranslationTab.qml:30
+msgid "Switch"
+msgstr ""
+
+#: ui/ConfigurationTab.qml:13
+msgid "Test"
+msgstr ""
+
+#: ui/TranslationTab.qml:16
+msgid "Translate"
+msgstr ""
+
+#: ui/TranslationTab.qml:434
+#, qt-format
+msgid "Translation of '%1'"
+msgstr ""
+
+#: uTranslate.qml:234 components/LangSelector.qml:45
+msgid "english"
+msgstr ""
+
+#: uTranslate.qml:239 components/LangSelector.qml:52
+msgid "french"
+msgstr ""
+
+#: uTranslate.qml:224 components/LangSelector.qml:29
+msgid "german"
+msgstr ""
+
+#: uTranslate.qml:229 components/LangSelector.qml:37
+msgid "greek"
+msgstr ""
+
+#: components/LangSelector.qml:60
+msgid "italian"
+msgstr ""
+
+#: components/LangSelector.qml:68
+msgid "portugese"
+msgstr ""
+
+#: components/LangSelector.qml:76
+msgid "spanish"
+msgstr ""
