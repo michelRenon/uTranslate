@@ -4,7 +4,7 @@
  * License: GPLv3, check LICENSE file.
  */
 import QtQuick 2.0
-import Ubuntu.Components 0.1
+import Ubuntu.Components 1.1
 import Ubuntu.Components.Popups 0.1
 import Ubuntu.Layouts 0.1
 
@@ -20,7 +20,7 @@ Tab {
     property string langDest : 'eng'
 
     page: Page {
-
+        /*
         tools: ToolbarItems {
             objectName: "translation_tools"
 
@@ -42,6 +42,30 @@ Tab {
                         pageStack.push(settingsPage)
                     }
                 }
+            }
+        }
+        */
+        head {
+            actions : [
+                Action {
+                    iconSource: Qt.resolvedUrl("../graphics/switch.png")
+                    text: i18n.tr("Switch")
+                    onTriggered: {
+                        translationTab.doSwitchLg()
+                    }
+                },
+                Action {
+                    iconSource: Qt.resolvedUrl("../graphics/settings.png")
+                    text: i18n.tr("Settings")
+                    onTriggered: {
+                        pageStack.push(settingsPage)
+                    }
+                }
+            ]
+
+
+            sections {
+                model:["Translation", "Definition"]
             }
         }
 
