@@ -23,14 +23,23 @@ Tab {
 
         tools: ToolbarItems {
             objectName: "definition_tools"
-            locked: false
-            opened: false
+            // locked: false
+            // opened: false
 
             ToolbarButton {
+                /*
                 iconSource: Qt.resolvedUrl("../graphics/settings.png")
                 text: i18n.tr("Settings")
                 onTriggered: {
                     pageStack.push(settingsPage)
+                }
+                */
+                action: Action{
+                    iconSource: Qt.resolvedUrl("../graphics/settings.png")
+                    text: i18n.tr("Settings")
+                    onTriggered: {
+                        pageStack.push(settingsPage)
+                    }
                 }
             }
         }
