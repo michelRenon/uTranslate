@@ -1,7 +1,7 @@
 [Desktop Entry]
 Name=uTranslate
 Comment=a translation app
-Exec=/usr/bin/qmlscene $@ /usr/share/uTranslate/uTranslate.qml
+Exec=qmlscene $@ uTranslate.qml
 Icon=graphics/uTranslate.png
 Terminal=false
 Type=Application
