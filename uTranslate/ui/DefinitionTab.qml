@@ -124,6 +124,7 @@ Tab {
                     anchors.leftMargin: units.gu(1)
                     placeholderText: i18n.tr("Enter text")
                     hasClearButton: true
+                    inputMethodHints: Qt.ImhNoPredictiveText
 
                     onAccepted: {
                         // console.debug("onAccepted='"+definitionSearchText.text+"'")
