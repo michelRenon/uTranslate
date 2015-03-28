@@ -7,7 +7,7 @@ function doSuggest(sgText, sgLg, sgModel, sgTabs) {
 
     // http://qt-project.org/doc/qt-5.0/qtqml/qtqml-javascript-qmlglobalobject.html#xmlhttprequest
 
-    var url = "http://glosbe.com/ajax/phrasesAutosuggest?from="+sgLg+"&dest="+sgLg+"&phrase="+sgText
+    var url = "https://glosbe.com/ajax/phrasesAutosuggest?from="+sgLg+"&dest="+sgLg+"&phrase="+sgText
 
     var doc = new XMLHttpRequest();
     doc.onreadystatechange = function() {
@@ -52,7 +52,7 @@ function doSearchTranslation(trText, trLgSrc, trLgDest, trCB) {
 
     XMLHttpRequest.UNSENT : 0
     */
-    var url = "http://glosbe.com/gapi/translate?from="+trLgSrc+"&dest="+trLgDest+"&format=json&pretty=true&phrase="+trText
+    var url = "https://glosbe.com/gapi/translate?from="+trLgSrc+"&dest="+trLgDest+"&format=json&pretty=true&phrase="+trText
 
     var doc = new XMLHttpRequest();
     doc.onreadystatechange = function() {
