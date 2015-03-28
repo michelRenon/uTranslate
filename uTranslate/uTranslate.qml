@@ -129,19 +129,19 @@ MainView {
                         text : 'The current data provider is Glosbe (<a href="http://glosbe.com">http://glosbe.com</a>)'
                      }
 
-                    ListItem.Header {
-                        text : i18n.tr("Languages")
-                    }
-
                     ListItem.Subtitled {
                          text : "7 available languages : "
                          subText: "German, Greek, English, French, Italian, Portuguese, Spanish"
                          progression: false
                     }
 
+                    ListItem.Header {
+                        text : i18n.tr("General")
+                    }
 
                     ListItem.SingleValue {
                         text : i18n.tr("About")
+                        iconSource: Qt.resolvedUrl("./graphics/uTranslate_64.png")
                         progression:true
                         onTriggered: {
                             pageStack.push(aboutPage)
