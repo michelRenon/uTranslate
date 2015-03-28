@@ -1,6 +1,7 @@
 {
+    "architecture": "all",
     "description": "a translation app",
-    "framework": "ubuntu-sdk-13.10",
+    "framework": "ubuntu-sdk-14.10",
     "hooks": {
         "uTranslate": {
             "apparmor": "uTranslate.json",
@@ -10,5 +11,5 @@
     "maintainer": "Michel Renon <renon@mr-consultant.net>",
     "name": "com.ubuntu.developer.mrenon.utranslate",
     "title": "uTranslate",
-    "version": "0.2.3"
+    "version": "0.2.5"
 }
