@@ -4,7 +4,7 @@
  * License: GPLv3, check LICENSE file.
  */
 import QtQuick 2.0
-import Ubuntu.Components 0.1
+import Ubuntu.Components 1.1
 import Ubuntu.Components.Popups 0.1
 import Ubuntu.Layouts 0.1
 
@@ -13,14 +13,15 @@ import "../controller.js" as Controller
 
 Tab {
     id: translationTab
-    title: i18n.tr("Translate")
+    title: i18n.tr("uTranslate")
     
     property bool canSuggest: false
     property string langSrc : 'fra'
     property string langDest : 'eng'
 
     page: Page {
-
+        id:translatePage
+        /*
         tools: ToolbarItems {
             objectName: "translation_tools"
             // locked: false
@@ -33,7 +34,7 @@ Tab {
                     pageStack.push(aboutPage)
                 }
             }
-            */
+            * /
             ToolbarButton {
                 /*
                 iconSource: Qt.resolvedUrl("../graphics/switch.png")
@@ -41,7 +42,7 @@ Tab {
                 onTriggered: {
                     translationTab.doSwitchLg()
                 }
-                */
+                * /
                 action: Action{
                     iconSource: Qt.resolvedUrl("../graphics/switch.png")
                     text: i18n.tr("Switch")
@@ -58,7 +59,7 @@ Tab {
                 onTriggered: {
                     pageStack.push(settingsPage)
                 }
-                */
+                * /
                 action: Action{
                     iconSource: Qt.resolvedUrl("../graphics/settings.png")
                     text: i18n.tr("Settings")
@@ -68,6 +69,35 @@ Tab {
                 }
             }
         }
+        */
+
+        head {
+            actions : [
+                Action {
+                    iconSource: Qt.resolvedUrl("../graphics/switch.png")
+                    text: i18n.tr("Switch")
+                    onTriggered: {
+                        translationTab.doSwitchLg()
+                    }
+                },
+                Action {
+                    iconSource: Qt.resolvedUrl("../graphics/settings.png")
+                    text: i18n.tr("Settings")
+                    onTriggered: {
+                        pageStack.push(settingsPage)
+                    }
+                }
+            ]
+
+
+            sections {
+                model:["Translation", "Definition"]
+                onSelectedIndexChanged: console.log("DEBUG onSelectedIndexChanged : "+translatePage.head.sections.selectedIndex)
+            }
+
+        }
+
+        onHeaderChanged: console.log("DEBUG page section : "+translatePage.head.sections.selectedIndex)
 
         onWidthChanged: {
             // console.debug("Page layout.width="+layouts.width)

@@ -4,7 +4,7 @@
  * License: GPLv3, check LICENSE file.
  */
 import QtQuick 2.0
-import Ubuntu.Components 0.1
+import Ubuntu.Components 1.1
 import Ubuntu.Components.Popups 0.1
 import Ubuntu.Components.ListItems 0.1 as ListItem
 import Ubuntu.Layouts 0.1
@@ -22,6 +22,8 @@ import "controller.js" as Controller
 
 
 MainView {
+    id : utApp
+
     // objectName for functional testing purposes (autopilot-qt5)
     objectName: "mainView"
     
@@ -58,9 +60,14 @@ MainView {
 
     property var pageStack: pageStack
 
+    property var searchContext : {'searchtext': '', 'lgsrc': 'fra', 'lgdest': 'eng', 'suggest': ''}
+
+    property bool loaded: false
+
+
     PageStack {
         id: pageStack
-
+        /*
         Tabs {
             id: tabs
             property var searchContext : {'searchtext': '', 'lgsrc': 'fra', 'lgdest': 'eng', 'suggest': ''}
@@ -108,6 +115,15 @@ MainView {
                 temp['lgsrc'] = searchContext['lgsrc'];
                 temp['lgdest'] = searchContext['lgdest'];
                 dbContext.contents = temp;
+            }
+        }
+        */
+
+        Component {
+            id: translationPage
+
+            TranslationPage {
+                // objectName: "translationPage"
             }
         }
 
@@ -200,23 +216,52 @@ http://commons.wikimedia.org/wiki/Drapeaux"
 
         onCurrentPageChanged: {
             // console.debug("current page="+pageStack.currentPage);
-            if (pageStack.currentPage == tabs){
-                tabs.selectedTab.checkBadFocus()
+            // TODO
+            //if (pageStack.currentPage == tabs){
+            //    tabs.selectedTab.checkBadFocus()
+            //}
+            if (pageStack.currentPage == translationPage){
+                translationPage.checkBadFocus()
             }
         }
 
         Component.onCompleted:  {
             // console.debug("PAGESTACK completed")
-            pageStack.push(tabs)
+
+            // pageStack.push(tabs)
+            pageStack.push(translationPage)
 
             // Load searchContext from previous usage.
             var params = dbContext.contents;
 
             // console.debug("onCompleted params="+Object.keys(params))
             // console.debug("onCompleted params="+params['lgsrc']+":"+params['lgdest'])
-            tabs.setContext(params);
-            tabs.selectedTab.updateTabContext(tabs.searchContext, true);
-            tabs.loaded = true;
+            utApp.setContext(params);
+            translationPage.updateTabContext(utApp.searchContext, true);
+            utApp.loaded = true;
         }
+    }
+
+
+
+    function updateContext(params) {
+        setContext(params);
+        // store some params in u1db
+        saveDb();
+    }
+
+    function setContext(params) {
+        // console.debug("TABS : new params="+params)
+        for (var param in params) {
+            searchContext[param] = params[param]
+            // console.debug("p:"+param+" = "+params[param])
+        }
+    }
+
+    function saveDb() {
+        var temp = {};
+        temp['lgsrc'] = searchContext['lgsrc'];
+        temp['lgdest'] = searchContext['lgdest'];
+        dbContext.contents = temp;
     }
 }
