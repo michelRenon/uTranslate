@@ -24,6 +24,7 @@ Page {
     head {
         actions : [
             Action {
+                id : switchAction
                 iconSource: Qt.resolvedUrl("../graphics/switch.png")
                 text: i18n.tr("Switch")
                 onTriggered: {
@@ -57,6 +58,26 @@ Page {
     }
 
     onSearchModeChanged: {
+        // UI updates
+        switch (translationPage.searchMode) {
+            case 0: {
+                // show switch icon
+                switchAction.visible = true;
+                // show lgDest button
+                translateBtnLgDest.visible = true;
+                break;
+            }
+
+            case 1: {
+                // hide switch icon
+                switchAction.visible = false;
+                // hide lgDest button
+                translateBtnLgDest.visible = false;
+
+                break;
+            }
+        }
+
         if (translateSearchText.text === "") {
             /*
             // version :
