@@ -511,7 +511,7 @@ Page {
                     }
                 }
                 message = message.replace("%1", translateSearchText.text);
-                content = "<h1>"+message+"</h1>"+resultText;
+                content = "<h3>"+message+"</h3>"+resultText;
             }
         } else {
             content = i18n.tr("A network error occured.");
