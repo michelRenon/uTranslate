@@ -4,7 +4,7 @@
  * License: GPLv3, check LICENSE file.
  */
 import QtQuick 2.0
-import Ubuntu.Components 0.1
+import Ubuntu.Components 1.1
 import Ubuntu.Components.Popups 0.1
 import Ubuntu.Components.ListItems 0.1 as ListItem
 
@@ -13,9 +13,6 @@ Component {
 
     Popover {
         id: popLangSelector
-
-
-        property var currentTab: tabs.selectedTab // TODO : check if it's a good way to do
 
         Column {
             id: containerLayout
@@ -84,13 +81,8 @@ Component {
         }
 
         function doSelectLang(lg) {
-            // TODO : check if it's the right way to do :
-            //
-            if (popLangSelector.caller.objectName == "LangDest") {
-                currentTab.updateLangDest(lg)
-            } else {
-                currentTab.updateLang(lg)
-            }
+            // We suppose that caller is a FlagButton, with 'flag' property
+            popLangSelector.caller.flag = lg;
             PopupUtils.close(popLangSelector)
         }
     }
