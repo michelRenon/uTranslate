@@ -72,34 +72,47 @@ MainView {
 
             Column {
                 anchors.fill: parent
-                spacing: units.gu(2)
+                spacing: units.gu(0)
 
                 ListItem.Header {
                     text : i18n.tr("Providers")
                 }
 
-                ListItem.Standard {
-                    text : 'The current data provider is Glosbe (<a href="http://glosbe.com">http://glosbe.com</a>)'
+                ListItem.Subtitled {
+                    text : 'The current data provider is Glosbe'
+                    subText: '(<a href="http://glosbe.com">http://glosbe.com</a>)'
+                    showDivider: false
+                    highlightWhenPressed: false
+                    // TODO : onTrigerred : open url with browser through contentHub
                  }
 
                 ListItem.Subtitled {
                      text : "7 available languages : "
                      subText: "German, Greek, English, French, Italian, Portuguese, Spanish"
+                     showDivider: false
                      progression: false
+                     highlightWhenPressed: false
+                }
+
+                ListItem.Empty{
+                    showDivider: false
+                    highlightWhenPressed: false
                 }
 
                 ListItem.Header {
                     text : i18n.tr("General")
                 }
 
-                ListItem.SingleValue {
+                ListItem.Standard {
                     text : i18n.tr("About")
                     iconSource: Qt.resolvedUrl("./graphics/uTranslate_64.png")
                     progression:true
+                    // showDivider: false
                     onTriggered: {
                         pageStack.push(aboutPage)
                     }
                 }
+
             }
         }
 
