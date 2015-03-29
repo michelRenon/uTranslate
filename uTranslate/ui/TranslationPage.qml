@@ -20,58 +20,6 @@ Page {
     property string langSrc : 'fra'
     property string langDest : 'eng'
 
-
-    // id:translatePage
-    /*
-    tools: ToolbarItems {
-        objectName: "translation_tools"
-        // locked: false
-        // opened: false
-        /*
-        ToolbarButton {
-            // iconSource: Qt.resolvedUrl("../graphics/")
-            text: i18n.tr("About")
-            onTriggered: {
-                pageStack.push(aboutPage)
-            }
-        }
-        * /
-        ToolbarButton {
-            /*
-            iconSource: Qt.resolvedUrl("../graphics/switch.png")
-            text: i18n.tr("Switch")
-            onTriggered: {
-                translationPage.doSwitchLg()
-            }
-            * /
-            action: Action{
-                iconSource: Qt.resolvedUrl("../graphics/switch.png")
-                text: i18n.tr("Switch")
-                onTriggered: {
-                    translationPage.doSwitchLg()
-                }
-            }
-        }
-
-        ToolbarButton {
-            /*
-            iconSource: Qt.resolvedUrl("../graphics/settings.png")
-            text: i18n.tr("Settings")
-            onTriggered: {
-                pageStack.push(settingsPage)
-            }
-            * /
-            action: Action{
-                iconSource: Qt.resolvedUrl("../graphics/settings.png")
-                text: i18n.tr("Settings")
-                onTriggered: {
-                    pageStack.push(settingsPage)
-                }
-            }
-        }
-    }
-    */
-
     head {
         actions : [
             Action {
@@ -89,7 +37,6 @@ Page {
                 }
             }
         ]
-
 
         sections {
             model:["Translation", "Definition"]
@@ -182,6 +129,10 @@ Page {
                 objectName: "LangSrc"
                 anchors.left: parent.left
                 height: translateSearchText.height
+
+                onFlagChanged:
+                    translationPage.updateLang(flag)
+
             }
             TextField {
                 id: translateSearchText
@@ -232,6 +183,10 @@ Page {
                 anchors.right: parent.right
                 anchors.top: parent.top
                 height: translateSearchText.height
+
+                onFlagChanged:
+                    translationPage.updateLangDest(flag)
+
             }
         }
         Rectangle {
