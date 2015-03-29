@@ -19,6 +19,7 @@ Page {
     property bool canSuggest: false
     property string langSrc : 'fra'
     property string langDest : 'eng'
+    property int searchMode : 0 // translation
 
     head {
         actions : [
@@ -26,22 +27,25 @@ Page {
                 iconSource: Qt.resolvedUrl("../graphics/switch.png")
                 text: i18n.tr("Switch")
                 onTriggered: {
-                    translationPage.doSwitchLg()
+                    translationPage.doSwitchLg();
                 }
             },
             Action {
                 iconSource: Qt.resolvedUrl("../graphics/settings.png")
                 text: i18n.tr("Settings")
                 onTriggered: {
-                    pageStack.push(settingsPage)
+                    pageStack.push(settingsPage);
                 }
             }
         ]
 
         sections {
-            model:["Translation", "Definition"]
+            model:[i18n.tr("Translation"), i18n.tr("Definition")]
             // onSelectedIndexChanged: console.log("DEBUG onSelectedIndexChanged : "+translatePage.head.sections.selectedIndex)
-            onSelectedIndexChanged: console.debug("DEBUG onSelectedIndexChanged : "+translationPage.head.sections.selectedIndex)
+            onSelectedIndexChanged: {
+                console.debug("DEBUG onSelectedIndexChanged : "+translationPage.head.sections.selectedIndex);
+                searchMode = translationPage.head.sections.selectedIndex;
+            }
         }
 
     }
@@ -49,7 +53,27 @@ Page {
     onWidthChanged: {
         // console.debug("Page layout.width="+layouts.width)
         // workaround because 'onLayoutsChanged' notification is not available
-        translationPage.checkBadFocus()
+        translationPage.checkBadFocus();
+    }
+
+    onSearchModeChanged: {
+        if (translateSearchText.text === "") {
+            /*
+            // version :
+            // - focus on search text,
+            // - suggestion list is shown
+            // - translation id done
+            */
+            translationPage.doTranslate(false);
+            translateSearchText.forceActiveFocus();
+            translateSearchText.updateSuggestList();
+
+        } else {
+            // *
+            // version : focus on translation
+            translationPage.doTranslate(true);
+            // */
+        }
     }
 
     Layouts {
@@ -361,13 +385,14 @@ Page {
         if (typeof(startup) === "undefined")
             startup = false;
         // console.debug("updateTabContext")
-        translationPage.canSuggest = false
+        translationPage.canSuggest = false;
         translateSearchText.text = context['searchtext'];
-        translationPage.canSuggest = true
-        translationPage.setLang(context['lgsrc'])
-        translationPage.setLangDest(context['lgdest'])
+        translationPage.canSuggest = true;
+        translationPage.setLang(context['lgsrc']);
+        translationPage.setLangDest(context['lgdest']);
 
-        Controller.updateSuggestionModel(suggestModel, context['suggest'])
+        // TODO : a garder ????
+        Controller.updateSuggestionModel(suggestModel, context['suggest']);
         if (startup || translateSearchText.text === "") {
             /*
             // version :
@@ -382,40 +407,40 @@ Page {
         } else {
             // *
             // version : focus on translation
-            translationPage.doTranslate(true)
+            translationPage.doTranslate(true);
             // */
         }
     }
 
     function setLang(lg) {
-        translationPage.langSrc = lg
-        translateBtnLgSrc.setSource("../graphics/ext/"+lg+".png")
+        translationPage.langSrc = lg;
+        translateBtnLgSrc.setSource("../graphics/ext/"+lg+".png");
     }
 
     function updateLang(lg) {
-        translationPage.setLang(lg)
-        utApp.updateContext({'lgsrc': lg})
-        translationPage.doSuggest()
+        translationPage.setLang(lg);
+        utApp.updateContext({'lgsrc': lg});
+        translationPage.doSuggest();
         // TODO : empty res ?
     }
 
     function setLangDest(lg) {
-        translationPage.langDest = lg
-        translateBtnLgDest.setSource("../graphics/ext/"+lg+".png")
+        translationPage.langDest = lg;
+        translateBtnLgDest.setSource("../graphics/ext/"+lg+".png");
     }
 
     function updateLangDest(lg) {
-        translationPage.setLangDest(lg)
-        utApp.updateContext({'lgdest': lg})
-        translationPage.doTranslate()
+        translationPage.setLangDest(lg);
+        utApp.updateContext({'lgdest': lg});
+        translationPage.doTranslate();
         // TODO : suggest or translate ??
     }
 
     function doSuggest() {
         var lgSrc = translationPage.langSrc;
-        translateSearchText.forceActiveFocus()
+        translateSearchText.forceActiveFocus();
         translateSearchText.updateSuggestList();
-        Controller.doSuggest(translateSearchText.text, lgSrc, suggestModel, utApp)
+        Controller.doSuggest(translateSearchText.text, lgSrc, suggestModel, utApp);
     }
 
     function doTranslate(focusRes) {
@@ -424,28 +449,51 @@ Page {
             focusRes = true;
         var lgSrc = translationPage.langSrc;
         var lgDest = translationPage.langDest;
-        rectViewSuggestion.reduce()
-        if (translateSearchText.text != "")
-            Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, function(res, error) {
-                translationPage.setResult(res, error, focusRes)
-            });
-        else
+        rectViewSuggestion.reduce();
+        if (translateSearchText.text != "") {
+            console.debug("search Mode="+translationPage.searchMode);
+            switch (translationPage.searchMode) {
+                case 0: {
+                    Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, function(res, error) {
+                        translationPage.setResult(res, error, focusRes);
+                    });
+                    break;
+                }
+
+                case 1: {
+                    Controller.doSearchDefintion(translateSearchText.text, lgSrc, function(res, error) {
+                        translationPage.setResult(res, error, focusRes);
+                    });
+                    break;
+                }
+            }
+        } else
             translationPage.setResult("", 0, focusRes);
     }
 
     function setResult(resultText, error, focusRes) {
         // console.debug("appel de translationPage.setResult()"+error);
-        var content = ""
+        var content = "";
         if (error == 0) {
             if (resultText == "") {
                 content = "<i>"+i18n.tr("No Result")+"</i>";
             } else {
-                var message = i18n.tr("Translation of '%1'")
-                message = message.replace("%1", translateSearchText.text)
+                var message = "";
+                switch (translationPage.searchMode) {
+                    case 0: {
+                        message = i18n.tr("Translation of '%1'");
+                        break;
+                    }
+                    case 1:{
+                        message = i18n.tr("Definition of '%1'");
+                        break;
+                    }
+                }
+                message = message.replace("%1", translateSearchText.text);
                 content = "<h1>"+message+"</h1>"+resultText;
             }
         } else {
-            content = i18n.tr("A network error occured.")
+            content = i18n.tr("A network error occured.");
         }
         translateRes.text = content;
 
@@ -456,22 +504,22 @@ Page {
     function doSwitchLg() {
         var lgSrc = translationPage.langSrc;
         var lgDest = translationPage.langDest;
-        translationPage.setLang(lgDest)
-        utApp.updateContext({'lgsrc': lgDest})
+        translationPage.setLang(lgDest);
+        utApp.updateContext({'lgsrc': lgDest});
 
-        translationPage.setLangDest(lgSrc)
-        utApp.updateContext({'lgdest': lgSrc})
+        translationPage.setLangDest(lgSrc);
+        utApp.updateContext({'lgdest': lgSrc});
 
-        translationPage.doSuggest()
-        // translationPage.doTranslate()
+        translationPage.doSuggest();
+        // translationPage.doTranslate();
     }
 
     function checkBadFocus() {
         if (layouts.width <= units.gu(80) && utApp.loaded) {
             if (translateSearchText.focus == false && translateRes.focus==false) {
                 // console.debug("CORRECTING FOCUS PB")
-                translateSearchText.forceActiveFocus()
-                translateSearchText.updateSuggestList(true)
+                translateSearchText.forceActiveFocus();
+                translateSearchText.updateSuggestList(true);
             }
         }
     }
