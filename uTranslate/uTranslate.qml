@@ -13,14 +13,6 @@ import U1db 1.0 as U1db
 import "ui"
 import "controller.js" as Controller
 
-/*!
-    \brief MainView with Tabs element.
-           First Tab has a single Label and
-           second Tab has a single ToolbarAction.
-*/
-
-
-
 MainView {
     id : utApp
 
@@ -67,159 +59,86 @@ MainView {
 
     PageStack {
         id: pageStack
-        /*
-        Tabs {
-            id: tabs
-            property var searchContext : {'searchtext': '', 'lgsrc': 'fra', 'lgdest': 'eng', 'suggest': ''}
 
-            property bool loaded: false
-
-            TranslationTab {
-                objectName: "translationTab"
-            }
-
-            DefinitionTab {
-                objectName: "definitionTab"
-            }
-
-            onSelectedTabChanged: {
-                if (tabs.loaded) {
-                    console.debug ("onSelectedTabChanged="+tabs.selectedTab+" : "+tabs.selectedTab.objectName)
-                    if (tabs.selectedTab.objectName != "configurationTab") {
-                        tabs.selectedTab.updateTabContext(searchContext)
-                    }
-                }
-            }
-
-            onSelectedTabIndexChanged: {
-                // index are 0-based
-                // console.debug("onSelectedTabIndexChanged="+tabs.selectedTabIndex+", tabs="+tabs.__tabs)
-            }
-
-            function updateContext(params) {
-                setContext(params);
-                // store some params in u1db
-                saveDb();
-            }
-
-            function setContext(params) {
-                // console.debug("TABS : new params="+params)
-                for (var param in params) {
-                    searchContext[param] = params[param]
-                    // console.debug("p:"+param+" = "+params[param])
-                }
-            }
-
-            function saveDb() {
-                var temp = {};
-                temp['lgsrc'] = searchContext['lgsrc'];
-                temp['lgdest'] = searchContext['lgdest'];
-                dbContext.contents = temp;
-            }
-        }
-        */
-
-        Component {
+        TranslationPage{
             id: translationPage
-
-            TranslationPage {
-                // objectName: "translationPage"
-            }
+            visible: false
         }
 
-        Component {
+        Page {
             id: settingsPage
+            title: i18n.tr("Settings")
+            visible: false
 
-            Page {
-                title: i18n.tr("Settings")
+            Column {
+                anchors.fill: parent
+                spacing: units.gu(2)
 
-                Column {
-                    anchors.fill: parent
-                    spacing: units.gu(2)
+                ListItem.Header {
+                    text : i18n.tr("Providers")
+                }
 
-                    ListItem.Header {
-                        text : i18n.tr("Providers")
-                    }
+                ListItem.Standard {
+                    text : 'The current data provider is Glosbe (<a href="http://glosbe.com">http://glosbe.com</a>)'
+                 }
 
-                    ListItem.Standard {
-                        text : 'The current data provider is Glosbe (<a href="http://glosbe.com">http://glosbe.com</a>)'
-                     }
+                ListItem.Subtitled {
+                     text : "7 available languages : "
+                     subText: "German, Greek, English, French, Italian, Portuguese, Spanish"
+                     progression: false
+                }
 
-                    ListItem.Subtitled {
-                         text : "7 available languages : "
-                         subText: "German, Greek, English, French, Italian, Portuguese, Spanish"
-                         progression: false
-                    }
+                ListItem.Header {
+                    text : i18n.tr("General")
+                }
 
-                    ListItem.Header {
-                        text : i18n.tr("General")
-                    }
-
-                    ListItem.SingleValue {
-                        text : i18n.tr("About")
-                        iconSource: Qt.resolvedUrl("./graphics/uTranslate_64.png")
-                        progression:true
-                        onTriggered: {
-                            pageStack.push(aboutPage)
-                        }
+                ListItem.SingleValue {
+                    text : i18n.tr("About")
+                    iconSource: Qt.resolvedUrl("./graphics/uTranslate_64.png")
+                    progression:true
+                    onTriggered: {
+                        pageStack.push(aboutPage)
                     }
                 }
-                /*
-                tools: ToolbarItems {
-                    locked: true
-                    opened: true // TODO : API change --> open()
-                }
-                */
             }
         }
 
-        Component {
+        Page {
             id: aboutPage
+            title: i18n.tr("About")
+            visible: false
 
-            Page {
-                title: i18n.tr("About")
+            Item {
+                anchors.fill: parent
 
-                Item {
-                    anchors.fill: parent
-
-                    Image {
-                        id: logo
-                        source: "./graphics/uTranslate.png"
-                        width: units.gu(16)
-                        height: units.gu(16)
-                        anchors.top: parent.top
-                        anchors.topMargin: units.gu(5)
-                        anchors.horizontalCenter: parent.horizontalCenter
-                    }
-                    Text {
-                        id:info
-                        anchors.horizontalCenter: parent.horizontalCenter
-                        anchors.top: logo.bottom
-                        anchors.topMargin: units.gu(2)
-                        text: "uTranslate by Michel Renon<br>
+                Image {
+                    id: logo
+                    source: "./graphics/uTranslate.png"
+                    width: units.gu(16)
+                    height: units.gu(16)
+                    anchors.top: parent.top
+                    anchors.topMargin: units.gu(5)
+                    anchors.horizontalCenter: parent.horizontalCenter
+                }
+                Text {
+                    id:info
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    anchors.top: logo.bottom
+                    anchors.topMargin: units.gu(2)
+                    text: "uTranslate by Michel Renon<br>
 http://www.mr-consultant.net/blog/<br>version 0.3<br>GPLv3<br><br>
 Flags form Wikimedia Commons<br>
 http://commons.wikimedia.org/wiki/Drapeaux"
-                        textFormat : TextEdit.RichText
-                        enabled: false
-                        color: "#888"
-                        horizontalAlignment: Text.AlignHCenter
-                    }
-                }
-
-                tools: ToolbarItems {
-                    locked: true
-                    opened: true // TODO : API change --> open()
+                    textFormat : TextEdit.RichText
+                    enabled: false
+                    color: "#888"
+                    horizontalAlignment: Text.AlignHCenter
                 }
             }
         }
 
         onCurrentPageChanged: {
             // console.debug("current page="+pageStack.currentPage);
-            // TODO
-            //if (pageStack.currentPage == tabs){
-            //    tabs.selectedTab.checkBadFocus()
-            //}
             if (pageStack.currentPage == translationPage){
                 translationPage.checkBadFocus()
             }
@@ -227,8 +146,6 @@ http://commons.wikimedia.org/wiki/Drapeaux"
 
         Component.onCompleted:  {
             // console.debug("PAGESTACK completed")
-
-            // pageStack.push(tabs)
             pageStack.push(translationPage)
 
             // Load searchContext from previous usage.
@@ -241,7 +158,6 @@ http://commons.wikimedia.org/wiki/Drapeaux"
             utApp.loaded = true;
         }
     }
-
 
 
     function updateContext(params) {

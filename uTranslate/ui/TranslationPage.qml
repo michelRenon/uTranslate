@@ -13,7 +13,7 @@ import "../controller.js" as Controller
 
 
 Page {
-    id: translationTab
+    // id: translationPage
     title: i18n.tr("uTranslate")
 
     property bool canSuggest: false
@@ -41,14 +41,14 @@ Page {
             iconSource: Qt.resolvedUrl("../graphics/switch.png")
             text: i18n.tr("Switch")
             onTriggered: {
-                translationTab.doSwitchLg()
+                translationPage.doSwitchLg()
             }
             * /
             action: Action{
                 iconSource: Qt.resolvedUrl("../graphics/switch.png")
                 text: i18n.tr("Switch")
                 onTriggered: {
-                    translationTab.doSwitchLg()
+                    translationPage.doSwitchLg()
                 }
             }
         }
@@ -78,7 +78,7 @@ Page {
                 iconSource: Qt.resolvedUrl("../graphics/switch.png")
                 text: i18n.tr("Switch")
                 onTriggered: {
-                    translationTab.doSwitchLg()
+                    translationPage.doSwitchLg()
                 }
             },
             Action {
@@ -94,7 +94,7 @@ Page {
         sections {
             model:["Translation", "Definition"]
             // onSelectedIndexChanged: console.log("DEBUG onSelectedIndexChanged : "+translatePage.head.sections.selectedIndex)
-            onSelectedIndexChanged: console.log("DEBUG onSelectedIndexChanged : "+translationTab.head.sections.selectedIndex)
+            onSelectedIndexChanged: console.debug("DEBUG onSelectedIndexChanged : "+translationPage.head.sections.selectedIndex)
         }
 
     }
@@ -102,7 +102,7 @@ Page {
     onWidthChanged: {
         // console.debug("Page layout.width="+layouts.width)
         // workaround because 'onLayoutsChanged' notification is not available
-        translationTab.checkBadFocus()
+        translationPage.checkBadFocus()
     }
 
     Layouts {
@@ -197,14 +197,14 @@ Page {
                 onAccepted: {
                     // console.debug("onAccepted:'"+translateSearchText.text+"'")
                     utApp.updateContext({'searchtext':translateSearchText.text})
-                    translationTab.doTranslate()
+                    translationPage.doTranslate()
                 }
 
                 onTextChanged: {
-                    // console.debug("text changed='"+translateSearchText.text+"', "+translationTab.canSuggest)
-                    if (translationTab.canSuggest) {
+                    // console.debug("text changed='"+translateSearchText.text+"', "+translationPage.canSuggest)
+                    if (translationPage.canSuggest) {
                         utApp.updateContext({'searchtext':translateSearchText.text})
-                        translationTab.doSuggest()
+                        translationPage.doSuggest()
                     }
                 }
 
@@ -216,7 +216,7 @@ Page {
                 function updateSuggestList(force) {
                     if (typeof(force) === "undefined")
                         force = false
-                    var test = translationTab.canSuggest;
+                    var test = translationPage.canSuggest;
                     test = test && translateSearchText.focus;
                     test = test && translateSearchText.text != "";
                     // console.debug("translateSearchText.updateSuggestList test="+test+", visible="+rectViewSuggestion.visible);
@@ -308,14 +308,14 @@ Page {
                             onClicked: {
                                 if (rectViewSuggestion.expanded || layouts.currentLayout == "2columns") {
                                     // TODO : check if it'd be better to move next lines in a function
-                                    translationTab.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
+                                    translationPage.canSuggest = false // TODO : aks users if it'd be better to update list of suggestions
                                     translateSearchText.text = suggest
                                     utApp.updateContext({'searchtext':translateSearchText.text})
-                                    translationTab.canSuggest = true
+                                    translationPage.canSuggest = true
 
 
                                     // start translation
-                                    translationTab.doTranslate()
+                                    translationPage.doTranslate()
                                 } else {
                                     rectViewSuggestion.expand()
                                 }
@@ -406,11 +406,11 @@ Page {
         if (typeof(startup) === "undefined")
             startup = false;
         // console.debug("updateTabContext")
-        translationTab.canSuggest = false
+        translationPage.canSuggest = false
         translateSearchText.text = context['searchtext'];
-        translationTab.canSuggest = true
-        translationTab.setLang(context['lgsrc'])
-        translationTab.setLangDest(context['lgdest'])
+        translationPage.canSuggest = true
+        translationPage.setLang(context['lgsrc'])
+        translationPage.setLangDest(context['lgdest'])
 
         Controller.updateSuggestionModel(suggestModel, context['suggest'])
         if (startup || translateSearchText.text === "") {
@@ -420,44 +420,44 @@ Page {
             // - suggestion list is shown
             // - translation id done
             */
-            translationTab.doTranslate(false);
+            translationPage.doTranslate(false);
             translateSearchText.forceActiveFocus();
             translateSearchText.updateSuggestList();
 
         } else {
             // *
             // version : focus on translation
-            translationTab.doTranslate(true)
+            translationPage.doTranslate(true)
             // */
         }
     }
 
     function setLang(lg) {
-        translationTab.langSrc = lg
+        translationPage.langSrc = lg
         translateBtnLgSrc.setSource("../graphics/ext/"+lg+".png")
     }
 
     function updateLang(lg) {
-        translationTab.setLang(lg)
+        translationPage.setLang(lg)
         utApp.updateContext({'lgsrc': lg})
-        translationTab.doSuggest()
+        translationPage.doSuggest()
         // TODO : empty res ?
     }
 
     function setLangDest(lg) {
-        translationTab.langDest = lg
+        translationPage.langDest = lg
         translateBtnLgDest.setSource("../graphics/ext/"+lg+".png")
     }
 
     function updateLangDest(lg) {
-        translationTab.setLangDest(lg)
+        translationPage.setLangDest(lg)
         utApp.updateContext({'lgdest': lg})
-        translationTab.doTranslate()
+        translationPage.doTranslate()
         // TODO : suggest or translate ??
     }
 
     function doSuggest() {
-        var lgSrc = translationTab.langSrc;
+        var lgSrc = translationPage.langSrc;
         translateSearchText.forceActiveFocus()
         translateSearchText.updateSuggestList();
         Controller.doSuggest(translateSearchText.text, lgSrc, suggestModel, utApp)
@@ -467,19 +467,19 @@ Page {
         // console.debug("focusRes="+typeof(focusRes));
         if(typeof(focusRes) === "undefined")
             focusRes = true;
-        var lgSrc = translationTab.langSrc;
-        var lgDest = translationTab.langDest;
+        var lgSrc = translationPage.langSrc;
+        var lgDest = translationPage.langDest;
         rectViewSuggestion.reduce()
         if (translateSearchText.text != "")
             Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, function(res, error) {
-                translationTab.setResult(res, error, focusRes)
+                translationPage.setResult(res, error, focusRes)
             });
         else
-            translationTab.setResult("", 0, focusRes);
+            translationPage.setResult("", 0, focusRes);
     }
 
     function setResult(resultText, error, focusRes) {
-        // console.debug("appel de translationTab.setResult()"+error);
+        // console.debug("appel de translationPage.setResult()"+error);
         var content = ""
         if (error == 0) {
             if (resultText == "") {
@@ -499,16 +499,16 @@ Page {
     }
 
     function doSwitchLg() {
-        var lgSrc = translationTab.langSrc;
-        var lgDest = translationTab.langDest;
-        translationTab.setLang(lgDest)
+        var lgSrc = translationPage.langSrc;
+        var lgDest = translationPage.langDest;
+        translationPage.setLang(lgDest)
         utApp.updateContext({'lgsrc': lgDest})
 
-        translationTab.setLangDest(lgSrc)
+        translationPage.setLangDest(lgSrc)
         utApp.updateContext({'lgdest': lgSrc})
 
-        translationTab.doSuggest()
-        // translationTab.doTranslate()
+        translationPage.doSuggest()
+        // translationPage.doTranslate()
     }
 
     function checkBadFocus() {
@@ -520,5 +520,5 @@ Page {
             }
         }
     }
-    }
+}
 
