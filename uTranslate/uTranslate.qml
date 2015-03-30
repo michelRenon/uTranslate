@@ -127,11 +127,12 @@ MainView {
                 Image {
                     id: logo
                     source: "./graphics/uTranslate.png"
-                    width: units.gu(16)
-                    height: units.gu(16)
+                    // width: units.gu(16)
+                    // height: units.gu(16)
                     anchors.top: parent.top
                     anchors.topMargin: units.gu(5)
                     anchors.horizontalCenter: parent.horizontalCenter
+                    // antialiasing: true
                 }
                 Text {
                     id:info
@@ -139,7 +140,8 @@ MainView {
                     anchors.top: logo.bottom
                     anchors.topMargin: units.gu(2)
                     text: "uTranslate by Michel Renon<br>
-http://www.mr-consultant.net/blog/<br>version 0.3<br>GPLv3<br><br>
+http://www.mr-consultant.net/blog/<br>version 0.3<br>GPLv3<br>
+https://github.com/michelRenon/uTranslate<br><br>
 Flags form Wikimedia Commons<br>
 http://commons.wikimedia.org/wiki/Drapeaux"
                     textFormat : TextEdit.RichText
