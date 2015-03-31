@@ -1,8 +1,0 @@
-[Desktop Entry]
-Name=uTranslate
-Comment=a translation app
-Exec=qmlscene $@ uTranslate.qml
-Icon=graphics/uTranslate.png
-Terminal=false
-Type=Application
-X-Ubuntu-Touch=true
