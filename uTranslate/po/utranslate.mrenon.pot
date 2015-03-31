@@ -1,0 +1,101 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-01 01:22+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../app/TranslationPage.qml:17
+#: /home/michel/Documents/DEV/uTranslate/ut_reboot/build-uTranslate-UbuntuSDK_for_i386_GCC_ubuntu_sdk_14_10_utopic-Default/po/uTranslate.desktop.in.h:1
+msgid "uTranslate"
+msgstr ""
+
+#: ../app/TranslationPage.qml:29
+msgid "Switch"
+msgstr ""
+
+#: ../app/TranslationPage.qml:36 ../app/uTranslate.qml:74
+msgid "Settings"
+msgstr ""
+
+#: ../app/TranslationPage.qml:44
+msgid "Translation"
+msgstr ""
+
+#: ../app/TranslationPage.qml:44
+msgid "Definition"
+msgstr ""
+
+#: ../app/TranslationPage.qml:189
+msgid "Enter text to translate"
+msgstr ""
+
+#: ../app/TranslationPage.qml:502
+msgid "No Result"
+msgstr ""
+
+#: ../app/TranslationPage.qml:507
+#, qt-format
+msgid "Translation of '%1'"
+msgstr ""
+
+#: ../app/TranslationPage.qml:511
+#, qt-format
+msgid "Definition of '%1'"
+msgstr ""
+
+#: ../app/TranslationPage.qml:519
+msgid "A network error occured."
+msgstr ""
+
+#: ../app/components/LangSelector.qml:26
+msgid "german"
+msgstr ""
+
+#: ../app/components/LangSelector.qml:34
+msgid "greek"
+msgstr ""
+
+#: ../app/components/LangSelector.qml:42
+msgid "english"
+msgstr ""
+
+#: ../app/components/LangSelector.qml:49
+msgid "french"
+msgstr ""
+
+#: ../app/components/LangSelector.qml:57
+msgid "italian"
+msgstr ""
+
+#: ../app/components/LangSelector.qml:65
+msgid "portugese"
+msgstr ""
+
+#: ../app/components/LangSelector.qml:73
+msgid "spanish"
+msgstr ""
+
+#: ../app/uTranslate.qml:82
+msgid "Providers"
+msgstr ""
+
+#: ../app/uTranslate.qml:107
+msgid "General"
+msgstr ""
+
+#: ../app/uTranslate.qml:111 ../app/uTranslate.qml:125
+msgid "About"
+msgstr ""

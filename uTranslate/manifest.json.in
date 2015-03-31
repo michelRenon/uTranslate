@@ -1,0 +1,15 @@
+{
+    "name": "@APP_ID@",
+    "description": "A translation application",
+    "architecture": "@CLICK_ARCH@",
+    "title": "@APP_NAME@",
+    "hooks": {
+        "uTranslate": {
+            "apparmor": "uTranslate.apparmor",
+            "desktop": "uTranslate.desktop"
+        }
+    },
+    "version": "0.4",
+    "maintainer": "Michel Renon <renon@mr-consultant.net>",
+    "framework": "ubuntu-sdk-14.10"
+}
