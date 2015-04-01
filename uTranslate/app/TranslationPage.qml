@@ -188,7 +188,8 @@ Page {
                 anchors.rightMargin: units.gu(1)
                 placeholderText: i18n.tr("Enter text to translate")
                 hasClearButton: true
-                inputMethodHints: Qt.ImhNoPredictiveText
+                inputMethodHints: Qt.ImhNoPredictiveText+Qt.ImhNoAutoUppercase
+
 
                 onAccepted: {
                     // console.debug("onAccepted:'"+translateSearchText.text+"'")
