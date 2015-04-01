@@ -117,6 +117,14 @@ MainView {
                     }
                 }
 
+                ListItem.Standard {
+                    text : i18n.tr("TEST")
+                    progression:true
+                    // showDivider: false
+                    onTriggered: {
+                        pageStack.push(testPage)
+                    }
+                }
             }
         }
 
@@ -152,6 +160,83 @@ http://commons.wikimedia.org/wiki/Drapeaux"
                     enabled: false
                     color: "#888"
                     horizontalAlignment: Text.AlignHCenter
+                }
+            }
+        }
+
+        Page {
+            id: testPage
+            title: i18n.tr("TEST")
+            visible: false
+
+            ListModel {
+                id:countryModel
+
+                ListElement {
+                    code:"lg1"
+                    name:"lang1"
+                    flag: "graphics/ext/deu2.png"
+
+                }
+                ListElement {
+                    code:"lg2"
+                    name:"lang2"
+                    flag: "graphics/ext/ell2.png"
+                }
+                ListElement {
+                    code:"lg3"
+                    name:"lang3"
+                    flag: "graphics/ext/eng2.png"
+                }
+                ListElement {
+                    code:"lg4"
+                    name:"lang4"
+                    flag: "graphics/ext/fra2.png"
+                }
+                ListElement {
+                    code:"lg5"
+                    name:"lang5"
+                    flag: "graphics/ext/ita2.png"
+                }
+                ListElement {
+                    code:"lg6"
+                    name:"lang6"
+                    flag: "graphics/ext/por2.png"
+                }
+                ListElement {
+                    code:"lg7"
+                    name:"lang7"
+                    flag: "graphics/ext/spa2.png"
+                }
+                ListElement {
+                    code:"lg8"
+                    name:"lang8"
+                    flag: "graphics/ext/usa2.png"
+                }
+            }
+
+            GridView {
+                id: testGrid
+                anchors.fill: parent
+                cellWidth: parent.width / 6
+
+                model:countryModel
+
+                delegate: Column {
+                    width: testGrid.cellWidth
+                    height: testGrid.cellHeight
+
+                    Image {
+                        width: units.gu(5)
+                        height: units.gu(5)
+                        source: Qt.resolvedUrl(flag)
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+
+                    Text {
+                        text: name
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
                 }
             }
         }
