@@ -144,7 +144,7 @@ MainView {
                     anchors.top: logo.bottom
                     anchors.topMargin: units.gu(2)
                     text: "uTranslate by Michel Renon<br>
-http://www.mr-consultant.net/blog/<br>version 0.3<br>GPLv3<br>
+http://www.mr-consultant.net/blog/<br>version 0.4<br>GPLv3<br>
 https://github.com/michelRenon/uTranslate<br><br>
 Flags form Wikimedia Commons<br>
 http://commons.wikimedia.org/wiki/Drapeaux"
