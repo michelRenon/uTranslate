@@ -1,6 +1,6 @@
 [Desktop Entry]
 _Name=uTranslate
-Comment=My project description
+Comment=A translation application
 Exec=@EXEC@
 Icon=@ICON@
 Terminal=false
