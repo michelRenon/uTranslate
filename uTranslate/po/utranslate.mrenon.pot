@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-01 13:23+0200\n"
+"POT-Creation-Date: 2015-04-03 20:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,41 +22,41 @@ msgstr ""
 msgid "uTranslate"
 msgstr ""
 
-#: ../app/TranslationPage.qml:29
+#: ../app/TranslationPage.qml:30
 msgid "Switch"
 msgstr ""
 
-#: ../app/TranslationPage.qml:36 ../app/uTranslate.qml:74
+#: ../app/TranslationPage.qml:38 ../app/uTranslate.qml:154
 msgid "Settings"
 msgstr ""
 
-#: ../app/TranslationPage.qml:44
+#: ../app/TranslationPage.qml:46
 msgid "Translation"
 msgstr ""
 
-#: ../app/TranslationPage.qml:44
+#: ../app/TranslationPage.qml:46
 msgid "Definition"
 msgstr ""
 
-#: ../app/TranslationPage.qml:189
+#: ../app/TranslationPage.qml:191
 msgid "Enter text to translate"
 msgstr ""
 
-#: ../app/TranslationPage.qml:503
+#: ../app/TranslationPage.qml:505
 msgid "No Result"
 msgstr ""
 
-#: ../app/TranslationPage.qml:508
+#: ../app/TranslationPage.qml:510
 #, qt-format
 msgid "Translation of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:512
+#: ../app/TranslationPage.qml:514
 #, qt-format
 msgid "Definition of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:520
+#: ../app/TranslationPage.qml:522
 msgid "A network error occured."
 msgstr ""
 
@@ -88,18 +88,18 @@ msgstr ""
 msgid "spanish"
 msgstr ""
 
-#: ../app/uTranslate.qml:82
+#: ../app/uTranslate.qml:162
 msgid "Providers"
 msgstr ""
 
-#: ../app/uTranslate.qml:107
+#: ../app/uTranslate.qml:187
 msgid "General"
 msgstr ""
 
-#: ../app/uTranslate.qml:111 ../app/uTranslate.qml:133
+#: ../app/uTranslate.qml:191 ../app/uTranslate.qml:215
 msgid "About"
 msgstr ""
 
-#: ../app/uTranslate.qml:121 ../app/uTranslate.qml:169
+#: ../app/uTranslate.qml:201 ../app/uTranslate.qml:251
 msgid "TEST"
 msgstr ""

@@ -25,14 +25,16 @@ Page {
         actions : [
             Action {
                 id : switchAction
-                iconSource: Qt.resolvedUrl("graphics/switch.png")
+                // iconSource: Qt.resolvedUrl("graphics/switch.png")
+                iconName: "switch"
                 text: i18n.tr("Switch")
                 onTriggered: {
                     translationPage.doSwitchLg();
                 }
             },
             Action {
-                iconSource: Qt.resolvedUrl("graphics/settings.png")
+                // iconSource: Qt.resolvedUrl("graphics/settings.png")
+                iconName: "settings"
                 text: i18n.tr("Settings")
                 onTriggered: {
                     pageStack.push(settingsPage);
