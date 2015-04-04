@@ -22,7 +22,8 @@ Rectangle {
         anchors.fill: parent
         onClicked: PopupUtils.open(langSelectorComponent, parent)
     }
-    function setSource(path) {
-        imSrc.source = path
+    function setSource(code, path) {
+        flag = code;
+        imSrc.source = path;
     }
 }

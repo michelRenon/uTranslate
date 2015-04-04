@@ -81,6 +81,7 @@ Component {
         }
 
         function doSelectLang(lg) {
+            // console.debug("doSelectLang()"+lg)
             // We suppose that caller is a FlagButton, with 'flag' property
             popLangSelector.caller.flag = lg;
             PopupUtils.close(popLangSelector)

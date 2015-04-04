@@ -175,8 +175,10 @@ Page {
                 anchors.left: parent.left
                 height: translateSearchText.height
 
-                onFlagChanged:
+                onFlagChanged:{
+                    // console.debug("src.onFlagChanged")
                     translationPage.updateLang(flag)
+                }
 
             }
             TextField {
@@ -230,9 +232,10 @@ Page {
                 anchors.top: parent.top
                 height: translateSearchText.height
 
-                onFlagChanged:
+                onFlagChanged:{
+                    // console.debug("dest.onFlagChanged")
                     translationPage.updateLangDest(flag)
-
+                }
             }
         }
         Rectangle {
@@ -436,7 +439,7 @@ Page {
 
     function setLang(lg) {
         translationPage.langSrc = lg;
-        translateBtnLgSrc.setSource("../graphics/ext/"+lg+".png");
+        translateBtnLgSrc.setSource(lg, "../graphics/ext/"+lg+".png");
     }
 
     function updateLang(lg) {
@@ -449,7 +452,7 @@ Page {
 
     function setLangDest(lg) {
         translationPage.langDest = lg;
-        translateBtnLgDest.setSource("../graphics/ext/"+lg+".png");
+        translateBtnLgDest.setSource(lg, "../graphics/ext/"+lg+".png");
     }
 
     function updateLangDest(lg) {
