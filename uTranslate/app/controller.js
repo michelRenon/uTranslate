@@ -22,7 +22,7 @@ function doSuggest(sgText, sgLg, sgModel, sgTabs) {
         } else if (doc.readyState == XMLHttpRequest.DONE) {
             // showRequestInfo("DONE");
             if ( doc.status == 200 ) {
-                // showRequestInfo("DONE : "+doc.responseText);
+                showRequestInfo("DONE : "+doc.responseText);
                 var jsonObj = JSON.parse(doc.responseText);
 
                 updateSuggestionModel(sgModel, jsonObj) ;

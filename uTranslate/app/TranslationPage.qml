@@ -417,7 +417,7 @@ Page {
         translationPage.setLangDest(context['lgdest']);
 
         // TODO : a garder ????
-        Controller.updateSuggestionModel(suggestModel, context['suggest']);
+        // Controller.updateSuggestionModel(suggestModel, context['suggest']);
         if (startup || translateSearchText.text === "") {
             /*
             // version :
@@ -438,6 +438,7 @@ Page {
     }
 
     function setLang(lg) {
+        console.debug("setLang:"+lg);
         translationPage.langSrc = lg;
         translateBtnLgSrc.setSource(lg, "../graphics/ext/"+lg+".png");
     }
@@ -451,6 +452,7 @@ Page {
     }
 
     function setLangDest(lg) {
+        console.debug("setLangDest:"+lg);
         translationPage.langDest = lg;
         translateBtnLgDest.setSource(lg, "../graphics/ext/"+lg+".png");
     }

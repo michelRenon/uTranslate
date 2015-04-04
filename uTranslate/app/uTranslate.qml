@@ -56,7 +56,7 @@ MainView {
 
     property var pageStack: pageStack
 
-    property var searchContext : {'searchtext': '', 'lgsrc': 'fra', 'lgdest': 'eng', 'suggest': ''}
+    property var searchContext : {'searchtext': '', 'lgsrc': 'fra', 'lgdest': 'eng', 'suggest': []}
 
     property bool loaded: false
 
