@@ -127,30 +127,64 @@ MainView {
             title: i18n.tr("About")
             visible: false
 
-            Item {
+            // Item {
+            Column {
                 anchors.fill: parent
+                spacing: units.gu(1)
+                anchors.topMargin: units.gu(5)
 
                 Image {
                     id: logo
                     source: Qt.resolvedUrl("graphics/uTranslate.png")
-                    // width: units.gu(16)
-                    // height: units.gu(16)
-                    anchors.top: parent.top
-                    anchors.topMargin: units.gu(5)
                     anchors.horizontalCenter: parent.horizontalCenter
                     // antialiasing: true
                 }
-                Text {
-                    id:info
+                Label {
+                    id: info1
                     anchors.horizontalCenter: parent.horizontalCenter
-                    anchors.top: logo.bottom
-                    anchors.topMargin: units.gu(2)
-                    text: "uTranslate by Michel Renon<br>http://www.mr-consultant.net/blog/<br>version 0.4<br>GPLv3<br>https://github.com/michelRenon/uTranslate<br><br>Flags form Wikimedia Commons<br>http://commons.wikimedia.org/wiki/Drapeaux"
-                    textFormat : TextEdit.RichText
-                    enabled: false
-                    color: "#888"
                     horizontalAlignment: Text.AlignHCenter
+                    text: i18n.tr("uTranslate, a translation app")
+                    wrapMode: Text.WordWrap
                 }
+                Label {
+                    id: info2
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    text: i18n.tr("by ")+"<a href='http://www.mr-consultant.net/blog/'>Michel Renon</a>"
+                    wrapMode: Text.WordWrap
+                    onLinkActivated: Qt.openUrlExternally(link)
+                }
+                Label {
+                    id: info3
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    text: i18n.tr("version ")+"0.4"
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    id: info4
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    text: "GPLv3"
+                    wrapMode: Text.WordWrap
+                }
+                Label {
+                    id: info5
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    text: i18n.tr("Project website: ")+"<br><a href='https://github.com/michelRenon/uTranslate'>https://github.com/michelRenon/uTranslate</a>"
+                    wrapMode: Text.WordWrap
+                    onLinkActivated: Qt.openUrlExternally(link)
+                }
+                Label {
+                    id: info6
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    text: i18n.tr("Flags form ")+"<a href='http://commons.wikimedia.org/wiki/Drapeaux'>Wikimedia Commons</a>"
+                    wrapMode: Text.WordWrap
+                    onLinkActivated: Qt.openUrlExternally(link)
+                }
+
             }
         }
 
