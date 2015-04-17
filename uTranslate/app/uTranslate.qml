@@ -102,7 +102,7 @@ MainView {
                     showDivider: false
                     highlightWhenPressed: false
                 }
-
+                /*
                 ListItem.Header {
                     text : i18n.tr("General")
                 }
@@ -117,7 +117,7 @@ MainView {
                         pageStack.push(aboutPage)
                     }
                 }
-
+                */
             }
         }
 

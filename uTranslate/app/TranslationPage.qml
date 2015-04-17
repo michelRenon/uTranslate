@@ -37,6 +37,13 @@ Page {
                 onTriggered: {
                     pageStack.push(settingsPage);
                 }
+            },
+            Action {
+                iconName: "info"
+                text: i18n.tr("About")
+                onTriggered: {
+                    pageStack.push(aboutPage);
+                }
             }
         ]
 
