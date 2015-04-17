@@ -86,8 +86,9 @@ MainView {
                     text : 'The current data provider is Glosbe'
                     subText: '(<a href="http://glosbe.com">http://glosbe.com</a>)'
                     showDivider: false
-                    highlightWhenPressed: false
-                    // TODO : onTrigerred : open url with browser through contentHub
+                    highlightWhenPressed: true
+                    progression: true
+                    onTriggered: Qt.openUrlExternally("http://glosbe.com")
                  }
 
                 ListItem.Subtitled {
