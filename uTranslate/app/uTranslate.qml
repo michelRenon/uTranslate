@@ -109,7 +109,8 @@ MainView {
 
                 ListItem.Standard {
                     text : i18n.tr("About")
-                    iconSource: Qt.resolvedUrl("graphics/uTranslate_64.png")
+                    iconName: "info"
+                    // iconSource: Qt.resolvedUrl("graphics/uTranslate_64.png")
                     progression:true
                     // showDivider: false
                     onTriggered: {
