@@ -95,8 +95,11 @@ MainView {
                      text : "7 available languages : "
                      subText: "German, Greek, English, French, Italian, Portuguese, Spanish"
                      showDivider: false
-                     progression: false
-                     highlightWhenPressed: false
+                     progression: true
+                     highlightWhenPressed: true
+                     onTriggered: {
+                        pageStack.push(langPage)
+                     }
                 }
 
                 ListItem.Empty{
@@ -188,6 +191,33 @@ MainView {
             }
         }
 
+        Page {
+            id: langPage
+            title: i18n.tr("Languages")
+            visible: false
+
+            ListView {
+                anchors.fill: parent
+
+                model: langListModel
+
+                delegate: ListItem.Standard {
+                    // Both "name" and "team" are taken from the model
+                    text: i18n.tr(name) +" ("+code+")"
+                    iconSource: Qt.resolvedUrl(icon_path)
+                    fallbackIconSource: Qt.resolvedUrl("graphics/uTranslate.png")
+                    control: Switch {
+                        checked: false
+                        // text: "Click me"
+                        // width: units.gu(19)
+                        onClicked: print("switch : "+code+" Clicked")
+                    }
+                    onClicked: console.debug("listItem clicked")
+
+                }
+            }
+        }
+
         onCurrentPageChanged: {
             // console.debug("current page="+pageStack.currentPage);
             if (pageStack.currentPage == translationPage){
@@ -208,8 +238,46 @@ MainView {
             translationPage.updateTabContext(utApp.searchContext, true);
             utApp.loaded = true;
         }
-    }
 
+        ListModel {
+            id: langListModel
+            ListElement {
+                code:"deu"
+                name: "german"
+                icon_path: "graphics/ext/deu2.png"
+            }
+            ListElement {
+                code:"ell"
+                name: "greek"
+                icon_path: "graphics/ext/ell2.png"
+            }
+            ListElement {
+                code:"eng"
+                name: "english"
+                icon_path: "graphics/ext/eng2.png"
+            }
+            ListElement {
+                code:"fra"
+                name: "french"
+                icon_path: "graphics/ext/fra2.png"
+            }
+            ListElement {
+                code:"ita"
+                name: "italian"
+                icon_path: "graphics/ext/ita2.png"
+            }
+            ListElement {
+                code:"por"
+                name: "portugese"
+                icon_path: "graphics/ext/por2.png"
+            }
+            ListElement {
+                code:"spa"
+                name: "spanish"
+                icon_path: "graphics/ext/spa2.png"
+            }
+        }
+    }
 
     function updateContext(params) {
         setContext(params);
