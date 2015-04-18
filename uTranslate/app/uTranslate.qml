@@ -8,6 +8,8 @@ import U1db 1.0 as U1db
 // import "ui"
 import "controller.js" as Controller
 
+// import ListModelJson 1.0
+import "glosbe_lang.js" as GlosbeLang
 
 /*!
     \brief MainView with Tabs element.
@@ -197,15 +199,21 @@ MainView {
             visible: false
 
             ListView {
+
+                ListModelJson {
+                    liste: GlosbeLang.glosbe_lang_array
+                    id: langListModel
+                }
+
                 anchors.fill: parent
 
-                model: langListModel
+                model: langListModel.model
 
                 delegate: ListItem.Standard {
                     // Both "name" and "team" are taken from the model
                     text: i18n.tr(name) +" ("+code+")"
-                    iconSource: Qt.resolvedUrl(icon_path)
-                    fallbackIconSource: Qt.resolvedUrl("graphics/uTranslate.png")
+                    // iconSource: Qt.resolvedUrl(icon_path)
+                    // fallbackIconSource: Qt.resolvedUrl("graphics/uTranslate.png")
                     control: Switch {
                         checked: false
                         // text: "Click me"
@@ -237,8 +245,10 @@ MainView {
             utApp.setContext(params);
             translationPage.updateTabContext(utApp.searchContext, true);
             utApp.loaded = true;
-        }
 
+            console.debug("GlosbeLang="+GlosbeLang.glosbe_lang_array);
+        }
+        /*
         ListModel {
             id: langListModel
             ListElement {
@@ -277,7 +287,12 @@ MainView {
                 icon_path: "graphics/ext/spa2.png"
             }
         }
+        */
     }
+
+
+
+
 
     function updateContext(params) {
         setContext(params);
