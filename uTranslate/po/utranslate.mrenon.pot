@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-19 02:25+0200\n"
+"POT-Creation-Date: 2015-04-19 12:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,11 +26,11 @@ msgstr ""
 msgid "Switch"
 msgstr ""
 
-#: ../app/TranslationPage.qml:36 ../app/uTranslate.qml:134
+#: ../app/TranslationPage.qml:36 ../app/uTranslate.qml:159
 msgid "Settings"
 msgstr ""
 
-#: ../app/TranslationPage.qml:43 ../app/uTranslate.qml:201
+#: ../app/TranslationPage.qml:43 ../app/uTranslate.qml:226
 msgid "About"
 msgstr ""
 
@@ -92,34 +92,34 @@ msgstr ""
 msgid "spanish"
 msgstr ""
 
-#: ../app/uTranslate.qml:142
+#: ../app/uTranslate.qml:167
 msgid "Providers"
 msgstr ""
 
-#: ../app/uTranslate.qml:220
+#: ../app/uTranslate.qml:245
 msgid "uTranslate, a translation app"
 msgstr ""
 
-#: ../app/uTranslate.qml:227
+#: ../app/uTranslate.qml:252
 msgid "by "
 msgstr ""
 
-#: ../app/uTranslate.qml:235
+#: ../app/uTranslate.qml:260
 msgid "version "
 msgstr ""
 
-#: ../app/uTranslate.qml:249
+#: ../app/uTranslate.qml:274
 msgid "Project website: "
 msgstr ""
 
-#: ../app/uTranslate.qml:257
+#: ../app/uTranslate.qml:282
 msgid "Flags form "
 msgstr ""
 
-#: ../app/uTranslate.qml:267
+#: ../app/uTranslate.qml:292
 msgid "Languages"
 msgstr ""
 
-#: ../app/uTranslate.qml:303
+#: ../app/uTranslate.qml:338
 msgid "Countries"
 msgstr ""

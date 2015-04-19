@@ -44,7 +44,7 @@ MainView {
     function openDB() {
         if(dbLang !== null) return;
         // object openDatabaseSync(string name, string version, string description, int estimated_size, jsobject callback(db))
-        dbLang = LocalStorage.openDatabaseSync("sqlite-utranslate-app", "0.1", "Simple example app", 100000);
+        dbLang = LocalStorage.openDatabaseSync("sqlite-utranslate-app", "0.1", "uTranslate lang db", 100000);
 
         try {
             dbLang.transaction(function(tx){
@@ -84,6 +84,31 @@ MainView {
             res = rs.rows;
         });
         return res;
+    }
+
+    function readUsedLangs() {
+        openDB();
+        var res = "";
+        dbLang.transaction(function(tx) {
+            var rs = tx.executeSql('SELECT * FROM lang WHERE used=1;', []);
+            res = rs.rows;
+        });
+        return res;
+    }
+
+    function writeUsedLang(code_lang, used) {
+        /*
+         * code_lang: text
+         * used : integer [0-1]
+         */
+        console.debug("code_lang="+code_lang+", used="+used);
+        openDB();
+        var res = "";
+        dbLang.transaction(function(tx) {
+            var rs = tx.executeSql('UPDATE lang SET used=? WHERE code=?;', [used, code_lang]);
+            // res = rs.rows;
+        });
+        // return res;
     }
 
     function readCountries() {
@@ -285,10 +310,20 @@ MainView {
                     // iconSource: Qt.resolvedUrl(icon_path)
                     // fallbackIconSource: Qt.resolvedUrl("graphics/uTranslate.png")
                     control: Switch {
-                        checked: false
+                        checked: (used == 1)? true : false; // int2bool
                         // text: "Click me"
                         // width: units.gu(19)
-                        onClicked: print("switch : "+code+" Clicked, value="+checked)
+                        onClicked: {
+                            console.debug("switch : "+code+" Clicked, value="+checked)
+                            var val = (checked)? 1 : 0; // bool2int
+                            console.debug("valDB="+val);
+                            // update of Model
+                            langListModel.setProperty(index, "used", val);
+                            // console.debug("Model used="+used);
+
+                            // update of db  (directly from the view ??? shouldn't it  be done from the listModel ?)
+                            writeUsedLang(code, val);
+                        }
                     }
                     onClicked: console.debug("listItem clicked")
 
@@ -344,10 +379,18 @@ MainView {
             translationPage.updateTabContext(utApp.searchContext, true);
             utApp.loaded = true;
 
-            console.debug("GlosbeLang="+GlosbeLang.glosbe_lang_array);
+            // console.debug("GlosbeLang="+GlosbeLang.glosbe_lang_array);
         }
         ListModel {
             id: langListModel
+
+            onDataChanged: {
+                console.debug("langListModel data changed:"); // " code="+code+" name="+name+" used="+used);
+                // console.debug("item:"+item);
+                // console.debug("object:"+object);
+            }
+
+
             /*
             ListElement {
                 code:"deu"
