@@ -24,6 +24,9 @@ Rectangle {
     }
     function setSource(code, path) {
         flag = code;
-        imSrc.source = path;
+        // TEMP DISABLE TO AVOID WARNINGS.
+        // WAITING THE REWRITE OF THIS COMPONENT TO HANDLE
+        // LANGS AS Text + optional flag
+        // imSrc.source = path;
     }
 }

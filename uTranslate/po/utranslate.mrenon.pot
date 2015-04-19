@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-19 12:47+0200\n"
+"POT-Creation-Date: 2015-04-19 19:17+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -62,34 +62,6 @@ msgstr ""
 
 #: ../app/TranslationPage.qml:532
 msgid "A network error occured."
-msgstr ""
-
-#: ../app/components/LangSelector.qml:26
-msgid "german"
-msgstr ""
-
-#: ../app/components/LangSelector.qml:34
-msgid "greek"
-msgstr ""
-
-#: ../app/components/LangSelector.qml:42
-msgid "english"
-msgstr ""
-
-#: ../app/components/LangSelector.qml:49
-msgid "french"
-msgstr ""
-
-#: ../app/components/LangSelector.qml:57
-msgid "italian"
-msgstr ""
-
-#: ../app/components/LangSelector.qml:65
-msgid "portugese"
-msgstr ""
-
-#: ../app/components/LangSelector.qml:73
-msgid "spanish"
 msgstr ""
 
 #: ../app/uTranslate.qml:167
