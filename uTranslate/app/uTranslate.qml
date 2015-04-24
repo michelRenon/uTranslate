@@ -96,6 +96,19 @@ MainView {
         return res;
     }
 
+    function readLang(code) {
+        openDB();
+        var res = "";
+        dbLang.transaction(function(tx) {
+            var rs = tx.executeSql('SELECT * FROM lang WHERE code=?;', [code]);
+            if (rs.rows.length == 1)
+                res = rs.rows[0];
+            else
+                res = {};
+        });
+        return res;
+    }
+
     function writeUsedLang(code_lang, used) {
         /*
          * code_lang: text

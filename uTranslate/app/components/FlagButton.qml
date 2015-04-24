@@ -9,7 +9,7 @@ import Ubuntu.Components.Popups 0.1
 
 Rectangle {
     anchors.top: parent.top
-    width: units.gu(6)
+    width: units.gu(12)
 
     property string flag : 'fra'
 
@@ -18,6 +18,14 @@ Rectangle {
         source: Qt.resolvedUrl("../graphics/ext/fra.png")
         anchors.fill: parent
     }
+    Label {
+        id:labelSrc
+        anchors.fill: parent
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+        text: ""
+    }
+
     MouseArea {
         anchors.fill: parent
         onClicked: {
@@ -37,6 +45,10 @@ Rectangle {
         // TEMP DISABLE TO AVOID WARNINGS.
         // WAITING THE REWRITE OF THIS COMPONENT TO HANDLE
         // LANGS AS Text + optional flag
+        var res = utApp.readLang(code);
+        console.debug("setSource : "+res.name+", "+res.code+", "+res.flag_code);
+        labelSrc.text = i18n.tr(res.name)
+        // var path="../graphics/ext/"+code+".png";
         // imSrc.source = path;
     }
 }
