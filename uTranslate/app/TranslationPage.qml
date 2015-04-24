@@ -455,6 +455,8 @@ Page {
         translationPage.setLang(lg);
         utApp.updateContext({'lgsrc': lg});
         translationPage.doSuggest();
+        console.debug("doSuggest DONE");
+
         // TODO : empty res ?
     }
 

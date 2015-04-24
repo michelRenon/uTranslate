@@ -20,7 +20,17 @@ Rectangle {
     }
     MouseArea {
         anchors.fill: parent
-        onClicked: PopupUtils.open(langSelectorComponent, parent)
+        onClicked: {
+            // we force a focus change :
+            // if the focus is on searchText, then OSK is visible.
+            // We need to have the OSK invisible otherwise, the popover will be
+            // moved to a specific location. But just after the first clic,
+            // the OSK will disappear and the popover will automatically move to another location:
+            // very bad user interaction.
+            parent.forceActiveFocus()
+            // OSK is invisible now, we can open popover.
+            PopupUtils.open(langSelectorComponent, parent)
+        }
     }
     function setSource(code, path) {
         flag = code;

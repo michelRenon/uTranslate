@@ -16,6 +16,9 @@ Component {
         // mandatory with child listView
         contentHeight: langListView.height
         contentWidth: units.gu(30)
+        focus: true
+
+        property string lang :''
 
         ListView {
             id: langListView
@@ -40,9 +43,16 @@ Component {
 
         function doSelectLang(lg) {
             // console.debug("doSelectLang()"+lg)
-            // We suppose that caller is a FlagButton, with 'flag' property
-            popLangSelector.caller.flag = lg;
+            // We suppose that caller is a FlagButton, with 'flag' property.
+            // But...
+            // we need to delay the callback calling
+            // and wait the popover's destruction.
+            // This will prevent the popover to disturb any focus changes
+            // on other widgets.
+            // So the line (caller.flag = ...) is moved in onDestruction()
+            popLangSelector.lang = lg;
             PopupUtils.close(popLangSelector)
+            // popLangSelector.caller.flag = lg;
         }
 
         function loadUsedLangs() {
@@ -61,6 +71,11 @@ Component {
 
         Component.onCompleted: {
             loadUsedLangs()
+        }
+
+        Component.onDestruction: {
+            console.debug("popover destroyed");
+            popLangSelector.caller.flag = popLangSelector.lang;
         }
     }
 
