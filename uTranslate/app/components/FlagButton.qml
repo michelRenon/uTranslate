@@ -15,7 +15,7 @@ Rectangle {
 
     Image {
         id: imSrc
-        source: Qt.resolvedUrl("../graphics/ext/fra.png")
+        source: "" // Qt.resolvedUrl("../graphics/ext/fra.png")
         anchors.fill: parent
     }
     Label {

@@ -320,8 +320,11 @@ MainView {
                 delegate: ListItem.Standard {
                     // Both "name" and "team" are taken from the model
                     text: i18n.tr(name) +" ("+code+")"
-                    // iconSource: Qt.resolvedUrl(icon_path)
-                    // fallbackIconSource: Qt.resolvedUrl("graphics/uTranslate.png")
+                    // iconSource: Qt.resolvedUrl("graphics/flags-iso/"+code+".png")
+                    // fallbackIconSource: Qt.resolvedUrl("graphics/flags-iso/_unknown.png")
+                    // iconSource: Qt.resolvedUrl("graphics/flags-iso/_unknown.png")
+                    progression:true
+
                     control: Switch {
                         checked: (used == 1)? true : false; // int2bool
                         // text: "Click me"
@@ -338,7 +341,13 @@ MainView {
                             writeUsedLang(code, val);
                         }
                     }
-                    onClicked: console.debug("listItem clicked")
+                    // onClicked: console.debug("listItem clicked")
+
+                    onTriggered: {
+                        console.debug("listItem trigerred")
+                        // PopupUtils.open(langOptionsComponent, this)
+                        pageStack.push(countryPage)
+                    }
 
                 }
             }
@@ -350,7 +359,7 @@ MainView {
             id: countryPage
             title: i18n.tr("Countries")
             visible: false
-
+            /*
             ListView {
                 anchors.fill: parent
                 model: countryListModel
@@ -358,13 +367,90 @@ MainView {
                 delegate: ListItem.Standard {
                     // Both "name" and "team" are taken from the model
                     text: i18n.tr(name) +" ("+code+")"
-                    // iconSource: Qt.resolvedUrl(icon_path)
-                    // fallbackIconSource: Qt.resolvedUrl("graphics/uTranslate.png")
+                    iconSource: Qt.resolvedUrl("graphics/flags-iso/"+code+".png")
+                    fallbackIconSource: Qt.resolvedUrl("graphics/flags-iso/_unknown.png")
+                }
+            }
+            */
+            GridView {
+                id: testGrid
+                anchors.fill: parent
+                // anchors.margins: units.gu(2)
+
+                cellWidth: width / 4
+
+                model:countryListModel
+
+                delegate: Column {
+                    width: testGrid.cellWidth
+                    height: testGrid.cellHeight
+
+                    Image {
+                        width: units.gu(5)
+                        height: units.gu(5)
+                        source: Qt.resolvedUrl("graphics/flags-iso/"+code+".png")
+                        // fallbackIconSource: Qt.resolvedUrl("graphics/flags-iso/_unknown.png")
+                        anchors.horizontalCenter: parent.horizontalCenter
+                    }
+
+                    Text {
+                        width: testGrid.cellWidth
+                        text: i18n.tr(name) // +" ("+code+")"
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        // style:
+
+                        wrapMode: Text.WordWrap
+                    }
                 }
             }
 
 
+
         }
+
+        Component {
+            id: langOptionsComponent
+
+            Popover {
+                id: popLangOptions
+                // mandatory with child listView
+                contentHeight: units.gu(30) // langListView.height
+                contentWidth: units.gu(30)
+                focus: true
+                Rectangle {
+                    anchors.fill: parent
+                    color: "#ff5555"
+                }
+
+                GridView {
+                    id: testGrid
+                    anchors.fill: parent
+                    anchors.margins: units.gu(2)
+
+                    cellWidth: parent.width / 6
+
+                    model:countryListModel
+
+                    delegate: Column {
+                        width: testGrid.cellWidth
+                        height: testGrid.cellHeight
+
+                        Image {
+                            width: units.gu(5)
+                            height: units.gu(5)
+                            source: Qt.resolvedUrl("graphics/flags-iso/"+code+".png")
+                            anchors.horizontalCenter: parent.horizontalCenter
+                        }
+
+                        Text {
+                            text: i18n.tr(name) +" ("+code+")"
+                            anchors.horizontalCenter: parent.horizontalCenter
+                        }
+                    }
+                }
+            }
+        }
+
 
         onCurrentPageChanged: {
             // console.debug("current page="+pageStack.currentPage);
