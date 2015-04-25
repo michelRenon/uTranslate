@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-18 01:37+0200\n"
+"POT-Creation-Date: 2015-04-25 01:03+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,11 +26,11 @@ msgstr ""
 msgid "Switch"
 msgstr ""
 
-#: ../app/TranslationPage.qml:36 ../app/uTranslate.qml:74
+#: ../app/TranslationPage.qml:36 ../app/uTranslate.qml:172
 msgid "Settings"
 msgstr ""
 
-#: ../app/TranslationPage.qml:43 ../app/uTranslate.qml:127
+#: ../app/TranslationPage.qml:43 ../app/uTranslate.qml:239
 msgid "About"
 msgstr ""
 
@@ -46,72 +46,52 @@ msgstr ""
 msgid "Enter text to translate"
 msgstr ""
 
-#: ../app/TranslationPage.qml:515
+#: ../app/TranslationPage.qml:517
 msgid "No Result"
 msgstr ""
 
-#: ../app/TranslationPage.qml:520
+#: ../app/TranslationPage.qml:522
 #, qt-format
 msgid "Translation of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:524
+#: ../app/TranslationPage.qml:526
 #, qt-format
 msgid "Definition of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:532
+#: ../app/TranslationPage.qml:534
 msgid "A network error occured."
 msgstr ""
 
-#: ../app/components/LangSelector.qml:26
-msgid "german"
-msgstr ""
-
-#: ../app/components/LangSelector.qml:34
-msgid "greek"
-msgstr ""
-
-#: ../app/components/LangSelector.qml:42
-msgid "english"
-msgstr ""
-
-#: ../app/components/LangSelector.qml:49
-msgid "french"
-msgstr ""
-
-#: ../app/components/LangSelector.qml:57
-msgid "italian"
-msgstr ""
-
-#: ../app/components/LangSelector.qml:65
-msgid "portugese"
-msgstr ""
-
-#: ../app/components/LangSelector.qml:73
-msgid "spanish"
-msgstr ""
-
-#: ../app/uTranslate.qml:82
+#: ../app/uTranslate.qml:180
 msgid "Providers"
 msgstr ""
 
-#: ../app/uTranslate.qml:163
+#: ../app/uTranslate.qml:258
 msgid "uTranslate, a translation app"
 msgstr ""
 
-#: ../app/uTranslate.qml:170
+#: ../app/uTranslate.qml:265
 msgid "by "
 msgstr ""
 
-#: ../app/uTranslate.qml:178
+#: ../app/uTranslate.qml:273
 msgid "version "
 msgstr ""
 
-#: ../app/uTranslate.qml:192
+#: ../app/uTranslate.qml:287
 msgid "Project website: "
 msgstr ""
 
-#: ../app/uTranslate.qml:200
+#: ../app/uTranslate.qml:295
 msgid "Flags form "
+msgstr ""
+
+#: ../app/uTranslate.qml:305
+msgid "Languages"
+msgstr ""
+
+#: ../app/uTranslate.qml:351
+msgid "Countries"
 msgstr ""

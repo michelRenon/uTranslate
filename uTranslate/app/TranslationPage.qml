@@ -447,7 +447,7 @@ Page {
     function setLang(lg) {
         console.debug("setLang:"+lg);
         translationPage.langSrc = lg;
-        translateBtnLgSrc.setSource(lg, "../graphics/ext/"+lg+".png");
+        translateBtnLgSrc.setSource(lg);
     }
 
     function updateLang(lg) {
@@ -455,13 +455,15 @@ Page {
         translationPage.setLang(lg);
         utApp.updateContext({'lgsrc': lg});
         translationPage.doSuggest();
+        console.debug("doSuggest DONE");
+
         // TODO : empty res ?
     }
 
     function setLangDest(lg) {
         console.debug("setLangDest:"+lg);
         translationPage.langDest = lg;
-        translateBtnLgDest.setSource(lg, "../graphics/ext/"+lg+".png");
+        translateBtnLgDest.setSource(lg);
     }
 
     function updateLangDest(lg) {
