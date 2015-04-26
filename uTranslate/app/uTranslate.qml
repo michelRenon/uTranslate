@@ -199,7 +199,7 @@ MainView {
                         pageStack.push(langPage)
                      }
                 }
-
+                /*
                 ListItem.Subtitled {
                      text : "Countries"
                      // subText: "German, Greek, English, French, Italian, Portuguese, Spanish"
@@ -215,6 +215,7 @@ MainView {
                     showDivider: false
                     highlightWhenPressed: false
                 }
+                */
                 /*
                 ListItem.Header {
                     text : i18n.tr("General")
@@ -245,11 +246,16 @@ MainView {
                 spacing: units.gu(1)
                 anchors.topMargin: units.gu(5)
 
-                Image {
-                    id: logo
-                    source: Qt.resolvedUrl("graphics/uTranslate.png")
+                UbuntuShape {
+                    width: units.gu(12)
+                    height: units.gu(12)
                     anchors.horizontalCenter: parent.horizontalCenter
-                    // antialiasing: true
+                    image: Image {
+                        id: logo
+                        source: Qt.resolvedUrl("graphics/uTranslate.png")
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        // antialiasing: true
+                    }
                 }
                 Label {
                     id: info1
@@ -296,7 +302,6 @@ MainView {
                     wrapMode: Text.WordWrap
                     onLinkActivated: Qt.openUrlExternally(link)
                 }
-
             }
         }
 

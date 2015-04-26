@@ -18,7 +18,7 @@ Component {
         contentWidth: units.gu(30)
         focus: true
 
-        property string lang :''
+        property string lang :'--'
 
         ListView {
             id: langListView
@@ -32,7 +32,8 @@ Component {
             model: langUsedModel
             delegate: ListItem.Standard {
                 text: i18n.tr(name)
-                selected: caller.flag == code
+                // selected: { console.debug("delegate:"+caller); return caller.flag == code; }
+                selected: caller.flag === code
                 // iconSource: Qt.resolvedUrl("../graphics/ext/deu2.png")
                 onClicked: {
                     popLangSelector.doSelectLang(code)
@@ -56,12 +57,12 @@ Component {
         }
 
         function loadUsedLangs() {
-            console.debug("loadUsedLangs()");
+            // console.debug("loadUsedLangs()");
             langUsedModel.clear();
             var langs = readUsedLangs();
             for(var i=0, l=langs.length ; i < l; i++) {
                 langUsedModel.append(langs[i]);
-                console.debug("loadUsedLangs   appended "+langs[i].name);
+                // console.debug("loadUsedLangs   appended "+langs[i].name);
             }
         }
 
@@ -70,14 +71,18 @@ Component {
         }
 
         Component.onCompleted: {
-            loadUsedLangs()
+            console.debug("popLangSelector onCompleted");
+            // console.debug(popLangSelector.caller);
+            // console.debug(caller);
+            // popLangSelector.lang = popLangSelector.caller.flag;
+            loadUsedLangs();
         }
 
         Component.onDestruction: {
             console.debug("popover destroyed");
-            popLangSelector.caller.flag = popLangSelector.lang;
+            // console.debug(popLangSelector.caller);
+            if (popLangSelector.lang !== '--')
+                popLangSelector.caller.flag = popLangSelector.lang;
         }
     }
-
-
 }
