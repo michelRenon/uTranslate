@@ -7,11 +7,14 @@ import QtQuick 2.0
 import Ubuntu.Components 1.1
 import Ubuntu.Components.Popups 0.1
 
-UbuntuShape {
+// UbuntuShape {
+Rectangle {
     anchors.top: parent.top
     anchors.bottom: parent.bottom
     width: units.gu(12)
-    color: "#ccccff"
+    color: "white" // "#ccccff"
+    // anchors.leftMargin:
+    radius: units.gu(3)
 
     property string flag : 'fr'
 
@@ -56,10 +59,10 @@ UbuntuShape {
     Image {
         id: imSrc
         anchors.centerIn: parent
-        width: units.gu(6)
-        height: units.gu(6)
-        source: Qt.resolvedUrl("../graphics/ext/fra2.png")
+        height: parent.height
+        width: imSrc.height
 
+        source: Qt.resolvedUrl("../graphics/ext/FR.png")
         visible: parent.flag === 'fr'
     }
 

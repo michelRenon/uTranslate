@@ -327,10 +327,17 @@ MainView {
                     text: i18n.tr(name) +" ("+code+")"
                     // iconSource: Qt.resolvedUrl(icon_path)
                     // fallbackIconSource: Qt.resolvedUrl("graphics/uTranslate.png")
+
+                    // TODO : handle flag
+                    // progression: (code === 'fr') ? true : false;
+                    // iconSource: Qt.resolvedUrl("graphics/uTranslate.png")
+                    // onClicked: console.debug("listItem clicked")
+
                     control: Switch {
                         checked: (used == 1)? true : false; // int2bool
                         // text: "Click me"
                         // width: units.gu(19)
+
                         onClicked: {
                             console.debug("switch : "+code+" Clicked, value="+checked)
                             var val = (checked)? 1 : 0; // bool2int
@@ -343,7 +350,6 @@ MainView {
                             writeUsedLang(code, val);
                         }
                     }
-                    onClicked: console.debug("listItem clicked")
 
                 }
             }
