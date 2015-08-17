@@ -96,6 +96,34 @@ MainView {
         return res;
     }
 
+    function countUsedLangs() {
+        openDB();
+        var res = "";
+        dbLang.transaction(function(tx) {
+            var rs = tx.executeSql('SELECT count(*) FROM lang WHERE used=1;', []);
+            res = rs.rows[0];
+            res = parseInt(res['count(*)']); // force integer
+        });
+        console.log("countUsedLangs");
+        // for (var prop in res){
+        //     console.log(prop)
+        //}
+        // console.log("======");
+        console.log(res);
+        console.log(typeof(res));
+        return res;
+    }
+
+    function readNameUsedLangs() {
+        openDB();
+        var res = "";
+        dbLang.transaction(function(tx) {
+            var rs = tx.executeSql('SELECT name FROM lang WHERE used=1;', []);
+            res = rs.rows;
+        });
+        return res;
+    }
+
     function readLang(code) {
         openDB();
         var res = "";
@@ -190,12 +218,13 @@ MainView {
                  }
 
                 ListItem.Subtitled {
-                     text : "7 available languages : "
-                     subText: "German, Greek, English, French, Italian, Portuguese, Spanish"
-                     showDivider: false
-                     progression: true
-                     highlightWhenPressed: true
-                     onTriggered: {
+                    id: langInfos
+                    text : settingsPage.getLangText()
+                    subText: settingsPage.getLangSubtext()
+                    showDivider: false
+                    progression: true
+                    highlightWhenPressed: true
+                    onTriggered: {
                         pageStack.push(langPage)
                      }
                 }
@@ -232,6 +261,24 @@ MainView {
                     }
                 }
                 */
+            }
+
+            function getLangText() {
+                var nb = countUsedLangs();
+                var text = my_i18n("no selected language:", "%n selected language:", "%n selected languages:", nb);
+                return text;
+            }
+            function getLangSubtext() {
+                var langs = readNameUsedLangs();
+                var text = "";
+                for(var i=0, l=langs.length ; i < l; i++) {
+                    text += i18n.tr(langs[i].name)+", ";
+                }
+                return text;
+            }
+            function updateLangInfos() {
+                langInfos.text = settingsPage.getLangText();
+                langInfos.subText = settingsPage.getLangSubtext();
             }
         }
 
@@ -305,56 +352,9 @@ MainView {
             }
         }
 
-        Page {
+        LangPage{
             id: langPage
-            title: i18n.tr("Languages")
             visible: false
-
-            ListView {
-                /*
-                ListModelJson {
-                    liste: GlosbeLang.glosbe_lang_array
-                    id: langListModel
-                }
-                */
-                anchors.fill: parent
-
-                // model: langListModel.model
-                model: langListModel
-
-                delegate: ListItem.Standard {
-                    // Both "name" and "team" are taken from the model
-                    text: i18n.tr(name) +" ("+code+")"
-                    // iconSource: Qt.resolvedUrl(icon_path)
-                    // fallbackIconSource: Qt.resolvedUrl("graphics/uTranslate.png")
-
-                    // TODO : handle flag
-                    // progression: (code === 'fr') ? true : false;
-                    // iconSource: Qt.resolvedUrl("graphics/uTranslate.png")
-                    // onClicked: console.debug("listItem clicked")
-
-                    control: Switch {
-                        checked: (used == 1)? true : false; // int2bool
-                        // text: "Click me"
-                        // width: units.gu(19)
-
-                        onClicked: {
-                            console.debug("switch : "+code+" Clicked, value="+checked)
-                            var val = (checked)? 1 : 0; // bool2int
-                            console.debug("valDB="+val);
-                            // update of Model
-                            langListModel.setProperty(index, "used", val);
-                            // console.debug("Model used="+used);
-
-                            // update of db  (directly from the view ??? shouldn't it  be done from the listModel ?)
-                            writeUsedLang(code, val);
-                        }
-                    }
-
-                }
-            }
-
-
         }
 
         Page {
@@ -404,6 +404,14 @@ MainView {
             utApp.loaded = true;
 
             // console.debug("GlosbeLang="+GlosbeLang.glosbe_lang_array);
+
+            console.log("debug i18n");
+            for (var i = 0 ; i < 10 ; ++i) {
+                // lp#1204141
+                // var text = i18n.tr("valeur = %n","valeurs = %n", i).arg(i);
+                var text = my_i18n("valeur nulle = %n", "valeur = %n","valeurs = %n", i);
+                console.log(text);
+            }
         }
         ListModel {
             id: langListModel
@@ -495,6 +503,21 @@ MainView {
         temp['lgsrc'] = searchContext['lgsrc'];
         temp['lgdest'] = searchContext['lgdest'];
         dbContext.contents = temp;
+    }
+
+    function my_i18n(zero, singular, plural, nb) {
+        var res = "";
+        var src = "";
+        if (nb == 0)
+            src = zero;
+        else if (nb == 1)
+            src = singular;
+        else
+            src = plural;
+
+        res = i18n.tr(src);
+        res = res.replace("%n", nb)
+        return res;
     }
 }
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-16 23:11+0200\n"
+"POT-Creation-Date: 2015-08-17 02:25+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,6 +16,10 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
+
+#: ../app/LangPage.qml:24
+msgid "Show selected"
+msgstr ""
 
 #: ../app/TranslationPage.qml:17
 #: /home/michel/Documents/DEV/uTranslate/ut_reboot/build-uTranslate-UbuntuSDK_for_i386_GCC_ubuntu_sdk_14_10_utopic-Default/po/uTranslate.desktop.in.h:1
@@ -26,11 +30,11 @@ msgstr ""
 msgid "Switch"
 msgstr ""
 
-#: ../app/TranslationPage.qml:36 ../app/uTranslate.qml:172
+#: ../app/TranslationPage.qml:36 ../app/uTranslate.qml:200
 msgid "Settings"
 msgstr ""
 
-#: ../app/TranslationPage.qml:43 ../app/uTranslate.qml:240
+#: ../app/TranslationPage.qml:43 ../app/uTranslate.qml:287
 msgid "About"
 msgstr ""
 
@@ -64,32 +68,28 @@ msgstr ""
 msgid "A network error occured."
 msgstr ""
 
-#: ../app/uTranslate.qml:180
+#: ../app/uTranslate.qml:208
 msgid "Providers"
 msgstr ""
 
-#: ../app/uTranslate.qml:264
+#: ../app/uTranslate.qml:311
 msgid "uTranslate, a translation app"
 msgstr ""
 
-#: ../app/uTranslate.qml:271
+#: ../app/uTranslate.qml:318
 msgid "by "
 msgstr ""
 
-#: ../app/uTranslate.qml:279
+#: ../app/uTranslate.qml:326
 msgid "version "
 msgstr ""
 
-#: ../app/uTranslate.qml:293
+#: ../app/uTranslate.qml:340
 msgid "Project website: "
 msgstr ""
 
-#: ../app/uTranslate.qml:301
+#: ../app/uTranslate.qml:348
 msgid "Flags form "
-msgstr ""
-
-#: ../app/uTranslate.qml:310
-msgid "Languages"
 msgstr ""
 
 #: ../app/uTranslate.qml:362
