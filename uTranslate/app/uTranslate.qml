@@ -265,7 +265,10 @@ MainView {
 
             function getLangText() {
                 var nb = countUsedLangs();
-                var text = my_i18n("no selected language:", "%n selected language:", "%n selected languages:", nb);
+                var s0 = i18n.tr("no selected language:");
+                var s1 = i18n.tr("%n selected language:");
+                var s2 = i18n.tr("%n selected languages:");
+                var text = my_i18n(s0, s1, s2, nb);
                 return text;
             }
             function getLangSubtext() {
@@ -515,7 +518,8 @@ MainView {
         else
             src = plural;
 
-        res = i18n.tr(src);
+        // res = i18n.tr(src);
+        res = src;
         res = res.replace("%n", nb)
         return res;
     }
