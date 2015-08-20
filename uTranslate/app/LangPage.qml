@@ -10,7 +10,7 @@ import Ubuntu.Components.ListItems 0.1 as ListItem
 Page {
     // id: langPage
     title: langPage.getTitle()
-
+    /*
     head {
         actions : [
             Action {
@@ -24,7 +24,7 @@ Page {
             }
         ]
     }
-
+    */
     ListView {
         /*
         ListModelJson {
