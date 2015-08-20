@@ -10,7 +10,9 @@ import Ubuntu.Components.ListItems 0.1 as ListItem
 Page {
     // id: langPage
     title: langPage.getTitle()
-    /*
+
+    property bool doSelect: false // show only selected langs ?
+
     head {
         actions : [
             Action {
@@ -18,13 +20,14 @@ Page {
                 iconName: "select"
                 text: i18n.tr("Show selected")
                 onTriggered: {
-                    console.debug("show selected")
-                    // TODO
+                    langPage.doSelect = !langPage.doSelect
+                    console.debug("show selected"+langPage.doSelect)
+                    langPage.reloadLangs();
                 }
             }
         ]
     }
-    */
+
     ListView {
         /*
         ListModelJson {
@@ -67,11 +70,24 @@ Page {
                     // update other parts of UI
                     // the current page
                     langPage.updateTitle();
+                    // the selection
+                    langPage.reloadLangs();
                     // the settings page
                     settingsPage.updateLangInfos();
                 }
             }
         }
+    }
+
+    Component.onCompleted:  {
+        langPage.reloadLangs();
+    }
+
+    function reloadLangs(){
+        if (langPage.doSelect)
+            loadUsedLangs()
+        else
+            loadLangs();
     }
 
     function getTitle() {

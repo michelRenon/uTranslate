@@ -479,6 +479,14 @@ MainView {
         }
     }
 
+    function loadUsedLangs() {
+        langListModel.clear();
+        var langs = readUsedLangs();
+        for(var i=0, l=langs.length ; i < l; i++) {
+            langListModel.append(langs[i]);
+        }
+    }
+
     function loadCountries() {
         countryListModel.clear();
         var countries = readCountries();
