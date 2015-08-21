@@ -471,8 +471,8 @@ MainView {
 
 
 
-    function _loadLangs(used) {
-        langListModel.clear();
+    function _loadLangs(aModel, used) {
+        aModel.clear();
         var langs;
         if (used)
             langs = readUsedLangs();
@@ -494,16 +494,19 @@ MainView {
 
         // fill model
         for(var i=0, l=lgs.length ; i < l; i++) {
-            langListModel.append(lgs[i]);
+            aModel.append(lgs[i]);
         }
     }
 
     function loadLangs() {
-        _loadLangs(false);
+        _loadLangs(langListModel, false);
     }
 
-    function loadUsedLangs() {
-        _loadLangs(true);
+    function loadUsedLangs(usedModel) {
+        var aModel = langListModel;
+        if (typeof usedModel !== "undefined")
+            aModel=usedModel;
+        _loadLangs(aModel, true);
     }
 
     function loadCountries() {

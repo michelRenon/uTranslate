@@ -31,12 +31,21 @@ Component {
             height: units.gu(40)
             model: langUsedModel
             delegate: ListItem.Standard {
-                text: i18n.tr(name)
-                // selected: { console.debug("delegate:"+caller); return caller.flag == code; }
+                // text: i18n.tr(name)
+                text: name
+
+                // TODO : voir comment afficher différemment le lien vers la page de langues
+                // avec le nouveau ListItem, Ubuntu.Components 1.2, framework 15.04
+                // http://developer.ubuntu.com/api/apps/qml/sdk-15.04/Ubuntu.Components.ListItem/
+
                 selected: caller.flag === code
                 // iconSource: Qt.resolvedUrl("../graphics/ext/deu2.png")
                 onClicked: {
-                    popLangSelector.doSelectLang(code)
+                    if (code === 'settings') {
+                        PopupUtils.close(popLangSelector);
+                        pageStack.push(langPage);
+                    } else
+                        popLangSelector.doSelectLang(code);
                 }
 
             }
@@ -52,18 +61,8 @@ Component {
             // on other widgets.
             // So the line (caller.flag = ...) is moved in onDestruction()
             popLangSelector.lang = lg;
-            PopupUtils.close(popLangSelector)
+            PopupUtils.close(popLangSelector);
             // popLangSelector.caller.flag = lg;
-        }
-
-        function loadUsedLangs() {
-            // console.debug("loadUsedLangs()");
-            langUsedModel.clear();
-            var langs = readUsedLangs();
-            for(var i=0, l=langs.length ; i < l; i++) {
-                langUsedModel.append(langs[i]);
-                // console.debug("loadUsedLangs   appended "+langs[i].name);
-            }
         }
 
         ListModel {
@@ -75,14 +74,18 @@ Component {
             // console.debug(popLangSelector.caller);
             // console.debug(caller);
             // popLangSelector.lang = popLangSelector.caller.flag;
-            loadUsedLangs();
+            loadUsedLangs(langUsedModel);
+
+            langUsedModel.append({name:i18n.tr("Language settings..."), code:'settings', flag:'--'});
         }
 
         Component.onDestruction: {
-            console.debug("popover destroyed");
+            // console.debug("popover destroyed");
             // console.debug(popLangSelector.caller);
-            if (popLangSelector.lang !== '--')
+            if (popLangSelector.lang !== '--') {
+                // console.debug("change lang:"+popLangSelector.lang);
                 popLangSelector.caller.flag = popLangSelector.lang;
+            }
         }
     }
 }
