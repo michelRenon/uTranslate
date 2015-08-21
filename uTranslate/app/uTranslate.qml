@@ -471,20 +471,39 @@ MainView {
 
 
 
-    function loadLangs() {
+    function _loadLangs(used) {
         langListModel.clear();
-        var langs = readLangs();
+        var langs;
+        if (used)
+            langs = readUsedLangs();
+        else
+            langs = readLangs();
+        // Note : 'langs' is not a real list
+        // console.log("langs="+JSON.stringify(langs)+"nb="+langs.length);
+        // translate langs : use a temp list
+        var lgs = [];
         for(var i=0, l=langs.length ; i < l; i++) {
-            langListModel.append(langs[i]);
+            var elem = langs[i];
+            elem['name'] = i18n.tr(elem['name']);
+            lgs.push(elem);
+        }
+        // console.log("lgs="+JSON.stringify(lgs)+"nb="+lgs.length);
+        // Sort lang list after translation
+        lgs.sort(function(a,b){return a['name'].localeCompare(b['name'])});
+        // console.log("lgs sorted="+JSON.stringify(lgs)+"nb="+lgs.length);
+
+        // fill model
+        for(var i=0, l=lgs.length ; i < l; i++) {
+            langListModel.append(lgs[i]);
         }
     }
 
+    function loadLangs() {
+        _loadLangs(false);
+    }
+
     function loadUsedLangs() {
-        langListModel.clear();
-        var langs = readUsedLangs();
-        for(var i=0, l=langs.length ; i < l; i++) {
-            langListModel.append(langs[i]);
-        }
+        _loadLangs(true);
     }
 
     function loadCountries() {

@@ -8,13 +8,13 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-21 02:03+0200\n"
+"POT-Creation-Date: 2015-08-21 13:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../app/LangPage.qml:23
@@ -66,6 +66,1566 @@ msgstr ""
 
 #: ../app/TranslationPage.qml:534
 msgid "A network error occured."
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:6
+msgid "Afrikaans"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:7
+msgid "Albanian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:8
+msgid "Anglo-Norman"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:9
+msgid "Arabic"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:10
+msgid "Aragonese"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:11
+msgid "Armenian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:12
+msgid "Asturian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:13
+msgid "Azerbaijani"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:14
+msgid "Basque"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:15
+msgid "Bavarian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:16
+msgid "Belarusian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:17
+msgid "Bengali"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:18
+msgid "Bosnian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:19
+msgid "Breton"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:20
+msgid "Bulgarian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:21
+msgid "Burmese"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:22
+msgid "Catalan"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:23
+msgid "Chinese"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:24
+msgid "Coastal Swahili"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:25
+msgid "Crimean Turkish"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:26
+msgid "Croatian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:27
+msgid "Czech"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:28
+msgid "Danish"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:29
+msgid "Dutch"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:30
+msgid "English"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:31
+msgid "Esperanto"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:32
+msgid "Estonian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:33
+msgid "Faroese"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:34
+msgid "Filipino"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:35
+msgid "Finnish"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:36
+msgid "French"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:37
+msgid "Galician"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:38
+msgid "Georgian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:39
+msgid "German"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:40
+msgid "Greek"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:41
+msgid "Gujarati"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:42
+msgid "Haitian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:43
+msgid "Hawaiian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:44
+msgid "Hebrew"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:45
+msgid "Hiligaynon"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:46
+msgid "Hindi"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:47
+msgid "Hungarian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:48
+msgid "Icelandic"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:49
+msgid "Ido"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:50
+msgid "Indonesian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:51
+msgid "Interlingua"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:52
+msgid "Iranian Persian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:53
+msgid "Irish"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:54
+msgid "Italian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:55
+msgid "Japanese"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:56
+msgid "Karachay-Balkar"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:57
+msgid "Kazakh"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:58
+msgid "Khasi"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:59
+msgid "Khmer"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:60
+msgid "Korean"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:61
+msgid "Koyraboro Senni"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:62
+msgid "Kurdish"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:63
+msgid "Lao"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:64
+msgid "Latin"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:65
+msgid "Latvian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:66
+msgid "Limburgish"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:67
+msgid "Lithuanian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:68
+msgid "Low German"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:69
+msgid "Luxembourgish"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:70
+msgid "Macedonian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:71
+msgid "Malay"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:72
+msgid "Malayalam"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:73
+msgid "Maltese"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:74
+msgid "Mandarin"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:75
+msgid "Manx"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:76
+msgid "Marathi"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:77
+msgid "Middle French"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:78
+msgid "Min Nan Chinese"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:79
+msgid "Mongolian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:80
+msgid "Navajo"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:81
+msgid "Neapolitan"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:82
+msgid "Northern Sami"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:83
+msgid "Norwegian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:84
+msgid "Novial"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:85
+msgid "Occitan"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:86
+msgid "Old English"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:87
+msgid "Old French"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:88
+msgid "Old Norse"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:89
+msgid "Papiamento"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:90
+msgid "Persian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:91
+msgid "Piemontese"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:92
+msgid "Polish"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:93
+msgid "Portuguese"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:94
+msgid "Romanian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:95
+msgid "Romansh"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:96
+msgid "Romany"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:97
+msgid "Russian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:98
+msgid "Sanskrit"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:99
+msgid "Scots"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:100
+msgid "Scottish Gaelic"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:101
+msgid "Serbian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:102
+msgid "Serbo Croatian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:103
+msgid "Sicilian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:104
+msgid "Slovak"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:105
+msgid "Slovenian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:106
+msgid "South Azerbaijani"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:107
+msgid "Spanish"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:108
+msgid "Standard Arabic"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:109
+msgid "Swahili"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:110
+msgid "Swedish"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:111
+msgid "Tagalog"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:112
+msgid "Tajik"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:113
+msgid "Tamil"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:114
+msgid "Tatar"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:115
+msgid "Telugu"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:116
+msgid "Thai"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:117
+msgid "Turkish"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:118
+msgid "Turkmen"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:119
+msgid "Ukrainian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:120
+msgid "Urdu"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:121
+msgid "Uzbek"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:122
+msgid "Venetian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:123
+msgid "Vietnamese"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:124
+msgid "Volapük"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:125
+msgid "Welsh"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:126
+msgid "Western Frisian"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:127
+msgid "Wymysorys"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:128
+msgid "Yiddish"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:129
+msgid "Yoruba"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:130
+msgid "Yucateco"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:131
+msgid "Zulu"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:134
+msgid "Afghanistan"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:135
+msgid "Albania"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:136
+msgid "Algeria"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:137
+msgid "American Samoa"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:138
+msgid "Andorra"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:139
+msgid "Angola"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:140
+msgid "Anguilla"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:141
+msgid "Antarctica"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:142
+msgid "Antigua and Barbuda"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:143
+msgid "Argentina"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:144
+msgid "Armenia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:145
+msgid "Aruba"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:146
+msgid "Australia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:147
+msgid "Austria"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:148
+msgid "Azerbaijan"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:149
+msgid "Bahamas"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:150
+msgid "Bahrain"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:151
+msgid "Bangladesh"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:152
+msgid "Barbados"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:153
+msgid "Belarus"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:154
+msgid "Belgium"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:155
+msgid "Belize"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:156
+msgid "Benin"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:157
+msgid "Bermuda"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:158
+msgid "Bhutan"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:159
+msgid "Bolivia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:160
+msgid "Bosnia and Herzegovina"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:161
+msgid "Botswana"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:162
+msgid "Bouvet Island"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:163
+msgid "Brazil"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:164
+msgid "British Antarctic Territory"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:165
+msgid "British Indian Ocean Territory"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:166
+msgid "British Virgin Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:167
+msgid "Brunei"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:168
+msgid "Bulgaria"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:169
+msgid "Burkina Faso"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:170
+msgid "Burundi"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:171
+msgid "Cambodia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:172
+msgid "Cameroon"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:173
+msgid "Canada"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:174
+msgid "Canton and Enderbury Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:175
+msgid "Cape Verde"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:176
+msgid "Cayman Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:177
+msgid "Central African Republic"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:178
+msgid "Chad"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:179
+msgid "Chile"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:180
+msgid "China"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:181
+msgid "Christmas Island"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:182
+msgid "Cocos [Keeling] Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:183
+msgid "Colombia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:184
+msgid "Comoros"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:185
+msgid "Congo - Brazzaville"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:186
+msgid "Congo - Kinshasa"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:187
+msgid "Cook Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:188
+msgid "Costa Rica"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:189
+msgid "Croatia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:190
+msgid "Cuba"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:191
+msgid "Cyprus"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:192
+msgid "Czech Republic"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:193
+msgid "Côte d’Ivoire"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:194
+msgid "Denmark"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:195
+msgid "Djibouti"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:196
+msgid "Dominica"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:197
+msgid "Dominican Republic"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:198
+msgid "Dronning Maud Land"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:199
+msgid "East Germany"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:200
+msgid "Ecuador"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:201
+msgid "Egypt"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:202
+msgid "El Salvador"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:203
+msgid "Equatorial Guinea"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:204
+msgid "Eritrea"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:205
+msgid "Estonia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:206
+msgid "Ethiopia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:207
+msgid "Falkland Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:208
+msgid "Faroe Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:209
+msgid "Fiji"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:210
+msgid "Finland"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:211
+msgid "France"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:212
+msgid "French Guiana"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:213
+msgid "French Polynesia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:214
+msgid "French Southern Territories"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:215
+msgid "French Southern and Antarctic Territories"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:216
+msgid "Gabon"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:217
+msgid "Gambia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:218
+msgid "Georgia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:219
+msgid "Germany"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:220
+msgid "Ghana"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:221
+msgid "Gibraltar"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:222
+msgid "Greece"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:223
+msgid "Greenland"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:224
+msgid "Grenada"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:225
+msgid "Guadeloupe"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:226
+msgid "Guam"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:227
+msgid "Guatemala"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:228
+msgid "Guernsey"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:229
+msgid "Guinea"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:230
+msgid "Guinea-Bissau"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:231
+msgid "Guyana"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:232
+msgid "Haiti"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:233
+msgid "Heard Island and McDonald Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:234
+msgid "Honduras"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:235
+msgid "Hong Kong SAR China"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:236
+msgid "Hungary"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:237
+msgid "Iceland"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:238
+msgid "India"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:239
+msgid "Indonesia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:240
+msgid "Iran"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:241
+msgid "Iraq"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:242
+msgid "Ireland"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:243
+msgid "Isle of Man"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:244
+msgid "Israel"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:245
+msgid "Italy"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:246
+msgid "Jamaica"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:247
+msgid "Japan"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:248
+msgid "Jersey"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:249
+msgid "Johnston Island"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:250
+msgid "Jordan"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:251
+msgid "Kazakhstan"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:252
+msgid "Kenya"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:253
+msgid "Kiribati"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:254
+msgid "Kuwait"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:255
+msgid "Kyrgyzstan"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:256
+msgid "Laos"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:257
+msgid "Latvia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:258
+msgid "Lebanon"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:259
+msgid "Lesotho"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:260
+msgid "Liberia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:261
+msgid "Libya"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:262
+msgid "Liechtenstein"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:263
+msgid "Lithuania"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:264
+msgid "Luxembourg"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:265
+msgid "Macau SAR China"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:266
+msgid "Macedonia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:267
+msgid "Madagascar"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:268
+msgid "Malawi"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:269
+msgid "Malaysia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:270
+msgid "Maldives"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:271
+msgid "Mali"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:272
+msgid "Malta"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:273
+msgid "Marshall Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:274
+msgid "Martinique"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:275
+msgid "Mauritania"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:276
+msgid "Mauritius"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:277
+msgid "Mayotte"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:278
+msgid "Metropolitan France"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:279
+msgid "Mexico"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:280
+msgid "Micronesia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:281
+msgid "Midway Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:282
+msgid "Moldova"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:283
+msgid "Monaco"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:284
+msgid "Mongolia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:285
+msgid "Montenegro"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:286
+msgid "Montserrat"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:287
+msgid "Morocco"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:288
+msgid "Mozambique"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:289
+msgid "Myanmar [Burma]"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:290
+msgid "Namibia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:291
+msgid "Nauru"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:292
+msgid "Nepal"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:293
+msgid "Netherlands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:294
+msgid "Netherlands Antilles"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:295
+msgid "Neutral Zone"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:296
+msgid "New Caledonia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:297
+msgid "New Zealand"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:298
+msgid "Nicaragua"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:299
+msgid "Niger"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:300
+msgid "Nigeria"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:301
+msgid "Niue"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:302
+msgid "Norfolk Island"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:303
+msgid "North Korea"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:304
+msgid "North Vietnam"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:305
+msgid "Northern Mariana Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:306
+msgid "Norway"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:307
+msgid "Oman"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:308
+msgid "Pacific Islands Trust Territory"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:309
+msgid "Pakistan"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:310
+msgid "Palau"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:311
+msgid "Palestinian Territories"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:312
+msgid "Panama"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:313
+msgid "Panama Canal Zone"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:314
+msgid "Papua New Guinea"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:315
+msgid "Paraguay"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:316
+msgid "People's Democratic Republic of Yemen"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:317
+msgid "Peru"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:318
+msgid "Philippines"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:319
+msgid "Pitcairn Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:320
+msgid "Poland"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:321
+msgid "Portugal"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:322
+msgid "Puerto Rico"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:323
+msgid "Qatar"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:324
+msgid "Romania"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:325
+msgid "Russia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:326
+msgid "Rwanda"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:327
+msgid "Réunion"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:328
+msgid "Saint Barthélemy"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:329
+msgid "Saint Helena"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:330
+msgid "Saint Kitts and Nevis"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:331
+msgid "Saint Lucia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:332
+msgid "Saint Martin"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:333
+msgid "Saint Pierre and Miquelon"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:334
+msgid "Saint Vincent and the Grenadines"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:335
+msgid "Samoa"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:336
+msgid "San Marino"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:337
+msgid "Saudi Arabia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:338
+msgid "Senegal"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:339
+msgid "Serbia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:340
+msgid "Serbia and Montenegro"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:341
+msgid "Seychelles"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:342
+msgid "Sierra Leone"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:343
+msgid "Singapore"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:344
+msgid "Slovakia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:345
+msgid "Slovenia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:346
+msgid "Solomon Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:347
+msgid "Somalia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:348
+msgid "South Africa"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:349
+msgid "South Georgia and the South Sandwich Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:350
+msgid "South Korea"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:351
+msgid "Spain"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:352
+msgid "Sri Lanka"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:353
+msgid "Sudan"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:354
+msgid "Suriname"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:355
+msgid "Svalbard and Jan Mayen"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:356
+msgid "Swaziland"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:357
+msgid "Sweden"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:358
+msgid "Switzerland"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:359
+msgid "Syria"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:360
+msgid "São Tomé and Príncipe"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:361
+msgid "Taiwan"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:362
+msgid "Tajikistan"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:363
+msgid "Tanzania"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:364
+msgid "Thailand"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:365
+msgid "Timor-Leste"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:366
+msgid "Togo"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:367
+msgid "Tokelau"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:368
+msgid "Tonga"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:369
+msgid "Trinidad and Tobago"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:370
+msgid "Tunisia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:371
+msgid "Turkey"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:372
+msgid "Turkmenistan"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:373
+msgid "Turks and Caicos Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:374
+msgid "Tuvalu"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:375
+msgid "U.S. Minor Outlying Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:376
+msgid "U.S. Miscellaneous Pacific Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:377
+msgid "U.S. Virgin Islands"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:378
+msgid "Uganda"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:379
+msgid "Ukraine"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:380
+msgid "Union of Soviet Socialist Republics"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:381
+msgid "United Arab Emirates"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:382
+msgid "United Kingdom"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:383
+msgid "United States"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:384
+msgid "Unknown or Invalid Region"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:385
+msgid "Uruguay"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:386
+msgid "Uzbekistan"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:387
+msgid "Vanuatu"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:388
+msgid "Vatican City"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:389
+msgid "Venezuela"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:390
+msgid "Vietnam"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:391
+msgid "Wake Island"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:392
+msgid "Wallis and Futuna"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:393
+msgid "Western Sahara"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:394
+msgid "Yemen"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:395
+msgid "Zambia"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:396
+msgid "Zimbabwe"
+msgstr ""
+
+#: ../app/glosbe_lang_i18n.js:397
+msgid "Åland Islands"
 msgstr ""
 
 #: ../app/uTranslate.qml:208
