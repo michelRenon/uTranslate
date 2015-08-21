@@ -80,7 +80,8 @@ Page {
                     // the current page
                     langPage.updateTitle();
                     // the selection
-                    langPage.reloadLangs();
+                    if (langPage.doSelect)
+                        loadUsedLangs()
                     // the settings page
                     settingsPage.updateLangInfos();
                 }
