@@ -7,6 +7,8 @@ import QtQuick 2.0
 import Ubuntu.Components 1.1
 import Ubuntu.Components.ListItems 0.1 as ListItem
 
+import "components"
+
 Page {
     // id: langPage
     title: langPage.getTitle()
@@ -29,6 +31,7 @@ Page {
     }
 
     ListView {
+        id: langList
         /*
         ListModelJson {
             liste: GlosbeLang.glosbe_lang_array
@@ -36,9 +39,15 @@ Page {
         }
         */
         anchors.fill: parent
+        anchors.rightMargin: fastScroll.showing ? fastScroll.width - units.gu(1) : 0
+        clip: true
+        currentIndex: -1
 
-        // model: langListModel.model
         model: langListModel
+
+        function getSectionText(index) {
+            return langListModel.get(index).name.substring(0,1)
+        }
 
         delegate: ListItem.Standard {
             // Both "name" and "team" are taken from the model
@@ -76,6 +85,34 @@ Page {
                     settingsPage.updateLangInfos();
                 }
             }
+        }
+
+        section {
+            property: "name"
+            criteria: ViewSection.FirstCharacter
+            labelPositioning: ViewSection.InlineLabels
+            delegate: SectionDelegate {
+                anchors {
+                    left: parent.left
+                    right: parent.right
+                    margins: units.gu(2)
+                }
+                text: section != "" ? section : "#"
+            }
+        }
+    }
+
+
+    FastScroll {
+        id: fastScroll
+        listView: langList
+        enabled: true
+        visible: true
+        anchors {
+            // top: langList.top
+            // bottom: langList.bottom
+            verticalCenter: parent.verticalCenter
+            right: parent.right
         }
     }
 
