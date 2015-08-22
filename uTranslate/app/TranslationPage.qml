@@ -184,7 +184,8 @@ Page {
 
                 onFlagChanged:{
                     // console.debug("src.onFlagChanged")
-                    translationPage.updateLang(flag)
+                    if (translationPage.canSuggest)
+                        translationPage.updateLang(flag)
                 }
 
             }
@@ -216,7 +217,8 @@ Page {
 
                 onFocusChanged: {
                     // console.debug("onFocusChanged="+translateSearchText.focus);
-                    translateSearchText.updateSuggestList();
+                    if (translationPage.canSuggest)
+                        translateSearchText.updateSuggestList();
                 }
 
                 function updateSuggestList(force) {
@@ -242,7 +244,8 @@ Page {
 
                 onFlagChanged:{
                     // console.debug("dest.onFlagChanged")
-                    translationPage.updateLangDest(flag)
+                    if (translationPage.canSuggest)
+                        translationPage.updateLangDest(flag)
                 }
             }
         }
@@ -548,12 +551,15 @@ Page {
     function doSwitchLg() {
         var lgSrc = translationPage.langSrc;
         var lgDest = translationPage.langDest;
+        translationPage.canSuggest = false;
+
         translationPage.setLang(lgDest);
         utApp.updateContext({'lgsrc': lgDest});
 
         translationPage.setLangDest(lgSrc);
         utApp.updateContext({'lgdest': lgSrc});
 
+        translationPage.canSuggest = true;
         // we want directly the result, not the suggestions :
         // translationPage.doSuggest();
         translationPage.doTranslate();
