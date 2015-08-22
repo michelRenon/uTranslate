@@ -6,6 +6,8 @@ import Ubuntu.Components.ListItems 0.1 as ListItem
 import Ubuntu.Layouts 0.1
 import U1db 1.0 as U1db
 
+import QtQml 2.2
+
 // import "ui"
 import "controller.js" as Controller
 
@@ -351,6 +353,13 @@ MainView {
                     text: i18n.tr("Flags form ")+"<a href='http://commons.wikimedia.org/wiki/Drapeaux'>Wikimedia Commons</a>"
                     wrapMode: Text.WordWrap
                     onLinkActivated: Qt.openUrlExternally(link)
+                }
+                Label {
+                    id: info7
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    text: Qt.locale().name
+                    wrapMode: Text.WordWrap
                 }
             }
         }
