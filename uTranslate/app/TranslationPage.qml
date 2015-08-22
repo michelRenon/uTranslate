@@ -493,7 +493,7 @@ Page {
             focusRes = true;
         var lgSrc = translationPage.langSrc;
         var lgDest = translationPage.langDest;
-        rectViewSuggestion.reduce();
+        rectViewSuggestion.reduceIfExpanded();
         if (translateSearchText.text != "") {
             console.debug("search Mode="+translationPage.searchMode);
             switch (translationPage.searchMode) {

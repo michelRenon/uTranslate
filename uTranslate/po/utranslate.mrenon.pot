@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-22 12:24+0200\n"
+"POT-Creation-Date: 2015-08-22 12:47+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -50,21 +50,21 @@ msgstr ""
 msgid "Enter text to translate"
 msgstr ""
 
-#: ../app/TranslationPage.qml:532
+#: ../app/TranslationPage.qml:531
 msgid "No Result"
 msgstr ""
 
-#: ../app/TranslationPage.qml:537
+#: ../app/TranslationPage.qml:536
 #, qt-format
 msgid "Translation of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:541
+#: ../app/TranslationPage.qml:540
 #, qt-format
 msgid "Definition of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:549
+#: ../app/TranslationPage.qml:548
 msgid "A network error occured."
 msgstr ""
 
