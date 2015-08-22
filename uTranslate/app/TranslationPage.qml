@@ -560,9 +560,10 @@ Page {
         utApp.updateContext({'lgdest': lgSrc});
 
         translationPage.canSuggest = true;
-        // we want directly the result, not the suggestions :
-        // translationPage.doSuggest();
-        translationPage.doTranslate();
+        // we want directly the result, not the suggestions.
+        // Only if something to search.
+        if (translateSearchText.text !== "")
+            translationPage.doTranslate();
     }
 
     function checkBadFocus() {
