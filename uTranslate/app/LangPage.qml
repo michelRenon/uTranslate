@@ -130,9 +130,9 @@ Page {
 
     function getTitle() {
         var nb = countUsedLangs();
-        var s0 = "Languages, no selected";
-        var s1 = "Languages, %n selected";
-        var s2 = "Languages, %n selected";
+        var s0 = i18n.tr("Languages, no selected");
+        var s1 = i18n.tr("Languages, one selected");
+        var s2 = i18n.tr("Languages, %n selected");
         var text = my_i18n(s0, s1, s2, nb);
         return text;
     }
