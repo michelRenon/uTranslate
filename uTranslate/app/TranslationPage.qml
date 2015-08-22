@@ -228,8 +228,9 @@ Page {
                     // console.debug("translateSearchText.updateSuggestList test="+test+", visible="+rectViewSuggestion.visible);
                     if (test)
                         rectViewSuggestion.expand(force)
-                    else
-                        rectViewSuggestion.reduce(force)
+                    else {
+                        rectViewSuggestion.reduceIfExpanded(force);
+                    }
                 }
             }
             FlagButton {
@@ -348,6 +349,11 @@ Page {
                         rectViewSuggestion.expanded = false
                     }
                 }
+            }
+
+            function reduceIfExpanded(force) {
+                if (rectViewSuggestion.expanded)
+                    rectViewSuggestion.reduce(force);
             }
 
             function expand(force) {
@@ -548,16 +554,17 @@ Page {
         translationPage.setLangDest(lgSrc);
         utApp.updateContext({'lgdest': lgSrc});
 
-        translationPage.doSuggest();
-        // translationPage.doTranslate();
+        // we want directly the result, not the suggestions :
+        // translationPage.doSuggest();
+        translationPage.doTranslate();
     }
 
     function checkBadFocus() {
         if (layouts.width <= units.gu(80) && utApp.loaded) {
-            if (translateSearchText.focus == false && translateRes.focus==false) {
-                // console.debug("CORRECTING FOCUS PB")
+            if (translateSearchText.focus == false && translateRes.focus==false && translateSearchText.text === "") {
+                console.debug("CORRECTING FOCUS PB")
                 translateSearchText.forceActiveFocus();
-                translateSearchText.updateSuggestList(true);
+                // translateSearchText.updateSuggestList(true);
             }
         }
     }
