@@ -1645,44 +1645,48 @@ msgstr ""
 msgid "Åland Islands"
 msgstr ""
 
-#: ../app/uTranslate.qml:208
+#: ../app/uTranslate.qml:210
 msgid "Providers"
 msgstr "Fournisseurs"
 
-#: ../app/uTranslate.qml:268
+#: ../app/uTranslate.qml:214
+msgid "The current data provider is Glosbe"
+msgstr "Le serveur de traduction est Glosbe"
+
+#: ../app/uTranslate.qml:270
 msgid "no selected language:"
 msgstr "aucune langue choisie :"
 
-#: ../app/uTranslate.qml:269
+#: ../app/uTranslate.qml:271
 #, c-format, qt-plural-format
 msgid "%n selected language:"
 msgstr "%n langue choisie"
 
-#: ../app/uTranslate.qml:270
+#: ../app/uTranslate.qml:272
 #, c-format, qt-plural-format
 msgid "%n selected languages:"
 msgstr "%n langues choisies"
 
-#: ../app/uTranslate.qml:314
+#: ../app/uTranslate.qml:316
 msgid "uTranslate, a translation app"
 msgstr "uTranslate, une application de traduction"
 
-#: ../app/uTranslate.qml:321
+#: ../app/uTranslate.qml:323
 msgid "by "
 msgstr "par "
 
-#: ../app/uTranslate.qml:329
+#: ../app/uTranslate.qml:331
 msgid "version "
 msgstr "version "
 
-#: ../app/uTranslate.qml:343
+#: ../app/uTranslate.qml:345
 msgid "Project website: "
 msgstr "Site web : "
 
-#: ../app/uTranslate.qml:351
+#: ../app/uTranslate.qml:353
 msgid "Flags form "
 msgstr "Drapeaux issus de "
 
-#: ../app/uTranslate.qml:365
+#: ../app/uTranslate.qml:374
 msgid "Countries"
 msgstr "Pays"

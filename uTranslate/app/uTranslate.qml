@@ -211,7 +211,7 @@ MainView {
                 }
 
                 ListItem.Subtitled {
-                    text : 'The current data provider is Glosbe'
+                    text : i18n.tr("The current data provider is Glosbe")
                     subText: '(<a href="http://glosbe.com">http://glosbe.com</a>)'
                     showDivider: false
                     highlightWhenPressed: true
