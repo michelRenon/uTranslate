@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-22 17:18+0200\n"
+"POT-Creation-Date: 2015-08-22 15:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,63 +19,63 @@ msgstr ""
 
 #: ../app/LangPage.qml:23
 msgid "Show selected"
-msgstr ""
+msgstr "Choisies"
 
 #: ../app/LangPage.qml:133
 msgid "Languages, no selected"
-msgstr ""
+msgstr "Langues, aucune choisie"
 
 #: ../app/LangPage.qml:134
 msgid "Languages, one selected"
-msgstr ""
+msgstr "Langues, une choisie"
 
 #: ../app/LangPage.qml:135
 #, c-format, qt-plural-format
 msgid "Languages, %n selected"
-msgstr ""
+msgstr "Langues, %n choisies"
 
 #: ../app/TranslationPage.qml:17
 #: /home/michel/Documents/DEV/uTranslate/ut_reboot/build-uTranslate-UbuntuSDK_for_i386_GCC_ubuntu_sdk_14_10_utopic-Default/po/uTranslate.desktop.in.h:1
 msgid "uTranslate"
-msgstr ""
+msgstr "uTranslate"
 
 #: ../app/TranslationPage.qml:29
 msgid "Switch"
-msgstr ""
+msgstr "Changer"
 
-#: ../app/TranslationPage.qml:36 ../app/uTranslate.qml:202
+#: ../app/TranslationPage.qml:36 ../app/uTranslate.qml:200
 msgid "Settings"
-msgstr ""
+msgstr "Paramètres"
 
-#: ../app/TranslationPage.qml:43 ../app/uTranslate.qml:292
+#: ../app/TranslationPage.qml:43 ../app/uTranslate.qml:290
 msgid "About"
-msgstr ""
+msgstr "A propos"
 
 #: ../app/TranslationPage.qml:51
 msgid "Translation"
-msgstr ""
+msgstr "Traduction"
 
 #: ../app/TranslationPage.qml:51
 msgid "Definition"
-msgstr ""
+msgstr "Définition"
 
 #: ../app/TranslationPage.qml:199
 msgid "Enter text to translate"
-msgstr ""
+msgstr "Entrez le texte à traduire"
 
 #: ../app/TranslationPage.qml:526
 msgid "No Result"
-msgstr ""
+msgstr "Aucun résultat"
 
 #: ../app/TranslationPage.qml:531
 #, qt-format
 msgid "Translation of '%1'"
-msgstr ""
+msgstr "Traduction de '%1'"
 
 #: ../app/TranslationPage.qml:535
 #, qt-format
 msgid "Definition of '%1'"
-msgstr ""
+msgstr "Définition of '%1'"
 
 #: ../app/TranslationPage.qml:543
 msgid "A network error occured."
@@ -83,431 +83,431 @@ msgstr ""
 
 #: ../app/components/LangSelector.qml:79
 msgid "Language settings..."
-msgstr ""
+msgstr "Paramètres des langues..."
 
 #: ../app/glosbe_lang_i18n.js:6
 msgid "Afrikaans"
-msgstr ""
+msgstr "Afrikaans"
 
 #: ../app/glosbe_lang_i18n.js:7
 msgid "Albanian"
-msgstr ""
+msgstr "Albanais"
 
 #: ../app/glosbe_lang_i18n.js:8
 msgid "Anglo-Norman"
-msgstr ""
+msgstr "Anglo-Norman"
 
 #: ../app/glosbe_lang_i18n.js:9
 msgid "Arabic"
-msgstr ""
+msgstr "Arabe"
 
 #: ../app/glosbe_lang_i18n.js:10
 msgid "Aragonese"
-msgstr ""
+msgstr "Aragonais"
 
 #: ../app/glosbe_lang_i18n.js:11
 msgid "Armenian"
-msgstr ""
+msgstr "Arménien"
 
 #: ../app/glosbe_lang_i18n.js:12
 msgid "Asturian"
-msgstr ""
+msgstr "xxxxxx"
 
 #: ../app/glosbe_lang_i18n.js:13
 msgid "Azerbaijani"
-msgstr ""
+msgstr "Azerbaijanaisxxxxxxx"
 
 #: ../app/glosbe_lang_i18n.js:14
 msgid "Basque"
-msgstr ""
+msgstr "Basque"
 
 #: ../app/glosbe_lang_i18n.js:15
 msgid "Bavarian"
-msgstr ""
+msgstr "Bavarois"
 
 #: ../app/glosbe_lang_i18n.js:16
 msgid "Belarusian"
-msgstr ""
+msgstr "Biélorusse"
 
 #: ../app/glosbe_lang_i18n.js:17
 msgid "Bengali"
-msgstr ""
+msgstr "Bengali"
 
 #: ../app/glosbe_lang_i18n.js:18
 msgid "Bosnian"
-msgstr ""
+msgstr "Bosniaque"
 
 #: ../app/glosbe_lang_i18n.js:19
 msgid "Breton"
-msgstr ""
+msgstr "Breton"
 
 #: ../app/glosbe_lang_i18n.js:20
 msgid "Bulgarian"
-msgstr ""
+msgstr "Bulgare"
 
 #: ../app/glosbe_lang_i18n.js:21
 msgid "Burmese"
-msgstr ""
+msgstr "Birman"
 
 #: ../app/glosbe_lang_i18n.js:22
 msgid "Catalan"
-msgstr ""
+msgstr "Catalan"
 
 #: ../app/glosbe_lang_i18n.js:23
 msgid "Chinese"
-msgstr ""
+msgstr "Chinois"
 
 #: ../app/glosbe_lang_i18n.js:24
 msgid "Coastal Swahili"
-msgstr ""
+msgstr "Swahili XXXX"
 
 #: ../app/glosbe_lang_i18n.js:25
 msgid "Crimean Turkish"
-msgstr ""
+msgstr "Turc (Crimée)"
 
 #: ../app/glosbe_lang_i18n.js:26
 msgid "Croatian"
-msgstr ""
+msgstr "Croate"
 
 #: ../app/glosbe_lang_i18n.js:27
 msgid "Czech"
-msgstr ""
+msgstr "Tchèque"
 
 #: ../app/glosbe_lang_i18n.js:28
 msgid "Danish"
-msgstr ""
+msgstr "Danois"
 
 #: ../app/glosbe_lang_i18n.js:29
 msgid "Dutch"
-msgstr ""
+msgstr "Néerlandais"
 
 #: ../app/glosbe_lang_i18n.js:30
 msgid "English"
-msgstr ""
+msgstr "Anglais"
 
 #: ../app/glosbe_lang_i18n.js:31
 msgid "Esperanto"
-msgstr ""
+msgstr "Espéranto"
 
 #: ../app/glosbe_lang_i18n.js:32
 msgid "Estonian"
-msgstr ""
+msgstr "Estonien"
 
 #: ../app/glosbe_lang_i18n.js:33
 msgid "Faroese"
-msgstr ""
+msgstr "Féroéen XXXX"
 
 #: ../app/glosbe_lang_i18n.js:34
 msgid "Filipino"
-msgstr ""
+msgstr "Philipin XXXXX"
 
 #: ../app/glosbe_lang_i18n.js:35
 msgid "Finnish"
-msgstr ""
+msgstr "Finnois"
 
 #: ../app/glosbe_lang_i18n.js:36
 msgid "French"
-msgstr ""
+msgstr "Français"
 
 #: ../app/glosbe_lang_i18n.js:37
 msgid "Galician"
-msgstr ""
+msgstr "Galicien"
 
 #: ../app/glosbe_lang_i18n.js:38
 msgid "Georgian"
-msgstr ""
+msgstr "Géorgien"
 
 #: ../app/glosbe_lang_i18n.js:39
 msgid "German"
-msgstr ""
+msgstr "Allemand"
 
 #: ../app/glosbe_lang_i18n.js:40
 msgid "Greek"
-msgstr ""
+msgstr "Grec"
 
 #: ../app/glosbe_lang_i18n.js:41
 msgid "Gujarati"
-msgstr ""
+msgstr "Gujarati"
 
 #: ../app/glosbe_lang_i18n.js:42
 msgid "Haitian"
-msgstr ""
+msgstr "Haïtien XXXX"
 
 #: ../app/glosbe_lang_i18n.js:43
 msgid "Hawaiian"
-msgstr ""
+msgstr "Hawaïen XXXX"
 
 #: ../app/glosbe_lang_i18n.js:44
 msgid "Hebrew"
-msgstr ""
+msgstr "Hébreu"
 
 #: ../app/glosbe_lang_i18n.js:45
 msgid "Hiligaynon"
-msgstr ""
+msgstr "Hiligaynon XXXX"
 
 #: ../app/glosbe_lang_i18n.js:46
 msgid "Hindi"
-msgstr ""
+msgstr "Hindi"
 
 #: ../app/glosbe_lang_i18n.js:47
 msgid "Hungarian"
-msgstr ""
+msgstr "Hongrois"
 
 #: ../app/glosbe_lang_i18n.js:48
 msgid "Icelandic"
-msgstr ""
+msgstr "islandais"
 
 #: ../app/glosbe_lang_i18n.js:49
 msgid "Ido"
-msgstr ""
+msgstr "Ido xxxxxx"
 
 #: ../app/glosbe_lang_i18n.js:50
 msgid "Indonesian"
-msgstr ""
+msgstr "Indonésien"
 
 #: ../app/glosbe_lang_i18n.js:51
 msgid "Interlingua"
-msgstr ""
+msgstr "Interlingua XXXX"
 
 #: ../app/glosbe_lang_i18n.js:52
 msgid "Iranian Persian"
-msgstr ""
+msgstr "Persan"
 
 #: ../app/glosbe_lang_i18n.js:53
 msgid "Irish"
-msgstr ""
+msgstr "Irlandais"
 
 #: ../app/glosbe_lang_i18n.js:54
 msgid "Italian"
-msgstr ""
+msgstr "Italien"
 
 #: ../app/glosbe_lang_i18n.js:55
 msgid "Japanese"
-msgstr ""
+msgstr "Japonais"
 
 #: ../app/glosbe_lang_i18n.js:56
 msgid "Karachay-Balkar"
-msgstr ""
+msgstr "Karachay-Balkar XXX"
 
 #: ../app/glosbe_lang_i18n.js:57
 msgid "Kazakh"
-msgstr ""
+msgstr "Kazakh"
 
 #: ../app/glosbe_lang_i18n.js:58
 msgid "Khasi"
-msgstr ""
+msgstr "Khasi XXX"
 
 #: ../app/glosbe_lang_i18n.js:59
 msgid "Khmer"
-msgstr ""
+msgstr "Khmer"
 
 #: ../app/glosbe_lang_i18n.js:60
 msgid "Korean"
-msgstr ""
+msgstr "Koréen"
 
 #: ../app/glosbe_lang_i18n.js:61
 msgid "Koyraboro Senni"
-msgstr ""
+msgstr "Koyraboro Senni XXX"
 
 #: ../app/glosbe_lang_i18n.js:62
 msgid "Kurdish"
-msgstr ""
+msgstr "Kurde"
 
 #: ../app/glosbe_lang_i18n.js:63
 msgid "Lao"
-msgstr ""
+msgstr "Laotien"
 
 #: ../app/glosbe_lang_i18n.js:64
 msgid "Latin"
-msgstr ""
+msgstr "Latin"
 
 #: ../app/glosbe_lang_i18n.js:65
 msgid "Latvian"
-msgstr ""
+msgstr "Letton"
 
 #: ../app/glosbe_lang_i18n.js:66
 msgid "Limburgish"
-msgstr ""
+msgstr "Limburgish"
 
 #: ../app/glosbe_lang_i18n.js:67
 msgid "Lithuanian"
-msgstr ""
+msgstr "Lituanien"
 
 #: ../app/glosbe_lang_i18n.js:68
 msgid "Low German"
-msgstr ""
+msgstr "Bas-Allemand"
 
 #: ../app/glosbe_lang_i18n.js:69
 msgid "Luxembourgish"
-msgstr ""
+msgstr "Luxembourgeois"
 
 #: ../app/glosbe_lang_i18n.js:70
 msgid "Macedonian"
-msgstr ""
+msgstr "Macédonien"
 
 #: ../app/glosbe_lang_i18n.js:71
 msgid "Malay"
-msgstr ""
+msgstr "malayXXX"
 
 #: ../app/glosbe_lang_i18n.js:72
 msgid "Malayalam"
-msgstr ""
+msgstr "Malayalam XXXX"
 
 #: ../app/glosbe_lang_i18n.js:73
 msgid "Maltese"
-msgstr ""
+msgstr "Maltais"
 
 #: ../app/glosbe_lang_i18n.js:74
 msgid "Mandarin"
-msgstr ""
+msgstr "Mandarin"
 
 #: ../app/glosbe_lang_i18n.js:75
 msgid "Manx"
-msgstr ""
+msgstr "Manx XXX"
 
 #: ../app/glosbe_lang_i18n.js:76
 msgid "Marathi"
-msgstr ""
+msgstr "Marathi XXX"
 
 #: ../app/glosbe_lang_i18n.js:77
 msgid "Middle French"
-msgstr ""
+msgstr "Français moyen"
 
 #: ../app/glosbe_lang_i18n.js:78
 msgid "Min Nan Chinese"
-msgstr ""
+msgstr "Chinois Min Nan"
 
 #: ../app/glosbe_lang_i18n.js:79
 msgid "Mongolian"
-msgstr ""
+msgstr "Mongol"
 
 #: ../app/glosbe_lang_i18n.js:80
 msgid "Navajo"
-msgstr ""
+msgstr "Navajo"
 
 #: ../app/glosbe_lang_i18n.js:81
 msgid "Neapolitan"
-msgstr ""
+msgstr "Neapolitan XXX"
 
 #: ../app/glosbe_lang_i18n.js:82
 msgid "Northern Sami"
-msgstr ""
+msgstr "Sami Nord XXXX"
 
 #: ../app/glosbe_lang_i18n.js:83
 msgid "Norwegian"
-msgstr ""
+msgstr "Norvégien"
 
 #: ../app/glosbe_lang_i18n.js:84
 msgid "Novial"
-msgstr ""
+msgstr "Novial WWWW"
 
 #: ../app/glosbe_lang_i18n.js:85
 msgid "Occitan"
-msgstr ""
+msgstr "Occitan"
 
 #: ../app/glosbe_lang_i18n.js:86
 msgid "Old English"
-msgstr ""
+msgstr "Vieil Anglais"
 
 #: ../app/glosbe_lang_i18n.js:87
 msgid "Old French"
-msgstr ""
+msgstr "Vieux Français"
 
 #: ../app/glosbe_lang_i18n.js:88
 msgid "Old Norse"
-msgstr ""
+msgstr "Vieux Norse XXX"
 
 #: ../app/glosbe_lang_i18n.js:89
 msgid "Papiamento"
-msgstr ""
+msgstr "Papiamento XXX"
 
 #: ../app/glosbe_lang_i18n.js:90
 msgid "Persian"
-msgstr ""
+msgstr "Persan"
 
 #: ../app/glosbe_lang_i18n.js:91
 msgid "Piemontese"
-msgstr ""
+msgstr "Piémontais"
 
 #: ../app/glosbe_lang_i18n.js:92
 msgid "Polish"
-msgstr ""
+msgstr "Polonais"
 
 #: ../app/glosbe_lang_i18n.js:93
 msgid "Portuguese"
-msgstr ""
+msgstr "Portuguais"
 
 #: ../app/glosbe_lang_i18n.js:94
 msgid "Romanian"
-msgstr ""
+msgstr "Roumain"
 
 #: ../app/glosbe_lang_i18n.js:95
 msgid "Romansh"
-msgstr ""
+msgstr "Romansh XXX"
 
 #: ../app/glosbe_lang_i18n.js:96
 msgid "Romany"
-msgstr ""
+msgstr "Romany XXX"
 
 #: ../app/glosbe_lang_i18n.js:97
 msgid "Russian"
-msgstr ""
+msgstr "Russe"
 
 #: ../app/glosbe_lang_i18n.js:98
 msgid "Sanskrit"
-msgstr ""
+msgstr "Sanskrit"
 
 #: ../app/glosbe_lang_i18n.js:99
 msgid "Scots"
-msgstr ""
+msgstr "Scots"
 
 #: ../app/glosbe_lang_i18n.js:100
 msgid "Scottish Gaelic"
-msgstr ""
+msgstr "Gallois Ecossais"
 
 #: ../app/glosbe_lang_i18n.js:101
 msgid "Serbian"
-msgstr ""
+msgstr "Serbe"
 
 #: ../app/glosbe_lang_i18n.js:102
 msgid "Serbo Croatian"
-msgstr ""
+msgstr "Serbo-Croate"
 
 #: ../app/glosbe_lang_i18n.js:103
 msgid "Sicilian"
-msgstr ""
+msgstr "Sicilien"
 
 #: ../app/glosbe_lang_i18n.js:104
 msgid "Slovak"
-msgstr ""
+msgstr "Slovaque"
 
 #: ../app/glosbe_lang_i18n.js:105
 msgid "Slovenian"
-msgstr ""
+msgstr "Slovène"
 
 #: ../app/glosbe_lang_i18n.js:106
 msgid "South Azerbaijani"
-msgstr ""
+msgstr "Azerbaijanais Sud"
 
 #: ../app/glosbe_lang_i18n.js:107
 msgid "Spanish"
-msgstr ""
+msgstr "Espagnol"
 
 #: ../app/glosbe_lang_i18n.js:108
 msgid "Standard Arabic"
-msgstr ""
+msgstr "Arabe classique"
 
 #: ../app/glosbe_lang_i18n.js:109
 msgid "Swahili"
-msgstr ""
+msgstr "Swahili"
 
 #: ../app/glosbe_lang_i18n.js:110
 msgid "Swedish"
-msgstr ""
+msgstr "Suédois"
 
 #: ../app/glosbe_lang_i18n.js:111
 msgid "Tagalog"
-msgstr ""
+msgstr "Tagalog XXX"
 
 #: ../app/glosbe_lang_i18n.js:112
 msgid "Tajik"
@@ -515,467 +515,467 @@ msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:113
 msgid "Tamil"
-msgstr ""
+msgstr "Tamoul"
 
 #: ../app/glosbe_lang_i18n.js:114
 msgid "Tatar"
-msgstr ""
+msgstr "Tatar"
 
 #: ../app/glosbe_lang_i18n.js:115
 msgid "Telugu"
-msgstr ""
+msgstr "Telugu"
 
 #: ../app/glosbe_lang_i18n.js:116
 msgid "Thai"
-msgstr ""
+msgstr "Thaï"
 
 #: ../app/glosbe_lang_i18n.js:117
 msgid "Turkish"
-msgstr ""
+msgstr "Turc"
 
 #: ../app/glosbe_lang_i18n.js:118
 msgid "Turkmen"
-msgstr ""
+msgstr "Turkmène"
 
 #: ../app/glosbe_lang_i18n.js:119
 msgid "Ukrainian"
-msgstr ""
+msgstr "Ukrainien"
 
 #: ../app/glosbe_lang_i18n.js:120
 msgid "Urdu"
-msgstr ""
+msgstr "Urdu"
 
 #: ../app/glosbe_lang_i18n.js:121
 msgid "Uzbek"
-msgstr ""
+msgstr "Ouzbek"
 
 #: ../app/glosbe_lang_i18n.js:122
 msgid "Venetian"
-msgstr ""
+msgstr "Vénitien"
 
 #: ../app/glosbe_lang_i18n.js:123
 msgid "Vietnamese"
-msgstr ""
+msgstr "Vietnamien"
 
 #: ../app/glosbe_lang_i18n.js:124
 msgid "Volapük"
-msgstr ""
+msgstr "Volapük xxx"
 
 #: ../app/glosbe_lang_i18n.js:125
 msgid "Welsh"
-msgstr ""
+msgstr "Gallois XXX"
 
 #: ../app/glosbe_lang_i18n.js:126
 msgid "Western Frisian"
-msgstr ""
+msgstr "Frisian Ouest XXX"
 
 #: ../app/glosbe_lang_i18n.js:127
 msgid "Wymysorys"
-msgstr ""
+msgstr "Wymysorys XXXx"
 
 #: ../app/glosbe_lang_i18n.js:128
 msgid "Yiddish"
-msgstr ""
+msgstr "Yiddish"
 
 #: ../app/glosbe_lang_i18n.js:129
 msgid "Yoruba"
-msgstr ""
+msgstr "Yorouba"
 
 #: ../app/glosbe_lang_i18n.js:130
 msgid "Yucateco"
-msgstr ""
+msgstr "Yucateco XXX"
 
 #: ../app/glosbe_lang_i18n.js:131
 msgid "Zulu"
-msgstr ""
+msgstr "Zoulou"
 
 #: ../app/glosbe_lang_i18n.js:134
 msgid "Afghanistan"
-msgstr ""
+msgstr "Afghanistan"
 
 #: ../app/glosbe_lang_i18n.js:135
 msgid "Albania"
-msgstr ""
+msgstr "Albanie"
 
 #: ../app/glosbe_lang_i18n.js:136
 msgid "Algeria"
-msgstr ""
+msgstr "Algérie"
 
 #: ../app/glosbe_lang_i18n.js:137
 msgid "American Samoa"
-msgstr ""
+msgstr "Samoa Américaine XXX"
 
 #: ../app/glosbe_lang_i18n.js:138
 msgid "Andorra"
-msgstr ""
+msgstr "Andorre"
 
 #: ../app/glosbe_lang_i18n.js:139
 msgid "Angola"
-msgstr ""
+msgstr "Angola"
 
 #: ../app/glosbe_lang_i18n.js:140
 msgid "Anguilla"
-msgstr ""
+msgstr "Anguilla XXXX"
 
 #: ../app/glosbe_lang_i18n.js:141
 msgid "Antarctica"
-msgstr ""
+msgstr "Antartique"
 
 #: ../app/glosbe_lang_i18n.js:142
 msgid "Antigua and Barbuda"
-msgstr ""
+msgstr "Antigua and Barbuda XXXX"
 
 #: ../app/glosbe_lang_i18n.js:143
 msgid "Argentina"
-msgstr ""
+msgstr "Argentine"
 
 #: ../app/glosbe_lang_i18n.js:144
 msgid "Armenia"
-msgstr ""
+msgstr "Arménie"
 
 #: ../app/glosbe_lang_i18n.js:145
 msgid "Aruba"
-msgstr ""
+msgstr "Aruba XXX"
 
 #: ../app/glosbe_lang_i18n.js:146
 msgid "Australia"
-msgstr ""
+msgstr "Australie"
 
 #: ../app/glosbe_lang_i18n.js:147
 msgid "Austria"
-msgstr ""
+msgstr "Autriche"
 
 #: ../app/glosbe_lang_i18n.js:148
 msgid "Azerbaijan"
-msgstr ""
+msgstr "Azerbaijan XXX"
 
 #: ../app/glosbe_lang_i18n.js:149
 msgid "Bahamas"
-msgstr ""
+msgstr "Bahamas"
 
 #: ../app/glosbe_lang_i18n.js:150
 msgid "Bahrain"
-msgstr ""
+msgstr "Bahrain XXX"
 
 #: ../app/glosbe_lang_i18n.js:151
 msgid "Bangladesh"
-msgstr ""
+msgstr "Bangladesh XXX"
 
 #: ../app/glosbe_lang_i18n.js:152
 msgid "Barbados"
-msgstr ""
+msgstr "Barbades"
 
 #: ../app/glosbe_lang_i18n.js:153
 msgid "Belarus"
-msgstr ""
+msgstr "Biélorussie"
 
 #: ../app/glosbe_lang_i18n.js:154
 msgid "Belgium"
-msgstr ""
+msgstr "Belgique"
 
 #: ../app/glosbe_lang_i18n.js:155
 msgid "Belize"
-msgstr ""
+msgstr "Bélize XXX"
 
 #: ../app/glosbe_lang_i18n.js:156
 msgid "Benin"
-msgstr ""
+msgstr "Bénin"
 
 #: ../app/glosbe_lang_i18n.js:157
 msgid "Bermuda"
-msgstr ""
+msgstr "Bermudes"
 
 #: ../app/glosbe_lang_i18n.js:158
 msgid "Bhutan"
-msgstr ""
+msgstr "Bhoutan XXX"
 
 #: ../app/glosbe_lang_i18n.js:159
 msgid "Bolivia"
-msgstr ""
+msgstr "Bolivie"
 
 #: ../app/glosbe_lang_i18n.js:160
 msgid "Bosnia and Herzegovina"
-msgstr ""
+msgstr "Bosnie-Herzégovie"
 
 #: ../app/glosbe_lang_i18n.js:161
 msgid "Botswana"
-msgstr ""
+msgstr "Botswana"
 
 #: ../app/glosbe_lang_i18n.js:162
 msgid "Bouvet Island"
-msgstr ""
+msgstr "Ile Bouvet XXX"
 
 #: ../app/glosbe_lang_i18n.js:163
 msgid "Brazil"
-msgstr ""
+msgstr "Brésil"
 
 #: ../app/glosbe_lang_i18n.js:164
 msgid "British Antarctic Territory"
-msgstr ""
+msgstr "Territoires Antartiques Britaniques"
 
 #: ../app/glosbe_lang_i18n.js:165
 msgid "British Indian Ocean Territory"
-msgstr ""
+msgstr "Territoires Océan Indien Britaniques"
 
 #: ../app/glosbe_lang_i18n.js:166
 msgid "British Virgin Islands"
-msgstr ""
+msgstr "Iles Vierges Britaniques"
 
 #: ../app/glosbe_lang_i18n.js:167
 msgid "Brunei"
-msgstr ""
+msgstr "Brunei XXX"
 
 #: ../app/glosbe_lang_i18n.js:168
 msgid "Bulgaria"
-msgstr ""
+msgstr "Bulgarie"
 
 #: ../app/glosbe_lang_i18n.js:169
 msgid "Burkina Faso"
-msgstr ""
+msgstr "Burkina faso XXX"
 
 #: ../app/glosbe_lang_i18n.js:170
 msgid "Burundi"
-msgstr ""
+msgstr "Burundi XXX"
 
 #: ../app/glosbe_lang_i18n.js:171
 msgid "Cambodia"
-msgstr ""
+msgstr "Cambodge"
 
 #: ../app/glosbe_lang_i18n.js:172
 msgid "Cameroon"
-msgstr ""
+msgstr "Cameroun"
 
 #: ../app/glosbe_lang_i18n.js:173
 msgid "Canada"
-msgstr ""
+msgstr "Canada"
 
 #: ../app/glosbe_lang_i18n.js:174
 msgid "Canton and Enderbury Islands"
-msgstr ""
+msgstr "Canton et Iles Enderbury XXX"
 
 #: ../app/glosbe_lang_i18n.js:175
 msgid "Cape Verde"
-msgstr ""
+msgstr "Cap Vert"
 
 #: ../app/glosbe_lang_i18n.js:176
 msgid "Cayman Islands"
-msgstr ""
+msgstr "Iles Caiman XXX"
 
 #: ../app/glosbe_lang_i18n.js:177
 msgid "Central African Republic"
-msgstr ""
+msgstr "République Centre Afrique XX"
 
 #: ../app/glosbe_lang_i18n.js:178
 msgid "Chad"
-msgstr ""
+msgstr "Tchad"
 
 #: ../app/glosbe_lang_i18n.js:179
 msgid "Chile"
-msgstr ""
+msgstr "Chili"
 
 #: ../app/glosbe_lang_i18n.js:180
 msgid "China"
-msgstr ""
+msgstr "Chine"
 
 #: ../app/glosbe_lang_i18n.js:181
 msgid "Christmas Island"
-msgstr ""
+msgstr "Iles Noel XXX"
 
 #: ../app/glosbe_lang_i18n.js:182
 msgid "Cocos [Keeling] Islands"
-msgstr ""
+msgstr "Iles Coco XXX"
 
 #: ../app/glosbe_lang_i18n.js:183
 msgid "Colombia"
-msgstr ""
+msgstr "Colombie"
 
 #: ../app/glosbe_lang_i18n.js:184
 msgid "Comoros"
-msgstr ""
+msgstr "Comorres XXX"
 
 #: ../app/glosbe_lang_i18n.js:185
 msgid "Congo - Brazzaville"
-msgstr ""
+msgstr "Congo - Brazzaville"
 
 #: ../app/glosbe_lang_i18n.js:186
 msgid "Congo - Kinshasa"
-msgstr ""
+msgstr "Congo - Kinshasa"
 
 #: ../app/glosbe_lang_i18n.js:187
 msgid "Cook Islands"
-msgstr ""
+msgstr "Iles Cook"
 
 #: ../app/glosbe_lang_i18n.js:188
 msgid "Costa Rica"
-msgstr ""
+msgstr "Costa Rica"
 
 #: ../app/glosbe_lang_i18n.js:189
 msgid "Croatia"
-msgstr ""
+msgstr "Croatie"
 
 #: ../app/glosbe_lang_i18n.js:190
 msgid "Cuba"
-msgstr ""
+msgstr "Cuba"
 
 #: ../app/glosbe_lang_i18n.js:191
 msgid "Cyprus"
-msgstr ""
+msgstr "Chypre"
 
 #: ../app/glosbe_lang_i18n.js:192
 msgid "Czech Republic"
-msgstr ""
+msgstr "République Tchèque"
 
 #: ../app/glosbe_lang_i18n.js:193
 msgid "Côte d’Ivoire"
-msgstr ""
+msgstr "Côte d’Ivoire"
 
 #: ../app/glosbe_lang_i18n.js:194
 msgid "Denmark"
-msgstr ""
+msgstr "Danemark"
 
 #: ../app/glosbe_lang_i18n.js:195
 msgid "Djibouti"
-msgstr ""
+msgstr "Djibouti"
 
 #: ../app/glosbe_lang_i18n.js:196
 msgid "Dominica"
-msgstr ""
+msgstr "Dominique XXX"
 
 #: ../app/glosbe_lang_i18n.js:197
 msgid "Dominican Republic"
-msgstr ""
+msgstr "République Dominicaine"
 
 #: ../app/glosbe_lang_i18n.js:198
 msgid "Dronning Maud Land"
-msgstr ""
+msgstr "Dronning Maud Land XXX"
 
 #: ../app/glosbe_lang_i18n.js:199
 msgid "East Germany"
-msgstr ""
+msgstr "Allemagne de l'Est"
 
 #: ../app/glosbe_lang_i18n.js:200
 msgid "Ecuador"
-msgstr ""
+msgstr "Equateur"
 
 #: ../app/glosbe_lang_i18n.js:201
 msgid "Egypt"
-msgstr ""
+msgstr "Egypte"
 
 #: ../app/glosbe_lang_i18n.js:202
 msgid "El Salvador"
-msgstr ""
+msgstr "Salvador"
 
 #: ../app/glosbe_lang_i18n.js:203
 msgid "Equatorial Guinea"
-msgstr ""
+msgstr "Guinée Equatoriale"
 
 #: ../app/glosbe_lang_i18n.js:204
 msgid "Eritrea"
-msgstr ""
+msgstr "Erytrée"
 
 #: ../app/glosbe_lang_i18n.js:205
 msgid "Estonia"
-msgstr ""
+msgstr "Estonie"
 
 #: ../app/glosbe_lang_i18n.js:206
 msgid "Ethiopia"
-msgstr ""
+msgstr "Ethiopie"
 
 #: ../app/glosbe_lang_i18n.js:207
 msgid "Falkland Islands"
-msgstr ""
+msgstr "Iles Malouines"
 
 #: ../app/glosbe_lang_i18n.js:208
 msgid "Faroe Islands"
-msgstr ""
+msgstr "Iles Féroé"
 
 #: ../app/glosbe_lang_i18n.js:209
 msgid "Fiji"
-msgstr ""
+msgstr "Fidji"
 
 #: ../app/glosbe_lang_i18n.js:210
 msgid "Finland"
-msgstr ""
+msgstr "Finlande"
 
 #: ../app/glosbe_lang_i18n.js:211
 msgid "France"
-msgstr ""
+msgstr "France"
 
 #: ../app/glosbe_lang_i18n.js:212
 msgid "French Guiana"
-msgstr ""
+msgstr "Guinée Française"
 
 #: ../app/glosbe_lang_i18n.js:213
 msgid "French Polynesia"
-msgstr ""
+msgstr "Polynésie Française"
 
 #: ../app/glosbe_lang_i18n.js:214
 msgid "French Southern Territories"
-msgstr ""
+msgstr "Territoires Français du Sud"
 
 #: ../app/glosbe_lang_i18n.js:215
 msgid "French Southern and Antarctic Territories"
-msgstr ""
+msgstr "Territoires Français du Sud et Antartique"
 
 #: ../app/glosbe_lang_i18n.js:216
 msgid "Gabon"
-msgstr ""
+msgstr "Gabon"
 
 #: ../app/glosbe_lang_i18n.js:217
 msgid "Gambia"
-msgstr ""
+msgstr "Gambie"
 
 #: ../app/glosbe_lang_i18n.js:218
 msgid "Georgia"
-msgstr ""
+msgstr "Géorgie"
 
 #: ../app/glosbe_lang_i18n.js:219
 msgid "Germany"
-msgstr ""
+msgstr "Allemagne"
 
 #: ../app/glosbe_lang_i18n.js:220
 msgid "Ghana"
-msgstr ""
+msgstr "Ghana"
 
 #: ../app/glosbe_lang_i18n.js:221
 msgid "Gibraltar"
-msgstr ""
+msgstr "Gibraltar"
 
 #: ../app/glosbe_lang_i18n.js:222
 msgid "Greece"
-msgstr ""
+msgstr "Grèce"
 
 #: ../app/glosbe_lang_i18n.js:223
 msgid "Greenland"
-msgstr ""
+msgstr "Groenland"
 
 #: ../app/glosbe_lang_i18n.js:224
 msgid "Grenada"
-msgstr ""
+msgstr "Grenade"
 
 #: ../app/glosbe_lang_i18n.js:225
 msgid "Guadeloupe"
-msgstr ""
+msgstr "Guadeloupe"
 
 #: ../app/glosbe_lang_i18n.js:226
 msgid "Guam"
-msgstr ""
+msgstr "Guam XXX"
 
 #: ../app/glosbe_lang_i18n.js:227
 msgid "Guatemala"
-msgstr ""
+msgstr "Guatémala XXX"
 
 #: ../app/glosbe_lang_i18n.js:228
 msgid "Guernsey"
-msgstr ""
+msgstr "Guernesey XX"
 
 #: ../app/glosbe_lang_i18n.js:229
 msgid "Guinea"
-msgstr ""
+msgstr "Guinée"
 
 #: ../app/glosbe_lang_i18n.js:230
 msgid "Guinea-Bissau"
-msgstr ""
+msgstr "Guinée-Bissau"
 
 #: ../app/glosbe_lang_i18n.js:231
 msgid "Guyana"
@@ -1645,44 +1645,44 @@ msgstr ""
 msgid "Åland Islands"
 msgstr ""
 
-#: ../app/uTranslate.qml:210
+#: ../app/uTranslate.qml:208
 msgid "Providers"
-msgstr ""
+msgstr "Fournisseurs"
 
-#: ../app/uTranslate.qml:270
+#: ../app/uTranslate.qml:268
 msgid "no selected language:"
-msgstr ""
+msgstr "aucune langue choisie :"
 
-#: ../app/uTranslate.qml:271
+#: ../app/uTranslate.qml:269
 #, c-format, qt-plural-format
 msgid "%n selected language:"
-msgstr ""
+msgstr "%n langue choisie"
 
-#: ../app/uTranslate.qml:272
+#: ../app/uTranslate.qml:270
 #, c-format, qt-plural-format
 msgid "%n selected languages:"
-msgstr ""
+msgstr "%n langues choisies"
 
-#: ../app/uTranslate.qml:316
+#: ../app/uTranslate.qml:314
 msgid "uTranslate, a translation app"
-msgstr ""
+msgstr "uTranslate, une application de traduction"
 
-#: ../app/uTranslate.qml:323
+#: ../app/uTranslate.qml:321
 msgid "by "
-msgstr ""
+msgstr "par "
 
-#: ../app/uTranslate.qml:331
+#: ../app/uTranslate.qml:329
 msgid "version "
-msgstr ""
+msgstr "version "
 
-#: ../app/uTranslate.qml:345
+#: ../app/uTranslate.qml:343
 msgid "Project website: "
-msgstr ""
+msgstr "Site web : "
 
-#: ../app/uTranslate.qml:353
+#: ../app/uTranslate.qml:351
 msgid "Flags form "
-msgstr ""
+msgstr "Drapeaux issus de "
 
-#: ../app/uTranslate.qml:374
+#: ../app/uTranslate.qml:365
 msgid "Countries"
-msgstr ""
+msgstr "Pays"
