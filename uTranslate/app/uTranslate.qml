@@ -384,7 +384,7 @@ MainView {
                     id: info6
                     anchors.horizontalCenter: parent.horizontalCenter
                     horizontalAlignment: Text.AlignHCenter
-                    text: i18n.tr("Flags form ")+"<a href='http://commons.wikimedia.org/wiki/Drapeaux'>Wikimedia Commons</a>"
+                    text: i18n.tr("Flags form ")+"<a href='https://www.gosquared.com/resources/flag-icons/'>GoSquared</a>"
                     wrapMode: Text.WordWrap
                     onLinkActivated: Qt.openUrlExternally(link)
                 }
