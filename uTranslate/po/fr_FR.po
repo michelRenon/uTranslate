@@ -79,7 +79,7 @@ msgstr "Définition of '%1'"
 
 #: ../app/TranslationPage.qml:543
 msgid "A network error occured."
-msgstr ""
+msgstr "Une erreur de réseau est apparue."
 
 #: ../app/components/LangSelector.qml:79
 msgid "Language settings..."
@@ -271,7 +271,7 @@ msgstr "Interlingua"
 
 #: ../app/glosbe_lang_i18n.js:52
 msgid "Iranian Persian"
-msgstr "Perse Iranien"
+msgstr "Persan Iranien"
 
 #: ../app/glosbe_lang_i18n.js:53
 msgid "Irish"
@@ -701,10 +701,6 @@ msgstr "Bosnie-Herzégovie"
 msgid "Botswana"
 msgstr "Botswana"
 
-#: ../app/glosbe_lang_i18n.js:162
-msgid "Bouvet Island"
-msgstr "Ile Bouvet"
-
 #: ../app/glosbe_lang_i18n.js:163
 msgid "Brazil"
 msgstr "Brésil"
@@ -712,10 +708,6 @@ msgstr "Brésil"
 #: ../app/glosbe_lang_i18n.js:164
 msgid "British Antarctic Territory"
 msgstr "Territoires britanniques de l'Antartique"
-
-#: ../app/glosbe_lang_i18n.js:165
-msgid "British Indian Ocean Territory"
-msgstr "Territoires britanniques de l'Océan Indien"
 
 #: ../app/glosbe_lang_i18n.js:166
 msgid "British Virgin Islands"
@@ -748,10 +740,6 @@ msgstr "Cameroun"
 #: ../app/glosbe_lang_i18n.js:173
 msgid "Canada"
 msgstr "Canada"
-
-#: ../app/glosbe_lang_i18n.js:174
-msgid "Canton and Enderbury Islands"
-msgstr "Canton et Enderbury"
 
 #: ../app/glosbe_lang_i18n.js:175
 msgid "Cape Verde"
@@ -845,14 +833,6 @@ msgstr "Dominique"
 msgid "Dominican Republic"
 msgstr "République Dominicaine"
 
-#: ../app/glosbe_lang_i18n.js:198
-msgid "Dronning Maud Land"
-msgstr "Terre Dronning Maud"
-
-#: ../app/glosbe_lang_i18n.js:199
-msgid "East Germany"
-msgstr "Allemagne de l'Est"
-
 #: ../app/glosbe_lang_i18n.js:200
 msgid "Ecuador"
 msgstr "Equateur"
@@ -901,10 +881,6 @@ msgstr "Finlande"
 msgid "France"
 msgstr "France"
 
-#: ../app/glosbe_lang_i18n.js:212
-msgid "French Guiana"
-msgstr "Guinée Française"
-
 #: ../app/glosbe_lang_i18n.js:213
 msgid "French Polynesia"
 msgstr "Polynésie Française"
@@ -912,10 +888,6 @@ msgstr "Polynésie Française"
 #: ../app/glosbe_lang_i18n.js:214
 msgid "French Southern Territories"
 msgstr "Terres Australes Françaises"
-
-#: ../app/glosbe_lang_i18n.js:215
-msgid "French Southern and Antarctic Territories"
-msgstr "Terres Australes at Antartique Françaises"
 
 #: ../app/glosbe_lang_i18n.js:216
 msgid "Gabon"
@@ -953,10 +925,6 @@ msgstr "Groenland"
 msgid "Grenada"
 msgstr "Grenade"
 
-#: ../app/glosbe_lang_i18n.js:225
-msgid "Guadeloupe"
-msgstr "Guadeloupe"
-
 #: ../app/glosbe_lang_i18n.js:226
 msgid "Guam"
 msgstr "Guam"
@@ -984,10 +952,6 @@ msgstr "Guyana"
 #: ../app/glosbe_lang_i18n.js:232
 msgid "Haiti"
 msgstr "Haïti"
-
-#: ../app/glosbe_lang_i18n.js:233
-msgid "Heard Island and McDonald Islands"
-msgstr "Ile Heard et McDonald"
 
 #: ../app/glosbe_lang_i18n.js:234
 msgid "Honduras"
@@ -1048,10 +1012,6 @@ msgstr "Japon"
 #: ../app/glosbe_lang_i18n.js:248
 msgid "Jersey"
 msgstr "Jersey"
-
-#: ../app/glosbe_lang_i18n.js:249
-msgid "Johnston Island"
-msgstr "Ile Johnston"
 
 #: ../app/glosbe_lang_i18n.js:250
 msgid "Jordan"
@@ -1165,10 +1125,6 @@ msgstr "Ile Maurice"
 msgid "Mayotte"
 msgstr "Mayotte"
 
-#: ../app/glosbe_lang_i18n.js:278
-msgid "Metropolitan France"
-msgstr "France métropolitaine"
-
 #: ../app/glosbe_lang_i18n.js:279
 msgid "Mexico"
 msgstr "Mexique"
@@ -1176,10 +1132,6 @@ msgstr "Mexique"
 #: ../app/glosbe_lang_i18n.js:280
 msgid "Micronesia"
 msgstr "Micronésie"
-
-#: ../app/glosbe_lang_i18n.js:281
-msgid "Midway Islands"
-msgstr "Iles Midway"
 
 #: ../app/glosbe_lang_i18n.js:282
 msgid "Moldova"
@@ -1233,10 +1185,6 @@ msgstr "Pays-Bas"
 msgid "Netherlands Antilles"
 msgstr "Antilles néerlandaises"
 
-#: ../app/glosbe_lang_i18n.js:295
-msgid "Neutral Zone"
-msgstr "Zone Neutre"
-
 #: ../app/glosbe_lang_i18n.js:296
 msgid "New Caledonia"
 msgstr "Nouvelle Calédonie"
@@ -1269,10 +1217,6 @@ msgstr "Ile Norfolk"
 msgid "North Korea"
 msgstr "Korée du Nord"
 
-#: ../app/glosbe_lang_i18n.js:304
-msgid "North Vietnam"
-msgstr "Nord-Vietnam"
-
 #: ../app/glosbe_lang_i18n.js:305
 msgid "Northern Mariana Islands"
 msgstr "Îles Mariannes du Nord"
@@ -1284,10 +1228,6 @@ msgstr "Norvège"
 #: ../app/glosbe_lang_i18n.js:307
 msgid "Oman"
 msgstr "Oman"
-
-#: ../app/glosbe_lang_i18n.js:308
-msgid "Pacific Islands Trust Territory"
-msgstr "Territoire sous tutelle des îles du Pacifique"
 
 #: ../app/glosbe_lang_i18n.js:309
 msgid "Pakistan"
@@ -1305,10 +1245,6 @@ msgstr "Territoires Palestiniens"
 msgid "Panama"
 msgstr "Panama"
 
-#: ../app/glosbe_lang_i18n.js:313
-msgid "Panama Canal Zone"
-msgstr "Zone du canal de Panama"
-
 #: ../app/glosbe_lang_i18n.js:314
 msgid "Papua New Guinea"
 msgstr "Papouasie-Nouvelle-Guinée"
@@ -1316,10 +1252,6 @@ msgstr "Papouasie-Nouvelle-Guinée"
 #: ../app/glosbe_lang_i18n.js:315
 msgid "Paraguay"
 msgstr "Paraguay"
-
-#: ../app/glosbe_lang_i18n.js:316
-msgid "People's Democratic Republic of Yemen"
-msgstr "République démocratique populaire du Yémen"
 
 #: ../app/glosbe_lang_i18n.js:317
 msgid "Peru"
@@ -1361,10 +1293,6 @@ msgstr "Russie"
 msgid "Rwanda"
 msgstr "Rwanda"
 
-#: ../app/glosbe_lang_i18n.js:327
-msgid "Réunion"
-msgstr "La Réunion"
-
 #: ../app/glosbe_lang_i18n.js:328
 msgid "Saint Barthélemy"
 msgstr "Saint Barthélemy"
@@ -1384,10 +1312,6 @@ msgstr "Sainte Lucie"
 #: ../app/glosbe_lang_i18n.js:332
 msgid "Saint Martin"
 msgstr "Saint Martin"
-
-#: ../app/glosbe_lang_i18n.js:333
-msgid "Saint Pierre and Miquelon"
-msgstr "Saint Pierre et Miquelon"
 
 #: ../app/glosbe_lang_i18n.js:334
 msgid "Saint Vincent and the Grenadines"
@@ -1412,10 +1336,6 @@ msgstr "Sénégal"
 #: ../app/glosbe_lang_i18n.js:339
 msgid "Serbia"
 msgstr "Serbie"
-
-#: ../app/glosbe_lang_i18n.js:340
-msgid "Serbia and Montenegro"
-msgstr "Serbie et Monténégro"
 
 #: ../app/glosbe_lang_i18n.js:341
 msgid "Seychelles"
@@ -1472,10 +1392,6 @@ msgstr "Soudan"
 #: ../app/glosbe_lang_i18n.js:354
 msgid "Suriname"
 msgstr "Surinam"
-
-#: ../app/glosbe_lang_i18n.js:355
-msgid "Svalbard and Jan Mayen"
-msgstr "Svalbard et Jan Mayen"
 
 #: ../app/glosbe_lang_i18n.js:356
 msgid "Swaziland"
@@ -1553,14 +1469,6 @@ msgstr "Îles Turques-et-Caïques"
 msgid "Tuvalu"
 msgstr "Tuvalu"
 
-#: ../app/glosbe_lang_i18n.js:375
-msgid "U.S. Minor Outlying Islands"
-msgstr "Îles mineures éloignées des US"
-
-#: ../app/glosbe_lang_i18n.js:376
-msgid "U.S. Miscellaneous Pacific Islands"
-msgstr "Îles du Pacifiques des US"
-
 #: ../app/glosbe_lang_i18n.js:377
 msgid "U.S. Virgin Islands"
 msgstr "Îles Vierges américaines"
@@ -1572,10 +1480,6 @@ msgstr "Ouganda"
 #: ../app/glosbe_lang_i18n.js:379
 msgid "Ukraine"
 msgstr "Ukraine"
-
-#: ../app/glosbe_lang_i18n.js:380
-msgid "Union of Soviet Socialist Republics"
-msgstr "Union des Républiques Socialistes Soviétiques"
 
 #: ../app/glosbe_lang_i18n.js:381
 msgid "United Arab Emirates"
@@ -1617,10 +1521,6 @@ msgstr "Venezuela"
 msgid "Vietnam"
 msgstr "Vietnam"
 
-#: ../app/glosbe_lang_i18n.js:391
-msgid "Wake Island"
-msgstr "Wake"
-
 #: ../app/glosbe_lang_i18n.js:392
 msgid "Wallis and Futuna"
 msgstr "Wallis et Futuna"
@@ -1644,6 +1544,22 @@ msgstr "Zimbabwe"
 #: ../app/glosbe_lang_i18n.js:397
 msgid "Åland Islands"
 msgstr "îles Åland"
+
+#: ../app/glosbe_lang_i18n.js:399
+msgid "England"
+msgstr "Angleterre"
+
+#: ../app/glosbe_lang_i18n.js:400
+msgid "Basque Country"
+msgstr "Pays Basque"
+
+#: ../app/glosbe_lang_i18n.js:401
+msgid "Scotland"
+msgstr "Ecosse"
+
+#: ../app/glosbe_lang_i18n.js:402
+msgid "Wales"
+msgstr "Pays de Galles"
 
 #: ../app/uTranslate.qml:210
 msgid "Providers"
