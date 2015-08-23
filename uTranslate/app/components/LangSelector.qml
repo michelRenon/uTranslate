@@ -72,7 +72,7 @@ Component {
         }
 
         Component.onCompleted: {
-            console.debug("popLangSelector onCompleted");
+            // console.debug("popLangSelector onCompleted");
             loadUsedLangs(langUsedModel);
             langUsedModel.append({name:i18n.tr("Language settings..."), code:'settings', flag:'--'});
         }

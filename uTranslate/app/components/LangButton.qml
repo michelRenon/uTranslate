@@ -56,7 +56,7 @@ Rectangle {
         }
 
         onEntered: {
-            console.debug("onEntered")
+            // console.debug("onEntered")
             parent.color = UbuntuColors.orange
         }
 
@@ -73,7 +73,7 @@ Rectangle {
             // parent.color = Theme.palette.normal.baseText
         }
         onExited:  {
-            console.debug("onExited")
+            // console.debug("onExited")
             parent.color = "white"
         }
 
@@ -86,8 +86,8 @@ Rectangle {
             // very bad user interaction.
             parent.forceActiveFocus()
             // OSK is invisible now, we can open popover.
-            console.debug("clicked mousearea flag")
-            console.debug(parent)
+            // console.debug("clicked mousearea flag")
+            // console.debug(parent)
             PopupUtils.open(langSelectorComponent, parent)
         }
     }
@@ -96,8 +96,7 @@ Rectangle {
         lang = code; // don't want onLangChanged() notification
         canNotify = true;
         var res = utApp.readLang(code);
-        console.debug("setSource : ("+")"+res.name+", "+res.code+", "+res.flag_code);
-        console.trace();
+        // console.debug("setSource : ("+")"+res.name+", "+res.code+", "+res.flag_code);
         labelSrc.text = i18n.tr(res.name)
 
         // future : handle optional flag :
