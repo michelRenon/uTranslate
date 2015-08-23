@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-23 18:05+0200\n"
+"POT-Creation-Date: 2015-08-23 18:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1569,7 +1569,7 @@ msgstr ""
 msgid "The current data provider is Glosbe"
 msgstr ""
 
-#: ../app/uTranslate.qml:260 ../app/uTranslate.qml:408
+#: ../app/uTranslate.qml:260 ../app/uTranslate.qml:409
 msgid "Countries"
 msgstr ""
 
@@ -1599,10 +1599,10 @@ msgstr ""
 msgid "version "
 msgstr ""
 
-#: ../app/uTranslate.qml:379
+#: ../app/uTranslate.qml:380
 msgid "Project website: "
 msgstr ""
 
-#: ../app/uTranslate.qml:387
+#: ../app/uTranslate.qml:388
 msgid "Flags form "
 msgstr ""

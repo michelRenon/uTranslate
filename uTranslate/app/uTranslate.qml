@@ -369,8 +369,9 @@ MainView {
                     id: info4
                     anchors.horizontalCenter: parent.horizontalCenter
                     horizontalAlignment: Text.AlignHCenter
-                    text: "GPLv3"
+                    text: "<a href='https://www.gnu.org/licenses/gpl.html'>GPLv3</a>"
                     wrapMode: Text.WordWrap
+                    onLinkActivated: Qt.openUrlExternally(link)
                 }
                 Label {
                     id: info5
