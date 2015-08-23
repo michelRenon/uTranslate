@@ -7,54 +7,15 @@ import QtQuick 2.0
 import Ubuntu.Components 1.1
 import Ubuntu.Components.Popups 0.1
 
-// UbuntuShape {
 Rectangle {
     anchors.top: parent.top
     anchors.bottom: parent.bottom
     width: units.gu(12)
-    color: "white" // "#ccccff"
-    // anchors.leftMargin:
+    color: "white"
     radius: units.gu(3)
 
     property string lang : 'fr'
 
-
-    /*
-
-    Row {
-        anchors.fill: parent
-        visible: false
-
-        Label {
-            id:labelSrc
-            width: units.gu(12)
-           //  anchors.fill: parent
-            anchors {
-                top: parent.top
-                bottom: parent.bottom
-            }
-
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            wrapMode: Text.WrapAtWordBoundaryOrAnywhere
-
-            text: ""
-            clip: true
-            fontSize: "small"
-        }
-        /*
-        Icon {
-            id: imSrc
-            width: units.gu(1)
-            anchors {
-                top: parent.top
-                bottom: parent.bottom
-            }
-            name: "dropdown-menu"
-        }
-        * /
-    }
-    */
     /*
      Flags will be shown in a future version
 
@@ -70,11 +31,6 @@ Rectangle {
     */
     Label {
         id:labelSrc
-        // width: units.gu(12)
-        /* anchors {
-            top: parent.top
-            bottom: parent.bottom
-        }*/
         anchors.fill: parent
 
         horizontalAlignment: Text.AlignHCenter
@@ -88,30 +44,8 @@ Rectangle {
         visible: true
     }
 
-
-
-
-
-    /**/
-    /*
-    OptionSelector {
-        id: selectorSrc
-        anchors.fill: parent
-
-        model:selectorSrcModel
-
-        onClicked: {
-            console.debug("optionSelector Clicked")
-        }
-    }
-    ListModel {
-        id:selectorSrcModel
-    }
-    */
     MouseArea {
         anchors.fill: parent
-
-
 
         onPressed:{
             // console.debug("PRESS")
@@ -119,6 +53,7 @@ Rectangle {
             parent.color = UbuntuColors.orange
             // parent.color = Theme.palette.selected.foregroundText
         }
+
         onEntered: {
             console.debug("onEntered")
             parent.color = UbuntuColors.orange
@@ -157,16 +92,12 @@ Rectangle {
     }
     function setSource(code, path) {
         lang = code;
-        // TEMP DISABLE TO AVOID WARNINGS.
-        // WAITING THE REWRITE OF THIS COMPONENT TO HANDLE
-        // LANGS AS Text + optional flag
         var res = utApp.readLang(code);
         console.debug("setSource : "+res.name+", "+res.code+", "+res.flag_code);
         labelSrc.text = i18n.tr(res.name)
-        // selectorSrc.model.clear();
-        // selectorSrc.model.append({text:i18n.tr(res.name)});
 
-        // var path="../graphics/ext/"+code+".png";
+        // future : handle optional flag :
+        // var path="../graphics/flags-iso/"+code+".png";
         // imSrc.source = path;
     }
 }

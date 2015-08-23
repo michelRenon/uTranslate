@@ -32,12 +32,7 @@ Page {
 
     ListView {
         id: langList
-        /*
-        ListModelJson {
-            liste: GlosbeLang.glosbe_lang_array
-            id: langListModel
-        }
-        */
+
         anchors.fill: parent
         anchors.rightMargin: fastScroll.showing ? fastScroll.width - units.gu(1) : 0
         clip: true
@@ -50,7 +45,6 @@ Page {
         }
 
         delegate: ListItem.Standard {
-            // Both "name" and "team" are taken from the model
             text: i18n.tr(name) +" ("+code+")"
             // iconSource: Qt.resolvedUrl(icon_path)
             // fallbackIconSource: Qt.resolvedUrl("graphics/uTranslate.png")
@@ -62,8 +56,6 @@ Page {
 
             control: Switch {
                 checked: (used == 1)? true : false; // int2bool
-                // text: "Click me"
-                // width: units.gu(19)
 
                 onClicked: {
                     console.debug("switch : "+code+" Clicked, value="+checked)
@@ -102,7 +94,6 @@ Page {
             }
         }
     }
-
 
     FastScroll {
         id: fastScroll

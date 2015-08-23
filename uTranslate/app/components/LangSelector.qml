@@ -31,15 +31,17 @@ Component {
             height: units.gu(40)
             model: langUsedModel
             delegate: ListItem.Standard {
-                // text: i18n.tr(name)
                 text: name
 
-                // TODO : voir comment afficher différemment le lien vers la page de langues
-                // avec le nouveau ListItem, Ubuntu.Components 1.2, framework 15.04
+                // TODO : change style of link to lang settings.
+                // Can be done only with new ListItem, Ubuntu.Components 1.2, framework 15.04
                 // http://developer.ubuntu.com/api/apps/qml/sdk-15.04/Ubuntu.Components.ListItem/
 
                 selected: caller.flag === code
+
+                // TODO : show optionnal flag as icon
                 // iconSource: Qt.resolvedUrl("../graphics/ext/deu2.png")
+
                 onClicked: {
                     if (code === 'settings') {
                         PopupUtils.close(popLangSelector);
@@ -71,11 +73,7 @@ Component {
 
         Component.onCompleted: {
             console.debug("popLangSelector onCompleted");
-            // console.debug(popLangSelector.caller);
-            // console.debug(caller);
-            // popLangSelector.lang = popLangSelector.caller.flag;
             loadUsedLangs(langUsedModel);
-
             langUsedModel.append({name:i18n.tr("Language settings..."), code:'settings', flag:'--'});
         }
 

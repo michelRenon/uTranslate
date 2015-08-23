@@ -5,20 +5,10 @@ import Ubuntu.Components.Popups 0.1
 import Ubuntu.Components.ListItems 0.1 as ListItem
 import Ubuntu.Layouts 0.1
 import U1db 1.0 as U1db
+import QtQml 2.2 // for reading locale
 
-import QtQml 2.2
-
-// import "ui"
 import "controller.js" as Controller
-
-// import ListModelJson 1.0
 import "glosbe_lang.js" as GlosbeLang
-
-/*!
-    \brief MainView with Tabs element.
-           First Tab has a single Label and
-           second Tab has a single ToolbarAction.
-*/
 
 MainView {
     id:utApp
@@ -175,9 +165,7 @@ MainView {
         var res = "";
         dbLang.transaction(function(tx) {
             var rs = tx.executeSql('UPDATE lang SET used=? WHERE code=?;', [used, code_lang]);
-            // res = rs.rows;
         });
-        // return res;
     }
 
     function readCountries() {
@@ -274,29 +262,6 @@ MainView {
                         pageStack.push(debugPage)
                      }
                 }
-                /*
-
-                ListItem.Empty{
-                    showDivider: false
-                    highlightWhenPressed: false
-                }
-                */
-                /*
-                ListItem.Header {
-                    text : i18n.tr("General")
-                }
-
-                ListItem.Standard {
-                    text : i18n.tr("About")
-                    iconName: "info"
-                    // iconSource: Qt.resolvedUrl("graphics/uTranslate_64.png")
-                    progression:true
-                    // showDivider: false
-                    onTriggered: {
-                        pageStack.push(aboutPage)
-                    }
-                }
-                */
             }
 
             function getLangText() {
@@ -407,7 +372,6 @@ MainView {
                 model: countryListModel
 
                 delegate: ListItem.Standard {
-                    // Both "name" and "team" are taken from the model
                     text: i18n.tr(name) +" ("+code+")"
                     iconSource: Qt.resolvedUrl("graphics/flags-iso/"+code+".png")
                     // fallbackIconSource: Qt.resolvedUrl("graphics/uTranslate.png")
@@ -467,17 +431,8 @@ MainView {
             utApp.setContext(params);
             translationPage.updateTabContext(utApp.searchContext, true);
             utApp.loaded = true;
-
-            // console.debug("GlosbeLang="+GlosbeLang.glosbe_lang_array);
-
-            console.log("debug i18n");
-            for (var i = 0 ; i < 10 ; ++i) {
-                // lp#1204141
-                // var text = i18n.tr("valeur = %n","valeurs = %n", i).arg(i);
-                var text = my_i18n("valeur nulle = %n", "valeur = %n","valeurs = %n", i);
-                console.log(text);
-            }
         }
+
         ListModel {
             id: langListModel
 
@@ -486,52 +441,12 @@ MainView {
                 // console.debug("item:"+item);
                 // console.debug("object:"+object);
             }
-
-
-            /*
-            ListElement {
-                code:"deu"
-                name: "german"
-                icon_path: "graphics/ext/deu2.png"
-            }
-            ListElement {
-                code:"ell"
-                name: "greek"
-                icon_path: "graphics/ext/ell2.png"
-            }
-            ListElement {
-                code:"eng"
-                name: "english"
-                icon_path: "graphics/ext/eng2.png"
-            }
-            ListElement {
-                code:"fra"
-                name: "french"
-                icon_path: "graphics/ext/fra2.png"
-            }
-            ListElement {
-                code:"ita"
-                name: "italian"
-                icon_path: "graphics/ext/ita2.png"
-            }
-            ListElement {
-                code:"por"
-                name: "portugese"
-                icon_path: "graphics/ext/por2.png"
-            }
-            ListElement {
-                code:"spa"
-                name: "spanish"
-                icon_path: "graphics/ext/spa2.png"
-            }
-            */
         }
+
         ListModel {
             id: countryListModel
         }
     }
-
-
 
     function _loadLangs(aModel, used) {
         aModel.clear();
@@ -542,6 +457,7 @@ MainView {
             langs = readLangs();
         // Note : 'langs' is not a real list
         // console.log("langs="+JSON.stringify(langs)+"nb="+langs.length);
+
         // translate langs : use a temp list
         var lgs = [];
         for(var i=0, l=langs.length ; i < l; i++) {
@@ -550,6 +466,7 @@ MainView {
             lgs.push(elem);
         }
         // console.log("lgs="+JSON.stringify(lgs)+"nb="+lgs.length);
+
         // Sort lang list after translation
         lgs.sort(function(a,b){return a['name'].localeCompare(b['name'])});
         // console.log("lgs sorted="+JSON.stringify(lgs)+"nb="+lgs.length);
@@ -577,6 +494,7 @@ MainView {
 
         // Note : 'countries' is not a real list
         // console.log("langs="+JSON.stringify(langs)+"nb="+langs.length);
+
         // translate countries : use a temp list
         var cts = [];
         for(var i=0, l=countries.length ; i < l; i++) {
@@ -585,6 +503,7 @@ MainView {
             cts.push(elem);
         }
         // console.log("cts="+JSON.stringify(cts)+"nb="+cts.length);
+
         // Sort country list after translation
         cts.sort(function(a,b){return a['name'].localeCompare(b['name'])});
         // console.log("cts sorted="+JSON.stringify(cts)+"nb="+cts.length);
@@ -597,7 +516,7 @@ MainView {
 
     function updateContext(params) {
         setContext(params);
-        // store some params in u1db
+        // store params in db
         saveDb();
     }
 
@@ -627,6 +546,8 @@ MainView {
             src = plural;
 
         // res = i18n.tr(src);
+        // translation has to be done outside, for i18n.tr() to be
+        // listed in .pot file.
         res = src;
         res = res.replace("%n", nb)
         return res;

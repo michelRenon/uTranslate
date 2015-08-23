@@ -49,7 +49,6 @@ Page {
 
         sections {
             model:[i18n.tr("Translation"), i18n.tr("Definition")]
-            // onSelectedIndexChanged: console.log("DEBUG onSelectedIndexChanged : "+translatePage.head.sections.selectedIndex)
             onSelectedIndexChanged: {
                 console.debug("DEBUG onSelectedIndexChanged : "+translationPage.head.sections.selectedIndex);
                 searchMode = translationPage.head.sections.selectedIndex;
@@ -86,21 +85,19 @@ Page {
         }
 
         if (translateSearchText.text === "") {
-            /*
+            //
             // version :
             // - focus on search text,
             // - suggestion list is shown
             // - translation id done
-            */
             translationPage.doTranslate(false);
             translateSearchText.forceActiveFocus();
             translateSearchText.updateSuggestList();
 
         } else {
-            // *
+            //
             // version : focus on translation
             translationPage.doTranslate(true);
-            // */
         }
     }
 
@@ -168,13 +165,6 @@ Page {
             }
             height: translateSearchText.height
             anchors.margins: units.gu(1)
-            /*
-            Rectangle {
-                anchors.fill: parent
-                color: "#cc5555"
-            }
-            */
-
 
             LangButton {
                 id:translateBtnLgSrc
@@ -255,10 +245,10 @@ Page {
             z: layouts.currentLayout == "2columns" ? 0 : 1
             anchors.top: translationSearchBar.bottom
             anchors.left: translationSearchBar.left
-            anchors.right: parent.right // definitionSearchText.right
+            anchors.right: parent.right
             anchors.rightMargin: units.gu(1)
-            anchors.leftMargin: units.gu(7) // 6+1
-            height: units.gu(0) // ????
+            anchors.leftMargin: units.gu(7)
+            height: units.gu(0)
             border.color: "#aaaaaa" // TODO : choose a Theme color
             clip: true
             visible: true
@@ -278,8 +268,6 @@ Page {
                     id:bgColor
                     width: ListView.view.width
                     height: units.gu(3)
-                    // border.color: "#888"
-                    // border.width: 1
 
                     Label {
                         anchors.fill: parent
@@ -287,9 +275,9 @@ Page {
 
                         // fontSize: "medium"
 
-                        // Ajouter du style pour surligner les lettres correspondantes.
-                        // TODO : mieux gérer les remplacement : maj/minuscules, caracteres proches (eéè...)
-                        // TODO : voir si les perfs sont OK (mettre en cache le search text ?)
+                        // Add style to show searched letters
+                        // TODO : enhance replace : case insensitive, nearby letters (eéèë...)
+                        // TODO : check if perfs are ok ?
                         text: {
                             if (suggest)
                                 return suggest.replace(translateSearchText.text, "<b>"+translateSearchText.text+"</b>")
@@ -432,24 +420,20 @@ Page {
         translationPage.setLang(context['lgsrc']);
         translationPage.setLangDest(context['lgdest']);
 
-        // TODO : a garder ????
-        // Controller.updateSuggestionModel(suggestModel, context['suggest']);
         if (startup || translateSearchText.text === "") {
-            /*
+            //
             // version :
             // - focus on search text,
             // - suggestion list is shown
             // - translation id done
-            */
             translationPage.doTranslate(false);
             translateSearchText.forceActiveFocus();
             translateSearchText.updateSuggestList();
 
         } else {
-            // *
+            //
             // version : focus on translation
             translationPage.doTranslate(true);
-            // */
         }
     }
 
@@ -571,7 +555,6 @@ Page {
             if (translateSearchText.focus == false && translateRes.focus==false && translateSearchText.text === "") {
                 console.debug("CORRECTING FOCUS PB")
                 translateSearchText.forceActiveFocus();
-                // translateSearchText.updateSuggestList(true);
             }
         }
     }
