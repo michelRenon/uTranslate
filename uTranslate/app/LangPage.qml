@@ -109,7 +109,7 @@ Page {
     }
 
     Component.onCompleted:  {
-        langPage.reloadLangs();
+        // langPage.reloadLangs(); already done in pageStack.onCompleted()
     }
 
     function reloadLangs(){
