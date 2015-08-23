@@ -176,16 +176,16 @@ Page {
             */
 
 
-            FlagButton {
+            LangButton {
                 id:translateBtnLgSrc
                 objectName: "LangSrc"
                 anchors.left: parent.left
                 height: translateSearchText.height
 
-                onFlagChanged:{
+                onLangChanged: {
                     // console.debug("src.onFlagChanged")
                     if (translationPage.canSuggest)
-                        translationPage.updateLang(flag)
+                        translationPage.updateLang(lang)
                 }
 
             }
@@ -235,17 +235,17 @@ Page {
                     }
                 }
             }
-            FlagButton {
+            LangButton {
                 id:translateBtnLgDest
                 objectName: "LangDest"
                 anchors.right: parent.right
                 anchors.top: parent.top
                 height: translateSearchText.height
 
-                onFlagChanged:{
+                onLangChanged:{
                     // console.debug("dest.onFlagChanged")
                     if (translationPage.canSuggest)
-                        translationPage.updateLangDest(flag)
+                        translationPage.updateLangDest(lang)
                 }
             }
         }

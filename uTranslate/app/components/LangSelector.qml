@@ -59,10 +59,10 @@ Component {
             // and wait the popover's destruction.
             // This will prevent the popover to disturb any focus changes
             // on other widgets.
-            // So the line (caller.flag = ...) is moved in onDestruction()
+            // So the line (caller.lang = ...) is moved in onDestruction()
             popLangSelector.lang = lg;
             PopupUtils.close(popLangSelector);
-            // popLangSelector.caller.flag = lg;
+            // popLangSelector.caller.lang = lg;
         }
 
         ListModel {
@@ -84,7 +84,7 @@ Component {
             // console.debug(popLangSelector.caller);
             if (popLangSelector.lang !== '--') {
                 // console.debug("change lang:"+popLangSelector.lang);
-                popLangSelector.caller.flag = popLangSelector.lang;
+                popLangSelector.caller.lang = popLangSelector.lang;
             }
         }
     }

@@ -16,7 +16,7 @@ Rectangle {
     // anchors.leftMargin:
     radius: units.gu(3)
 
-    property string flag : 'fr'
+    property string lang : 'fr'
 
 
     /*
@@ -63,7 +63,7 @@ Rectangle {
         width: imSrc.height
 
         source: Qt.resolvedUrl("../graphics/ext/FR.png")
-        visible: parent.flag === 'fr'
+        visible: parent.lang === 'fr'
     }
 
     Label {
@@ -83,7 +83,7 @@ Rectangle {
         clip: true
         fontSize: "small"
 
-        visible: parent.flag !== 'fr'
+        visible: parent.lang !== 'fr'
     }
 
 
@@ -154,7 +154,7 @@ Rectangle {
         }
     }
     function setSource(code, path) {
-        flag = code;
+        lang = code;
         // TEMP DISABLE TO AVOID WARNINGS.
         // WAITING THE REWRITE OF THIS COMPONENT TO HANDLE
         // LANGS AS Text + optional flag
