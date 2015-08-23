@@ -23,7 +23,7 @@ Page {
                 text: i18n.tr("Show selected")
                 onTriggered: {
                     langPage.doSelect = !langPage.doSelect
-                    console.debug("show selected"+langPage.doSelect)
+                    // console.debug("show selected"+langPage.doSelect)
                     langPage.reloadLangs();
                 }
             }
@@ -58,9 +58,9 @@ Page {
                 checked: (used == 1)? true : false; // int2bool
 
                 onClicked: {
-                    console.debug("switch : "+code+" Clicked, value="+checked)
+                    // console.debug("switch : "+code+" Clicked, value="+checked)
                     var val = (checked)? 1 : 0; // bool2int
-                    console.debug("valDB="+val);
+                    // console.debug("valDB="+val);
                     // update of Model
                     langListModel.setProperty(index, "used", val);
                     // console.debug("Model used="+used);

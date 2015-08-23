@@ -50,7 +50,7 @@ Page {
         sections {
             model:[i18n.tr("Translation"), i18n.tr("Definition")]
             onSelectedIndexChanged: {
-                console.debug("DEBUG onSelectedIndexChanged : "+translationPage.head.sections.selectedIndex);
+                // console.debug("DEBUG onSelectedIndexChanged : "+translationPage.head.sections.selectedIndex);
                 searchMode = translationPage.head.sections.selectedIndex;
             }
         }
@@ -438,29 +438,29 @@ Page {
     }
 
     function setLang(lg) {
-        console.debug("setLang:"+lg);
+        // console.debug("setLang:"+lg);
         translationPage.langSrc = lg;
         translateBtnLgSrc.setSource(lg);
     }
 
     function updateLang(lg) {
-        console.debug("updateLang:"+lg);
+        // console.debug("updateLang:"+lg);
         translationPage.setLang(lg);
         utApp.updateContext({'lgsrc': lg});
         translationPage.doSuggest();
-        console.debug("doSuggest DONE");
+        // console.debug("doSuggest DONE");
 
         // TODO : empty res ?
     }
 
     function setLangDest(lg) {
-        console.debug("setLangDest:"+lg);
+        // console.debug("setLangDest:"+lg);
         translationPage.langDest = lg;
         translateBtnLgDest.setSource(lg);
     }
 
     function updateLangDest(lg) {
-        console.debug("updateLangdest:"+lg);
+        // console.debug("updateLangdest:"+lg);
         translationPage.setLangDest(lg);
         utApp.updateContext({'lgdest': lg});
         translationPage.doTranslate();
@@ -482,7 +482,7 @@ Page {
         var lgDest = translationPage.langDest;
         rectViewSuggestion.reduceIfExpanded();
         if (translateSearchText.text != "") {
-            console.debug("search Mode="+translationPage.searchMode);
+            // console.debug("search Mode="+translationPage.searchMode);
             switch (translationPage.searchMode) {
                 case 0: {
                     Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, function(res, error) {
@@ -553,7 +553,7 @@ Page {
     function checkBadFocus() {
         if (layouts.width <= units.gu(80) && utApp.loaded) {
             if (translateSearchText.focus == false && translateRes.focus==false && translateSearchText.text === "") {
-                console.debug("CORRECTING FOCUS PB")
+                // console.debug("CORRECTING FOCUS PB")
                 translateSearchText.forceActiveFocus();
             }
         }

@@ -43,7 +43,7 @@ MainView {
                     var vlang = GlosbeLang.glosbe_lang_array[i];
                     tx.executeSql('INSERT INTO lang VALUES(?, ?, ?, ?)', [vlang["name"], vlang["code"], 0, ""]);
                 }
-                console.log('lang filled');
+                // console.log('lang filled');
             };
 
             tx.executeSql('CREATE TABLE IF NOT EXISTS country (name TEXT, code TEXT)');
@@ -54,7 +54,7 @@ MainView {
                     var vcountry = GlosbeLang.glosbe_country_array[i];
                     tx.executeSql('INSERT INTO country VALUES(?, ?)', [vcountry["name"], vcountry["code"]]);
                 }
-                console.log('country filled');
+                // console.log('country filled');
             };
 
         });
@@ -68,7 +68,7 @@ MainView {
         try {
             _initTables();
         } catch (err) {
-            console.log("Error creating table in database: " + err);
+            // console.log("Error creating table in database: " + err);
         };
     }
 
@@ -78,13 +78,13 @@ MainView {
         dbLang.transaction(function(tx) {
             // Drop database tables
             var res = tx.executeSql('DROP TABLE lang');
-            console.debug("DROP TABLE lang : "+JSON.stringify(res));
+            // console.debug("DROP TABLE lang : "+JSON.stringify(res));
             res = tx.executeSql('DROP TABLE country');
-            console.debug("DROP TABLE country : "+JSON.stringify(res));
+            // console.debug("DROP TABLE country : "+JSON.stringify(res));
 
-            console.debug("Debut _initTables()");
+            // console.debug("Debut _initTables()");
             _initTables();
-            console.debug("Fin _initTables()");
+            // console.debug("Fin _initTables()");
 
             // updates
             loadLangs();
@@ -122,13 +122,13 @@ MainView {
             res = rs.rows[0];
             res = parseInt(res['count(*)']); // force integer
         });
-        console.log("countUsedLangs");
+        // console.log("countUsedLangs");
         // for (var prop in res){
         //     console.log(prop)
         //}
         // console.log("======");
-        console.log(res);
-        console.log(typeof(res));
+        // console.log(res);
+        // console.log(typeof(res));
         return res;
     }
 
@@ -160,7 +160,7 @@ MainView {
          * code_lang: text
          * used : integer [0-1]
          */
-        console.debug("code_lang="+code_lang+", used="+used);
+        // console.debug("code_lang="+code_lang+", used="+used);
         openDB();
         var res = "";
         dbLang.transaction(function(tx) {
@@ -436,11 +436,13 @@ MainView {
         ListModel {
             id: langListModel
 
+            /*
             onDataChanged: {
-                console.debug("langListModel data changed:"); // " code="+code+" name="+name+" used="+used);
+                // console.debug("langListModel data changed:"); // " code="+code+" name="+name+" used="+used);
                 // console.debug("item:"+item);
                 // console.debug("object:"+object);
             }
+            */
         }
 
         ListModel {
