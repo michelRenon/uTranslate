@@ -55,6 +55,8 @@ Rectangle {
         * /
     }
     */
+    /*
+     Flags will be shown in a future version
 
     Image {
         id: imSrc
@@ -65,7 +67,7 @@ Rectangle {
         source: Qt.resolvedUrl("../graphics/ext/FR.png")
         visible: parent.lang === 'fr'
     }
-
+    */
     Label {
         id:labelSrc
         // width: units.gu(12)
@@ -83,7 +85,7 @@ Rectangle {
         clip: true
         fontSize: "small"
 
-        visible: parent.lang !== 'fr'
+        visible: true
     }
 
 
