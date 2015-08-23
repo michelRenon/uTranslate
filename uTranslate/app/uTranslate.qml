@@ -257,7 +257,7 @@ MainView {
                      }
                 }
                 ListItem.Subtitled {
-                     text : "Countries"
+                     text : i18n.tr("Countries")
                      showDivider: false
                      progression: true
                      highlightWhenPressed: true
@@ -571,8 +571,24 @@ MainView {
     function loadCountries() {
         countryListModel.clear();
         var countries = readCountries();
+
+        // Note : 'countries' is not a real list
+        // console.log("langs="+JSON.stringify(langs)+"nb="+langs.length);
+        // translate countries : use a temp list
+        var cts = [];
         for(var i=0, l=countries.length ; i < l; i++) {
-            countryListModel.append(countries[i]);
+            var elem = countries[i];
+            elem['name'] = i18n.tr(elem['name']);
+            cts.push(elem);
+        }
+        // console.log("cts="+JSON.stringify(cts)+"nb="+cts.length);
+        // Sort country list after translation
+        cts.sort(function(a,b){return a['name'].localeCompare(b['name'])});
+        // console.log("cts sorted="+JSON.stringify(cts)+"nb="+cts.length);
+
+        // fill model
+        for(var i=0, l=cts.length ; i < l; i++) {
+            countryListModel.append(cts[i]);
         }
     }
 
