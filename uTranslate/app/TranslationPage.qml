@@ -174,7 +174,7 @@ Page {
 
                 onLangChanged: {
                     // console.debug("src.onFlagChanged")
-                    if (translationPage.canSuggest)
+                    if (translationPage.canSuggest && translateBtnLgSrc.canNotify)
                         translationPage.updateLang(lang)
                 }
 
@@ -234,7 +234,7 @@ Page {
 
                 onLangChanged:{
                     // console.debug("dest.onFlagChanged")
-                    if (translationPage.canSuggest)
+                    if (translationPage.canSuggest && translateBtnLgDest.canNotify)
                         translationPage.updateLangDest(lang)
                 }
             }

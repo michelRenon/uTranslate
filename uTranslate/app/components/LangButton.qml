@@ -15,6 +15,7 @@ Rectangle {
     radius: units.gu(3)
 
     property string lang : 'fr'
+    property bool canNotify : false
 
     /*
      Flags will be shown in a future version
@@ -91,9 +92,12 @@ Rectangle {
         }
     }
     function setSource(code, path) {
-        lang = code;
+        canNotify = false;
+        lang = code; // don't want onLangChanged() notification
+        canNotify = true;
         var res = utApp.readLang(code);
-        console.debug("setSource : "+res.name+", "+res.code+", "+res.flag_code);
+        console.debug("setSource : ("+")"+res.name+", "+res.code+", "+res.flag_code);
+        console.trace();
         labelSrc.text = i18n.tr(res.name)
 
         // future : handle optional flag :
