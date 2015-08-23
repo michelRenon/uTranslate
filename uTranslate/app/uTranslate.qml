@@ -389,13 +389,6 @@ MainView {
                     wrapMode: Text.WordWrap
                     onLinkActivated: Qt.openUrlExternally(link)
                 }
-                Label {
-                    id: info7
-                    anchors.horizontalCenter: parent.horizontalCenter
-                    horizontalAlignment: Text.AlignHCenter
-                    text: Qt.locale().name
-                    wrapMode: Text.WordWrap
-                }
             }
         }
 
@@ -428,11 +421,20 @@ MainView {
             title: "Debug"
             visible: false
             Column {
+                spacing: units.gu(1)
+
                 Button {
                     text: "Reset DB"
                     onClicked: {
                         resetDB();
                     }
+                }
+                Label {
+                    id: info7
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    horizontalAlignment: Text.AlignHCenter
+                    text: "Locale: "+Qt.locale().name
+                    wrapMode: Text.WordWrap
                 }
 
             }
