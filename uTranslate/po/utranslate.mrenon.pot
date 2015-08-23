@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-08-23 18:35+0200\n"
+"POT-Creation-Date: 2015-08-23 23:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,15 +21,15 @@ msgstr ""
 msgid "Show selected"
 msgstr ""
 
-#: ../app/LangPage.qml:133
+#: ../app/LangPage.qml:124
 msgid "Languages, no selected"
 msgstr ""
 
-#: ../app/LangPage.qml:134
+#: ../app/LangPage.qml:125
 msgid "Languages, one selected"
 msgstr ""
 
-#: ../app/LangPage.qml:135
+#: ../app/LangPage.qml:126
 #, c-format, qt-plural-format
 msgid "Languages, %n selected"
 msgstr ""
@@ -43,11 +43,11 @@ msgstr ""
 msgid "Switch"
 msgstr ""
 
-#: ../app/TranslationPage.qml:36 ../app/uTranslate.qml:228
+#: ../app/TranslationPage.qml:36 ../app/uTranslate.qml:216
 msgid "Settings"
 msgstr ""
 
-#: ../app/TranslationPage.qml:43 ../app/uTranslate.qml:326
+#: ../app/TranslationPage.qml:43 ../app/uTranslate.qml:291
 msgid "About"
 msgstr ""
 
@@ -59,29 +59,29 @@ msgstr ""
 msgid "Definition"
 msgstr ""
 
-#: ../app/TranslationPage.qml:199
+#: ../app/TranslationPage.qml:189
 msgid "Enter text to translate"
 msgstr ""
 
-#: ../app/TranslationPage.qml:526
+#: ../app/TranslationPage.qml:510
 msgid "No Result"
 msgstr ""
 
-#: ../app/TranslationPage.qml:531
+#: ../app/TranslationPage.qml:515
 #, qt-format
 msgid "Translation of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:535
+#: ../app/TranslationPage.qml:519
 #, qt-format
 msgid "Definition of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:543
+#: ../app/TranslationPage.qml:527
 msgid "A network error occured."
 msgstr ""
 
-#: ../app/components/LangSelector.qml:79
+#: ../app/components/LangSelector.qml:77
 msgid "Language settings..."
 msgstr ""
 
@@ -1561,48 +1561,48 @@ msgstr ""
 msgid "Wales"
 msgstr ""
 
-#: ../app/uTranslate.qml:236
+#: ../app/uTranslate.qml:224
 msgid "Providers"
 msgstr ""
 
-#: ../app/uTranslate.qml:240
+#: ../app/uTranslate.qml:228
 msgid "The current data provider is Glosbe"
 msgstr ""
 
-#: ../app/uTranslate.qml:260 ../app/uTranslate.qml:402
+#: ../app/uTranslate.qml:248 ../app/uTranslate.qml:367
 msgid "Countries"
 msgstr ""
 
-#: ../app/uTranslate.qml:304
+#: ../app/uTranslate.qml:269
 msgid "no selected language:"
 msgstr ""
 
-#: ../app/uTranslate.qml:305
+#: ../app/uTranslate.qml:270
 #, c-format, qt-plural-format
 msgid "%n selected language:"
 msgstr ""
 
-#: ../app/uTranslate.qml:306
+#: ../app/uTranslate.qml:271
 #, c-format, qt-plural-format
 msgid "%n selected languages:"
 msgstr ""
 
-#: ../app/uTranslate.qml:350
+#: ../app/uTranslate.qml:315
 msgid "uTranslate, a translation app"
 msgstr ""
 
-#: ../app/uTranslate.qml:357
+#: ../app/uTranslate.qml:322
 msgid "by "
 msgstr ""
 
-#: ../app/uTranslate.qml:365
+#: ../app/uTranslate.qml:330
 msgid "version "
 msgstr ""
 
-#: ../app/uTranslate.qml:380
+#: ../app/uTranslate.qml:345
 msgid "Project website: "
 msgstr ""
 
-#: ../app/uTranslate.qml:388
+#: ../app/uTranslate.qml:353
 msgid "Flags form "
 msgstr ""
