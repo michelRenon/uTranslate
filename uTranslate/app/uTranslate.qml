@@ -43,39 +43,65 @@ MainView {
 
     property var dbLang: null
 
+    function _initTables(){
+        dbLang.transaction(function(tx){
+            tx.executeSql('CREATE TABLE IF NOT EXISTS lang (name TEXT, code TEXT, used INTEGER, flag_code TEXT)');
+            var table1 = tx.executeSql("SELECT * FROM lang");
+            // insert default values
+            if (table1.rows.length === 0) {
+                for(var i=0, l=GlosbeLang.glosbe_lang_array.length ; i < l; i++) {
+                    var vlang = GlosbeLang.glosbe_lang_array[i];
+                    tx.executeSql('INSERT INTO lang VALUES(?, ?, ?, ?)', [vlang["name"], vlang["code"], 0, ""]);
+                }
+                console.log('lang filled');
+            };
+
+            tx.executeSql('CREATE TABLE IF NOT EXISTS country (name TEXT, code TEXT)');
+            var table2 = tx.executeSql("SELECT * FROM country");
+            // insert default values
+            if (table2.rows.length === 0) {
+                for(var i=0, l=GlosbeLang.glosbe_country_array.length ; i < l; i++) {
+                    var vcountry = GlosbeLang.glosbe_country_array[i];
+                    tx.executeSql('INSERT INTO country VALUES(?, ?)', [vcountry["name"], vcountry["code"]]);
+                }
+                console.log('country filled');
+            };
+
+        });
+    }
+
     function openDB() {
         if(dbLang !== null) return;
         // object openDatabaseSync(string name, string version, string description, int estimated_size, jsobject callback(db))
         dbLang = LocalStorage.openDatabaseSync("sqlite-utranslate-app", "0.1", "uTranslate lang db", 100000);
 
         try {
-            dbLang.transaction(function(tx){
-                tx.executeSql('CREATE TABLE IF NOT EXISTS lang (name TEXT, code TEXT, used INTEGER, flag_code TEXT)');
-                var table1 = tx.executeSql("SELECT * FROM lang");
-                // insert default values
-                if (table1.rows.length === 0) {
-                    for(var i=0, l=GlosbeLang.glosbe_lang_array.length ; i < l; i++) {
-                        var vlang = GlosbeLang.glosbe_lang_array[i];
-                        tx.executeSql('INSERT INTO lang VALUES(?, ?, ?, ?)', [vlang["name"], vlang["code"], 0, ""]);
-                    }
-                    console.log('lang filled');
-                };
-
-                tx.executeSql('CREATE TABLE IF NOT EXISTS country (name TEXT, code TEXT)');
-                var table2 = tx.executeSql("SELECT * FROM country");
-                // insert default values
-                if (table2.rows.length === 0) {
-                    for(var i=0, l=GlosbeLang.glosbe_country_array.length ; i < l; i++) {
-                        var vcountry = GlosbeLang.glosbe_country_array[i];
-                        tx.executeSql('INSERT INTO country VALUES(?, ?)', [vcountry["name"], vcountry["code"]]);
-                    }
-                    console.log('country filled');
-                };
-
-            });
+            _initTables();
         } catch (err) {
             console.log("Error creating table in database: " + err);
         };
+    }
+
+    function resetDB() {
+        openDB();
+
+        dbLang.transaction(function(tx) {
+            // Drop database tables
+            var res = tx.executeSql('DROP TABLE lang');
+            console.debug("DROP TABLE lang : "+JSON.stringify(res));
+            res = tx.executeSql('DROP TABLE country');
+            console.debug("DROP TABLE country : "+JSON.stringify(res));
+
+            console.debug("Debut _initTables()");
+            _initTables();
+            console.debug("Fin _initTables()");
+
+            // updates
+            loadLangs();
+            loadCountries();
+
+            settingsPage.updateLangInfos();
+        });
     }
 
     function readLangs() {
@@ -230,10 +256,8 @@ MainView {
                         pageStack.push(langPage)
                      }
                 }
-                /*
                 ListItem.Subtitled {
                      text : "Countries"
-                     // subText: "German, Greek, English, French, Italian, Portuguese, Spanish"
                      showDivider: false
                      progression: true
                      highlightWhenPressed: true
@@ -241,6 +265,16 @@ MainView {
                         pageStack.push(countryPage)
                      }
                 }
+                ListItem.Subtitled {
+                     text : "Debug"
+                     showDivider: false
+                     progression: true
+                     highlightWhenPressed: true
+                     onTriggered: {
+                        pageStack.push(debugPage)
+                     }
+                }
+                /*
 
                 ListItem.Empty{
                     showDivider: false
@@ -381,13 +415,29 @@ MainView {
                 delegate: ListItem.Standard {
                     // Both "name" and "team" are taken from the model
                     text: i18n.tr(name) +" ("+code+")"
-                    // iconSource: Qt.resolvedUrl(icon_path)
+                    iconSource: Qt.resolvedUrl("graphics/flags-iso/"+code+".png")
                     // fallbackIconSource: Qt.resolvedUrl("graphics/uTranslate.png")
                 }
             }
 
 
         }
+        Page {
+            id: debugPage
+            title: "Debug"
+            visible: false
+            Column {
+                Button {
+                    text: "Reset DB"
+                    onClicked: {
+                        resetDB();
+                    }
+                }
+
+            }
+
+        }
+
 
         onCurrentPageChanged: {
             // console.debug("current page="+pageStack.currentPage);
