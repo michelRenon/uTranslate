@@ -1019,7 +1019,7 @@ msgstr "Iran"
 
 #: ../app/glosbe_lang_i18n.js:241
 msgid "Iraq"
-msgstr "Iraq"
+msgstr "Irak"
 
 #: ../app/glosbe_lang_i18n.js:242
 msgid "Ireland"
@@ -1431,7 +1431,7 @@ msgstr "Singapour"
 
 #: ../app/glosbe_lang_i18n.js:344
 msgid "Slovakia"
-msgstr ""
+msgstr "Slovaquie"
 
 #: ../app/glosbe_lang_i18n.js:345
 msgid "Slovenia"
@@ -1555,95 +1555,95 @@ msgstr "Tuvalu"
 
 #: ../app/glosbe_lang_i18n.js:375
 msgid "U.S. Minor Outlying Islands"
-msgstr ""
+msgstr "Îles mineures éloignées des US"
 
 #: ../app/glosbe_lang_i18n.js:376
 msgid "U.S. Miscellaneous Pacific Islands"
-msgstr ""
+msgstr "Îles du Pacifiques des US"
 
 #: ../app/glosbe_lang_i18n.js:377
 msgid "U.S. Virgin Islands"
-msgstr ""
+msgstr "Îles Vierges américaines"
 
 #: ../app/glosbe_lang_i18n.js:378
 msgid "Uganda"
-msgstr ""
+msgstr "Ouganda"
 
 #: ../app/glosbe_lang_i18n.js:379
 msgid "Ukraine"
-msgstr ""
+msgstr "Ukraine"
 
 #: ../app/glosbe_lang_i18n.js:380
 msgid "Union of Soviet Socialist Republics"
-msgstr ""
+msgstr "Union des Républiques Socialistes Soviétiques"
 
 #: ../app/glosbe_lang_i18n.js:381
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "Emirats Arabes Unis"
 
 #: ../app/glosbe_lang_i18n.js:382
 msgid "United Kingdom"
-msgstr ""
+msgstr "Royaume-Uni"
 
 #: ../app/glosbe_lang_i18n.js:383
 msgid "United States"
-msgstr ""
+msgstr "Etats Unis"
 
 #: ../app/glosbe_lang_i18n.js:384
 msgid "Unknown or Invalid Region"
-msgstr ""
+msgstr "Inconnu ou région invalide"
 
 #: ../app/glosbe_lang_i18n.js:385
 msgid "Uruguay"
-msgstr ""
+msgstr "Uruguay"
 
 #: ../app/glosbe_lang_i18n.js:386
 msgid "Uzbekistan"
-msgstr ""
+msgstr "Ouzbékistan"
 
 #: ../app/glosbe_lang_i18n.js:387
 msgid "Vanuatu"
-msgstr ""
+msgstr "Vanuatu"
 
 #: ../app/glosbe_lang_i18n.js:388
 msgid "Vatican City"
-msgstr ""
+msgstr "Cité du Vatican"
 
 #: ../app/glosbe_lang_i18n.js:389
 msgid "Venezuela"
-msgstr ""
+msgstr "Venezuela"
 
 #: ../app/glosbe_lang_i18n.js:390
 msgid "Vietnam"
-msgstr ""
+msgstr "Vietnam"
 
 #: ../app/glosbe_lang_i18n.js:391
 msgid "Wake Island"
-msgstr ""
+msgstr "Wake"
 
 #: ../app/glosbe_lang_i18n.js:392
 msgid "Wallis and Futuna"
-msgstr ""
+msgstr "Wallis et Futuna"
 
 #: ../app/glosbe_lang_i18n.js:393
 msgid "Western Sahara"
-msgstr ""
+msgstr "Sahara occidental"
 
 #: ../app/glosbe_lang_i18n.js:394
 msgid "Yemen"
-msgstr ""
+msgstr "Yemen"
 
 #: ../app/glosbe_lang_i18n.js:395
 msgid "Zambia"
-msgstr ""
+msgstr "Zambie"
 
 #: ../app/glosbe_lang_i18n.js:396
 msgid "Zimbabwe"
-msgstr ""
+msgstr "Zimbabwe"
 
 #: ../app/glosbe_lang_i18n.js:397
 msgid "Åland Islands"
-msgstr ""
+msgstr "îles Åland"
 
 #: ../app/uTranslate.qml:210
 msgid "Providers"
