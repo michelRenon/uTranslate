@@ -291,7 +291,6 @@ MainView {
             title: i18n.tr("About")
             visible: false
 
-            // Item {
             Column {
                 anchors.fill: parent
                 spacing: units.gu(1)
