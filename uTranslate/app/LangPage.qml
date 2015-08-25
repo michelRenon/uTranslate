@@ -47,7 +47,7 @@ Page {
         delegate: ListItem.Standard {
             text: i18n.tr(name) +" ("+code+")"
             // iconSource: Qt.resolvedUrl(icon_path)
-            // fallbackIconSource: Qt.resolvedUrl("graphics/uTranslate.png")
+            // fallbackIconSource: Qt.resolvedUrl("graphics/flags-iso/ZZ.png")
 
             // TODO : handle flag
             // progression: (code === 'fr') ? true : false;

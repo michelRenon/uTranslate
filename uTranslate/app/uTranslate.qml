@@ -373,7 +373,7 @@ MainView {
                 delegate: ListItem.Standard {
                     text: i18n.tr(name) +" ("+code+")"
                     iconSource: Qt.resolvedUrl("graphics/flags-iso/"+code+".png")
-                    // fallbackIconSource: Qt.resolvedUrl("graphics/uTranslate.png")
+                    fallbackIconSource: Qt.resolvedUrl("graphics/flags-iso/ZZ.png")
                 }
             }
 
