@@ -367,8 +367,8 @@ var glosbe_country_array =[
     {"code": "ZM", "name": "Zambia"},
     {"code": "ZW", "name": "Zimbabwe"},
     {"code": "AX", "name": "\u00c5land Islands"},
-    {"code": "ZEN", "name": "England"},
-    {"code": "ZBC", "name": "Basque Country"},
-    {"code": "ZSC", "name": "Scotland"},
-    {"code": "ZWA", "name": "Wales"},
+    {"code": "Z_EN", "name": "England"},
+    {"code": "Z_BC", "name": "Basque Country"},
+    {"code": "Z_SC", "name": "Scotland"},
+    {"code": "Z_WA", "name": "Wales"},
 ]
