@@ -35,13 +35,13 @@ MainView {
 
     function _initTables(){
         dbLang.transaction(function(tx){
-            tx.executeSql('CREATE TABLE IF NOT EXISTS lang (name TEXT, code TEXT, used INTEGER, flag_code TEXT)');
+            tx.executeSql('CREATE TABLE IF NOT EXISTS lang (name TEXT, code TEXT, used INTEGER, flag_code TEXT, name_ui TEXT)');
             var table1 = tx.executeSql("SELECT * FROM lang");
             // insert default values
             if (table1.rows.length === 0) {
                 for(var i=0, l=GlosbeLang.glosbe_lang_array.length ; i < l; i++) {
                     var vlang = GlosbeLang.glosbe_lang_array[i];
-                    tx.executeSql('INSERT INTO lang VALUES(?, ?, ?, ?)', [vlang["name"], vlang["code"], 0, ""]);
+                    tx.executeSql('INSERT INTO lang VALUES(?, ?, ?, ?, ?)', [vlang["name"], vlang["code"], 0, "", ""]);
                 }
                 // console.log('lang filled');
             };
