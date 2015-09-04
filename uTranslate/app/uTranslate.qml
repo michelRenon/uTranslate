@@ -94,6 +94,19 @@ MainView {
         });
     }
 
+    function initDBWithLocale(locale) {
+        openDB();
+        var res = false;
+        dbLang.transaction(function(tx) {
+            var rs = tx.executeSql('SELECT * FROM lang where code=?;', [locale]);
+            if (rs.rows.length == 1) {
+                var rs = tx.executeSql('UPDATE lang SET used=1 WHERE code=?;', [locale]);
+                res = true;
+            }
+        });
+        return res
+    }
+
     function readLangs() {
         openDB();
         var res = "";
@@ -192,10 +205,18 @@ MainView {
     }
 
     U1db.Document {
+        id: firstStart
+        database: utranslateDB
+        docId: 'start'
+        create: true
+        defaults: { 'firststart': true}
+    }
+    /*
+    U1db.Document {
         id: adoc
         database: utranslateDB
     }
-
+    */
     property var pageStack: pageStack
 
     property var searchContext : {'searchtext': '', 'lgsrc': 'fra', 'lgdest': 'eng', 'suggest': []}
@@ -419,16 +440,40 @@ MainView {
             loadLangs();
             loadCountries();
 
-            // console.debug("PAGESTACK completed")
+            console.debug("PAGESTACK completed")
             pageStack.push(translationPage)
 
-            // Load searchContext from previous usage.
-            var params = dbContext.contents;
+            var startParams = firstStart.contents;
+            if (startParams['firststart'] === true) {
 
-            // console.debug("onCompleted params="+Object.keys(params))
-            // console.debug("onCompleted params="+params['lgsrc']+":"+params['lgdest'])
-            utApp.setContext(params);
-            translationPage.updateTabContext(utApp.searchContext, true);
+                // search locale
+                var locale = Qt.locale().name;
+                console.debug("Locale="+locale);
+                locale = locale.substring(0,2);
+                console.debug("Locale="+locale);
+                var foundLocale = initDBWithLocale(locale);
+                console.debug("found Locale="+foundLocale);
+                if (foundLocale) {
+                    translationPage.setLang(locale);
+                    translationPage.setLangDest(locale);
+
+                    langPage.reloadLangs();
+                    langPage.updateTitle();
+                }
+
+                // show first start wizard
+                translationPage.startWizard(foundLocale);
+
+            } else {
+                // Load searchContext from previous usage.
+                var params = dbContext.contents;
+
+                // console.debug("onCompleted params="+Object.keys(params))
+                // console.debug("onCompleted params="+params['lgsrc']+":"+params['lgdest'])
+                utApp.setContext(params);
+                translationPage.updateTabContext(utApp.searchContext, true);
+            }
+            // translationPage.startWizard();
             utApp.loaded = true;
         }
 

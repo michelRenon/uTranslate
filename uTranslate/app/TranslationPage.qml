@@ -16,17 +16,19 @@ Page {
     // id: translationPage
     title: i18n.tr("uTranslate")
 
-    property bool canSuggest: false
+    property bool canSuggest: true
     property string langSrc : 'fra'
     property string langDest : 'eng'
     property int searchMode : 0 // translation
 
     head {
+
         actions : [
             Action {
                 id : switchAction
                 iconName: "switch"
                 text: i18n.tr("Switch")
+                enabled: (startWizard.visible == false)
                 onTriggered: {
                     translationPage.doSwitchLg();
                 }
@@ -34,6 +36,7 @@ Page {
             Action {
                 iconName: "settings"
                 text: i18n.tr("Settings")
+                enabled: (startWizard.visible == false)
                 onTriggered: {
                     pageStack.push(settingsPage);
                 }
@@ -41,6 +44,7 @@ Page {
             Action {
                 iconName: "info"
                 text: i18n.tr("About")
+                enabled: (startWizard.visible == false)
                 onTriggered: {
                     pageStack.push(aboutPage);
                 }
@@ -48,6 +52,8 @@ Page {
         ]
 
         sections {
+            enabled: (startWizard.visible == false)
+
             model:[i18n.tr("Translation"), i18n.tr("Definition")]
             onSelectedIndexChanged: {
                 // console.debug("DEBUG onSelectedIndexChanged : "+translationPage.head.sections.selectedIndex);
@@ -165,6 +171,7 @@ Page {
             }
             height: translateSearchText.height
             anchors.margins: units.gu(1)
+            visible:true
 
             LangButton {
                 id:translateBtnLgSrc
@@ -173,7 +180,8 @@ Page {
                 height: translateSearchText.height
 
                 onLangChanged: {
-                    // console.debug("src.onFlagChanged")
+                    console.debug("src.onFlagChanged");
+                    console.debug("canSuggest="+translationPage.canSuggest+"   canNotify="+translateBtnLgSrc.canNotify);
                     if (translationPage.canSuggest && translateBtnLgSrc.canNotify)
                         translationPage.updateLang(lang)
                 }
@@ -233,7 +241,7 @@ Page {
                 height: translateSearchText.height
 
                 onLangChanged:{
-                    // console.debug("dest.onFlagChanged")
+                    console.debug("dest.onFlagChanged")
                     if (translationPage.canSuggest && translateBtnLgDest.canNotify)
                         translationPage.updateLangDest(lang)
                 }
@@ -400,15 +408,128 @@ Page {
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
+            visible: true
         }
+        EmptyState {
+            iconName: "alarm-clock"
+            title: i18n.tr("No saved alarms")
+            subTitle: i18n.tr("Tap the + icon to add an alarm")
+            anchors.centerIn: parent
+            visible: false
+        }
+        /*
+        TextArea {
+            id: noResults
+            // Layouts.item: "itemRes"
+            placeholderText: "No results"
+            textFormat : TextEdit.RichText
+            readOnly: true
+            anchors.top: translationSearchBar.bottom
+            anchors.topMargin: units.gu(1)
+            anchors.bottom: parent.bottom
+            anchors.left: parent.left
+            anchors.right: parent.right
+            visible: false
+            z: 2
+        }
+        */
+        Rectangle {
+            id: startWizard
+            Layouts.item: "itemRes"
+            visible: false
+            color: "#dddddd"
+            opacity: 1.0
+            border.color: UbuntuColors.lightGrey // "#aaaaaa" // TODO : choose a Theme color
+
+            anchors.fill: parent
+            z: 3
+            MouseArea {
+                anchors.fill: parent
+
+                onClicked: {
+                    // startWizard.visible = false;
+                    // pageStack.push(langPage);
+                }
+            }
+            /*
+            Label {
+                id: startWizardText
+                textFormat : TextEdit.RichText
+                anchors.top: parent.top
+                anchors.topMargin: units.gu(10)
+                anchors.horizontalCenter: parent.horizontalCenter
+                fontSize: "large"
+            }
+            */
+            TextArea {
+                id: startWizardText
+                // Layouts.item: "itemRes"
+                textFormat : TextEdit.RichText
+                readOnly: true
+                activeFocusOnPress:false
+                anchors.top: parent.top
+                anchors.topMargin: units.gu(10)
+                // anchors.bottom: parent.bottom
+                // anchors.left: parent.left
+                // anchors.right: parent.right
+                anchors.horizontalCenter: parent.horizontalCenter
+                autoSize: true
+                maximumLineCount:0
+            }
+            Button {
+                text: i18n.tr("Language settings...")
+
+                anchors.top: startWizardText.bottom
+                anchors.topMargin: units.gu(3)
+                anchors.horizontalCenter: parent.horizontalCenter
+
+                onClicked: {
+                    pageStack.push(langPage);
+                    startWizard.visible = false;
+                    translationSearchBar.visible = true
+                }
+            }
+        }
+
 
         LangSelector {
             id: langSelectorComponent
+        }
+
+        Component {
+            id: startDialog
+            Dialog {
+                id: dialogue
+                title: "Save file"
+                text: "Are you sure that you want to save this file?"
+                Button {
+                    text: "cancel"
+                    onClicked: PopupUtils.close(dialogue)
+                }
+                Button {
+                    text: "overwrite previous version"
+                    color: UbuntuColors.orange
+                    onClicked: PopupUtils.close(dialogue)
+                }
+                Button {
+                    text: "save a copy"
+                    color: UbuntuColors.orange
+                    onClicked: PopupUtils.close(dialogue)
+                }
+            }
         }
     }
 
 
     Component.onCompleted: translateSearchText.forceActiveFocus()
+
+    function startWizard() {
+        console.log("startWizard()")
+        // PopupUtils.open(startDialog);
+        translationSearchBar.visible = false
+        startWizard.visible = true;
+        startWizardText.text = "Bienvenue !<br><br>uTranslate vous propose des traductions entre 126 langues !<br>Veuillez choisir celles que vous pratiquez le plus en cliquant sur le bouton suivant";
+    }
 
     function updateTabContext(context, startup) {
         if (typeof(startup) === "undefined")
@@ -444,7 +565,7 @@ Page {
     }
 
     function updateLang(lg) {
-        // console.debug("updateLang:"+lg);
+        console.debug("updateLang:"+lg);
         translationPage.setLang(lg);
         utApp.updateContext({'lgsrc': lg});
         translationPage.doSuggest();
@@ -460,7 +581,7 @@ Page {
     }
 
     function updateLangDest(lg) {
-        // console.debug("updateLangdest:"+lg);
+        console.debug("updateLangdest:"+lg);
         translationPage.setLangDest(lg);
         utApp.updateContext({'lgdest': lg});
         translationPage.doTranslate();

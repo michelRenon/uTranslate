@@ -54,7 +54,7 @@ Component {
         }
 
         function doSelectLang(lg) {
-            // console.debug("doSelectLang()"+lg)
+            console.debug("doSelectLang()"+lg)
             // We suppose that caller is a FlagButton, with 'flag' property.
             // But...
             // we need to delay the callback calling
@@ -78,10 +78,10 @@ Component {
         }
 
         Component.onDestruction: {
-            // console.debug("popover destroyed");
+            console.debug("popover destroyed");
             // console.debug(popLangSelector.caller);
             if (popLangSelector.lang !== '--') {
-                // console.debug("change lang:"+popLangSelector.lang);
+                console.debug("change lang:"+popLangSelector.lang);
                 popLangSelector.caller.lang = popLangSelector.lang;
             }
         }
