@@ -410,13 +410,6 @@ Page {
             anchors.right: parent.right
             visible: true
         }
-        EmptyState {
-            iconName: "alarm-clock"
-            title: i18n.tr("No saved alarms")
-            subTitle: i18n.tr("Tap the + icon to add an alarm")
-            anchors.centerIn: parent
-            visible: false
-        }
         /*
         TextArea {
             id: noResults
@@ -461,20 +454,28 @@ Page {
                 fontSize: "large"
             }
             */
+            Icon {
+                id: startWizardIcon
+                anchors.top: parent.top
+                anchors.topMargin: units.gu(5)
+                anchors.horizontalCenter: parent.horizontalCenter
+                height: units.gu(10)
+                width: height
+                color: "#BBBBBB"
+                source: Qt.resolvedUrl("graphics/ext/welcome.png")
+            }
             TextArea {
                 id: startWizardText
                 // Layouts.item: "itemRes"
                 textFormat : TextEdit.RichText
                 readOnly: true
                 activeFocusOnPress:false
-                anchors.top: parent.top
-                anchors.topMargin: units.gu(10)
-                // anchors.bottom: parent.bottom
-                // anchors.left: parent.left
-                // anchors.right: parent.right
+                anchors.top: startWizardIcon.bottom
+                anchors.topMargin: units.gu(1)
                 anchors.horizontalCenter: parent.horizontalCenter
                 autoSize: true
                 maximumLineCount:0
+                // text: "Bienvenue !<br><br>uTranslate vous propose des traductions entre 126 langues !<br>Veuillez choisir celles que vous pratiquez le plus en cliquant sur le bouton suivant";
             }
             Button {
                 text: i18n.tr("Language settings...")
@@ -528,7 +529,8 @@ Page {
         // PopupUtils.open(startDialog);
         translationSearchBar.visible = false
         startWizard.visible = true;
-        startWizardText.text = "Bienvenue !<br><br>uTranslate vous propose des traductions entre 126 langues !<br>Veuillez choisir celles que vous pratiquez le plus en cliquant sur le bouton suivant";
+        // startWizardText.text = "Bienvenue !<br><br>uTranslate vous propose des traductions entre 126 langues !<br>Veuillez choisir celles que vous pratiquez le plus en cliquant sur le bouton suivant";
+        startWizardText.text = i18n.tr("welcome");
     }
 
     function updateTabContext(context, startup) {

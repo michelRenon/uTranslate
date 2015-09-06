@@ -63,6 +63,10 @@ msgstr "Définition"
 msgid "Enter text to translate"
 msgstr "Entrez le texte à traduire"
 
+#: ../app/TranslationPage.qml:540
+msgid "welcome"
+msgstr "Bienvenue !<br><br>uTranslate vous propose des traductions entre 126 langues !<br>Veuillez choisir celles que vous pratiquez le plus en cliquant sur le bouton suivant"
+
 #: ../app/TranslationPage.qml:526
 msgid "No Result"
 msgstr "Aucun résultat"

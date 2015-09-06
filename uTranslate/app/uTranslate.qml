@@ -72,6 +72,18 @@ MainView {
         };
     }
 
+    function emptyDB() {
+        openDB();
+
+        dbLang.transaction(function(tx) {
+            // Drop database tables
+            var res = tx.executeSql('DROP TABLE lang');
+            // console.debug("DROP TABLE lang : "+JSON.stringify(res));
+            res = tx.executeSql('DROP TABLE country');
+            // console.debug("DROP TABLE country : "+JSON.stringify(res));
+        });
+    }
+
     function resetDB() {
         openDB();
 
@@ -408,6 +420,12 @@ MainView {
                 spacing: units.gu(1)
 
                 Button {
+                    text: "Empty DB"
+                    onClicked: {
+                        emptyDB();
+                    }
+                }
+                Button {
                     text: "Reset DB"
                     onClicked: {
                         resetDB();
@@ -437,6 +455,7 @@ MainView {
         }
 
         Component.onCompleted:  {
+            // TODO : move those 2 lines ?
             loadLangs();
             loadCountries();
 
