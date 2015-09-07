@@ -475,7 +475,6 @@ MainView {
                     translationPage.setLang(locale);
                     translationPage.setLangDest(locale);
 
-                    // langPage.reloadLangs();
                     langPage.updateTitle();
                 }
 

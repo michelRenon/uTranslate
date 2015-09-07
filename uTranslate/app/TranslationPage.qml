@@ -447,20 +447,9 @@ Page {
                 anchors.fill: parent
 
                 onClicked: {
-                    // startWizard.visible = false;
-                    // pageStack.push(langPage);
+                    // Nothing.
                 }
             }
-            /*
-            Label {
-                id: startWizardText
-                textFormat : TextEdit.RichText
-                anchors.top: parent.top
-                anchors.topMargin: units.gu(10)
-                anchors.horizontalCenter: parent.horizontalCenter
-                fontSize: "large"
-            }
-            */
             Icon {
                 id: startWizardIcon
                 anchors.top: parent.top
@@ -482,7 +471,6 @@ Page {
                 anchors.horizontalCenter: parent.horizontalCenter
                 autoSize: true
                 maximumLineCount:0
-                // text: "Bienvenue !<br><br>uTranslate vous propose des traductions entre 126 langues !<br>Veuillez choisir celles que vous pratiquez le plus en cliquant sur le bouton suivant";
             }
             Button {
                 text: i18n.tr("Language settings...")
@@ -497,33 +485,8 @@ Page {
                 }
             }
         }
-
-
         LangSelector {
             id: langSelectorComponent
-        }
-
-        Component {
-            id: startDialog
-            Dialog {
-                id: dialogue
-                title: "Save file"
-                text: "Are you sure that you want to save this file?"
-                Button {
-                    text: "cancel"
-                    onClicked: PopupUtils.close(dialogue)
-                }
-                Button {
-                    text: "overwrite previous version"
-                    color: UbuntuColors.orange
-                    onClicked: PopupUtils.close(dialogue)
-                }
-                Button {
-                    text: "save a copy"
-                    color: UbuntuColors.orange
-                    onClicked: PopupUtils.close(dialogue)
-                }
-            }
         }
     }
 
