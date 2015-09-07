@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-07 00:46+0200\n"
+"POT-Creation-Date: 2015-09-07 13:02+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -63,37 +63,30 @@ msgstr ""
 msgid "Enter text to translate"
 msgstr ""
 
-#: ../app/TranslationPage.qml:415
-msgid "No saved alarms"
-msgstr ""
-
-#: ../app/TranslationPage.qml:416
-msgid "Tap the + icon to add an alarm"
-msgstr ""
-
-#: ../app/TranslationPage.qml:488 ../app/components/LangSelector.qml:77
+#: ../app/TranslationPage.qml:481 ../app/components/LangSelector.qml:77
 msgid "Language settings..."
 msgstr ""
 
-#: ../app/TranslationPage.qml:540
+#. TRANSLATORS: it is a complete rich text like this : "Welcome!<br><br>uTranslate allows you to translate between 126 languages!<br>Please select those that you pefer to use by clicking on the next button."
+#: ../app/TranslationPage.qml:534
 msgid "welcome"
 msgstr ""
 
-#: ../app/TranslationPage.qml:640
+#: ../app/TranslationPage.qml:634
 msgid "No Result"
 msgstr ""
 
-#: ../app/TranslationPage.qml:645
+#: ../app/TranslationPage.qml:639
 #, qt-format
 msgid "Translation of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:649
+#: ../app/TranslationPage.qml:643
 #, qt-format
 msgid "Definition of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:657
+#: ../app/TranslationPage.qml:651
 msgid "A network error occured."
 msgstr ""
 

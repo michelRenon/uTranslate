@@ -530,6 +530,7 @@ Page {
         translationSearchBar.visible = false
         startWizard.visible = true;
         // startWizardText.text = "Bienvenue !<br><br>uTranslate vous propose des traductions entre 126 langues !<br>Veuillez choisir celles que vous pratiquez le plus en cliquant sur le bouton suivant";
+        // TRANSLATORS: it is a complete rich text like this : "Welcome!<br><br>uTranslate allows you to translate between 126 languages!<br>Please select those that you pefer to use by clicking on the next button."
         startWizardText.text = i18n.tr("welcome");
     }
 
