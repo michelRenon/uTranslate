@@ -455,10 +455,6 @@ MainView {
         }
 
         Component.onCompleted:  {
-            // TODO : move those 2 lines ?
-            loadLangs();
-            loadCountries();
-
             console.debug("PAGESTACK completed")
             pageStack.push(translationPage)
 
@@ -472,11 +468,14 @@ MainView {
                 console.debug("Locale="+locale);
                 var foundLocale = initDBWithLocale(locale);
                 console.debug("found Locale="+foundLocale);
+                // Load datas
+                loadLangs();
+                loadCountries();
                 if (foundLocale) {
                     translationPage.setLang(locale);
                     translationPage.setLangDest(locale);
 
-                    langPage.reloadLangs();
+                    // langPage.reloadLangs();
                     langPage.updateTitle();
                 }
 
@@ -484,6 +483,10 @@ MainView {
                 translationPage.startWizard(foundLocale);
 
             } else {
+                // Load datas
+                loadLangs();
+                loadCountries();
+
                 // Load searchContext from previous usage.
                 var params = dbContext.contents;
 
