@@ -16,6 +16,7 @@ Page {
     // id: translationPage
     title: i18n.tr("uTranslate")
 
+    property bool startupMode: false
     property bool canSuggest: true
     property string langSrc : 'fra'
     property string langDest : 'eng'
@@ -28,7 +29,7 @@ Page {
                 id : switchAction
                 iconName: "switch"
                 text: i18n.tr("Switch")
-                enabled: (startWizard.visible == false)
+                enabled: (startupMode == false)
                 onTriggered: {
                     translationPage.doSwitchLg();
                 }
@@ -36,7 +37,7 @@ Page {
             Action {
                 iconName: "settings"
                 text: i18n.tr("Settings")
-                enabled: (startWizard.visible == false)
+                enabled: (startupMode == false)
                 onTriggered: {
                     pageStack.push(settingsPage);
                 }
@@ -44,7 +45,7 @@ Page {
             Action {
                 iconName: "info"
                 text: i18n.tr("About")
-                enabled: (startWizard.visible == false)
+                enabled: (startupMode == false)
                 onTriggered: {
                     pageStack.push(aboutPage);
                 }
@@ -52,7 +53,7 @@ Page {
         ]
 
         sections {
-            enabled: (startWizard.visible == false)
+            enabled: (startupMode == false)
 
             model:[i18n.tr("Translation"), i18n.tr("Definition")]
             onSelectedIndexChanged: {
@@ -67,6 +68,12 @@ Page {
         // console.debug("Page layout.width="+layouts.width)
         // workaround because 'onLayoutsChanged' notification is not available
         translationPage.checkBadFocus();
+    }
+
+    onStartupModeChanged: {
+        translationSearchBar.visible = !startupMode;
+        startWizard.visible = startupMode;
+
     }
 
     onSearchModeChanged: {
@@ -486,8 +493,7 @@ Page {
 
                 onClicked: {
                     pageStack.push(langPage);
-                    startWizard.visible = false;
-                    translationSearchBar.visible = true
+                    startupMode = false;
                 }
             }
         }
@@ -526,10 +532,8 @@ Page {
 
     function startWizard() {
         console.log("startWizard()")
-        // PopupUtils.open(startDialog);
-        translationSearchBar.visible = false
-        startWizard.visible = true;
-        // startWizardText.text = "Bienvenue !<br><br>uTranslate vous propose des traductions entre 126 langues !<br>Veuillez choisir celles que vous pratiquez le plus en cliquant sur le bouton suivant";
+        startupMode = true;
+
         // TRANSLATORS: it is a complete rich text like this : "Welcome!<br><br>uTranslate allows you to translate between 126 languages!<br>Please select those that you pefer to use by clicking on the next button."
         startWizardText.text = i18n.tr("welcome");
     }

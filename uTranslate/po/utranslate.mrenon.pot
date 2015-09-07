@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-07 13:02+0200\n"
+"POT-Creation-Date: 2015-09-07 13:15+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,54 +39,54 @@ msgstr ""
 msgid "uTranslate"
 msgstr ""
 
-#: ../app/TranslationPage.qml:30
+#: ../app/TranslationPage.qml:31
 msgid "Switch"
 msgstr ""
 
-#: ../app/TranslationPage.qml:38 ../app/uTranslate.qml:249
+#: ../app/TranslationPage.qml:39 ../app/uTranslate.qml:249
 msgid "Settings"
 msgstr ""
 
-#: ../app/TranslationPage.qml:46 ../app/uTranslate.qml:324
+#: ../app/TranslationPage.qml:47 ../app/uTranslate.qml:324
 msgid "About"
 msgstr ""
 
-#: ../app/TranslationPage.qml:57
+#: ../app/TranslationPage.qml:58
 msgid "Translation"
 msgstr ""
 
-#: ../app/TranslationPage.qml:57
+#: ../app/TranslationPage.qml:58
 msgid "Definition"
 msgstr ""
 
-#: ../app/TranslationPage.qml:197
+#: ../app/TranslationPage.qml:204
 msgid "Enter text to translate"
 msgstr ""
 
-#: ../app/TranslationPage.qml:481 ../app/components/LangSelector.qml:77
+#: ../app/TranslationPage.qml:488 ../app/components/LangSelector.qml:77
 msgid "Language settings..."
 msgstr ""
 
 #. TRANSLATORS: it is a complete rich text like this : "Welcome!<br><br>uTranslate allows you to translate between 126 languages!<br>Please select those that you pefer to use by clicking on the next button."
-#: ../app/TranslationPage.qml:534
+#: ../app/TranslationPage.qml:542
 msgid "welcome"
 msgstr ""
 
-#: ../app/TranslationPage.qml:634
+#: ../app/TranslationPage.qml:642
 msgid "No Result"
 msgstr ""
 
-#: ../app/TranslationPage.qml:639
+#: ../app/TranslationPage.qml:647
 #, qt-format
 msgid "Translation of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:643
+#: ../app/TranslationPage.qml:651
 #, qt-format
 msgid "Definition of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:651
+#: ../app/TranslationPage.qml:659
 msgid "A network error occured."
 msgstr ""
 
