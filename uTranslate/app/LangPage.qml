@@ -34,7 +34,8 @@ Page {
         id: langList
 
         anchors.fill: parent
-        anchors.rightMargin: fastScroll.showing ? fastScroll.width - units.gu(1) : 0
+        // anchors.rightMargin: fastScroll.showing ? fastScroll.width - units.gu(1) : 0
+        anchors.rightMargin: fastScroll.width - units.gu(1)
         clip: true
         currentIndex: -1
 

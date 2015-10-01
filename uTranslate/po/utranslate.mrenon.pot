@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-09-07 14:44+0200\n"
+"POT-Creation-Date: 2015-10-02 00:40+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,15 +21,15 @@ msgstr ""
 msgid "Show selected"
 msgstr ""
 
-#: ../app/LangPage.qml:124
+#: ../app/LangPage.qml:125
 msgid "Languages, no selected"
 msgstr ""
 
-#: ../app/LangPage.qml:125
+#: ../app/LangPage.qml:126
 msgid "Languages, one selected"
 msgstr ""
 
-#: ../app/LangPage.qml:126
+#: ../app/LangPage.qml:127
 #, c-format, qt-plural-format
 msgid "Languages, %n selected"
 msgstr ""
@@ -63,30 +63,30 @@ msgstr ""
 msgid "Enter text to translate"
 msgstr ""
 
-#: ../app/TranslationPage.qml:488 ../app/components/LangSelector.qml:77
+#: ../app/TranslationPage.qml:476 ../app/components/LangSelector.qml:77
 msgid "Language settings..."
 msgstr ""
 
 #. TRANSLATORS: it is a complete rich text like this : "Welcome!<br><br>uTranslate allows you to translate between 126 languages!<br>Please select those that you pefer to use by clicking on the next button."
-#: ../app/TranslationPage.qml:538
+#: ../app/TranslationPage.qml:501
 msgid "welcome"
 msgstr ""
 
-#: ../app/TranslationPage.qml:638
+#: ../app/TranslationPage.qml:601
 msgid "No Result"
 msgstr ""
 
-#: ../app/TranslationPage.qml:643
+#: ../app/TranslationPage.qml:606
 #, qt-format
 msgid "Translation of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:647
+#: ../app/TranslationPage.qml:610
 #, qt-format
 msgid "Definition of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:655
+#: ../app/TranslationPage.qml:618
 msgid "A network error occured."
 msgstr ""
 

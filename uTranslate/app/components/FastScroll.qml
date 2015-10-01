@@ -47,6 +47,8 @@ import "FastScroll.js" as Sections
 Item {
     id: root
 
+    property bool alwaysVisible : true // MRC
+
     property ListView listView
     property int pinSize: units.gu(2)
 
@@ -151,15 +153,18 @@ Item {
             top: parent.top
         }
         height: childrenRect.height
-        opacity: 0.0
+        // opacity: 0.0
+        opacity: root.alwaysVisible ? 1.0 : 0.0 // MRC
         onIsVisibleChanged: {
-            if (isVisible) {
-                rail.opacity = 1.0
-                hideTimer.stop()
-            } else if (!root.enabled) {
-                rail.opacity = 0.0
-            } else {
-                hideTimer.restart()
+            if (root.alwaysVisible === false) { // MRC
+                if (isVisible) {
+                    rail.opacity = 1.0
+                    hideTimer.stop()
+                } else if (!root.enabled) {
+                    rail.opacity = 0.0
+                } else {
+                    hideTimer.restart()
+                }
             }
         }
 
@@ -209,11 +214,13 @@ Item {
         preventStealing: true
         onPressed: {
             internal.adjustContentPosition(mouseY)
-            dragginTimer.start()
+            if (root.alwaysVisible === false) // MRC
+                dragginTimer.start()
         }
 
         onReleased: {
-            dragginTimer.stop()
+            if (root.alwaysVisible === false) // MRC
+                dragginTimer.stop()
             internal.desireSection = ""
             internal.fastScrolling = false
         }
