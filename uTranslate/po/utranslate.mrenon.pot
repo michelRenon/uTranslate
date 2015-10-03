@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-02 00:40+0200\n"
+"POT-Creation-Date: 2015-10-02 18:19+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,11 +43,11 @@ msgstr ""
 msgid "Switch"
 msgstr ""
 
-#: ../app/TranslationPage.qml:39 ../app/uTranslate.qml:249
+#: ../app/TranslationPage.qml:39 ../app/uTranslate.qml:250
 msgid "Settings"
 msgstr ""
 
-#: ../app/TranslationPage.qml:47 ../app/uTranslate.qml:324
+#: ../app/TranslationPage.qml:47 ../app/uTranslate.qml:325
 msgid "About"
 msgstr ""
 
@@ -63,30 +63,30 @@ msgstr ""
 msgid "Enter text to translate"
 msgstr ""
 
-#: ../app/TranslationPage.qml:476 ../app/components/LangSelector.qml:77
+#: ../app/TranslationPage.qml:477 ../app/components/LangSelector.qml:77
 msgid "Language settings..."
 msgstr ""
 
 #. TRANSLATORS: it is a complete rich text like this : "Welcome!<br><br>uTranslate allows you to translate between 126 languages!<br>Please select those that you pefer to use by clicking on the next button."
-#: ../app/TranslationPage.qml:501
+#: ../app/TranslationPage.qml:505
 msgid "welcome"
 msgstr ""
 
-#: ../app/TranslationPage.qml:601
+#: ../app/TranslationPage.qml:605
 msgid "No Result"
-msgstr ""
-
-#: ../app/TranslationPage.qml:606
-#, qt-format
-msgid "Translation of '%1'"
 msgstr ""
 
 #: ../app/TranslationPage.qml:610
 #, qt-format
+msgid "Translation of '%1'"
+msgstr ""
+
+#: ../app/TranslationPage.qml:614
+#, qt-format
 msgid "Definition of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:618
+#: ../app/TranslationPage.qml:622
 msgid "A network error occured."
 msgstr ""
 
@@ -1566,48 +1566,48 @@ msgstr ""
 msgid "Wales"
 msgstr ""
 
-#: ../app/uTranslate.qml:257
+#: ../app/uTranslate.qml:258
 msgid "Providers"
 msgstr ""
 
-#: ../app/uTranslate.qml:261
+#: ../app/uTranslate.qml:262
 msgid "The current data provider is Glosbe"
 msgstr ""
 
-#: ../app/uTranslate.qml:281 ../app/uTranslate.qml:399
+#: ../app/uTranslate.qml:282 ../app/uTranslate.qml:400
 msgid "Countries"
 msgstr ""
 
-#: ../app/uTranslate.qml:302
-msgid "no selected language:"
-msgstr ""
-
 #: ../app/uTranslate.qml:303
-#, c-format, qt-plural-format
-msgid "%n selected language:"
+msgid "no selected language:"
 msgstr ""
 
 #: ../app/uTranslate.qml:304
 #, c-format, qt-plural-format
+msgid "%n selected language:"
+msgstr ""
+
+#: ../app/uTranslate.qml:305
+#, c-format, qt-plural-format
 msgid "%n selected languages:"
 msgstr ""
 
-#: ../app/uTranslate.qml:347
+#: ../app/uTranslate.qml:348
 msgid "uTranslate, a translation app"
 msgstr ""
 
-#: ../app/uTranslate.qml:354
+#: ../app/uTranslate.qml:355
 msgid "by "
 msgstr ""
 
-#: ../app/uTranslate.qml:362
+#: ../app/uTranslate.qml:363
 msgid "version "
 msgstr ""
 
-#: ../app/uTranslate.qml:377
+#: ../app/uTranslate.qml:378
 msgid "Project website: "
 msgstr ""
 
-#: ../app/uTranslate.qml:385
+#: ../app/uTranslate.qml:386
 msgid "Flags form "
 msgstr ""
