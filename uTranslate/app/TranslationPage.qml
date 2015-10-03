@@ -497,14 +497,25 @@ Page {
 
     Component.onCompleted: translateSearchText.forceActiveFocus()
 
-    function startWizard() {
+    function startWizard(localeName, foundLocale) {
         console.log("startWizard()")
         startupMode = true;
 
         // TRANSLATORS: it is a complete rich text like this : "Welcome!<br><br>uTranslate allows you to translate between 126 languages!<br>Please select those that you pefer to use by clicking on the next button."
         startWizardText.text = i18n.tr("welcome");
 
-        // TODO : add a text to indicate the default lg selectec
+        // add a text to indicate the default lg selectec
+        var temp = "";
+        if (foundLocale === true) {
+            // TRANSLATORS: it is a complete rich text like this : "The current langage is already selected : %1"
+            temp = i18n.tr("locale_found");
+        } else {
+            // found no locale.
+            // TRANSLATORS: it is a complete rich text like this : "Unfortunately, the phone's langage (%1) is not handled by our providers."
+            startWizardText.text += i18n.tr("no_locale");
+        }
+        temp = temp.replace("%1", localeName);
+        startWizardText.text += "<br><br>"+temp;
     }
 
     function updateTabContext(context, startup) {

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-02 18:19+0200\n"
+"POT-Creation-Date: 2015-10-04 01:49+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -72,21 +72,31 @@ msgstr ""
 msgid "welcome"
 msgstr ""
 
-#: ../app/TranslationPage.qml:605
+#. TRANSLATORS: it is a complete rich text like this : "The current langage is already selected : %1"
+#: ../app/TranslationPage.qml:511
+msgid "locale_found"
+msgstr ""
+
+#. TRANSLATORS: it is a complete rich text like this : "Unfortunately, the phone's langage (%1) is not handled by our providers."
+#: ../app/TranslationPage.qml:515
+msgid "no_locale"
+msgstr ""
+
+#: ../app/TranslationPage.qml:618
 msgid "No Result"
 msgstr ""
 
-#: ../app/TranslationPage.qml:610
+#: ../app/TranslationPage.qml:623
 #, qt-format
 msgid "Translation of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:614
+#: ../app/TranslationPage.qml:627
 #, qt-format
 msgid "Definition of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:622
+#: ../app/TranslationPage.qml:635
 msgid "A network error occured."
 msgstr ""
 

@@ -487,7 +487,9 @@ MainView {
                 }
 
                 // show first start wizard
-                translationPage.startWizard(foundLocale);
+                var res = readLang(locale);
+                var localeName = i18n.tr(res.name);
+                translationPage.startWizard(localeName, foundLocale);
 
             } else {
                 // Load datas

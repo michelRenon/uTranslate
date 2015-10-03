@@ -63,9 +63,23 @@ msgstr "Définition"
 msgid "Enter text to translate"
 msgstr "Entrez le texte à traduire"
 
+#: ../app/TranslationPage.qml:477 ../app/components/LangSelector.qml:77
+msgid "Language settings..."
+msgstr "Paramètres des langues..."
+
 #: ../app/TranslationPage.qml:540
 msgid "welcome"
 msgstr "Bienvenue !<br><br>uTranslate vous propose des traductions entre 126 langues !<br>Veuillez choisir celles que vous pratiquez le plus en cliquant sur le bouton suivant"
+
+#. TRANSLATORS: it is a complete rich text like this : "The current langage is already selected : %1"
+#: ../app/TranslationPage.qml:510
+msgid "locale_found"
+msgstr "La langue courante est déjà sélectionnée : %1"
+
+#. TRANSLATORS: it is a complete rich text like this : "Unfortunately, the phone's langage (%1) is not handled by our providers."
+#: ../app/TranslationPage.qml:516
+msgid "no_locale"
+msgstr "Malheureusement, la langue du téléphone (%1) n'est pas prise en compte par nos serveurs de traductions."
 
 #: ../app/TranslationPage.qml:526
 msgid "No Result"
@@ -84,10 +98,6 @@ msgstr "Définition of '%1'"
 #: ../app/TranslationPage.qml:543
 msgid "A network error occured."
 msgstr "Une erreur de réseau est apparue."
-
-#: ../app/components/LangSelector.qml:79
-msgid "Language settings..."
-msgstr "Paramètres des langues..."
 
 #: ../app/glosbe_lang_i18n.js:6
 msgid "Afrikaans"
