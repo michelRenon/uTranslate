@@ -32,6 +32,7 @@ MainView {
     height: units.gu(60)
 
     property var dbLang: null
+    property bool firstStartMode : false
 
     function _initTables(){
         dbLang.transaction(function(tx){
@@ -445,8 +446,13 @@ MainView {
 
 
         onCurrentPageChanged: {
-            // console.debug("current page="+pageStack.currentPage);
+            console.debug("current page="+pageStack.currentPage);
             if (pageStack.currentPage == translationPage){
+                if (firstStartMode === true) {
+                    firstStart.contents = { 'firststart': false};
+                    firstStartMode = false;
+                }
+
                 translationPage.checkBadFocus()
             } else if (pageStack.currentPage == langPage){
                 // load ListModel with langs
@@ -460,6 +466,8 @@ MainView {
 
             var startParams = firstStart.contents;
             if (startParams['firststart'] === true) {
+                // start "first start" mode
+                firstStartMode = true;
 
                 // search locale
                 var locale = Qt.locale().name;
