@@ -469,6 +469,7 @@ Page {
                 anchors.top: startWizardIcon.bottom
                 anchors.topMargin: units.gu(1)
                 anchors.horizontalCenter: parent.horizontalCenter
+                width : parent.width - units.gu(6)
                 autoSize: true
                 maximumLineCount:0
             }
@@ -477,8 +478,11 @@ Page {
 
                 anchors.top: startWizardText.bottom
                 anchors.topMargin: units.gu(3)
+                width : parent.width - units.gu(6)
                 anchors.horizontalCenter: parent.horizontalCenter
 
+                iconName: "next"
+                iconPosition: "right"
                 onClicked: {
                     pageStack.push(langPage);
                     startupMode = false;
@@ -499,6 +503,8 @@ Page {
 
         // TRANSLATORS: it is a complete rich text like this : "Welcome!<br><br>uTranslate allows you to translate between 126 languages!<br>Please select those that you pefer to use by clicking on the next button."
         startWizardText.text = i18n.tr("welcome");
+
+        // TODO : add a text to indicate the default lg selectec
     }
 
     function updateTabContext(context, startup) {
