@@ -374,3 +374,6 @@ l = i18n.tr("England");
 l = i18n.tr("Basque Country");
 l = i18n.tr("Scotland");
 l = i18n.tr("Wales");
+
+// special, not stored
+l = i18n.tr("no_lang");

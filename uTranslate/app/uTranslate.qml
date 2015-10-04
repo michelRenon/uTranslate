@@ -176,7 +176,7 @@ MainView {
             if (rs.rows.length == 1)
                 res = rs.rows[0];
             else
-                res = {};
+                res = {'name' : 'no_lang', 'code' : 'no_lang', 'flag_code':'no_lang'};
         });
         return res;
     }

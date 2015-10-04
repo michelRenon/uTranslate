@@ -1583,6 +1583,10 @@ msgstr "Ecosse"
 msgid "Wales"
 msgstr "Pays de Galles"
 
+#: ../app/glosbe_lang_i18n.js:379
+msgid "no_lang"
+msgstr "Aucune langue"
+
 #: ../app/uTranslate.qml:210
 msgid "Providers"
 msgstr "Fournisseurs"

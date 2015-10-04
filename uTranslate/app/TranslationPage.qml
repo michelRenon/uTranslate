@@ -614,7 +614,7 @@ Page {
                 // change to the first selected lang
                 newLang = langs[0]['code'];
             } else {
-                newLang = ""; // No lang !
+                newLang = "no_lang"; // No lang !
             }
             cb(newLang);
         }

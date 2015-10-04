@@ -92,9 +92,6 @@ Rectangle {
         }
     }
     function setSource(code, path) {
-        console.trace();
-        console.debug("setSource : "+code);
-
         canNotify = false;
         lang = code; // don't want onLangChanged() notification
         canNotify = true;
