@@ -606,8 +606,11 @@ Page {
                     break;
                 }
             }
-        } else
+        } else {
+            translateSearchText.forceActiveFocus();
+            focusRes = false;
             translationPage.setResult("", 0, focusRes);
+        }
     }
 
     function setResult(resultText, error, focusRes) {
