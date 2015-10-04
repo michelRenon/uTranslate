@@ -35,14 +35,10 @@ Page {
                 onTriggered: {
                     // update of db  (directly from the view ??? shouldn't it  be done from the listModel ?)
                     selectAllLangs();
-
-                    // update other parts of UI
-                    // the current page
-                    langPage.updateTitle();
                     // the selection
                     langPage.reloadLangs();
-                    // the settings page
-                    settingsPage.updateLangInfos();
+
+                    translationPage.updateSelectedLangs();
                 }
             },
             Action {
@@ -52,14 +48,10 @@ Page {
                 onTriggered: {
                     // update of db  (directly from the view ??? shouldn't it  be done from the listModel ?)
                     unselectAllLangs();
-
-                    // update other parts of UI
-                    // the current page
-                    langPage.updateTitle();
                     // the selection
                     langPage.reloadLangs();
-                    // the settings page
-                    settingsPage.updateLangInfos();
+
+                    translationPage.updateSelectedLangs();
                 }
             }
         ]
@@ -103,15 +95,11 @@ Page {
 
                     // update of db  (directly from the view ??? shouldn't it  be done from the listModel ?)
                     writeUsedLang(code, val);
-
-                    // update other parts of UI
-                    // the current page
-                    langPage.updateTitle();
                     // the selection
                     if (langPage.doSelect)
                         loadUsedLangs()
-                    // the settings page
-                    settingsPage.updateLangInfos();
+
+                    translationPage.updateSelectedLangs();
                 }
             }
         }

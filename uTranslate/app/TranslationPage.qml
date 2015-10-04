@@ -575,6 +575,51 @@ Page {
         // TODO : suggest or translate ??
     }
 
+    function updateSelectedLangs() {
+
+        // update other parts of UI
+        langPage.updateTitle();
+        // the settings page
+        settingsPage.updateLangInfos();
+
+        // check if each langButton use a selected lang
+        var langs = readUsedLangs();
+        checkLang(langs, translationPage.langSrc, function(lg) {
+            translationPage.setLang(lg);
+            utApp.updateContext({'lgsrc': lg});
+
+        });
+        checkLang(langs, translationPage.langDest, function(lg) {
+            translationPage.setLangDest(lg);
+            utApp.updateContext({'lgdest': lg});
+        });
+
+    }
+
+    function checkLang(langs, lang, cb) {
+        // var found = langs.indexOf(lang);
+        // 'langs' is not a real list
+
+        var found = false;
+        for(var i=0, l=langs.length ; i < l; i++) {
+            if (langs[i]['name'] === lang)
+                found = true;
+        }
+
+        if (found === false){
+            // change the current lang to a selected one
+            console.log("MUST CHANGE LANG "+lang);
+            var newLang = "";
+            if (langs.length > 0) {
+                // change to the first selected lang
+                newLang = langs[0]['code'];
+            } else {
+                newLang = ""; // No lang !
+            }
+            cb(newLang);
+        }
+    }
+
     function doSuggest() {
         var lgSrc = translationPage.langSrc;
         translateSearchText.forceActiveFocus();

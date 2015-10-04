@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-04 14:09+0200\n"
+"POT-Creation-Date: 2015-10-04 18:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -25,19 +25,19 @@ msgstr ""
 msgid "select all"
 msgstr ""
 
-#: ../app/LangPage.qml:51
+#: ../app/LangPage.qml:47
 msgid "select none"
 msgstr ""
 
-#: ../app/LangPage.qml:160
+#: ../app/LangPage.qml:148
 msgid "Languages, no selected"
 msgstr ""
 
-#: ../app/LangPage.qml:161
+#: ../app/LangPage.qml:149
 msgid "Languages, one selected"
 msgstr ""
 
-#: ../app/LangPage.qml:162
+#: ../app/LangPage.qml:150
 #, c-format, qt-plural-format
 msgid "Languages, %n selected"
 msgstr ""
@@ -90,21 +90,21 @@ msgstr ""
 msgid "no_locale"
 msgstr ""
 
-#: ../app/TranslationPage.qml:621
+#: ../app/TranslationPage.qml:666
 msgid "No Result"
 msgstr ""
 
-#: ../app/TranslationPage.qml:626
+#: ../app/TranslationPage.qml:671
 #, qt-format
 msgid "Translation of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:630
+#: ../app/TranslationPage.qml:675
 #, qt-format
 msgid "Definition of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:638
+#: ../app/TranslationPage.qml:683
 msgid "A network error occured."
 msgstr ""
 
