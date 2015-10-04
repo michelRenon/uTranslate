@@ -360,7 +360,7 @@ MainView {
                     id: info3
                     anchors.horizontalCenter: parent.horizontalCenter
                     horizontalAlignment: Text.AlignHCenter
-                    text: i18n.tr("version ")+"0.6.5"
+                    text: i18n.tr("version ")+"0.6.6"
                     wrapMode: Text.WordWrap
                 }
                 Label {
@@ -482,8 +482,9 @@ MainView {
                 if (foundLocale) {
                     translationPage.setLang(locale);
                     translationPage.setLangDest(locale);
-
                     langPage.updateTitle();
+
+                    utApp.updateContext({'lgsrc': locale, 'lgdest': locale});
                 }
 
                 // show first start wizard
