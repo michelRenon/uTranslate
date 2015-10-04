@@ -21,6 +21,14 @@ msgstr ""
 msgid "Show selected"
 msgstr "Choisies"
 
+#: ../app/LangPage.qml:34
+msgid "select all"
+msgstr "Toutes les langues"
+
+#: ../app/LangPage.qml:51
+msgid "select none"
+msgstr "Aucune langue"
+
 #: ../app/LangPage.qml:133
 msgid "Languages, no selected"
 msgstr "Langues, aucune choisie"

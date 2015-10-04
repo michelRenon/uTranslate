@@ -19,12 +19,47 @@ Page {
         actions : [
             Action {
                 id : switchAction
-                iconName: "select"
+                iconName: langPage.doSelect == true ? "zoom-out" : "zoom-in"
                 text: i18n.tr("Show selected")
                 onTriggered: {
                     langPage.doSelect = !langPage.doSelect
                     // console.debug("show selected"+langPage.doSelect)
                     langPage.reloadLangs();
+                }
+            },
+
+            Action {
+                id : selectAllAction
+                iconName: "select"
+                text: i18n.tr("select all")
+                onTriggered: {
+                    // update of db  (directly from the view ??? shouldn't it  be done from the listModel ?)
+                    selectAllLangs();
+
+                    // update other parts of UI
+                    // the current page
+                    langPage.updateTitle();
+                    // the selection
+                    langPage.reloadLangs();
+                    // the settings page
+                    settingsPage.updateLangInfos();
+                }
+            },
+            Action {
+                id : selectNoneAction
+                iconName: "select-none"
+                text: i18n.tr("select none")
+                onTriggered: {
+                    // update of db  (directly from the view ??? shouldn't it  be done from the listModel ?)
+                    unselectAllLangs();
+
+                    // update other parts of UI
+                    // the current page
+                    langPage.updateTitle();
+                    // the selection
+                    langPage.reloadLangs();
+                    // the settings page
+                    settingsPage.updateLangInfos();
                 }
             }
         ]

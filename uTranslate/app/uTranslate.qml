@@ -194,6 +194,22 @@ MainView {
         });
     }
 
+    function selectAllLangs() {
+        openDB();
+        var res = "";
+        dbLang.transaction(function(tx) {
+            var rs = tx.executeSql('UPDATE lang SET used=1 ;');
+        });
+    }
+
+    function unselectAllLangs() {
+        openDB();
+        var res = "";
+        dbLang.transaction(function(tx) {
+            var rs = tx.executeSql('UPDATE lang SET used=0 ;');
+        });
+    }
+
     function readCountries() {
         openDB();
         var res = "";
