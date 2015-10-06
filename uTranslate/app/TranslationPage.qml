@@ -602,7 +602,7 @@ Page {
 
         var found = false;
         for(var i=0, l=langs.length ; i < l; i++) {
-            if (langs[i]['name'] === lang)
+            if (langs[i]['code'] === lang)
                 found = true;
         }
 
