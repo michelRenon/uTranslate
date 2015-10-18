@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-04 20:22+0200\n"
+"POT-Creation-Date: 2015-10-17 01:32+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,21 +29,21 @@ msgstr ""
 msgid "select none"
 msgstr ""
 
-#: ../app/LangPage.qml:148
+#: ../app/LangPage.qml:159
 msgid "Languages, no selected"
 msgstr ""
 
-#: ../app/LangPage.qml:149
+#: ../app/LangPage.qml:160
 msgid "Languages, one selected"
 msgstr ""
 
-#: ../app/LangPage.qml:150
+#: ../app/LangPage.qml:161
 #, c-format, qt-plural-format
 msgid "Languages, %n selected"
 msgstr ""
 
 #: ../app/TranslationPage.qml:17
-#: /home/michel/Documents/DEV/uTranslate/ut_reboot/build-uTranslate-UbuntuSDK_for_i386_GCC_ubuntu_sdk_14_10_utopic-Default/po/uTranslate.desktop.in.h:1
+#: /home/michel/Documents/DEV/uTranslate/ut_reboot/build-uTranslate-UbuntuSDK_for_i386_GCC_ubuntu_sdk_15_04_vivid-Default/po/uTranslate.desktop.in.h:1
 msgid "uTranslate"
 msgstr ""
 

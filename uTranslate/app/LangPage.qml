@@ -82,11 +82,21 @@ Page {
             // iconSource: Qt.resolvedUrl("graphics/uTranslate.png")
             // onClicked: console.debug("listItem clicked")
 
+            iconSource: Qt.resolvedUrl("graphics/flags-iso/"+code.toUpperCase()+".png")
+            onTriggered: {
+                console.debug("listItem triggered")
+               pageStack.push(countryPage)
+            }
+            onClicked: {
+                console.debug("listItem clicked")
+
+            }
+
             control: Switch {
                 checked: (used == 1)? true : false; // int2bool
 
                 onClicked: {
-                    // console.debug("switch : "+code+" Clicked, value="+checked)
+                    console.debug("switch : "+code+" Clicked, value="+checked)
                     var val = (checked)? 1 : 0; // bool2int
                     // console.debug("valDB="+val);
                     // update of Model

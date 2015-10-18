@@ -9,7 +9,7 @@
             "desktop": "uTranslate.desktop"
         }
     },
-    "version": "0.6.8",
+    "version": "0.7.00",
     "maintainer": "Michel Renon <renon@mr-consultant.net>",
-    "framework": "ubuntu-sdk-14.10"
+    "framework": "ubuntu-sdk-15.04"
 }
