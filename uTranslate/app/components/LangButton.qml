@@ -13,6 +13,10 @@ Rectangle {
     width: units.gu(12)
     color: "white"
     radius: units.gu(3)
+    border {
+        width: units.gu(0.1)
+        color: "darkgray"
+    }
 
     property string lang : 'fr'
     property bool canNotify : false
