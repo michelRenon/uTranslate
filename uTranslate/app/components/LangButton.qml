@@ -9,7 +9,7 @@ import Ubuntu.Components.Popups 0.1
 
 Rectangle {
     anchors.top: parent.top
-    anchors.bottom: parent.bottom
+    // anchors.bottom: parent.bottom
     width: units.gu(12)
     color: "white"
     radius: units.gu(3)

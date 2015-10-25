@@ -143,15 +143,6 @@ Page {
                         anchors.margins: units.gu(1)
                     }
                     ItemLayout {
-                        item: "itemRes"
-                        width: parent.width /2
-                        anchors {
-                            top: parent.top
-                            bottom: parent.bottom
-                            right: parent.right
-                        }
-                    }
-                    ItemLayout {
                         item: "itemSuggestion"
                         anchors {
                             top: parent.top
@@ -162,6 +153,18 @@ Page {
                             bottomMargin: units.gu(1)
                         }
                         width: (parent.width / 2) - units.gu(9) // 8 from left, 1 from right
+                        visible: true
+                    }
+                    ItemLayout {
+                        item: "itemRes"
+                        width: parent.width /2 - units.gu(2)
+                        anchors {
+                            top: parent.top
+                            bottom: parent.bottom
+                            right: parent.right
+                        }
+                        anchors.margins: units.gu(1)
+                        visible: true
                     }
                 }
             }
@@ -435,7 +438,7 @@ Page {
         */
         Rectangle {
             id: startWizard
-            Layouts.item: "itemRes"
+            Layouts.item: "no-item"
             visible: false
             color: "#dddddd"
             opacity: 1.0
