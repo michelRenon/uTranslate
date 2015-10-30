@@ -299,7 +299,16 @@ MainView {
                         pageStack.push(langPage)
                      }
                 }
-                ListItem.Subtitled {
+                ListItem.Standard {
+                    height: units.gu(5)
+                    text : ""
+                    showDivider: false
+                    highlightWhenPressed: false
+                }
+                ListItem.Header {
+                    text : i18n.tr("Debug")
+                }
+                ListItem.Standard {
                      text : i18n.tr("Countries")
                      showDivider: false
                      progression: true
@@ -308,7 +317,7 @@ MainView {
                         pageStack.push(countryPage)
                      }
                 }
-                ListItem.Subtitled {
+                ListItem.Standard {
                      text : "Debug"
                      showDivider: false
                      progression: true
