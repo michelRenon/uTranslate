@@ -166,6 +166,17 @@ Page {
                         anchors.margins: units.gu(1)
                         visible: true
                     }
+                    ItemLayout {
+                        item: "itemEmptyRes"
+                        width: parent.width /2 - units.gu(2)
+                        anchors {
+                            top: parent.top
+                            bottom: parent.bottom
+                            right: parent.right
+                        }
+                        anchors.margins: units.gu(1)
+                        visible: true
+                    }
                 }
             }
         ]
@@ -420,6 +431,15 @@ Page {
             anchors.right: parent.right
             visible: true
         }
+        EmptyState {
+            id: emptyRes
+            Layouts.item: "itemEmptyRes"
+            iconName: "alarm-clock"
+            title: i18n.tr("No saved alarms")
+            subTitle: i18n.tr("Tap the + icon to add an alarm")
+            anchors.centerIn: parent
+            visible: false
+        }
         /*
         TextArea {
             id: noResults
@@ -636,20 +656,21 @@ Page {
             focusRes = true;
         var lgSrc = translationPage.langSrc;
         var lgDest = translationPage.langDest;
+        var searchText = translateSearchText.text;
         rectViewSuggestion.reduceIfExpanded();
-        if (translateSearchText.text != "") {
+        if (searchText != "") {
             // console.debug("search Mode="+translationPage.searchMode);
             switch (translationPage.searchMode) {
                 case 0: {
                     Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, function(res, error) {
-                        translationPage.setResult(res, error, focusRes);
+                        translationPage.setResult(res, error, focusRes, searchText);
                     });
                     break;
                 }
 
                 case 1: {
                     Controller.doSearchDefintion(translateSearchText.text, lgSrc, function(res, error) {
-                        translationPage.setResult(res, error, focusRes);
+                        translationPage.setResult(res, error, focusRes, searchText);
                     });
                     break;
                 }
@@ -657,16 +678,32 @@ Page {
         } else {
             translateSearchText.forceActiveFocus();
             focusRes = false;
-            translationPage.setResult("", 0, focusRes);
+            translationPage.setResult("", 0, focusRes, searchText);
         }
     }
 
-    function setResult(resultText, error, focusRes) {
+    function setResult(resultText, error, focusRes, searchText) {
         // console.debug("appel de translationPage.setResult()"+error);
         var content = "";
+        var showEmpty = false;
+        var emptyIconName = "";
+        var emptyTitle = ""
+        var emptySubTitle = "";
+
         if (error == 0) {
             if (resultText == "") {
-                content = "<i>"+i18n.tr("No Result")+"</i>";
+                // content = "<i>"+i18n.tr("No Result")+"</i>";
+                if (searchText == "") {
+                    showEmpty = true;
+                    emptyIconName = "edit";
+                    emptyTitle = i18n.tr("Enter text");
+                    emptySubTitle = i18n.tr("Tap the + icon to add an alarm");
+                } else {
+                    showEmpty = true;
+                    emptyIconName = "dialog-question-symbolic";
+                    emptyTitle = i18n.tr("No Result for '%1'").replace("%1", searchText);
+                    emptySubTitle = i18n.tr("Tap the + icon to add an alarm");
+                }
             } else {
                 var message = "";
                 switch (translationPage.searchMode) {
@@ -679,13 +716,30 @@ Page {
                         break;
                     }
                 }
-                message = message.replace("%1", translateSearchText.text);
+                message = message.replace("%1", searchText);
                 content = "<h3>"+message+"</h3>"+resultText;
             }
         } else {
-            content = i18n.tr("A network error occured.");
+            // content = i18n.tr("A network error occured.");
+            showEmpty = true;
+            emptyIconName = "dialog-warning-symbolic";
+            emptyTitle = i18n.tr("A network error occured.");
+            emptySubTitle = i18n.tr("Tap the + icon to add an alarm");
         }
-        translateRes.text = content;
+
+
+        if (showEmpty){
+            translateRes.visible = false;
+            emptyRes.visible = true;
+            emptyRes.iconName = emptyIconName;
+            emptyRes.title = emptyTitle;
+            emptyRes.subTitle = emptySubTitle;
+
+        } else {
+            translateRes.visible = true;
+            emptyRes.visible = false;
+            translateRes.text = content;
+        }
 
         if (focusRes)
             translateRes.forceActiveFocus();
