@@ -276,13 +276,18 @@ MainView {
 
                 ListItem.Subtitled {
                     text : i18n.tr("The current data provider is Glosbe")
-                    subText: '(<a href="http://glosbe.com">http://glosbe.com</a>)'
+                    // subText: '(<a href="http://glosbe.com">http://glosbe.com</a>)'
                     showDivider: false
-                    highlightWhenPressed: true
-                    progression: true
-                    onTriggered: Qt.openUrlExternally("http://glosbe.com")
-                 }
-
+                    highlightWhenPressed: false
+                }
+                ListItem.SingleControl {
+                    highlightWhenPressed: false
+                    control: Button {
+                        text: "http://glosbe.com"
+                        width: units.gu(25)
+                        onClicked: Qt.openUrlExternally("http://glosbe.com")
+                    }
+                }
                 ListItem.Subtitled {
                     id: langInfos
                     text : settingsPage.getLangText()
