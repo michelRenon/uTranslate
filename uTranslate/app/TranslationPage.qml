@@ -435,8 +435,8 @@ Page {
             id: emptyRes
             Layouts.item: "itemEmptyRes"
             iconName: "alarm-clock"
-            title: i18n.tr("No saved alarms")
-            subTitle: i18n.tr("Tap the + icon to add an alarm")
+            title: ""
+            subTitle: ""
             anchors.centerIn: parent
             visible: false
         }
