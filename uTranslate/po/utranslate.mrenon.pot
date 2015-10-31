@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-30 19:31+0100\n"
+"POT-Creation-Date: 2015-10-31 00:59+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -55,7 +55,7 @@ msgstr ""
 msgid "Settings"
 msgstr ""
 
-#: ../app/TranslationPage.qml:47 ../app/uTranslate.qml:341
+#: ../app/TranslationPage.qml:47 ../app/uTranslate.qml:355
 msgid "About"
 msgstr ""
 
@@ -75,8 +75,7 @@ msgstr ""
 msgid "No saved alarms"
 msgstr ""
 
-#: ../app/TranslationPage.qml:439 ../app/TranslationPage.qml:700
-#: ../app/TranslationPage.qml:705 ../app/TranslationPage.qml:727
+#: ../app/TranslationPage.qml:439
 msgid "Tap the + icon to add an alarm"
 msgstr ""
 
@@ -108,6 +107,10 @@ msgstr ""
 msgid "No Result for '%1'"
 msgstr ""
 
+#: ../app/TranslationPage.qml:705
+msgid "The provider doesn't know the word you entered"
+msgstr ""
+
 #: ../app/TranslationPage.qml:711
 #, qt-format
 msgid "Translation of '%1'"
@@ -120,6 +123,10 @@ msgstr ""
 
 #: ../app/TranslationPage.qml:726
 msgid "A network error occured."
+msgstr ""
+
+#: ../app/TranslationPage.qml:727
+msgid "please check your network settings"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:6
@@ -1610,40 +1617,44 @@ msgstr ""
 msgid "The current data provider is Glosbe"
 msgstr ""
 
-#: ../app/uTranslate.qml:298 ../app/uTranslate.qml:416
+#: ../app/uTranslate.qml:309
+msgid "Debug"
+msgstr ""
+
+#: ../app/uTranslate.qml:312 ../app/uTranslate.qml:430
 msgid "Countries"
 msgstr ""
 
-#: ../app/uTranslate.qml:319
+#: ../app/uTranslate.qml:333
 msgid "no selected language:"
 msgstr ""
 
-#: ../app/uTranslate.qml:320
+#: ../app/uTranslate.qml:334
 #, c-format, qt-plural-format
 msgid "%n selected language:"
 msgstr ""
 
-#: ../app/uTranslate.qml:321
+#: ../app/uTranslate.qml:335
 #, c-format, qt-plural-format
 msgid "%n selected languages:"
 msgstr ""
 
-#: ../app/uTranslate.qml:364
+#: ../app/uTranslate.qml:378
 msgid "uTranslate, a translation app"
 msgstr ""
 
-#: ../app/uTranslate.qml:371
+#: ../app/uTranslate.qml:385
 msgid "by "
 msgstr ""
 
-#: ../app/uTranslate.qml:379
+#: ../app/uTranslate.qml:393
 msgid "version "
 msgstr ""
 
-#: ../app/uTranslate.qml:394
+#: ../app/uTranslate.qml:408
 msgid "Project website: "
 msgstr ""
 
-#: ../app/uTranslate.qml:402
+#: ../app/uTranslate.qml:416
 msgid "Flags form "
 msgstr ""

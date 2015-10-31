@@ -697,12 +697,12 @@ Page {
                     showEmpty = true;
                     emptyIconName = "edit";
                     emptyTitle = i18n.tr("Enter text");
-                    emptySubTitle = i18n.tr("Tap the + icon to add an alarm");
+                    emptySubTitle = ""; // i18n.tr("");
                 } else {
                     showEmpty = true;
                     emptyIconName = "dialog-question-symbolic";
                     emptyTitle = i18n.tr("No Result for '%1'").replace("%1", searchText);
-                    emptySubTitle = i18n.tr("Tap the + icon to add an alarm");
+                    emptySubTitle = i18n.tr("The provider doesn't know the word you entered");
                 }
             } else {
                 var message = "";
@@ -724,7 +724,7 @@ Page {
             showEmpty = true;
             emptyIconName = "dialog-warning-symbolic";
             emptyTitle = i18n.tr("A network error occured.");
-            emptySubTitle = i18n.tr("Tap the + icon to add an alarm");
+            emptySubTitle = i18n.tr("please check your network settings");
         }
 
 
