@@ -205,6 +205,7 @@ Page {
             anchors.left: parent.left
             anchors.right: parent.right
             // height: units.gu(0.5)
+            visible: false
         }
         Item {
             id:translationSearchBar
@@ -689,6 +690,7 @@ Page {
         rectViewSuggestion.reduceIfExpanded();
         if (searchText != "") {
             // console.debug("search Mode="+translationPage.searchMode);
+            idprogress.visible = true;
             switch (translationPage.searchMode) {
                 case 0: {
                     Controller.doSearchTranslation(translateSearchText.text, lgSrc, lgDest, function(res, error) {
@@ -719,6 +721,7 @@ Page {
         var emptyTitle = ""
         var emptySubTitle = "";
 
+        idprogress.visible = false;
         if (error == 0) {
             if (resultText == "") {
                 // content = "<i>"+i18n.tr("No Result")+"</i>";

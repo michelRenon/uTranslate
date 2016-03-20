@@ -39,23 +39,31 @@ import QtQuick 2.4
 import Ubuntu.Components 1.3
 
 Item {
-    // height: visible ? units.dp(3) : 0
-    height: units.dp(3)
-    // width: parent.width
-    visible: true
-    onVisibleChanged: visible ? animation.start() : animation.stop()
+    height: visible ? units.dp(3) : 0
 
+    onVisibleChanged: visible ? animation.start() : animation.stop()
+    /*
+    onVisibleChanged: {
+        console.debug("TaskProgressBar.onVisibleChanged()")
+        if (visible) {
+            animation.start()
+        } else {
+            animation.stop()
+        }
+    }
+    */
 
     onWidthChanged: {
-        animation.restart()
-        console.debug("progress : "+this.width+"/"+this.height)
+        if (visible)
+            animation.restart();
+        // console.debug("progress : "+this.width+"/"+this.height)
     }
 
     Rectangle {
         id: rectangle
         anchors.fill: parent
         color: UbuntuColors.orange
-        visible: true// animation.running // Avoid to show the orange bar before animation starts
+        visible: animation.running // Avoid to show the orange bar before animation starts
     }
 
     SequentialAnimation {
