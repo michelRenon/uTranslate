@@ -801,6 +801,7 @@ Page {
     }
 
     function checkBadFocus() {
+        // TODO : check with layouts.currentLayout != "2columns"   ???
         if (layouts.width <= units.gu(80) && utApp.loaded) {
             if (translateSearchText.focus == false && translateRes.focus==false && translateSearchText.text === "") {
                 // console.debug("CORRECTING FOCUS PB")
