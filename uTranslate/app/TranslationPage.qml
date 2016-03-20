@@ -177,22 +177,19 @@ Page {
                         anchors.margins: units.gu(1)
                         visible: true
                     }
-                    /*
+
                     ItemLayout {
                         item: "itemEmptyRes"
-                        // width: parent.width /2 - units.gu(2)
+                        width: parent.width /2 - units.gu(2)
                         anchors {
-                            // right: parent.right
-                            horizontalCenter: parent.horizontalCenter
-                            // top: parent.top
-                            // bottom: parent.bottom
+                            right: parent.right
+
                             verticalCenter: parent.verticalCenter
-                            verticalCenterOffset: units.gu(0)
+                            verticalCenterOffset: units.gu(-15)
                         }
-                        // anchors.margins: units.gu(1)
-                        visible: true
+                        anchors.margins: units.gu(1)
                     }
-                    */
+
                 }
             }
         ]
@@ -458,7 +455,7 @@ Page {
         }
         EmptyState {
             id: emptyRes
-            // Layouts.item: "itemEmptyRes"
+            Layouts.item: "itemEmptyRes"
             iconName: "alarm-clock"
             title: ""
             subTitle: ""
