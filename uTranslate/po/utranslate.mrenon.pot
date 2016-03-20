@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-10-31 01:11+0100\n"
+"POT-Creation-Date: 2016-03-20 10:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,7 +43,7 @@ msgid "Languages, %n selected"
 msgstr ""
 
 #: ../app/TranslationPage.qml:17
-#: /home/michel/Documents/DEV/uTranslate/ut_reboot/build-uTranslate-UbuntuSDK_for_i386_GCC_ubuntu_sdk_15_04_vivid-Default/po/uTranslate.desktop.in.h:1
+#: /home/michel/Documents/DEV/uTranslate/ut_reboot/uTranslate-build/po/uTranslate.desktop.in.h:1
 msgid "uTranslate"
 msgstr ""
 
@@ -67,57 +67,57 @@ msgstr ""
 msgid "Definition"
 msgstr ""
 
-#: ../app/TranslationPage.qml:218
+#: ../app/TranslationPage.qml:242
 msgid "Enter text to translate"
 msgstr ""
 
-#: ../app/TranslationPage.qml:500 ../app/components/LangSelector.qml:77
+#: ../app/TranslationPage.qml:529 ../app/components/LangSelector.qml:77
 msgid "Language settings..."
 msgstr ""
 
 #. TRANSLATORS: it is a complete rich text like this : "Welcome!<br><br>uTranslate allows you to translate between 126 languages!<br>Please select those that you pefer to use by clicking on the next button."
-#: ../app/TranslationPage.qml:528
+#: ../app/TranslationPage.qml:557
 msgid "welcome"
 msgstr ""
 
 #. TRANSLATORS: it is a complete rich text like this : "The current langage is already selected : %1"
-#: ../app/TranslationPage.qml:534
+#: ../app/TranslationPage.qml:563
 msgid "locale_found"
 msgstr ""
 
 #. TRANSLATORS: it is a complete rich text like this : "Unfortunately, the phone's langage (%1) is not handled by our providers."
-#: ../app/TranslationPage.qml:538
+#: ../app/TranslationPage.qml:567
 msgid "no_locale"
 msgstr ""
 
-#: ../app/TranslationPage.qml:699
+#: ../app/TranslationPage.qml:728
 msgid "Enter text"
 msgstr ""
 
-#: ../app/TranslationPage.qml:704
+#: ../app/TranslationPage.qml:733
 #, qt-format
 msgid "No Result for '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:705
+#: ../app/TranslationPage.qml:734
 msgid "The provider doesn't know the word you entered"
 msgstr ""
 
-#: ../app/TranslationPage.qml:711
+#: ../app/TranslationPage.qml:740
 #, qt-format
 msgid "Translation of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:715
+#: ../app/TranslationPage.qml:744
 #, qt-format
 msgid "Definition of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:726
+#: ../app/TranslationPage.qml:755
 msgid "A network error occured."
 msgstr ""
 
-#: ../app/TranslationPage.qml:727
+#: ../app/TranslationPage.qml:756
 msgid "please check your network settings"
 msgstr ""
 
@@ -850,7 +850,7 @@ msgid "Czech Republic"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:190
-msgid "Côte d’Ivoire"
+msgid "C\\u00f4te d\\u2019Ivoire"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:191
@@ -1330,7 +1330,7 @@ msgid "Rwanda"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:310
-msgid "Saint Barthélemy"
+msgid "Saint Barth\\u00e9lemy"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:311
@@ -1446,7 +1446,7 @@ msgid "Syria"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:339
-msgid "São Tomé and Príncipe"
+msgid "S\\u00e3o Tom\\u00e9 and Pr\\u00edncipe"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:340
@@ -1578,7 +1578,7 @@ msgid "Zimbabwe"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:372
-msgid "Åland Islands"
+msgid "\\u00c5land Islands"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:373
