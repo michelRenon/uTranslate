@@ -41,7 +41,7 @@ import Ubuntu.Components 1.3
 Item {
     height: visible ? units.dp(3) : 0
 
-    onVisibleChanged: visible ? animation.start() : animation.stop()
+    onVisibleChanged: visible ? _start() : _stop()
     /*
     onVisibleChanged: {
         console.debug("TaskProgressBar.onVisibleChanged()")
@@ -52,6 +52,15 @@ Item {
         }
     }
     */
+
+    function _start() {
+        timerProgress.start();
+    }
+
+    function _stop() {
+        timerProgress.stop();
+        animation.stop();
+    }
 
     onWidthChanged: {
         if (visible)
@@ -80,4 +89,13 @@ Item {
             PropertyAnimation { target: rectangle; property: "anchors.rightMargin"; from: 0; to: width * 7/8; duration: 1000; easing.type: Easing.InOutQuad }
         }
     }
+
+    Timer {
+        id: timerProgress
+        interval: 500 // wait 500 ms before starting animation
+        running: false
+        repeat: false
+        onTriggered: animation.start()
+    }
+
 }
