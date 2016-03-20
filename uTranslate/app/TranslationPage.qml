@@ -790,8 +790,12 @@ Page {
         utApp.updateContext({'lgdest': lgSrc});
 
         translationPage.canSuggest = true;
-        // we want directly the result, not the suggestions.
-        // Only if something to search.
+
+        // Update suggestions only in 2 colums layout.
+        if (layouts.currentLayout == "2columns")
+            translationPage.doSuggest();
+
+        // Update results only if something to search.
         if (translateSearchText.text !== "")
             translationPage.doTranslate();
     }
