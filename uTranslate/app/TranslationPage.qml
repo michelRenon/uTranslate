@@ -674,10 +674,11 @@ Page {
     }
 
     function doSuggest() {
+        idprogress.visible = true;
         var lgSrc = translationPage.langSrc;
         translateSearchText.forceActiveFocus();
         translateSearchText.updateSuggestList();
-        Controller.doSuggest(translateSearchText.text, lgSrc, suggestModel, utApp);
+        Controller.doSuggest(translateSearchText.text, lgSrc, suggestModel, utApp, function() {idprogress.visible = false;});
     }
 
     function doTranslate(focusRes) {

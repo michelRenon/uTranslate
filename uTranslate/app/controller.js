@@ -3,7 +3,7 @@
  * Author: 2013 Michel Renon <renon@mr-consultant.net>.
  * License: GPLv3, check LICENSE file.
  */
-function doSuggest(sgText, sgLg, sgModel, sgTabs) {
+function doSuggest(sgText, sgLg, sgModel, sgTabs, sgCB) {
 
     // http://qt-project.org/doc/qt-5.0/qtqml/qtqml-javascript-qmlglobalobject.html#xmlhttprequest
 
@@ -32,6 +32,8 @@ function doSuggest(sgText, sgLg, sgModel, sgTabs) {
              } else {
                 showRequestInfo("ERROR SUGGEST");
             }
+            // callBack
+            sgCB();
         }
     }
     doc.open("GET", url);
