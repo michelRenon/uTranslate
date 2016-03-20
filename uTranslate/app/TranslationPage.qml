@@ -143,6 +143,17 @@ Page {
                         anchors.margins: units.gu(1)
                     }
                     ItemLayout {
+                        item: "itemProgress"
+                        width: parent.width / 2
+                        height: units.dp(3)
+                        anchors {
+                            top: parent.top
+                            left: parent.left
+                        }
+                        // anchors.margins: units.gu(1)
+                        visible: true
+                    }
+                    ItemLayout {
                         item: "itemSuggestion"
                         anchors {
                             top: parent.top
@@ -187,6 +198,14 @@ Page {
         ]
 
         // default layout
+        TaskProgressBar {
+            id: idprogress
+            Layouts.item: "itemProgress"
+            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.right: parent.right
+            // height: units.gu(0.5)
+        }
         Item {
             id:translationSearchBar
             Layouts.item: "itemSearchBar"
