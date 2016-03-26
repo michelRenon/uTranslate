@@ -111,7 +111,7 @@ msgstr "Traduction de '%1'"
 #: ../app/TranslationPage.qml:535
 #, qt-format
 msgid "Definition of '%1'"
-msgstr "Définition of '%1'"
+msgstr "Définition de '%1'"
 
 #: ../app/TranslationPage.qml:543
 msgid "A network error occured."
