@@ -97,11 +97,11 @@ msgstr "Aucun résultat"
 #: ../app/TranslationPage.qml:704
 #, qt-format
 msgid "No Result for '%1'"
-msgstr ""
+msgstr "Aucun résultat pour '%1'"
 
 #: ../app/TranslationPage.qml:705
 msgid "The provider doesn't know the word you entered"
-msgstr ""
+msgstr "Le fournisseur ne reconnait pas le mot que vous avez entré"
 
 #: ../app/TranslationPage.qml:711
 #, qt-format
@@ -119,7 +119,7 @@ msgstr "Une erreur de réseau est apparue."
 
 #: ../app/TranslationPage.qml:727
 msgid "please check your network settings"
-msgstr ""
+msgstr "Veuillez vérifier vos réglages réseau"
 
 #: ../app/glosbe_lang_i18n.js:6
 msgid "Afrikaans"
