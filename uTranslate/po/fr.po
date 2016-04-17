@@ -1,0 +1,111 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-08-21 02:03+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../app/LangPage.qml:23
+msgid "Show selected"
+msgstr "Afficher selon la sélection"
+
+#: ../app/TranslationPage.qml:17
+#: /home/michel/Documents/DEV/uTranslate/ut_reboot/build-uTranslate-UbuntuSDK_for_i386_GCC_ubuntu_sdk_14_10_utopic-Default/po/uTranslate.desktop.in.h:1
+msgid "uTranslate"
+msgstr "uTraduction"
+
+#: ../app/TranslationPage.qml:29
+msgid "Switch"
+msgstr "Permutter"
+
+#: ../app/TranslationPage.qml:36 ../app/uTranslate.qml:200
+msgid "Settings"
+msgstr "Paramètres"
+
+#: ../app/TranslationPage.qml:43 ../app/uTranslate.qml:290
+msgid "About"
+msgstr "À propos"
+
+#: ../app/TranslationPage.qml:51
+msgid "Translation"
+msgstr "Traduction"
+
+#: ../app/TranslationPage.qml:51
+msgid "Definition"
+msgstr "Définition"
+
+#: ../app/TranslationPage.qml:198
+msgid "Enter text to translate"
+msgstr "Saisissez un texte à traduire"
+
+#: ../app/TranslationPage.qml:517
+msgid "No Result"
+msgstr "Aucun résultat"
+
+#: ../app/TranslationPage.qml:522
+#, qt-format
+msgid "Translation of '%1'"
+msgstr "Traduction de «[nbsp]%1[nbsp]»"
+
+#: ../app/TranslationPage.qml:526
+#, qt-format
+msgid "Definition of '%1'"
+msgstr "Définition de «[nbsp]%1[nbsp]»"
+
+#: ../app/TranslationPage.qml:534
+msgid "A network error occured."
+msgstr "Une erreur réseau s'est produite."
+
+#: ../app/uTranslate.qml:208
+msgid "Providers"
+msgstr "Fournisseurs"
+
+#: ../app/uTranslate.qml:268
+msgid "no selected language:"
+msgstr "aucune langue sélectionnée[nbsp]:"
+
+#: ../app/uTranslate.qml:269
+#, c-format, qt-plural-format
+msgid "%n selected language:"
+msgstr "%n langue sélectionnée[nbsp]:"
+
+#: ../app/uTranslate.qml:270
+#, c-format, qt-plural-format
+msgid "%n selected languages:"
+msgstr "%n langues sélectionnées[nbsp]:"
+
+#: ../app/uTranslate.qml:314
+msgid "uTranslate, a translation app"
+msgstr "uTraduction, une application de traduction"
+
+#: ../app/uTranslate.qml:321
+msgid "by "
+msgstr "par "
+
+#: ../app/uTranslate.qml:329
+msgid "version "
+msgstr "version "
+
+#: ../app/uTranslate.qml:343
+msgid "Project website: "
+msgstr "Site Web du projet[nbsp]: "
+
+#: ../app/uTranslate.qml:351
+msgid "Flags form "
+msgstr "Drapeaux issus de "
+
+#: ../app/uTranslate.qml:365
+msgid "Countries"
+msgstr "Pays"
