@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-20 20:37+0100\n"
+"POT-Creation-Date: 2016-07-09 01:13+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,21 +29,21 @@ msgstr ""
 msgid "select none"
 msgstr ""
 
-#: ../app/LangPage.qml:148
+#: ../app/LangPage.qml:168
 msgid "Languages, no selected"
 msgstr ""
 
-#: ../app/LangPage.qml:149
+#: ../app/LangPage.qml:169
 msgid "Languages, one selected"
 msgstr ""
 
-#: ../app/LangPage.qml:150
+#: ../app/LangPage.qml:170
 #, c-format, qt-plural-format
 msgid "Languages, %n selected"
 msgstr ""
 
 #: ../app/TranslationPage.qml:17
-#: /home/michel/Documents/DEV/uTranslate/ut_reboot/uTranslate-build/po/uTranslate.desktop.in.h:1
+#: /home/michel/Documents/DEV/uTranslate/ut_reboot/build-uTranslate-UbuntuSDK_for_i386_GCC_ubuntu_sdk_15_04_vivid-Défaut/po/uTranslate.desktop.in.h:1
 msgid "uTranslate"
 msgstr ""
 
@@ -51,11 +51,11 @@ msgstr ""
 msgid "Switch"
 msgstr ""
 
-#: ../app/TranslationPage.qml:39 ../app/uTranslate.qml:266
+#: ../app/TranslationPage.qml:39 ../app/uTranslate.qml:268
 msgid "Settings"
 msgstr ""
 
-#: ../app/TranslationPage.qml:47 ../app/uTranslate.qml:355
+#: ../app/TranslationPage.qml:47 ../app/uTranslate.qml:434
 msgid "About"
 msgstr ""
 
@@ -71,7 +71,7 @@ msgstr ""
 msgid "Enter text to translate"
 msgstr ""
 
-#: ../app/TranslationPage.qml:527 ../app/components/LangSelector.qml:77
+#: ../app/TranslationPage.qml:527 ../app/components/LangSelector.qml:86
 msgid "Language settings..."
 msgstr ""
 
@@ -114,7 +114,7 @@ msgid "Definition of '%1'"
 msgstr ""
 
 #: ../app/TranslationPage.qml:756
-msgid "network_error"
+msgid "A network error occured."
 msgstr ""
 
 #: ../app/TranslationPage.qml:757
@@ -850,7 +850,7 @@ msgid "Czech Republic"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:190
-msgid "C\\u00f4te d\\u2019Ivoire"
+msgid "Côte d’Ivoire"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:191
@@ -1330,7 +1330,7 @@ msgid "Rwanda"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:310
-msgid "Saint Barth\\u00e9lemy"
+msgid "Saint Barthélemy"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:311
@@ -1446,7 +1446,7 @@ msgid "Syria"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:339
-msgid "S\\u00e3o Tom\\u00e9 and Pr\\u00edncipe"
+msgid "São Tomé and Príncipe"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:340
@@ -1578,7 +1578,7 @@ msgid "Zimbabwe"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:372
-msgid "\\u00c5land Islands"
+msgid "Åland Islands"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:373
@@ -1601,52 +1601,52 @@ msgstr ""
 msgid "no_lang"
 msgstr ""
 
-#: ../app/uTranslate.qml:274
+#: ../app/uTranslate.qml:277
 msgid "Providers"
 msgstr ""
 
-#: ../app/uTranslate.qml:278
+#: ../app/uTranslate.qml:290
 msgid "The current data provider is Glosbe"
 msgstr ""
 
-#: ../app/uTranslate.qml:309
+#: ../app/uTranslate.qml:370
 msgid "Debug"
 msgstr ""
 
-#: ../app/uTranslate.qml:312 ../app/uTranslate.qml:430
+#: ../app/uTranslate.qml:381 ../app/uTranslate.qml:509
 msgid "Countries"
 msgstr ""
 
-#: ../app/uTranslate.qml:333
+#: ../app/uTranslate.qml:411
 msgid "no selected language:"
 msgstr ""
 
-#: ../app/uTranslate.qml:334
+#: ../app/uTranslate.qml:412
 #, c-format, qt-plural-format
 msgid "%n selected language:"
 msgstr ""
 
-#: ../app/uTranslate.qml:335
+#: ../app/uTranslate.qml:413
 #, c-format, qt-plural-format
 msgid "%n selected languages:"
 msgstr ""
 
-#: ../app/uTranslate.qml:378
+#: ../app/uTranslate.qml:457
 msgid "uTranslate, a translation app"
 msgstr ""
 
-#: ../app/uTranslate.qml:385
+#: ../app/uTranslate.qml:464
 msgid "by "
 msgstr ""
 
-#: ../app/uTranslate.qml:393
+#: ../app/uTranslate.qml:472
 msgid "version "
 msgstr ""
 
-#: ../app/uTranslate.qml:408
+#: ../app/uTranslate.qml:487
 msgid "Project website: "
 msgstr ""
 
-#: ../app/uTranslate.qml:416
+#: ../app/uTranslate.qml:495
 msgid "Flags form "
 msgstr ""
