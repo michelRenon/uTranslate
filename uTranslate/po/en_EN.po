@@ -441,10 +441,6 @@ msgstr "Novial"
 msgid "Occitan"
 msgstr "Occitan"
 
-#: ../app/glosbe_lang_i18n.js:86
-msgid "Norwegian"
-msgstr "Norwegian"
-
 #: ../app/glosbe_lang_i18n.js:87
 msgid "Old French"
 msgstr "Old French"
@@ -1246,10 +1242,6 @@ msgid "Niue"
 msgstr "Niue"
 
 #: ../app/glosbe_lang_i18n.js:302
-msgid "Norfolk Island"
-msgstr "Norfolk Island"
-
-#: ../app/glosbe_lang_i18n.js:303
 msgid "Norfolk Island"
 msgstr "Norfolk Island"
 

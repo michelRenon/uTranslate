@@ -4,17 +4,67 @@
  * License: GPLv3, check LICENSE file.
  */
 import QtQuick 2.0
-import Ubuntu.Components 1.1
+import Ubuntu.Components 1.3
 import Ubuntu.Components.ListItems 0.1 as ListItem
 
 import "components"
 
 Page {
     // id: langPage
-    title: langPage.getTitle()
+    // title: langPage.getTitle()
 
     property bool doSelect: false // show only selected langs ?
 
+    header: PageHeader {
+        id: headerLangPage
+        title: langPage.getTitle()
+
+        trailingActionBar {
+            actions : [
+                Action {
+                    id : switchAction
+                    iconName: langPage.doSelect == true ? "zoom-out" : "zoom-in"
+                    text: i18n.tr("Show selected")
+                    onTriggered: {
+                        langPage.doSelect = !langPage.doSelect
+                        // console.debug("show selected"+langPage.doSelect)
+                        langPage.reloadLangs();
+                    }
+                },
+
+                Action {
+                    id : selectAllAction
+                    iconName: "select"
+                    text: i18n.tr("select all")
+                    onTriggered: {
+                        // update of db  (directly from the view ??? shouldn't it  be done from the listModel ?)
+                        selectAllLangs();
+                        // the selection
+                        langPage.reloadLangs();
+
+                        translationPage.updateSelectedLangs();
+                    }
+                },
+                Action {
+                    id : selectNoneAction
+                    iconName: "select-none"
+                    text: i18n.tr("select none")
+                    onTriggered: {
+                        // update of db  (directly from the view ??? shouldn't it  be done from the listModel ?)
+                        unselectAllLangs();
+                        // the selection
+                        langPage.reloadLangs();
+
+                        translationPage.updateSelectedLangs();
+                    }
+                }
+            ]
+        }
+    }
+
+
+
+    /*
     head {
         actions : [
             Action {
@@ -56,13 +106,22 @@ Page {
             }
         ]
     }
+    */
 
     ListView {
         id: langList
 
-        anchors.fill: parent
-        // anchors.rightMargin: fastScroll.showing ? fastScroll.width - units.gu(1) : 0
-        anchors.rightMargin: fastScroll.width - units.gu(1)
+        // anchors.fill: parent
+        anchors {
+            top : parent.header.bottom
+            left : parent.left
+            right : parent.right
+            bottom: parent.bottom
+
+            // anchors.rightMargin: fastScroll.showing ? fastScroll.width - units.gu(1) : 0
+            rightMargin: fastScroll.width - units.gu(1)
+        }
+
         clip: true
         currentIndex: -1
 
@@ -153,6 +212,6 @@ Page {
     }
 
     function updateTitle() {
-        langPage.title = langPage.getTitle();
+        langPage.header.title = langPage.getTitle();
     }
 }

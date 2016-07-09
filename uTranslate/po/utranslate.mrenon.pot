@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-20 20:37+0100\n"
+"POT-Creation-Date: 2016-07-10 01:11+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,107 +17,107 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/LangPage.qml:23
+#: ../app/LangPage.qml:27
 msgid "Show selected"
 msgstr ""
 
-#: ../app/LangPage.qml:34
+#: ../app/LangPage.qml:38
 msgid "select all"
 msgstr ""
 
-#: ../app/LangPage.qml:47
+#: ../app/LangPage.qml:51
 msgid "select none"
 msgstr ""
 
-#: ../app/LangPage.qml:148
+#: ../app/LangPage.qml:207
 msgid "Languages, no selected"
 msgstr ""
 
-#: ../app/LangPage.qml:149
+#: ../app/LangPage.qml:208
 msgid "Languages, one selected"
 msgstr ""
 
-#: ../app/LangPage.qml:150
+#: ../app/LangPage.qml:209
 #, c-format, qt-plural-format
 msgid "Languages, %n selected"
 msgstr ""
 
-#: ../app/TranslationPage.qml:17
-#: /home/michel/Documents/DEV/uTranslate/ut_reboot/uTranslate-build/po/uTranslate.desktop.in.h:1
+#: ../app/TranslationPage.qml:27
+#: /home/michel/Documents/DEV/uTranslate/ut_reboot/build-uTranslate-UbuntuSDK_for_i386_GCC_ubuntu_sdk_15_04_vivid-Défaut/po/uTranslate.desktop.in.h:1
 msgid "uTranslate"
 msgstr ""
 
-#: ../app/TranslationPage.qml:31
+#: ../app/TranslationPage.qml:36
 msgid "Switch"
 msgstr ""
 
-#: ../app/TranslationPage.qml:39 ../app/uTranslate.qml:266
+#: ../app/TranslationPage.qml:44 ../app/uTranslate.qml:268
 msgid "Settings"
 msgstr ""
 
-#: ../app/TranslationPage.qml:47 ../app/uTranslate.qml:355
+#: ../app/TranslationPage.qml:52 ../app/uTranslate.qml:366
 msgid "About"
 msgstr ""
 
-#: ../app/TranslationPage.qml:58
+#: ../app/TranslationPage.qml:70
 msgid "Translation"
 msgstr ""
 
-#: ../app/TranslationPage.qml:58
+#: ../app/TranslationPage.qml:70
 msgid "Definition"
 msgstr ""
 
-#: ../app/TranslationPage.qml:240
+#: ../app/TranslationPage.qml:306
 msgid "Enter text to translate"
 msgstr ""
 
-#: ../app/TranslationPage.qml:527 ../app/components/LangSelector.qml:77
+#: ../app/TranslationPage.qml:593 ../app/components/LangSelector.qml:77
 msgid "Language settings..."
 msgstr ""
 
 #. TRANSLATORS: it is a complete rich text like this : "Welcome!<br><br>uTranslate allows you to translate between 126 languages!<br>Please select those that you pefer to use by clicking on the next button."
-#: ../app/TranslationPage.qml:555
+#: ../app/TranslationPage.qml:621
 msgid "welcome"
 msgstr ""
 
 #. TRANSLATORS: it is a complete rich text like this : "The current langage is already selected : %1"
-#: ../app/TranslationPage.qml:561
+#: ../app/TranslationPage.qml:627
 msgid "locale_found"
 msgstr ""
 
 #. TRANSLATORS: it is a complete rich text like this : "Unfortunately, the phone's langage (%1) is not handled by our providers."
-#: ../app/TranslationPage.qml:565
+#: ../app/TranslationPage.qml:631
 msgid "no_locale"
 msgstr ""
 
-#: ../app/TranslationPage.qml:729
+#: ../app/TranslationPage.qml:795
 msgid "Enter text"
 msgstr ""
 
-#: ../app/TranslationPage.qml:734
+#: ../app/TranslationPage.qml:800
 #, qt-format
 msgid "No Result for '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:735
+#: ../app/TranslationPage.qml:801
 msgid "The provider doesn't know the word you entered"
 msgstr ""
 
-#: ../app/TranslationPage.qml:741
+#: ../app/TranslationPage.qml:807
 #, qt-format
 msgid "Translation of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:745
+#: ../app/TranslationPage.qml:811
 #, qt-format
 msgid "Definition of '%1'"
 msgstr ""
 
-#: ../app/TranslationPage.qml:756
-msgid "network_error"
+#: ../app/TranslationPage.qml:822
+msgid "A network error occured."
 msgstr ""
 
-#: ../app/TranslationPage.qml:757
+#: ../app/TranslationPage.qml:823
 msgid "please check your network settings"
 msgstr ""
 
@@ -850,7 +850,7 @@ msgid "Czech Republic"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:190
-msgid "C\\u00f4te d\\u2019Ivoire"
+msgid "Côte d’Ivoire"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:191
@@ -1330,7 +1330,7 @@ msgid "Rwanda"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:310
-msgid "Saint Barth\\u00e9lemy"
+msgid "Saint Barthélemy"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:311
@@ -1446,7 +1446,7 @@ msgid "Syria"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:339
-msgid "S\\u00e3o Tom\\u00e9 and Pr\\u00edncipe"
+msgid "São Tomé and Príncipe"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:340
@@ -1578,7 +1578,7 @@ msgid "Zimbabwe"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:372
-msgid "\\u00c5land Islands"
+msgid "Åland Islands"
 msgstr ""
 
 #: ../app/glosbe_lang_i18n.js:373
@@ -1601,52 +1601,52 @@ msgstr ""
 msgid "no_lang"
 msgstr ""
 
-#: ../app/uTranslate.qml:274
+#: ../app/uTranslate.qml:283
 msgid "Providers"
 msgstr ""
 
-#: ../app/uTranslate.qml:278
+#: ../app/uTranslate.qml:287
 msgid "The current data provider is Glosbe"
 msgstr ""
 
-#: ../app/uTranslate.qml:309
+#: ../app/uTranslate.qml:318
 msgid "Debug"
 msgstr ""
 
-#: ../app/uTranslate.qml:312 ../app/uTranslate.qml:430
+#: ../app/uTranslate.qml:321 ../app/uTranslate.qml:450
 msgid "Countries"
 msgstr ""
 
-#: ../app/uTranslate.qml:333
+#: ../app/uTranslate.qml:342
 msgid "no selected language:"
 msgstr ""
 
-#: ../app/uTranslate.qml:334
+#: ../app/uTranslate.qml:343
 #, c-format, qt-plural-format
 msgid "%n selected language:"
 msgstr ""
 
-#: ../app/uTranslate.qml:335
+#: ../app/uTranslate.qml:344
 #, c-format, qt-plural-format
 msgid "%n selected languages:"
 msgstr ""
 
-#: ../app/uTranslate.qml:378
+#: ../app/uTranslate.qml:396
 msgid "uTranslate, a translation app"
 msgstr ""
 
-#: ../app/uTranslate.qml:385
+#: ../app/uTranslate.qml:403
 msgid "by "
 msgstr ""
 
-#: ../app/uTranslate.qml:393
+#: ../app/uTranslate.qml:411
 msgid "version "
 msgstr ""
 
-#: ../app/uTranslate.qml:408
+#: ../app/uTranslate.qml:426
 msgid "Project website: "
 msgstr ""
 
-#: ../app/uTranslate.qml:416
+#: ../app/uTranslate.qml:434
 msgid "Flags form "
 msgstr ""

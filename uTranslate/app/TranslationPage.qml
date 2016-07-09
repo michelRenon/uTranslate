@@ -4,7 +4,7 @@
  * License: GPLv3, check LICENSE file.
  */
 import QtQuick 2.0
-import Ubuntu.Components 1.1
+import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 0.1
 import Ubuntu.Layouts 0.1
 
@@ -14,14 +14,73 @@ import "controller.js" as Controller
 
 Page {
     // id: translationPage
-    title: i18n.tr("uTranslate")
+    // title: i18n.tr("uTranslate")
 
     property bool startupMode: false
     property bool canSuggest: true
     property string langSrc : 'fra'
     property string langDest : 'eng'
-    property int searchMode : 0 // translation
+    property int searchMode
 
+
+    header: PageHeader {
+        title: i18n.tr("uTranslate")
+
+        leadingActionBar.actions: []
+
+        trailingActionBar {
+            actions : [
+                Action {
+                    id : switchAction
+                    iconName: "switch"
+                    text: i18n.tr("Switch")
+                    enabled: (startupMode == false)
+                    onTriggered: {
+                        translationPage.doSwitchLg();
+                    }
+                },
+                Action {
+                    iconName: "settings"
+                    text: i18n.tr("Settings")
+                    enabled: (startupMode == false)
+                    onTriggered: {
+                        pageStack.push(settingsPage);
+                    }
+                },
+                Action {
+                    iconName: "info"
+                    text: i18n.tr("About")
+                    enabled: (startupMode == false)
+                    onTriggered: {
+                        pageStack.push(aboutPage);
+                    }
+                }
+            ]
+        }
+
+        extension: Sections {
+            anchors {
+                left: parent.left
+                leftMargin: units.gu(2)
+                right: parent.right
+                bottom: parent.bottom
+            }
+            enabled: (startupMode == false)
+
+            model:[i18n.tr("Translation"), i18n.tr("Definition")]
+            onSelectedIndexChanged: {
+                // console.debug("DEBUG onSelectedIndexChanged : "+translationPage.head.sections.selectedIndex);
+                // searchMode = translationPage.head.sections.selectedIndex;
+                console.debug("DEBUG this onSelectedIndexChanged : "+this.selectedIndex);
+                searchMode = this.selectedIndex;
+            }
+        }
+    }
+
+
+
+
+    /*
     head {
 
         actions : [
@@ -63,6 +122,7 @@ Page {
         }
 
     }
+    */
 
     onWidthChanged: {
         // console.debug("Page layout.width="+layouts.width)
@@ -116,7 +176,13 @@ Page {
 
     Layouts {
         id: layouts
-        anchors.fill: parent
+        // anchors.fill: parent
+        anchors {
+            top : parent.header.bottom
+            left : parent.left
+            right : parent.right
+            bottom: parent.bottom
+        }
 
         // TODO : handle focus change after layout change.
         // But today, 'onLayoutsChanged' generates an error in qmlscene.

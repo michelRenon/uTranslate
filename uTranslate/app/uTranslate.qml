@@ -1,6 +1,6 @@
 import QtQuick.LocalStorage 2.0
 import QtQuick 2.0
-import Ubuntu.Components 1.1
+import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 0.1
 import Ubuntu.Components.ListItems 0.1 as ListItem
 import Ubuntu.Layouts 0.1
@@ -26,7 +26,7 @@ MainView {
     automaticOrientation: true
 
     // Removes the old toolbar and enables new features of the new header.
-    useDeprecatedToolbar: false
+    // useDeprecatedToolbar: false
 
     width: units.gu(48)
     height: units.gu(60)
@@ -263,11 +263,20 @@ MainView {
 
         Page {
             id: settingsPage
-            title: i18n.tr("Settings")
+            // title: i18n.tr("Settings")
+            header: PageHeader {
+                title: i18n.tr("Settings")
+            }
             visible: false
 
             Column {
-                anchors.fill: parent
+                // anchors.fill: parent
+                anchors {
+                    top : parent.header.bottom
+                    left : parent.left
+                    right : parent.right
+                    bottom: parent.bottom
+                }
                 spacing: units.gu(0)
 
                 ListItem.Header {
@@ -352,11 +361,20 @@ MainView {
 
         Page {
             id: aboutPage
-            title: i18n.tr("About")
+            // title: i18n.tr("About")
+            header : PageHeader {
+                title: i18n.tr("About")
+            }
             visible: false
 
             Column {
-                anchors.fill: parent
+                // anchors.fill: parent
+                anchors {
+                    top : parent.header.bottom
+                    left : parent.left
+                    right : parent.right
+                    bottom: parent.bottom
+                }
                 spacing: units.gu(1)
                 anchors.topMargin: units.gu(5)
 
@@ -427,11 +445,20 @@ MainView {
 
         Page {
             id: countryPage
-            title: i18n.tr("Countries")
+            // title: i18n.tr("Countries")
+            header: PageHeader {
+                title: i18n.tr("Countries")
+            }
             visible: false
 
             ListView {
-                anchors.fill: parent
+                // anchors.fill: parent
+                anchors {
+                    top : parent.header.bottom
+                    left : parent.left
+                    right : parent.right
+                    bottom: parent.bottom
+                }
                 model: countryListModel
 
                 delegate: ListItem.Standard {
@@ -445,9 +472,18 @@ MainView {
         }
         Page {
             id: debugPage
-            title: "Debug"
+            // title: "Debug"
+            header: PageHeader {
+                title: "Debug"
+            }
             visible: false
             Column {
+                anchors {
+                    top : parent.header.bottom
+                    left : parent.left
+                    right : parent.right
+                    bottom: parent.bottom
+                }
                 spacing: units.gu(1)
 
                 Button {
