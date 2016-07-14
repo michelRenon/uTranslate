@@ -3,9 +3,9 @@
  * Author: 2013 Michel Renon <renon@mr-consultant.net>.
  * License: GPLv3, check LICENSE file.
  */
-import QtQuick 2.0
+import QtQuick 2.4
 import Ubuntu.Components 1.3
-import Ubuntu.Components.ListItems 0.1 as ListItem
+// import Ubuntu.Components.ListItems 0.1 as ListItem
 
 import "components"
 
@@ -131,17 +131,22 @@ Page {
             return langListModel.get(index).name.substring(0,1)
         }
 
-        delegate: ListItem.Standard {
-            text: i18n.tr(name) +" ("+code+")"
-            // iconSource: Qt.resolvedUrl(icon_path)
-            // fallbackIconSource: Qt.resolvedUrl("graphics/flags-iso/ZZ.png")
+        delegate: ListItem {
+            Label {
+                text: i18n.tr(name) +" ("+code+")"
+                anchors {
+                    left: parent.left
+                    leftMargin: units.gu(1)
+                    verticalCenter: parent.verticalCenter
+                }
+            }
 
-            // TODO : handle flag
-            // progression: (code === 'fr') ? true : false;
-            // iconSource: Qt.resolvedUrl("graphics/uTranslate.png")
-            // onClicked: console.debug("listItem clicked")
-
-            control: Switch {
+            Switch {
+                id: switchLang
+                anchors {
+                    right: parent.right
+                    verticalCenter: parent.verticalCenter
+                }
                 checked: (used == 1)? true : false; // int2bool
 
                 onClicked: {
@@ -159,6 +164,21 @@ Page {
                         loadUsedLangs()
 
                     translationPage.updateSelectedLangs();
+                }
+            }
+
+            Image {
+                id: flaglang
+                // visible: (name == "French")
+                source: (name == "French") ? Qt.resolvedUrl("graphics/flags-iso/FR.png") : Qt.resolvedUrl("graphics/flags-iso/ZZ_Z.png")
+                anchors {
+                    right: switchLang.left
+                    rightMargin: units.gu(2)
+                    verticalCenter: parent.verticalCenter
+                }
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: console.log("click drapeau "+name+":"+code)
                 }
             }
         }

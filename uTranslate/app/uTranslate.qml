@@ -1,11 +1,13 @@
 import QtQuick.LocalStorage 2.0
 import QtQuick 2.0
 import Ubuntu.Components 1.3
-import Ubuntu.Components.Popups 0.1
-import Ubuntu.Components.ListItems 0.1 as ListItem
-import Ubuntu.Layouts 0.1
+import Ubuntu.Components.Popups 1.0
+// import Ubuntu.Components.ListItems 0.1 as ListItem
+import Ubuntu.Layouts 1.0
 import U1db 1.0 as U1db
 import QtQml 2.2 // for reading locale
+
+import "components"
 
 import "controller.js" as Controller
 import "glosbe_lang.js" as GlosbeLang
@@ -279,61 +281,137 @@ MainView {
                 }
                 spacing: units.gu(0)
 
-                ListItem.Header {
-                    text : i18n.tr("Providers")
+                ListItem {
+                    Label{
+                        text : i18n.tr("Providers")
+                        style: Text.Raised
+                        anchors {
+                            left: parent.left
+                            leftMargin: units.gu(2)
+                            verticalCenter: parent.verticalCenter
+                        }
+                    }
+                    onClicked: console.log("PROVIDERS")
                 }
-
-                ListItem.Subtitled {
-                    text : i18n.tr("The current data provider is Glosbe")
-                    // subText: '(<a href="http://glosbe.com">http://glosbe.com</a>)'
-                    showDivider: false
-                    highlightWhenPressed: false
+                ListItem {
+                    height : units.gu(3)
+                    Label{
+                        text : i18n.tr("The current data provider is Glosbe")
+                        anchors {
+                            left: parent.left
+                            leftMargin: units.gu(2)
+                            verticalCenter: parent.verticalCenter
+                        }
+                    }
+                    divider.opacity : 0
                 }
-                ListItem.SingleControl {
-                    highlightWhenPressed: false
-                    control: Button {
+                ListItem {
+                    Button {
                         text: "http://glosbe.com"
                         width: units.gu(25)
+                        anchors {
+                            horizontalCenter: parent.horizontalCenter
+                            verticalCenter: parent.verticalCenter
+                        }
+
                         onClicked: Qt.openUrlExternally("http://glosbe.com")
                     }
                 }
-                ListItem.Subtitled {
+                ListItem {
                     id: langInfos
-                    text : settingsPage.getLangText()
-                    subText: settingsPage.getLangSubtext()
-                    showDivider: false
-                    progression: true
-                    highlightWhenPressed: true
-                    onTriggered: {
+                    height: Math.max(middleVisuals.height, units.gu(6))
+
+                    /*!
+                      The list of strings that will be shown under the label text
+                      \qmlproperty string subText
+                     */
+                    property alias mainText: titleLabel.text
+                    property alias subText: subLabel.text
+
+                    Item  {
+                        id: middleVisuals
+                        anchors {
+                            left: parent.left
+                            leftMargin: units.gu(2)
+                            right: langInfosIcon.left // parent.right
+                            verticalCenter: parent.verticalCenter
+                        }
+                        height: childrenRect.height + titleLabel.anchors.topMargin + subLabel.anchors.bottomMargin
+
+                        Label {
+                            id: titleLabel
+                            text: settingsPage.getLangText()
+                            // selected: subtitledListItem.selected
+                            anchors {
+                                top: parent.top
+                                topMargin: units.gu(0.5)
+                                left: parent.left
+                                right: parent.right
+                            }
+                        }
+                        Label {
+                            id: subLabel
+                            text: settingsPage.getLangSubtext()
+                            // selected: subtitledListItem.selected
+                            // secondary: true
+                            color: Theme.palette.normal.backgroundText
+                            anchors {
+
+                                left: parent.left
+                                right: parent.right
+                                top: titleLabel.bottom
+                                bottomMargin: units.gu(0.5)
+                            }
+                            fontSize: "small"
+                            wrapMode: Text.Wrap
+                            maximumLineCount: 5
+                        }
+                    }
+                    ProgressionIcon {
+                        id : langInfosIcon
+                    }
+                    onClicked: {
                         pageStack.push(langPage)
                      }
                 }
-                ListItem.Standard {
-                    height: units.gu(5)
-                    text : ""
-                    showDivider: false
-                    highlightWhenPressed: false
+                ListItem {
+                    Label{
+                        text : i18n.tr("Debug")
+                        style: Text.Raised
+                        anchors {
+                            left: parent.left
+                            leftMargin: units.gu(2)
+                            verticalCenter: parent.verticalCenter
+                        }
+                    }
                 }
-                ListItem.Header {
-                    text : i18n.tr("Debug")
-                }
-                ListItem.Standard {
-                     text : i18n.tr("Countries")
-                     showDivider: false
-                     progression: true
-                     highlightWhenPressed: true
-                     onTriggered: {
+                ListItem {
+                    Label {
+                        text : i18n.tr("Countries")
+                        anchors {
+                            left: parent.left
+                            leftMargin: units.gu(2)
+                            verticalCenter: parent.verticalCenter
+                        }
+                    }
+                    ProgressionIcon {}
+                    onClicked: {
                         pageStack.push(countryPage)
-                     }
+                    }
                 }
-                ListItem.Standard {
-                     text : "Debug"
-                     showDivider: false
-                     progression: true
-                     highlightWhenPressed: true
-                     onTriggered: {
+                ListItem {
+                    Label {
+                        text : "Debug"
+                        anchors {
+                            left: parent.left
+                            leftMargin: units.gu(2)
+                            verticalCenter: parent.verticalCenter
+                        }
+                    }
+                    ProgressionIcon {}
+                    onClicked: {
                         pageStack.push(debugPage)
-                     }
+                    }
                 }
             }
 
@@ -354,8 +432,9 @@ MainView {
                 return text;
             }
             function updateLangInfos() {
-                langInfos.text = settingsPage.getLangText();
+                langInfos.mainText = settingsPage.getLangText();
                 langInfos.subText = settingsPage.getLangSubtext();
+                // langInfosMainText.text = settingsPage.getLangText()+"\n"+settingsPage.getLangSubtext();
             }
         }
 
@@ -461,10 +540,17 @@ MainView {
                 }
                 model: countryListModel
 
+                /*
                 delegate: ListItem.Standard {
                     text: i18n.tr(name) +" ("+code+")"
                     iconSource: Qt.resolvedUrl("graphics/flags-iso/"+code+".png")
                     fallbackIconSource: Qt.resolvedUrl("graphics/flags-iso/ZZ.png")
+                }
+                */
+                delegate: ListItem {
+                    Label {
+                        text: i18n.tr(name) +" ("+code+")"
+                    }
                 }
             }
 

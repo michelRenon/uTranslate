@@ -5,8 +5,8 @@
  */
 import QtQuick 2.0
 import Ubuntu.Components 1.3
-import Ubuntu.Components.Popups 0.1
-import Ubuntu.Layouts 0.1
+import Ubuntu.Components.Popups 1.0
+import Ubuntu.Layouts 1.0
 
 import "components"
 import "controller.js" as Controller

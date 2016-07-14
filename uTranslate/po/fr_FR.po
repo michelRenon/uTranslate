@@ -57,7 +57,7 @@ msgstr "Paramètres"
 
 #: ../app/TranslationPage.qml:43 ../app/uTranslate.qml:290
 msgid "About"
-msgstr "A propos"
+msgstr "À propos"
 
 #: ../app/TranslationPage.qml:51
 msgid "Translation"
@@ -97,7 +97,7 @@ msgstr "Aucun résultat"
 #: ../app/TranslationPage.qml:704
 #, qt-format
 msgid "No Result for '%1'"
-msgstr "Aucun résultat pour '%1'"
+msgstr "Aucun résultat pour «[nbsp]%1[nbsp]»"
 
 #: ../app/TranslationPage.qml:705
 msgid "The provider doesn't know the word you entered"
@@ -106,12 +106,12 @@ msgstr "Le fournisseur ne reconnait pas le mot que vous avez entré"
 #: ../app/TranslationPage.qml:711
 #, qt-format
 msgid "Translation of '%1'"
-msgstr "Traduction de '%1'"
+msgstr "Traduction de «[nbsp]%1[nbsp]»"
 
 #: ../app/TranslationPage.qml:535
 #, qt-format
 msgid "Definition of '%1'"
-msgstr "Définition de '%1'"
+msgstr "Définition de «[nbsp]%1[nbsp]»"
 
 #: ../app/TranslationPage.qml:543
 msgid "A network error occured."
@@ -131,7 +131,7 @@ msgstr "Albanais"
 
 #: ../app/glosbe_lang_i18n.js:8
 msgid "Anglo-Norman"
-msgstr "Anglo-Norman"
+msgstr "Anglo-Normand"
 
 #: ../app/glosbe_lang_i18n.js:9
 msgid "Arabic"
@@ -1619,17 +1619,17 @@ msgstr "Pays"
 
 #: ../app/uTranslate.qml:333
 msgid "no selected language:"
-msgstr "aucune langue choisie :"
+msgstr "aucune langue choisie[nbsp]:"
 
 #: ../app/uTranslate.qml:271
 #, c-format, qt-plural-format
 msgid "%n selected language:"
-msgstr "%n langue choisie"
+msgstr "%n langue choisie[nbsp]:"
 
 #: ../app/uTranslate.qml:272
 #, c-format, qt-plural-format
 msgid "%n selected languages:"
-msgstr "%n langues choisies"
+msgstr "%n langues choisies[nbsp]:"
 
 #: ../app/uTranslate.qml:316
 msgid "uTranslate, a translation app"
@@ -1645,7 +1645,7 @@ msgstr "version "
 
 #: ../app/uTranslate.qml:345
 msgid "Project website: "
-msgstr "Site web : "
+msgstr "Site web du projet[nbsp]: "
 
 #: ../app/uTranslate.qml:353
 msgid "Flags form "
