@@ -11,5 +11,5 @@
     },
     "version": "0.7.6",
     "maintainer": "Michel Renon <renon@mr-consultant.net>",
-    "framework": "ubuntu-sdk-14.10"
+    "framework": "ubuntu-sdk-15.04.4"
 }
