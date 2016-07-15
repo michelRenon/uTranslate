@@ -336,21 +336,22 @@ MainView {
                 }
                 ListItem {
                     id: langInfos
-                    height: Math.max(langInfoslayout.height, units.gu(6))
+                    height : langInfoslayout.title.height+langInfoslayout.subtitle.height+units.gu(4)
 
                     ListItemLayout {
                         id: langInfoslayout
                         title.text: settingsPage.getLangText()
-                        subtitle.text: settingsPage.getLangSubtext()
+                        subtitle {
+                            text: settingsPage.getLangSubtext()
+                            wrapMode: Text.Wrap
+                            maximumLineCount: 5
+                        }
                         Icon {
                             name: "next"
                             SlotsLayout.position: SlotsLayout.Trailing;
                             width: units.gu(2)
                         }
                     }
-
-
-
 
 
                     /*!
