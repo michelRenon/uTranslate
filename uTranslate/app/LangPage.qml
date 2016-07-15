@@ -5,13 +5,11 @@
  */
 import QtQuick 2.4
 import Ubuntu.Components 1.3
-// import Ubuntu.Components.ListItems 0.1 as ListItem
 
 import "components"
 
 Page {
     // id: langPage
-    // title: langPage.getTitle()
 
     property bool doSelect: false // show only selected langs ?
 
@@ -63,52 +61,6 @@ Page {
         }
     }
 
-
-
-    /*
-    head {
-        actions : [
-            Action {
-                id : switchAction
-                iconName: langPage.doSelect == true ? "zoom-out" : "zoom-in"
-                text: i18n.tr("Show selected")
-                onTriggered: {
-                    langPage.doSelect = !langPage.doSelect
-                    // console.debug("show selected"+langPage.doSelect)
-                    langPage.reloadLangs();
-                }
-            },
-
-            Action {
-                id : selectAllAction
-                iconName: "select"
-                text: i18n.tr("select all")
-                onTriggered: {
-                    // update of db  (directly from the view ??? shouldn't it  be done from the listModel ?)
-                    selectAllLangs();
-                    // the selection
-                    langPage.reloadLangs();
-
-                    translationPage.updateSelectedLangs();
-                }
-            },
-            Action {
-                id : selectNoneAction
-                iconName: "select-none"
-                text: i18n.tr("select none")
-                onTriggered: {
-                    // update of db  (directly from the view ??? shouldn't it  be done from the listModel ?)
-                    unselectAllLangs();
-                    // the selection
-                    langPage.reloadLangs();
-
-                    translationPage.updateSelectedLangs();
-                }
-            }
-        ]
-    }
-    */
-
     ListView {
         id: langList
 
@@ -118,8 +70,6 @@ Page {
             left : parent.left
             right : parent.right
             bottom: parent.bottom
-
-            // anchors.rightMargin: fastScroll.showing ? fastScroll.width - units.gu(1) : 0
             rightMargin: fastScroll.width - units.gu(1)
         }
 
@@ -136,26 +86,10 @@ Page {
             ListItemLayout {
                 id: layout
                 title.text: i18n.tr(name) +" ("+code+")"
-                /*
-                Label {
-                    text: i18n.tr(name) +" ("+code+")"
-                    anchors {
-                        left: parent.left
-                        leftMargin: units.gu(1)
-                        verticalCenter: parent.verticalCenter
-                    }
-                }
-                */
 
                 Switch {
                     id: switchLang
                     SlotsLayout.position: SlotsLayout.Trailing
-                    /*
-                    anchors {
-                        right: parent.right
-                        verticalCenter: parent.verticalCenter
-                    }
-                    */
                     checked: (used == 1)? true : false; // int2bool
 
                     onClicked: {
@@ -181,13 +115,6 @@ Page {
                     // visible: (name == "French")
                     source: (name == "French") ? Qt.resolvedUrl("graphics/flags-iso/FR.png") : Qt.resolvedUrl("graphics/flags-iso/ZZ_Z.png")
                     SlotsLayout.position: SlotsLayout.Leading
-                    /*
-                    anchors {
-                        right: switchLang.left
-                        rightMargin: units.gu(2)
-                        verticalCenter: parent.verticalCenter
-                    }
-                    */
                     MouseArea {
                         anchors.fill: parent
                         onClicked: console.log("click drapeau "+name+":"+code)

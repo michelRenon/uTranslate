@@ -6,7 +6,6 @@
 import QtQuick 2.0
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.0
-// import Ubuntu.Components.ListItems 0.1 as ListItem
 
 
 Component {
@@ -35,18 +34,6 @@ Component {
                     id: layout
                     title.text: name
                 }
-                /*
-                Label {
-                    text: name
-                    anchors {
-                        left: parent.left
-                        leftMargin: units.gu(1)
-                        verticalCenter: parent.verticalCenter
-                    }
-                    // style: (code == 'settings') ? Text.Outline : Text.Normal
-
-                }
-                */
 
                 // TODO : change style of link to lang settings.
                 // Can be done only with new ListItem, Ubuntu.Components 1.2, framework 15.04

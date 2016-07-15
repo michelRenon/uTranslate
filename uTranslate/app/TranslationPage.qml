@@ -14,7 +14,6 @@ import "controller.js" as Controller
 
 Page {
     // id: translationPage
-    // title: i18n.tr("uTranslate")
 
     property bool startupMode: false
     property bool canSuggest: true
@@ -77,53 +76,6 @@ Page {
         }
     }
 
-
-
-
-    /*
-    head {
-
-        actions : [
-            Action {
-                id : switchAction
-                iconName: "switch"
-                text: i18n.tr("Switch")
-                enabled: (startupMode == false)
-                onTriggered: {
-                    translationPage.doSwitchLg();
-                }
-            },
-            Action {
-                iconName: "settings"
-                text: i18n.tr("Settings")
-                enabled: (startupMode == false)
-                onTriggered: {
-                    pageStack.push(settingsPage);
-                }
-            },
-            Action {
-                iconName: "info"
-                text: i18n.tr("About")
-                enabled: (startupMode == false)
-                onTriggered: {
-                    pageStack.push(aboutPage);
-                }
-            }
-        ]
-
-        sections {
-            enabled: (startupMode == false)
-
-            model:[i18n.tr("Translation"), i18n.tr("Definition")]
-            onSelectedIndexChanged: {
-                // console.debug("DEBUG onSelectedIndexChanged : "+translationPage.head.sections.selectedIndex);
-                searchMode = translationPage.head.sections.selectedIndex;
-            }
-        }
-
-    }
-    */
-
     onWidthChanged: {
         // console.debug("Page layout.width="+layouts.width)
         // workaround because 'onLayoutsChanged' notification is not available
@@ -176,7 +128,6 @@ Page {
 
     Layouts {
         id: layouts
-        // anchors.fill: parent
         anchors {
             top : parent.header.bottom
             left : parent.left
@@ -525,30 +476,11 @@ Page {
             iconName: "alarm-clock"
             title: ""
             subTitle: ""
-            // anchors.centerIn: parent
-            // anchors.top : parent.top
-            // anchors.topMargin: units.gu(10)
             anchors.horizontalCenter: translateRes.horizontalCenter
             anchors.verticalCenter: translateRes.verticalCenter
             anchors.verticalCenterOffset: units.gu(-10)
             visible: false
         }
-        /*
-        TextArea {
-            id: noResults
-            // Layouts.item: "itemRes"
-            placeholderText: "No results"
-            textFormat : TextEdit.RichText
-            readOnly: true
-            anchors.top: translationSearchBar.bottom
-            anchors.topMargin: units.gu(1)
-            anchors.bottom: parent.bottom
-            anchors.left: parent.left
-            anchors.right: parent.right
-            visible: false
-            z: 2
-        }
-        */
         Rectangle {
             id: startWizard
             Layouts.item: "no-item"

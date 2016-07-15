@@ -2,7 +2,7 @@ import QtQuick.LocalStorage 2.0
 import QtQuick 2.0
 import Ubuntu.Components 1.3
 import Ubuntu.Components.Popups 1.0
-// import Ubuntu.Components.ListItems 0.1 as ListItem
+
 import Ubuntu.Layouts 1.0
 import U1db 1.0 as U1db
 import QtQml 2.2 // for reading locale
@@ -265,14 +265,12 @@ MainView {
 
         Page {
             id: settingsPage
-            // title: i18n.tr("Settings")
             header: PageHeader {
                 title: i18n.tr("Settings")
             }
             visible: false
 
             Column {
-                // anchors.fill: parent
                 anchors {
                     top : parent.header.bottom
                     left : parent.left
@@ -286,34 +284,12 @@ MainView {
                         title.text: i18n.tr("Providers")
                         title.textSize: Label.Large
                     }
-                    /*
-                    Label{
-                        text : i18n.tr("Providers")
-                        style: Text.Raised
-                        anchors {
-                            left: parent.left
-                            leftMargin: units.gu(2)
-                            verticalCenter: parent.verticalCenter
-                        }
-                    }
-                    */
                     onClicked: console.log("PROVIDERS")
                 }
                 ListItem {
-                    // height : units.gu(3)
                     ListItemLayout {
                         title.text: i18n.tr("The current data provider is Glosbe")
                     }
-                    /*
-                    Label{
-                        text : i18n.tr("The current data provider is Glosbe")
-                        anchors {
-                            left: parent.left
-                            leftMargin: units.gu(2)
-                            verticalCenter: parent.verticalCenter
-                        }
-                    }
-                    */
                     divider.opacity : 0
                 }
                 ListItem {
@@ -323,13 +299,6 @@ MainView {
                             text: "http://glosbe.com"
                             width: units.gu(25)
                             SlotsLayout.position: SlotsLayout.Trailing
-
-                            /*
-                            anchors {
-                                horizontalCenter: parent.horizontalCenter
-                                verticalCenter: parent.verticalCenter
-                            }
-                            */
                             onClicked: Qt.openUrlExternally("http://glosbe.com")
                         }
                     }
@@ -349,58 +318,6 @@ MainView {
                         ProgressionSlot {}
                     }
 
-
-                    /*!
-                      The list of strings that will be shown under the label text
-                      \qmlproperty string subText
-                     */
-                    /*
-                    property alias mainText: titleLabel.text
-                    property alias subText: subLabel.text
-
-                    Item  {
-                        id: middleVisuals
-                        anchors {
-                            left: parent.left
-                            leftMargin: units.gu(2)
-                            right: langInfosIcon.left // parent.right
-                            verticalCenter: parent.verticalCenter
-                        }
-                        height: childrenRect.height + titleLabel.anchors.topMargin + subLabel.anchors.bottomMargin
-
-                        Label {
-                            id: titleLabel
-                            text: settingsPage.getLangText()
-                            // selected: subtitledListItem.selected
-                            anchors {
-                                top: parent.top
-                                topMargin: units.gu(0.5)
-                                left: parent.left
-                                right: parent.right
-                            }
-                        }
-                        Label {
-                            id: subLabel
-                            text: settingsPage.getLangSubtext()
-                            // selected: subtitledListItem.selected
-                            // secondary: true
-                            color: Theme.palette.normal.backgroundText
-                            anchors {
-
-                                left: parent.left
-                                right: parent.right
-                                top: titleLabel.bottom
-                                bottomMargin: units.gu(0.5)
-                            }
-                            fontSize: "small"
-                            wrapMode: Text.Wrap
-                            maximumLineCount: 5
-                        }
-                    }
-                    ProgressionIcon {
-                        id : langInfosIcon
-                    }
-                    */
                     onClicked: {
                         pageStack.push(langPage)
                      }
@@ -410,34 +327,12 @@ MainView {
                         title.text: i18n.tr("Debug")
                         title.textSize: Label.Large
                     }
-                    /*
-                    Label{
-                        text : i18n.tr("Debug")
-                        style: Text.Raised
-                        anchors {
-                            left: parent.left
-                            leftMargin: units.gu(2)
-                            verticalCenter: parent.verticalCenter
-                        }
-                    }
-                    */
                 }
                 ListItem {
                     ListItemLayout {
                         title.text: i18n.tr("Countries")
                         ProgressionSlot {}
                     }
-                    /*
-                    Label {
-                        text : i18n.tr("Countries")
-                        anchors {
-                            left: parent.left
-                            leftMargin: units.gu(2)
-                            verticalCenter: parent.verticalCenter
-                        }
-                    }
-                    ProgressionIcon {}
-                    */
                     onClicked: {
                         pageStack.push(countryPage)
                     }
@@ -447,17 +342,6 @@ MainView {
                         title.text: "Debug"
                         ProgressionSlot {}
                     }
-                    /*
-                    Label {
-                        text : "Debug"
-                        anchors {
-                            left: parent.left
-                            leftMargin: units.gu(2)
-                            verticalCenter: parent.verticalCenter
-                        }
-                    }
-                    ProgressionIcon {}
-                    */
                     onClicked: {
                         pageStack.push(debugPage)
                     }
@@ -483,20 +367,17 @@ MainView {
             function updateLangInfos() {
                 langInfoslayout.title.text = settingsPage.getLangText();
                 langInfoslayout.subtitle.text = settingsPage.getLangSubtext();
-                // langInfosMainText.text = settingsPage.getLangText()+"\n"+settingsPage.getLangSubtext();
             }
         }
 
         Page {
             id: aboutPage
-            // title: i18n.tr("About")
             header : PageHeader {
                 title: i18n.tr("About")
             }
             visible: false
 
             Column {
-                // anchors.fill: parent
                 anchors {
                     top : parent.header.bottom
                     left : parent.left
@@ -573,14 +454,12 @@ MainView {
 
         Page {
             id: countryPage
-            // title: i18n.tr("Countries")
             header: PageHeader {
                 title: i18n.tr("Countries")
             }
             visible: false
 
             ListView {
-                // anchors.fill: parent
                 anchors {
                     top : parent.header.bottom
                     left : parent.left
@@ -589,22 +468,10 @@ MainView {
                 }
                 model: countryListModel
 
-                /*
-                delegate: ListItem.Standard {
-                    text: i18n.tr(name) +" ("+code+")"
-                    iconSource: Qt.resolvedUrl("graphics/flags-iso/"+code+".png")
-                    fallbackIconSource: Qt.resolvedUrl("graphics/flags-iso/ZZ.png")
-                }
-                */
                 delegate: ListItem {
                     ListItemLayout {
                         title.text: i18n.tr(name) +" ("+code+")"
                     }
-                    /*
-                    Label {
-                        text: i18n.tr(name) +" ("+code+")"
-                    }
-                    */
                 }
             }
 
@@ -612,7 +479,6 @@ MainView {
         }
         Page {
             id: debugPage
-            // title: "Debug"
             header: PageHeader {
                 title: "Debug"
             }
