@@ -346,11 +346,7 @@ MainView {
                             wrapMode: Text.Wrap
                             maximumLineCount: 5
                         }
-                        Icon {
-                            name: "next"
-                            SlotsLayout.position: SlotsLayout.Trailing;
-                            width: units.gu(2)
-                        }
+                        ProgressionSlot {}
                     }
 
 
@@ -429,11 +425,7 @@ MainView {
                 ListItem {
                     ListItemLayout {
                         title.text: i18n.tr("Countries")
-                        Icon {
-                            name: "next"
-                            SlotsLayout.position: SlotsLayout.Trailing;
-                            width: units.gu(2)
-                        }
+                        ProgressionSlot {}
                     }
                     /*
                     Label {
@@ -453,11 +445,7 @@ MainView {
                 ListItem {
                     ListItemLayout {
                         title.text: "Debug"
-                        Icon {
-                            name: "next"
-                            SlotsLayout.position: SlotsLayout.Trailing;
-                            width: units.gu(2)
-                        }
+                        ProgressionSlot {}
                     }
                     /*
                     Label {
