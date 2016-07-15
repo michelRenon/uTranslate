@@ -28,11 +28,12 @@ Rectangle {
 
         anchors.fill: parent
         verticalAlignment: Text.AlignVCenter
-        font.pointSize: 76
+        textSize: Label.Large
+
         height: units.gu(3)
     }
     ListItem {
-        divider.colorFrom : gray
+        divider.colorFrom : "white" // Theme.palette.normal.background
         anchors {
             left: parent.left
             right: parent.right

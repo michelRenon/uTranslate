@@ -122,7 +122,7 @@ Item {
         radius: pinSize * 0.3
         height: pinSize
         width: height
-        color: Theme.palette.normal.foreground
+        color: Theme.palette.selected.foreground // Theme.palette.normal.foreground
         opacity: rail.opacity
         x: rail.x
         y: {
@@ -186,7 +186,7 @@ Item {
                 horizontalAlignment: Text.AlignHCenter
                 text: modelData
                 fontSize: "x-small"
-                color: cursor.y === y ? "white" : Theme.palette.selected.backgroundText
+                color: cursor.y === y ? "white" : Theme.palette.normal.backgroundText // Theme.palette.selected.backgroundText
                 opacity: !internal.modelDirty && Sections.contains(text) ? 1.0 : 0.5
             }
         }

@@ -336,9 +336,10 @@ MainView {
                 }
                 ListItem {
                     id: langInfos
-                    height: Math.max(middleVisuals.height, units.gu(6))
+                    height: Math.max(langInfoslayout.height, units.gu(6))
 
                     ListItemLayout {
+                        id: langInfoslayout
                         title.text: settingsPage.getLangText()
                         subtitle.text: settingsPage.getLangSubtext()
                         Icon {
