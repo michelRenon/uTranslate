@@ -547,7 +547,7 @@ MainView {
                     id: info3
                     anchors.horizontalCenter: parent.horizontalCenter
                     horizontalAlignment: Text.AlignHCenter
-                    text: i18n.tr("version ")+"0.7.7"
+                    text: i18n.tr("version ")+"0.7.8"
                     wrapMode: Text.WordWrap
                 }
                 Label {
