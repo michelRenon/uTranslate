@@ -282,6 +282,11 @@ MainView {
                 spacing: units.gu(0)
 
                 ListItem {
+                    ListItemLayout {
+                        title.text: i18n.tr("Providers")
+                        title.textSize: Label.Large
+                    }
+                    /*
                     Label{
                         text : i18n.tr("Providers")
                         style: Text.Raised
@@ -291,10 +296,15 @@ MainView {
                             verticalCenter: parent.verticalCenter
                         }
                     }
+                    */
                     onClicked: console.log("PROVIDERS")
                 }
                 ListItem {
-                    height : units.gu(3)
+                    // height : units.gu(3)
+                    ListItemLayout {
+                        title.text: i18n.tr("The current data provider is Glosbe")
+                    }
+                    /*
                     Label{
                         text : i18n.tr("The current data provider is Glosbe")
                         anchors {
@@ -303,28 +313,50 @@ MainView {
                             verticalCenter: parent.verticalCenter
                         }
                     }
+                    */
                     divider.opacity : 0
                 }
                 ListItem {
-                    Button {
-                        text: "http://glosbe.com"
-                        width: units.gu(25)
-                        anchors {
-                            horizontalCenter: parent.horizontalCenter
-                            verticalCenter: parent.verticalCenter
-                        }
+                    ListItemLayout {
+                        title.text: ""
+                        Button {
+                            text: "http://glosbe.com"
+                            width: units.gu(25)
+                            SlotsLayout.position: SlotsLayout.Trailing
 
-                        onClicked: Qt.openUrlExternally("http://glosbe.com")
+                            /*
+                            anchors {
+                                horizontalCenter: parent.horizontalCenter
+                                verticalCenter: parent.verticalCenter
+                            }
+                            */
+                            onClicked: Qt.openUrlExternally("http://glosbe.com")
+                        }
                     }
                 }
                 ListItem {
                     id: langInfos
                     height: Math.max(middleVisuals.height, units.gu(6))
 
+                    ListItemLayout {
+                        title.text: settingsPage.getLangText()
+                        subtitle.text: settingsPage.getLangSubtext()
+                        Icon {
+                            name: "next"
+                            SlotsLayout.position: SlotsLayout.Trailing;
+                            width: units.gu(2)
+                        }
+                    }
+
+
+
+
+
                     /*!
                       The list of strings that will be shown under the label text
                       \qmlproperty string subText
                      */
+                    /*
                     property alias mainText: titleLabel.text
                     property alias subText: subLabel.text
 
@@ -370,11 +402,17 @@ MainView {
                     ProgressionIcon {
                         id : langInfosIcon
                     }
+                    */
                     onClicked: {
                         pageStack.push(langPage)
                      }
                 }
                 ListItem {
+                    ListItemLayout {
+                        title.text: i18n.tr("Debug")
+                        title.textSize: Label.Large
+                    }
+                    /*
                     Label{
                         text : i18n.tr("Debug")
                         style: Text.Raised
@@ -384,8 +422,18 @@ MainView {
                             verticalCenter: parent.verticalCenter
                         }
                     }
+                    */
                 }
                 ListItem {
+                    ListItemLayout {
+                        title.text: i18n.tr("Countries")
+                        Icon {
+                            name: "next"
+                            SlotsLayout.position: SlotsLayout.Trailing;
+                            width: units.gu(2)
+                        }
+                    }
+                    /*
                     Label {
                         text : i18n.tr("Countries")
                         anchors {
@@ -395,11 +443,21 @@ MainView {
                         }
                     }
                     ProgressionIcon {}
+                    */
                     onClicked: {
                         pageStack.push(countryPage)
                     }
                 }
                 ListItem {
+                    ListItemLayout {
+                        title.text: "Debug"
+                        Icon {
+                            name: "next"
+                            SlotsLayout.position: SlotsLayout.Trailing;
+                            width: units.gu(2)
+                        }
+                    }
+                    /*
                     Label {
                         text : "Debug"
                         anchors {
@@ -409,6 +467,7 @@ MainView {
                         }
                     }
                     ProgressionIcon {}
+                    */
                     onClicked: {
                         pageStack.push(debugPage)
                     }
@@ -548,9 +607,14 @@ MainView {
                 }
                 */
                 delegate: ListItem {
+                    ListItemLayout {
+                        title.text: i18n.tr(name) +" ("+code+")"
+                    }
+                    /*
                     Label {
                         text: i18n.tr(name) +" ("+code+")"
                     }
+                    */
                 }
             }
 

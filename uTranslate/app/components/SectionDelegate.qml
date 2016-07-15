@@ -16,7 +16,7 @@
 
 import QtQuick 2.2
 import Ubuntu.Components 1.3
-import Ubuntu.Components.ListItems 1.0
+// import Ubuntu.Components.ListItems 1.0
 
 Rectangle {
     property alias text: title.text
@@ -31,7 +31,8 @@ Rectangle {
         font.pointSize: 76
         height: units.gu(3)
     }
-    ThinDivider {
+    ListItem {
+        divider.colorFrom : gray
         anchors {
             left: parent.left
             right: parent.right

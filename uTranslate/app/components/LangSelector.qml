@@ -31,6 +31,11 @@ Component {
             height: units.gu(40)
             model: langUsedModel
             delegate: ListItem {
+                ListItemLayout {
+                    id: layout
+                    title.text: name
+                }
+                /*
                 Label {
                     text: name
                     anchors {
@@ -41,6 +46,7 @@ Component {
                     // style: (code == 'settings') ? Text.Outline : Text.Normal
 
                 }
+                */
 
                 // TODO : change style of link to lang settings.
                 // Can be done only with new ListItem, Ubuntu.Components 1.2, framework 15.04

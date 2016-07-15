@@ -132,55 +132,68 @@ Page {
         }
 
         delegate: ListItem {
-            Label {
-                text: i18n.tr(name) +" ("+code+")"
-                anchors {
-                    left: parent.left
-                    leftMargin: units.gu(1)
-                    verticalCenter: parent.verticalCenter
+            ListItemLayout {
+                id: layout
+                title.text: i18n.tr(name) +" ("+code+")"
+                /*
+                Label {
+                    text: i18n.tr(name) +" ("+code+")"
+                    anchors {
+                        left: parent.left
+                        leftMargin: units.gu(1)
+                        verticalCenter: parent.verticalCenter
+                    }
+                }
+                */
+
+                Switch {
+                    id: switchLang
+                    SlotsLayout.position: SlotsLayout.Trailing
+                    /*
+                    anchors {
+                        right: parent.right
+                        verticalCenter: parent.verticalCenter
+                    }
+                    */
+                    checked: (used == 1)? true : false; // int2bool
+
+                    onClicked: {
+                        // console.debug("switch : "+code+" Clicked, value="+checked)
+                        var val = (checked)? 1 : 0; // bool2int
+                        // console.debug("valDB="+val);
+                        // update of Model
+                        langListModel.setProperty(index, "used", val);
+                        // console.debug("Model used="+used);
+
+                        // update of db  (directly from the view ??? shouldn't it  be done from the listModel ?)
+                        writeUsedLang(code, val);
+                        // the selection
+                        if (langPage.doSelect)
+                            loadUsedLangs()
+
+                        translationPage.updateSelectedLangs();
+                    }
+                }
+
+                Image {
+                    id: flaglang
+                    // visible: (name == "French")
+                    source: (name == "French") ? Qt.resolvedUrl("graphics/flags-iso/FR.png") : Qt.resolvedUrl("graphics/flags-iso/ZZ_Z.png")
+                    SlotsLayout.position: SlotsLayout.Leading
+                    /*
+                    anchors {
+                        right: switchLang.left
+                        rightMargin: units.gu(2)
+                        verticalCenter: parent.verticalCenter
+                    }
+                    */
+                    MouseArea {
+                        anchors.fill: parent
+                        onClicked: console.log("click drapeau "+name+":"+code)
+                    }
                 }
             }
 
-            Switch {
-                id: switchLang
-                anchors {
-                    right: parent.right
-                    verticalCenter: parent.verticalCenter
-                }
-                checked: (used == 1)? true : false; // int2bool
-
-                onClicked: {
-                    // console.debug("switch : "+code+" Clicked, value="+checked)
-                    var val = (checked)? 1 : 0; // bool2int
-                    // console.debug("valDB="+val);
-                    // update of Model
-                    langListModel.setProperty(index, "used", val);
-                    // console.debug("Model used="+used);
-
-                    // update of db  (directly from the view ??? shouldn't it  be done from the listModel ?)
-                    writeUsedLang(code, val);
-                    // the selection
-                    if (langPage.doSelect)
-                        loadUsedLangs()
-
-                    translationPage.updateSelectedLangs();
-                }
-            }
-
-            Image {
-                id: flaglang
-                // visible: (name == "French")
-                source: (name == "French") ? Qt.resolvedUrl("graphics/flags-iso/FR.png") : Qt.resolvedUrl("graphics/flags-iso/ZZ_Z.png")
-                anchors {
-                    right: switchLang.left
-                    rightMargin: units.gu(2)
-                    verticalCenter: parent.verticalCenter
-                }
-                MouseArea {
-                    anchors.fill: parent
-                    onClicked: console.log("click drapeau "+name+":"+code)
-                }
-            }
         }
 
         section {
