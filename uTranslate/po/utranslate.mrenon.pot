@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-15 12:20+0200\n"
+"POT-Creation-Date: 2016-07-15 12:38+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,27 +17,27 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/LangPage.qml:27
+#: ../app/LangPage.qml:28
 msgid "Show selected"
 msgstr ""
 
-#: ../app/LangPage.qml:38
+#: ../app/LangPage.qml:39
 msgid "select all"
 msgstr ""
 
-#: ../app/LangPage.qml:51
+#: ../app/LangPage.qml:52
 msgid "select none"
 msgstr ""
 
-#: ../app/LangPage.qml:240
+#: ../app/LangPage.qml:241
 msgid "Languages, no selected"
 msgstr ""
 
-#: ../app/LangPage.qml:241
+#: ../app/LangPage.qml:242
 msgid "Languages, one selected"
 msgstr ""
 
-#: ../app/LangPage.qml:242
+#: ../app/LangPage.qml:243
 #, c-format, qt-plural-format
 msgid "Languages, %n selected"
 msgstr ""

@@ -18,6 +18,7 @@ Page {
     header: PageHeader {
         id: headerLangPage
         title: langPage.getTitle()
+        // subtitle: i18n.tr('Lorem ipsum dolor sit amet') WAITING FOR 'Framework 15.04.5' (OTA11) AVAILABLE ON EMULATOR
 
         trailingActionBar {
             actions : [
