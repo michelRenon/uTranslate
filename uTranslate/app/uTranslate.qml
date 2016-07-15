@@ -492,8 +492,8 @@ MainView {
                 return text;
             }
             function updateLangInfos() {
-                langInfos.mainText = settingsPage.getLangText();
-                langInfos.subText = settingsPage.getLangSubtext();
+                langInfoslayout.title.text = settingsPage.getLangText();
+                langInfoslayout.subtitle.text = settingsPage.getLangSubtext();
                 // langInfosMainText.text = settingsPage.getLangText()+"\n"+settingsPage.getLangSubtext();
             }
         }
