@@ -17,6 +17,10 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
+#: ../app/LangPage.qml:18
+msgid "Languages"
+msgstr "Languages"
+
 #: ../app/LangPage.qml:23
 msgid "Show selected"
 msgstr "Show selected"
@@ -30,17 +34,17 @@ msgid "select none"
 msgstr "select none"
 
 #: ../app/LangPage.qml:133
-msgid "Languages, no selected"
-msgstr "Languages, no selected"
+msgid "no selected"
+msgstr "no selected"
 
 #: ../app/LangPage.qml:134
-msgid "Languages, one selected"
-msgstr "Languages, one selected"
+msgid "one selected"
+msgstr "one selected"
 
 #: ../app/LangPage.qml:135
 #, c-format, qt-plural-format
-msgid "Languages, %n selected"
-msgstr "Languages, %n selected"
+msgid "%n selected"
+msgstr "%n selected"
 
 #: ../app/TranslationPage.qml:17
 #: /home/michel/Documents/DEV/uTranslate/ut_reboot/build-uTranslate-UbuntuSDK_for_i386_GCC_ubuntu_sdk_14_10_utopic-Default/po/uTranslate.desktop.in.h:1

@@ -15,8 +15,8 @@ Page {
 
     header: PageHeader {
         id: headerLangPage
-        title: langPage.getTitle()
-        // subtitle: i18n.tr('Lorem ipsum dolor sit amet') WAITING FOR 'Framework 15.04.5' (OTA11) AVAILABLE ON EMULATOR
+        title: i18n.tr("Languages")
+        subtitle: langPage.getTitle()
 
         trailingActionBar {
             actions : [
@@ -165,14 +165,14 @@ Page {
 
     function getTitle() {
         var nb = countUsedLangs();
-        var s0 = i18n.tr("Languages, no selected");
-        var s1 = i18n.tr("Languages, one selected");
-        var s2 = i18n.tr("Languages, %n selected");
+        var s0 = i18n.tr("no selected");
+        var s1 = i18n.tr("one selected");
+        var s2 = i18n.tr("%n selected");
         var text = my_i18n(s0, s1, s2, nb);
         return text;
     }
 
     function updateTitle() {
-        langPage.header.title = langPage.getTitle();
+        langPage.header.subtitle = langPage.getTitle();
     }
 }
