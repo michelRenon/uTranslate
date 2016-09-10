@@ -284,18 +284,19 @@ MainView {
                         title.text: i18n.tr("Providers")
                         title.textSize: Label.Large
                     }
-                    onClicked: console.log("PROVIDERS")
                 }
                 ListItem {
+                    height : units.gu(10)
+
                     ListItemLayout {
                         title.text: i18n.tr("The current data provider is Glosbe")
+                        padding.bottom: 0
                     }
-                    divider.opacity : 0
-                }
-                ListItem {
                     ListItemLayout {
                         title.text: ""
+                        padding.top : units.gu(5)
                         Button {
+                            id : btnGlosbe
                             text: "http://glosbe.com"
                             width: units.gu(25)
                             SlotsLayout.position: SlotsLayout.Trailing
@@ -321,6 +322,10 @@ MainView {
                     onClicked: {
                         pageStack.push(langPage)
                      }
+                }
+                ListItem {
+                    height:units.gu(1)
+                    color: "#ccc"
                 }
                 ListItem {
                     ListItemLayout {
