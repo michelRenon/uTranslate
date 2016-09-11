@@ -476,7 +476,15 @@ MainView {
                 delegate: ListItem {
                     ListItemLayout {
                         title.text: i18n.tr(name) +" ("+code+")"
+
+                        Image {
+                            id: flaglang
+                            // visible: (name == "French")
+                            source: Qt.resolvedUrl("graphics/flags-iso/"+code+".png")
+                            SlotsLayout.position: SlotsLayout.Leading
+                        }
                     }
+                    onClicked: console.log("select drapeau "+name+":"+code)
                 }
             }
 
