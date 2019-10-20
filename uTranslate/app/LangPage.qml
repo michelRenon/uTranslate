@@ -5,6 +5,7 @@
  */
 import QtQuick 2.4
 import Ubuntu.Components 1.3
+import Ubuntu.Components.Popups 1.3
 
 import "components"
 
@@ -61,6 +62,14 @@ Page {
         }
     }
 
+
+    Component {
+        id: displayFlags
+
+        DisplayFlags {
+            /* onLanguageChanged: {            } */
+        }
+    }
     ListView {
         id: langList
 
@@ -117,7 +126,10 @@ Page {
                     SlotsLayout.position: SlotsLayout.Leading
                     MouseArea {
                         anchors.fill: parent
-                        onClicked: console.log("click drapeau "+name+":"+code)
+                        onClicked: {
+                            console.log("click drapeau "+name+":"+code);
+                            PopupUtils.open(displayFlags);
+                        }
                     }
                 }
             }

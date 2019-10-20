@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-09-11 00:43+0200\n"
+"POT-Creation-Date: 2016-10-05 15:46+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,37 +17,49 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../app/LangPage.qml:18
+#: ../app/DisplayFlags.qml:17
+msgid "Display flags"
+msgstr ""
+
+#: ../app/DisplayFlags.qml:106
+msgid "Cancel"
+msgstr ""
+
+#: ../app/DisplayFlags.qml:125
+msgid "Confirm"
+msgstr ""
+
+#: ../app/LangPage.qml:19
 msgid "Languages"
 msgstr ""
 
-#: ../app/LangPage.qml:26
+#: ../app/LangPage.qml:27
 msgid "Show selected"
 msgstr ""
 
-#: ../app/LangPage.qml:37
+#: ../app/LangPage.qml:38
 msgid "select all"
 msgstr ""
 
-#: ../app/LangPage.qml:50
+#: ../app/LangPage.qml:51
 msgid "select none"
 msgstr ""
 
-#: ../app/LangPage.qml:168
+#: ../app/LangPage.qml:180
 msgid "no selected"
 msgstr ""
 
-#: ../app/LangPage.qml:169
+#: ../app/LangPage.qml:181
 msgid "one selected"
 msgstr ""
 
-#: ../app/LangPage.qml:170
+#: ../app/LangPage.qml:182
 #, c-format, qt-plural-format
 msgid "%n selected"
 msgstr ""
 
 #: ../app/TranslationPage.qml:26
-#: /home/michel/Documents/DEV/uTranslate/ut_reboot/build-uTranslate-UbuntuSDK_for_i386_GCC_ubuntu_sdk_15_04_vivid-Défaut/po/uTranslate.desktop.in.h:1
+#: /home/michel/Documents/DEV/uTranslate/ut_reboot/build-uTranslate-stable2_GCC_i386_ubuntu_sdk_15_04_builder_i386-Défaut/po/uTranslate.desktop.in.h:1
 msgid "uTranslate"
 msgstr ""
 
